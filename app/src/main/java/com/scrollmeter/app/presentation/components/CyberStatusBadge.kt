@@ -59,7 +59,9 @@ fun CyberStatusBadge(
                 fontWeight = FontWeight.Bold,
                 letterSpacing = 0.8.sp
             ),
-            color = accentColor
+            color = accentColor,
+            maxLines = 1,
+            softWrap = false
         )
     }
 }

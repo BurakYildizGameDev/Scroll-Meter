@@ -88,63 +88,25 @@ fun DashboardScreen(
             ) {
                 Spacer(modifier = Modifier.height(10.dp))
 
-                // Professional Header Bar
+                // Top Brand & Navigation Bar
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Column(
-                        modifier = Modifier.weight(1f).padding(end = 6.dp)
-                    ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.spacedBy(8.dp)
-                        ) {
-                            Text(
-                                text = "SCROLL-METER",
-                                style = MaterialTheme.typography.labelSmall.copy(
-                                    fontWeight = FontWeight.Black,
-                                    letterSpacing = 1.6.sp
-                                ),
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
+                    Text(
+                        text = "SCROLL-METER",
+                        style = MaterialTheme.typography.titleMedium.copy(
+                            fontWeight = FontWeight.Black,
+                            letterSpacing = 1.8.sp
+                        ),
+                        color = Color.White
+                    )
 
-                            when {
-                                uiState.isDemoMode -> {
-                                    CyberStatusBadge(
-                                        text = "DEMO MODU",
-                                        accentColor = CyberCyan
-                                    )
-                                }
-                                uiState.trackingMode == com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS -> {
-                                    CyberStatusBadge(
-                                        text = "STANDART MOD",
-                                        accentColor = ElectricMint
-                                    )
-                                }
-                                else -> {
-                                    CyberStatusBadge(
-                                        text = "LAB SENSÖRÜ",
-                                        accentColor = HyperViolet
-                                    )
-                                }
-                            }
-                        }
-
-                        Text(
-                            text = "Günlük Telemetri",
-                            style = MaterialTheme.typography.headlineMedium.copy(
-                                fontWeight = FontWeight.Bold
-                            ),
-                            color = Color.White
-                        )
-                    }
-
-                    // Clean Compact Vector Icon Navigation (Guaranteed to fit on all screens)
+                    // Clean Compact Vector Icon Navigation
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(2.dp)
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
                         IconButton(
                             onClick = { viewModel.processIntent(DashboardIntent.Refresh) },
@@ -188,6 +150,42 @@ fun DashboardScreen(
                                 contentDescription = stringResource(R.string.nav_settings),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier.size(20.dp)
+                            )
+                        }
+                    }
+                }
+
+                // Telemetry Title & Status Badge
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = "Günlük Telemetri",
+                        style = MaterialTheme.typography.titleLarge.copy(
+                            fontWeight = FontWeight.Bold
+                        ),
+                        color = Color.White
+                    )
+
+                    when {
+                        uiState.isDemoMode -> {
+                            CyberStatusBadge(
+                                text = "DEMO MODU",
+                                accentColor = CyberCyan
+                            )
+                        }
+                        uiState.trackingMode == com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS -> {
+                            CyberStatusBadge(
+                                text = "STANDART MOD",
+                                accentColor = ElectricMint
+                            )
+                        }
+                        else -> {
+                            CyberStatusBadge(
+                                text = "LAB SENSÖRÜ",
+                                accentColor = HyperViolet
                             )
                         }
                     }
