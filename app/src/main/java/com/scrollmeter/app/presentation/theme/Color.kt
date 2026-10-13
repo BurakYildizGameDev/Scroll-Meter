@@ -81,3 +81,10 @@ val ActiveGlowBorderGradient = Brush.linearGradient(
 val ProgressGradientStart = ElectricMint
 val ProgressGradientEnd = CyberCyan
 val MetricCardBackground = ObsidianSurface
+
+// Cyber Luxury & Mineral Glow Semantic Aliases
+val EmeraldNeonPrimary = ElectricMint
+val EmeraldNeonSecondary = CyberCyan
+val EmeraldContainerDark = ObsidianSurfaceElevated
+val MidnightDark = ObsidianVoid
+
