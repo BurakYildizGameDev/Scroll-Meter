@@ -33,38 +33,59 @@
 ---
 
 ## 📑 İçindekiler (Table of Contents)
-1. [Neden Scroll-Meter? (Motivation & Philosophy)](#-neden-scroll-meter-motivation--philosophy)
+1. [Neden Scroll-Meter? Sahte Dopamin Tuzağı ve Doomscrolling Gerçeği](#-neden-scroll-meter-sahte-dopamin-tuzağı-ve-doomscrolling-gerçeği)
 2. [Hemen İndir ve Kur (Download & Installation)](#-hemen-indir-ve-kur-download--installation)
 3. [🛡️ Hibrit Çift Motor Mimarisi (Dual-Engine Architecture)](#-hibrit-çift-motor-mimarisi-dual-engine-architecture)
 4. [📐 Matematiksel ve Fiziksel Telemetri Motoru](#-matematiksel-ve-fiziksel-telemetri-motoru)
 5. [⚡ 120Hz / 144Hz LTPO Mikro-Kaydırma Motoru](#-120hz--144hz-ltpo-mikro-kaydırma-motoru)
-6. [🏆 Başarımlar ve Kupa Odası (Trophy Room)](#-başarımlar-ve-kupa-odası-trophy-room)
-7. [🌐 Çoklu Dil Desteği (9 Dilde Yerelleştirme)](#-çoklu-dil-desteği-9-dilde-yerelleştirme)
-8. [🔒 Sıfır İnternet ve Kurumsal Gizlilik Mimarisi](#-sıfır-internet-ve-kurumsal-gizlilik-mimarisi)
-9. [🔋 Bellek Tamponlama ve Pil Mühendisliği](#-bellek-tamponlama-ve-pil-mühendisliği)
-10. [📏 Ekranda Fiziksel Cetvel ile Kalibrasyon](#-ekranda-fiziksel-cetvel-ile-kalibrasyon)
-11. [🎨 Modern Minimalist Tasarım Sistemi](#-modern-minimalist-tasarım-sistemi)
-12. [🏗️ Yazılım Mimarisi (Clean Architecture + MVI)](#-yazılım-mimarisi-clean-architecture--mvi)
-13. [🧪 Test Matrisi ve Performans Kıyaslama Raporu (108/108 Test)](#-test-matrisi-ve-performans-kıyaslama-raporu-108108-test)
-14. [⚙️ Kaynak Koddan Derleme (Build from Source)](#-kaynak-koddan-derleme-build-from-source)
-15. [❓ Sıkça Sorulan Sorular (FAQ)](#-sıkça-sorulan-sorular-faq)
-16. [📄 Lisans ve Telif Hakkı](#-lisans-ve-telif-hakkı)
+6. [🏆 Başarımlar ve Kupa Odası (Trophy Room)](#-başarımlar-ve-kupa-odası-100-özgün-görev-trophy-room)
+7. [🚀 5 Kademeli Sosyal Paylaşım & 𝕏 (Twitter) İlerleme Motoru](#-5-kademeli-sosyal-paylaşım--𝕏-twitter-ilerleme-motoru)
+8. [🌐 Çoklu Dil Desteği ve Uygulama İçi Dil Değiştirici](#-çoklu-dil-desteği-ve-uygulama-içi-dil-değiştirici)
+9. [📱 Paket Görünürlüğü ve Gerçek Uygulama İkonları (Android 11-14)](#-paket-görünürlüğü-ve-gerçek-uygulama-ikonları-android-11-14)
+10. [🔒 Sıfır İnternet ve Kurumsal Gizlilik Mimarisi](#-sıfır-internet-ve-kurumsal-gizlilik-mimarisi)
+11. [🔋 Bellek Tamponlama ve Pil Mühendisliği](#-bellek-tamponlama-ve-pil-mühendisliği)
+12. [📏 Ekranda Fiziksel Cetvel ile Kalibrasyon](#-ekranda-fiziksel-cetvel-ile-kalibrasyon)
+13. [🎨 Modern Minimalist Gece Mavisi Tasarım Sistemi](#-modern-minimalist-tasarım-sistemi)
+14. [🏗️ Yazılım Mimarisi (Clean Architecture + MVI)](#-yazılım-mimarisi-clean-architecture--mvi)
+15. [🧪 Test Matrisi ve Performans Kıyaslama Raporu (108/108 Test)](#-test-matrisi-ve-performans-kıyaslama-raporu-108108-test)
+16. [⚙️ Kaynak Koddan Derleme (Build from Source)](#-kaynak-koddan-derleme-build-from-source)
+17. [❓ Sıkça Sorulan Sorular (FAQ)](#-sıkça-sorulan-sorular-faq)
+18. [📄 Lisans ve Telif Hakkı](#-lisans-ve-telif-hakkı)
 
 ---
 
-## 🧠 Neden Scroll-Meter? (Motivation & Philosophy)
+## 🧠 Neden Scroll-Meter? Sahte Dopamin Tuzağı ve Doomscrolling Gerçeği
 
-Modern mobil işletim sistemlerinde sunulan geleneksel **"Ekran Süresi" (Screen Time)** metrikleri, kullanıcının dijital davranışını doğru yansıtmakta yetersiz kalır:
+> [!IMPORTANT]
+> ### 🚨 BİLİNÇLİ TEKNOLOJİ MANİFESTOSU: BU UYGULAMA BİR REKOR KIRMA OYUNU DEĞİLDİR!
+> **Scroll-Meter sizi daha çok kaydırmaya asla teşvik ETMEZ.**  
+> Tam aksine: Sonsuz akışların (infinite feed) yarattığı kompulsif kaydırma bağımlılığını, beyninizi kandıran sahte dopamin mekanizmasını ve gün içinde farkında olmadan parmağınızla katettiğiniz yüzlerce metreyi **görünür kılarak telefonunuzu masaya bıraktırmak ve dijital farkındalık kazandırmak** için geliştirilmiştir.
+
+Modern mobil işletim sistemlerinde sunulan geleneksel **"Ekran Süresi" (Screen Time)** metrikleri, kullanıcının dijital davranışını ve zihinsel tahribatını doğru yansıtmakta yetersiz kalır:
 
 * Kindle veya bir e-kitap okuyucusunda 45 dakika boyunca sabit bir sayfayı okumak,
 * YouTube'da eğitici bir belgeseli arka plana alıp dinlemek,
-* TikTok, Instagram Reels veya X (Twitter) akışında **dakikada onlarca kez başparmak kaydırarak (compulsive doomscrolling)** dopamin avına çıkmak,
+* TikTok, Instagram Reels veya X (Twitter) akışında **dakikada onlarca kez başparmak kaydırarak (compulsive doomscrolling)** sahte dopamin avına çıkmak,
 
-sistem raporlarında aynı "45 dakika ekran süresi" olarak listelenir. Oysa zihinsel yorgunluk, dikkat dağınıklığı ve parmak eklemi zorlanması tamamen **kaydırma eyleminin sıklığı ve katettiği mesafe** ile doğrudan ilişkilidir.
+sistem raporlarında aynı "45 dakika ekran süresi" olarak listelenir. Oysa zihinsel yorgunluk, dikkat dağınıklığı ve parmak eklemi zorlanması tamamen **kaydırma eyleminin sıklığı ve katettiği fiziksel mesafe** ile doğrudan ilişkilidir.
+
+### 🔬 Sürekli Kaydırmanın (Doomscrolling) Bilimsel ve Nörolojik Zararları
+
+1. **🎰 Kumar Makinesi Etkisi ve Sahte Dopamin (Variable Ratio Reinforcement):**  
+   Sosyal medya algoritmaları, B.F. Skinner'ın *"Değişken Oranlı Pekiştirme"* prensibiyle çalışır. Parmağınızı her aşağı kaydırdığınızda ne çıkacağını bilemezsiniz; tıpkı bir kumar makinesinin kolunu çekmek gibi. Beyin her yeni içerikte mikro düzeyde sahte dopamin salgılar. Bu sahte tatmin, beyni sürekli bir *"bir sonraki videoda ne var?"* açlığına sokarak bitmek bilmeyen kompulsif bir döngüye hapseder.
+
+2. **🧠 Bilişsel Parçalanma ve Beyin Sisi (Cognitive Fragmentation & Brain Fog):**  
+   Her 3-5 saniyede bir yeni bir konuya, sese veya duygu durumuna (komik videodan trajedi haberine) geçmek, beynin prefrontal korteksini aşırı yorar. Derin odaklanma (deep work) yeteneği körelir, dikkat süresi balık hafızası seviyesine iner ve gün sonunda kronik bir zihinsel tükenmişlik ("beyin sisi") hissedilir.
+
+3. **👁️ Uyku ve Melatonin Bozulması (Revenge Bedtime Procrastination):**  
+   Yatmadan önce yatakta yapılan doomscrolling, mavi ışık maruziyetinin yanı sıra algoritmik gerilim ve dopamin dalgalanmalarıyla melatonin hormonunu baskılar; derin REM uykusuna geçişi engeller.
+
+4. **🖐️ Fiziksel Deformasyon (Smartphone Thumb & Text Neck):**  
+   Günde ortalama 800 - 1.500 metre ekranda kaydırma yapan başparmak eklemlerinde *De Quervain tenosinoviti* (başparmak tendon kılıfı iltihabı) ve boyun omurlarına 25-30 kg yük bindiren *Text Neck* duruş bozukluğu oluşur.
 
 **Scroll-Meter**, soyut zaman kavramını somutlaştırır:
 > *"Bugün telefonunuzda 2 saat harcadınız"* demek yerine;  
-> *"Bugün başparmağınızla ekranda **1.420 metre** yol katettiniz ve **Eyfel Kulesi'nin yüksekliğini (330 m) 4.3 kez** tırmandınız!"* gerçeğini kullanıcıya bilimsel doğrulukla sunar.
+> *"Bugün başparmağınızla ekranda **1.420 metre** yol katettiniz ve **Eyfel Kulesi'nin yüksekliğini (330 m) 4.3 kez** tırmandınız!"* gerçeğini kullanıcıya bilimsel doğrulukla sunar ve *"Artık telefonu elinden bırak"* sinyalini verir.
 
 ---
 
@@ -245,21 +266,59 @@ pie title 100 Görev Dağılım Matrisi
 
 ---
 
-## 🌐 Çoklu Dil Desteği (9 Dilde Yerelleştirme)
+## 🚀 5 Kademeli Sosyal Paylaşım & 𝕏 (Twitter) İlerleme Motoru
 
-Scroll-Meter, Android sistem dilinizi otomatik olarak tanır ve harici internet veya çeviri API'si kullanmadan tamamen yerel XML kaynakları üzerinden çalışır:
+Scroll-Meter, gün içinde kaydettiğiniz fiziksel kaydırma mesafesini otomatik analiz ederek sizi 5 özgün dijital sağlık kademesine ayırır ve tek tıkla **𝕏 (Twitter)** veya sosyal medyada paylaşabileceğiniz dinamik durum kartları üretir:
 
-| Dil | Kod | Kaynak Dosyası | Kapsam |
-| :--- | :---: | :--- | :---: |
-| **English (Default)** | `en` | `res/values/strings.xml` | %100 |
-| **Türkçe** | `tr` | `res/values-tr/strings.xml` | %100 |
-| **Deutsch** | `de` | `res/values-de/strings.xml` | %100 |
-| **Italiano** | `it` | `res/values-it/strings.xml` | %100 |
-| **Русский** | `ru` | `res/values-ru/strings.xml` | %100 |
-| **Français** | `fr` | `res/values-fr/strings.xml` | %100 |
-| **中文 (简体)** | `zh` | `res/values-zh/strings.xml` | %100 |
-| **Português** | `pt` | `res/values-pt/strings.xml` | %100 |
-| **हिन्दी** | `hi` | `res/values-hi/strings.xml` | %100 |
+```mermaid
+flowchart LR
+    Meters[Bugünkü Kaydırma] --> T1["🧘‍♂️ Zen (<20m)"]
+    Meters --> T2["🏃 Kaşif (20-100m)"]
+    Meters --> T3["🗼 Eyfel (100-330m)"]
+    Meters --> T4["🏢 Gökdelen (330-1000m)"]
+    Meters --> T5["🚨 Titan (>1000m)"]
+    
+    T1 & T2 & T3 & T4 & T5 --> ShareCard[Animasyonlu Paylaşım Kartı]
+    ShareCard --> TweetIntent["𝕏 (Twitter) / WhatsApp Tek Tıkla Paylaş"]
+```
+
+### Paylaşım Kademeleri ve Dinamik Mesajlar:
+1. **🧘‍♂️ Minimalist Dijital Zen (< 20 metre):**  
+   * *"Bugün ekranda sadece 14.2 m kaydırdım! Dijital detoks modundayım, parmaklarım ve zihnim dinleniyor. 🧘‍♂️🌿 #ScrollMeter #DigitalWellbeing #MindfulTech"*
+2. **🏃 Şehir Kaşifi (20 m - 100 metre):**  
+   * *"Bugün ekranda 78.5 m kaydırdım! Bir futbol sahası boyunu başparmağımla katettim. ⚽🏃 #ScrollMeter #ScreenDistance #TechHabits"*
+3. **🗼 Eyfel Tırmanıcısı (100 m - 330 metre):**  
+   * *"Bugün ekranda fiziksel olarak 215.0 m tırmandım! Başparmağımla Eyfel Kulesi boyuna ulaştım. 🗼🧗 #ScrollMeter #DoomscrollCheck"*
+4. **🏢 Gökdelen Fatihi (330 m - 1.000 metre):**  
+   * *"Bugün başparmağım ekranda 640.0 m yol aldı! Burj Khalifa yüksekliğini aştım. Yüksek ekran süresi tespit edildi, mola zamanı! 🏢⚡ #ScrollMeter #ScreenTimeRealTalk"*
+5. **🚨 Doomscroll Titanı (> 1.000 metre / 1 km+):**  
+   * *"Ekranda gerçek bir maraton koştum: Bugün tam 1.42 km kaydırdım! Sahte dopamin döngüsünü kırıyor ve telefonu şimdi masaya bırakıyorum. 🚨🧠 #ScrollMeter #Doomscrolling #BreakTheLoop"*
+
+---
+
+## 🌐 Çoklu Dil Desteği ve Uygulama İçi Dil Değiştirici
+
+Scroll-Meter, telefonunuzun **sistem dilini varsayılan olarak korur**. İsterseniz **Ayarlar > Uygulama Dili** menüsünden tek tıkla dilinizi bağımsız olarak değiştirebilirsiniz:
+
+| Dil | Kod | Bayrak | Durum |
+| :--- | :---: | :---: | :---: |
+| **Sistem Varsayılanı (Cihaz Dili)** | `system` | 🌐 | Varsayılan |
+| **Türkçe** | `tr` | 🇹🇷 | Tam Çeviri |
+| **English** | `en` | 🇬🇧 | Tam Çeviri |
+| **Deutsch** | `de` | 🇩🇪 | Tam Çeviri |
+| **Русский** | `ru` | 🇷🇺 | Tam Çeviri |
+| **中文 (简体)** | `zh` | 🇨🇳 | Tam Çeviri |
+| **Français** | `fr` | 🇫🇷 | Tam Çeviri |
+| **Italiano** | `it` | 🇮🇹 | Tam Çeviri |
+
+---
+
+## 📱 Paket Görünürlüğü ve Gerçek Uygulama İkonları (Android 11-14)
+
+Android 11 (API 30) ve üzeri işletim sistemlerinde gelen paket görünürlüğü güvenlik kurallarına tam uyumlu olarak:
+* `AndroidManifest.xml` içerisindeki `<queries>` ve `QUERY_ALL_PACKAGES` tanımı sayesinde cihazınızda yüklü olan tüm uygulamalar (Instagram, WhatsApp, TikTok, Chrome vb.) resmi vektör/bitmap ikonlarıyla görüntülenir.
+* Sistem paketleri ve üçüncü parti uygulamalar için çift katmanlı LRU bellek önbelleği (`AppIconCache`) ile sıfır IPC binder yükü ve yüksek kare hızı garanti edilir.
+* Uygulama silinmiş veya simgesi bulunamamışsa, her marka için özel olarak tasarlanmış renkli monogram fallback rozetleri devreye girer.
 
 ---
 

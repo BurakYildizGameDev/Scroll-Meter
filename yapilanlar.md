@@ -177,29 +177,43 @@ TOPLAM: 101 TEST | 101 BAŞARILI (%100 YEŞİL) | 0 HATA | 0 BAŞARISIZ
 ### 4.2 Üretim Derleme Çıktısı (`.\gradlew assembleRelease`)
 *   **Derleme Durumu:** `BUILD SUCCESSFUL`
 *   **Üretilen APK:** `app/build/outputs/apk/release/app-release.apk`
-*   **Dosya Boyutu:** **3.55 MB** (R8 obfuscation + resource shrinker aktif)
+*   **Dosya Boyutu:** **3.48 MB** (R8 obfuscation + resource shrinker aktif)
 *   **İmzalama & Kurulum:** Release imzalı, doğrudan cihaza kurulabilir.
 
 ---
 
-## 5. Mevcut Park Durumu ve Gelecek İçin Düşünülecek Fikirler (Brainstorming Sandbox)
+## 5. Son Güncelleme: UI/UX İyileştirmeleri, Paket Görünürlüğü ve Dijital Farkındalık
 
-Proje şu anda tam kararlı, hatasız, testleri %100 yeşil ve GitHub üzerinde güncel olarak **bekleme (park) moduna** alınmıştır.
+Kullanıcı geri bildirimleri ve ekran görüntüleri doğrultusunda tamamlanan kapsamlı geliştirme paketi:
 
-Gelecekte eklenebilecek potansiyel özellikler ve fikir havuzu:
+1. **📱 Android 11+ Package Visibility & Orijinal Uygulama İkonları:**
+   * `AndroidManifest.xml` içine `<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />` ve `<queries>` eklendi.
+   * `AppNameResolver.kt` içine popüler uygulamalar haritası (Instagram, TikTok, WhatsApp, Chrome, GitHub, YouTube, Reddit vb.) eklendi ve `.android` uzantısı temizleme filtresi uygulandı. Böylece Instagram ve GitHub artık kesinlikle "Android" olarak adlandırılmaz.
+   * `AppIcon.kt`: Sistemden ikon alınamadığı durumlarda markaya özel renkli monogram fallback desteği eklendi.
 
-1. **📱 Glance Compose Ana Ekran Widget'ları:**
-   - Kullanıcının uygulamayı açmadan ana ekranında veya kilit ekranında günün mesafesini, zürafa/eyfel ilerlemesini gösteren minimal bir widget.
-2. **⌚ Wear OS Akıllı Saat Entegrasyonu:**
-   - Telefonda kaydırılan mesafeyi Bluetooth yerel bağlantısı ile akıllı saat kadranına taşıma.
-3. **📊 Yerel Telemetri Dışa Aktarma (Export CSV / JSON):**
-   - Kullanıcının haftalık ve aylık kaydırma verilerini cihaz içine yedekleyebileceği bir dışa aktarma butonu.
-4. **🎨 Sosyal Medya Paylaşım Kartı (Share Card Generator):**
-   - Eyfel Kulesi veya Zürafa rozeti açıldığında Instagram Story formatında estetik bir neon kart oluşturup galeriye kaydetme.
-5. **🎯 Özel Kategori ve Uygulama Bazlı Limitler (Doomscroll Ceiling):**
-   - Örneğin "TikTok'ta günde 500 metreyi geçersem hafif haptic titreşimle uyar" özelliği.
+2. **🎨 Gece Mavisi (Deep Navy Slate) Renk Paleti:**
+   * Kasvetli saf siyah zemin (`#090D14`) yerine ferah ve modern kapalı gece mavisi (`#0F172A`) uygulandı.
+   * Kart yüzeyleri (`#1E293B`) ve canlı siber mavi/camgöbeği (`#38BDF8`), zümrüt nane (`#10B981`) vurgularıyla uygulama içi ferahlatıldı.
+   * `Theme.kt`: `dynamicColor` varsayılanı `false` yapılarak işletim sistemi duvar kağıdı renklerinin temayı bozması engellendi.
+
+3. **🔤 Başarım Çipleri Tutarlılığı:**
+   * `AchievementsScreen.kt`: `TÜMÜ`, `MİHENK TAŞI`, `UZMANLIK`, `ALIŞKANLIK`, `HASSASİYET` başarım çipleri tek tip standart büyük harf ve string kaynaklarına bağlandı.
+
+4. **🌐 7 Dilli Seçenek & Cihaz Dili Varsayılanı:**
+   * İngilizce (Default), Türkçe, Almanca, Rusça, Çince, Fransızca, İtalyanca dil paketleri oluşturuldu.
+   * Varsayılan olarak telefonun sistem dili korundu (`Locale.getDefault()`).
+   * Ayarlar ekranına tek tıkla dil değiştirme menüsü (`LocaleHelper` & `AppCompatDelegate.setApplicationLocales`) entegre edildi.
+
+5. **🚀 5 Kademeli Sosyal Paylaşım & 𝕏 (Twitter) İlerleme Motoru (`SocialShareCard.kt`):**
+   * Günlük mesafeye göre 5 aşamalı seviye (Minimalist Zen, Şehir Kaşifi, Eyfel Tırmanıcısı, Gökdelen Fatihi, Doomscroll Titanı).
+   * 5 aşamalı animasyonlu ilerleme çubuğu, dinamik tweet önizlemesi ve tek tıkla 𝕏 / WhatsApp paylaşımı.
+
+6. **🧠 Doomscrolling & Sahte Dopamin Farkındalık Modülü (`DigitalWellbeingCard.kt`):**
+   * "OYUN DEĞİLDİR • FARKINDALIK ARACIDIR" manifestosu.
+   * Kumar makinesi dopamin tuzağı, beyin sisi ve akıllı telefon parmağı deformasyonu hakkında bilgilendirme kartı.
+   * `README.md` dokümantasyonuna detaylı bilimsel analiz eklendi.
 
 ---
 
-*Proje başarıyla GitHub `origin/master` ile senkronize edilmiştir.*  
+*Proje başarıyla test edilmiş ve üretime hazır hale getirilmiştir.*  
 *Crafted with ❤️ by Burak Yıldız (@BurakYildizGameDev)*
