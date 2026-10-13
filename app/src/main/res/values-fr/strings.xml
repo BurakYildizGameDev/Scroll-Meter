@@ -36,10 +36,17 @@
 
     <!-- Social Sharing to X & Milestones -->
     <string name="share_card_title">Partager votre étape</string>
-    <string name="share_card_subtitle">Partagez votre voyage de défilement sur 𝕏</string>
+    <string name="share_card_subtitle">Partagez votre voyage de défilement sur les réseaux sociaux</string>
     <string name="share_on_x_btn">Partager sur 𝕏</string>
     <string name="share_copy_btn">Copier le texte</string>
     <string name="share_copied_toast">Texte copié dans le presse-papiers !</string>
+    <string name="share_btn_whatsapp">WhatsApp</string>
+    <string name="share_btn_instagram">Instagram</string>
+    <string name="share_btn_facebook">Facebook</string>
+    <string name="share_btn_x">𝕏</string>
+    <string name="share_btn_more">Plus</string>
+    <string name="share_instagram_copied_toast">Texte copié ! Ouverture d\'Instagram...</string>
+    <string name="btn_change_language">CHANGER ▾</string>
     <string name="share_tier_zen_title">Zen numérique (&lt; 20m)</string>
     <string name="share_tier_zen_badge">MINIMALISTE ZEN</string>
     <string name="share_tier_zen_tweet">Aujourd\'hui, je n\'ai défilé que %1$s sur mon écran ! Mode détox digitale actif, mes doigts et mon esprit se reposent. 🧘‍♂️🌿 #ScrollMeter #DigitalWellbeing #MindfulTech</string>

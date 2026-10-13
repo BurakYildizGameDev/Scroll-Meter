@@ -36,10 +36,17 @@
 
     <!-- Social Sharing to X & Milestones -->
     <string name="share_card_title">İlerlemeni Paylaş</string>
-    <string name="share_card_subtitle">Günlük kaydırma mesafeni 𝕏 üzerinde paylaş</string>
+    <string name="share_card_subtitle">Günlük kaydırma mesafeni sosyal medyada paylaş</string>
     <string name="share_on_x_btn">𝕏\'te Paylaş</string>
     <string name="share_copy_btn">Metni Kopyala</string>
     <string name="share_copied_toast">Metin panoya kopyalandı!</string>
+    <string name="share_btn_whatsapp">WhatsApp</string>
+    <string name="share_btn_instagram">Instagram</string>
+    <string name="share_btn_facebook">Facebook</string>
+    <string name="share_btn_x">𝕏</string>
+    <string name="share_btn_more">Diğer Paylaş</string>
+    <string name="share_instagram_copied_toast">Metin kopyalandı! Instagram açılıyor...</string>
+    <string name="btn_change_language">DEĞİŞTİR ▾</string>
     <string name="share_tier_zen_title">Dijital Zen (&lt; 20m)</string>
     <string name="share_tier_zen_badge">MİNİMALİST ZEN</string>
     <string name="share_tier_zen_tweet">Bugün ekranda sadece %1$s kaydırdım! Dijital detoks modundayım, parmaklarım ve zihnim dinleniyor. 🧘‍♂️🌿 #ScrollMeter #DigitalWellbeing #MindfulTech</string>

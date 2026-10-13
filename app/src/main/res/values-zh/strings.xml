@@ -36,10 +36,17 @@
 
     <!-- Social Sharing to X & Milestones -->
     <string name="share_card_title">分享今日成就</string>
-    <string name="share_card_subtitle">将您的屏幕滑行里程发布至 𝕏</string>
+    <string name="share_card_subtitle">将您的屏幕滑行里程发布至社交平台</string>
     <string name="share_on_x_btn">分享至 𝕏</string>
     <string name="share_copy_btn">复制文案</string>
     <string name="share_copied_toast">文案已复制到剪贴板！</string>
+    <string name="share_btn_whatsapp">WhatsApp</string>
+    <string name="share_btn_instagram">Instagram</string>
+    <string name="share_btn_facebook">Facebook</string>
+    <string name="share_btn_x">𝕏</string>
+    <string name="share_btn_more">更多分享</string>
+    <string name="share_instagram_copied_toast">文案已复制！正在打开 Instagram...</string>
+    <string name="btn_change_language">切换 ▾</string>
     <string name="share_tier_zen_title">数字禅意 (&lt; 20米)</string>
     <string name="share_tier_zen_badge">极简禅修</string>
     <string name="share_tier_zen_tweet">今天在手机上仅滑动了 %1$s！数字排毒模式开启，给手指和大脑彻底放个假。🧘‍♂️🌿 #ScrollMeter #DigitalWellbeing #MindfulTech</string>

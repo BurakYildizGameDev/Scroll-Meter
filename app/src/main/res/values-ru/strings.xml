@@ -36,10 +36,17 @@
 
     <!-- Social Sharing to X & Milestones -->
     <string name="share_card_title">Поделиться прогрессом</string>
-    <string name="share_card_subtitle">Опубликуйте свою дистанцию в 𝕏</string>
+    <string name="share_card_subtitle">Опубликуйте свою дистанцию в соцсетях</string>
     <string name="share_on_x_btn">Поделиться в 𝕏</string>
     <string name="share_copy_btn">Скопировать текст</string>
     <string name="share_copied_toast">Текст скопирован в буфер обмена!</string>
+    <string name="share_btn_whatsapp">WhatsApp</string>
+    <string name="share_btn_instagram">Instagram</string>
+    <string name="share_btn_facebook">Facebook</string>
+    <string name="share_btn_x">𝕏</string>
+    <string name="share_btn_more">Еще</string>
+    <string name="share_instagram_copied_toast">Текст скопирован! Открываем Instagram...</string>
+    <string name="btn_change_language">ИЗМЕНИТЬ ▾</string>
     <string name="share_tier_zen_title">Цифровой дзен (&lt; 20м)</string>
     <string name="share_tier_zen_badge">МИНИМАЛИСТ ДЗЕН</string>
     <string name="share_tier_zen_tweet">Сегодня на экране прокручено всего %1$s! Режим цифрового детокса, пальцы и мозг отдыхают. 🧘‍♂️🌿 #ScrollMeter #DigitalWellbeing #MindfulTech</string>

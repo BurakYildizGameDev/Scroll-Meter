@@ -260,51 +260,212 @@ fun SocialShareCard(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Action Buttons (Share on X + Copy)
-            Row(
+            val instagramToast = stringResource(R.string.share_instagram_copied_toast)
+
+            // Primary Social Share Grid (Row 1: WhatsApp + Instagram, Row 2: 𝕏 + Facebook)
+            Column(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(10.dp)
+                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                Button(
-                    onClick = { shareOnX(context, tweetText) },
-                    modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = currentTier.accentColor,
-                        contentColor = Color.Black
-                    ),
-                    shape = RoundedCornerShape(12.dp)
+                // Row 1: WhatsApp & Instagram
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    Text(
-                        text = stringResource(R.string.share_on_x_btn),
-                        style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold)
-                    )
+                    // WhatsApp Button
+                    Button(
+                        onClick = { shareOnWhatsApp(context, tweetText) },
+                        modifier = Modifier.weight(1f),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF25D366),
+                            contentColor = Color.White
+                        ),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(
+                            text = "💬 " + stringResource(R.string.share_btn_whatsapp),
+                            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
+                            maxLines = 1
+                        )
+                    }
+
+                    // Instagram Button
+                    Button(
+                        onClick = { shareOnInstagram(context, tweetText, instagramToast) },
+                        modifier = Modifier.weight(1f),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFFE1306C),
+                            contentColor = Color.White
+                        ),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(
+                            text = "📸 " + stringResource(R.string.share_btn_instagram),
+                            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
+                            maxLines = 1
+                        )
+                    }
                 }
 
-                OutlinedButton(
-                    onClick = {
-                        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-                        val clip = ClipData.newPlainText("Scroll-Meter Progress", tweetText)
-                        clipboard.setPrimaryClip(clip)
-                        Toast.makeText(context, copiedToastText, Toast.LENGTH_SHORT).show()
-                    },
-                    modifier = Modifier.weight(0.9f),
-                    shape = RoundedCornerShape(12.dp),
-                    border = androidx.compose.foundation.BorderStroke(1.dp, Color.White.copy(alpha = 0.2f))
+                // Row 2: 𝕏 & Facebook
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    Icon(
-                        imageVector = Icons.Rounded.ContentCopy,
-                        contentDescription = null,
-                        modifier = Modifier.size(16.dp),
-                        tint = Color.White
-                    )
-                    Spacer(modifier = Modifier.width(6.dp))
-                    Text(
-                        text = stringResource(R.string.share_copy_btn),
-                        style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
-                        color = Color.White
-                    )
+                    // 𝕏 (Twitter) Button
+                    Button(
+                        onClick = { shareOnX(context, tweetText) },
+                        modifier = Modifier.weight(1f),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color.White,
+                            contentColor = Color.Black
+                        ),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(
+                            text = "𝕏 " + stringResource(R.string.share_btn_x),
+                            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
+                            maxLines = 1
+                        )
+                    }
+
+                    // Facebook Button
+                    Button(
+                        onClick = { shareOnFacebook(context, tweetText) },
+                        modifier = Modifier.weight(1f),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color(0xFF1877F2),
+                            contentColor = Color.White
+                        ),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text(
+                            text = "📘 " + stringResource(R.string.share_btn_facebook),
+                            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
+                            maxLines = 1
+                        )
+                    }
+                }
+
+                // Row 3: Copy + More Apps
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    OutlinedButton(
+                        onClick = {
+                            val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                            val clip = ClipData.newPlainText("Scroll-Meter Progress", tweetText)
+                            clipboard.setPrimaryClip(clip)
+                            Toast.makeText(context, copiedToastText, Toast.LENGTH_SHORT).show()
+                        },
+                        modifier = Modifier.weight(1f),
+                        shape = RoundedCornerShape(12.dp),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, Color.White.copy(alpha = 0.2f))
+                    ) {
+                        Icon(
+                            imageVector = Icons.Rounded.ContentCopy,
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp),
+                            tint = Color.White
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = stringResource(R.string.share_copy_btn),
+                            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                            color = Color.White,
+                            maxLines = 1
+                        )
+                    }
+
+                    OutlinedButton(
+                        onClick = { shareGeneral(context, tweetText) },
+                        modifier = Modifier.weight(1f),
+                        shape = RoundedCornerShape(12.dp),
+                        border = androidx.compose.foundation.BorderStroke(1.dp, Color.White.copy(alpha = 0.2f))
+                    ) {
+                        Icon(
+                            imageVector = Icons.Rounded.Share,
+                            contentDescription = null,
+                            modifier = Modifier.size(16.dp),
+                            tint = Color.White
+                        )
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text(
+                            text = stringResource(R.string.share_btn_more),
+                            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
+                            color = Color.White,
+                            maxLines = 1
+                        )
+                    }
                 }
             }
+        }
+    }
+}
+
+private fun shareOnWhatsApp(context: Context, text: String) {
+    try {
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            setPackage("com.whatsapp")
+            putExtra(Intent.EXTRA_TEXT, text)
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        }
+        context.startActivity(intent)
+    } catch (_: Exception) {
+        try {
+            val url = "https://api.whatsapp.com/send?text=" + Uri.encode(text)
+            val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            context.startActivity(webIntent)
+        } catch (_: Exception) {
+            shareGeneral(context, text)
+        }
+    }
+}
+
+private fun shareOnInstagram(context: Context, text: String, copiedToastText: String) {
+    try {
+        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText("Scroll-Meter", text)
+        clipboard.setPrimaryClip(clip)
+        Toast.makeText(context, copiedToastText, Toast.LENGTH_SHORT).show()
+
+        val intent = context.packageManager.getLaunchIntentForPackage("com.instagram.android")
+        if (intent != null) {
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            context.startActivity(intent)
+        } else {
+            val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://instagram.com")).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            context.startActivity(webIntent)
+        }
+    } catch (_: Exception) {
+        shareGeneral(context, text)
+    }
+}
+
+private fun shareOnFacebook(context: Context, text: String) {
+    try {
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            setPackage("com.facebook.katana")
+            putExtra(Intent.EXTRA_TEXT, text)
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        }
+        context.startActivity(intent)
+    } catch (_: Exception) {
+        try {
+            val sharerUrl = "https://www.facebook.com/sharer/sharer.php?quote=" + Uri.encode(text)
+            val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(sharerUrl)).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            }
+            context.startActivity(webIntent)
+        } catch (_: Exception) {
+            shareGeneral(context, text)
         }
     }
 }
@@ -318,11 +479,19 @@ private fun shareOnX(context: Context, text: String) {
         }
         context.startActivity(browserIntent)
     } catch (_: Exception) {
+        shareGeneral(context, text)
+    }
+}
+
+private fun shareGeneral(context: Context, text: String) {
+    try {
         val shareIntent = Intent(Intent.ACTION_SEND).apply {
             type = "text/plain"
             putExtra(Intent.EXTRA_TEXT, text)
             flags = Intent.FLAG_ACTIVITY_NEW_TASK
         }
-        context.startActivity(Intent.createChooser(shareIntent, "Share Milestone"))
+        context.startActivity(Intent.createChooser(shareIntent, "Scroll-Meter"))
+    } catch (_: Exception) {
+        // Safe fallback
     }
 }

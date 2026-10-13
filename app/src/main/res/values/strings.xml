@@ -36,10 +36,17 @@
 
     <!-- Social Sharing to X & Milestones -->
     <string name="share_card_title">Share Your Milestone</string>
-    <string name="share_card_subtitle">Post your daily scroll journey to 𝕏</string>
+    <string name="share_card_subtitle">Post your daily scroll journey across social platforms</string>
     <string name="share_on_x_btn">Share on 𝕏</string>
     <string name="share_copy_btn">Copy Text</string>
     <string name="share_copied_toast">Copied to clipboard!</string>
+    <string name="share_btn_whatsapp">WhatsApp</string>
+    <string name="share_btn_instagram">Instagram</string>
+    <string name="share_btn_facebook">Facebook</string>
+    <string name="share_btn_x">𝕏 (Twitter)</string>
+    <string name="share_btn_more">More Apps</string>
+    <string name="share_instagram_copied_toast">Text copied! Opening Instagram...</string>
+    <string name="btn_change_language">CHANGE ▾</string>
     <string name="share_tier_zen_title">Digital Zen (&lt; 20m)</string>
     <string name="share_tier_zen_badge">MINIMALIST ZEN</string>
     <string name="share_tier_zen_tweet">I only scrolled %1$s on my phone today! Digital detox mode active, letting my fingers &amp; focus rest. 🧘‍♂️🌿 #ScrollMeter #DigitalWellbeing #MindfulTech</string>
