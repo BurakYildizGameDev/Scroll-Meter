@@ -3,6 +3,7 @@ package com.scrollmeter.app.domain.model
 enum class AchievementCategory {
     MILESTONE,
     HABIT,
+    SPECIALIST,
     PRECISION
 }
 

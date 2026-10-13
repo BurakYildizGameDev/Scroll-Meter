@@ -4,6 +4,8 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -218,28 +220,33 @@ fun AchievementsScreen(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clip(RoundedCornerShape(16.dp))
-                            .background(ObsidianSurface)
-                            .padding(4.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly
+                            .horizontalScroll(rememberScrollState()),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         CategoryChip(
                             title = stringResource(R.string.filter_all),
                             isSelected = state.selectedCategory == null,
-                            onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(null)) },
-                            modifier = Modifier.weight(1f)
+                            onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(null)) }
                         )
                         CategoryChip(
                             title = stringResource(R.string.filter_milestone),
                             isSelected = state.selectedCategory == AchievementCategory.MILESTONE,
-                            onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(AchievementCategory.MILESTONE)) },
-                            modifier = Modifier.weight(1.2f)
+                            onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(AchievementCategory.MILESTONE)) }
+                        )
+                        CategoryChip(
+                            title = "Uzmanlık",
+                            isSelected = state.selectedCategory == AchievementCategory.SPECIALIST,
+                            onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(AchievementCategory.SPECIALIST)) }
                         )
                         CategoryChip(
                             title = stringResource(R.string.filter_habit),
                             isSelected = state.selectedCategory == AchievementCategory.HABIT,
-                            onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(AchievementCategory.HABIT)) },
-                            modifier = Modifier.weight(1f)
+                            onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(AchievementCategory.HABIT)) }
+                        )
+                        CategoryChip(
+                            title = "Hassasiyet",
+                            isSelected = state.selectedCategory == AchievementCategory.PRECISION,
+                            onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(AchievementCategory.PRECISION)) }
                         )
                     }
                 }
@@ -376,9 +383,9 @@ private fun CategoryChip(
     Box(
         modifier = modifier
             .clip(RoundedCornerShape(12.dp))
-            .background(if (isSelected) ElectricMint else Color.Transparent)
+            .background(if (isSelected) ElectricMint else ObsidianSurface)
             .clickable(onClick = onClick)
-            .padding(vertical = 8.dp),
+            .padding(horizontal = 14.dp, vertical = 8.dp),
         contentAlignment = Alignment.Center
     ) {
         Text(

@@ -5,6 +5,7 @@ import com.scrollmeter.app.core.result.Result
 import com.scrollmeter.app.data.datastore.SettingsDataStore
 import com.scrollmeter.app.domain.model.AppScrollSession
 import com.scrollmeter.app.domain.model.PhysicalDistance
+import com.scrollmeter.app.domain.model.TrackingMode
 import com.scrollmeter.app.domain.repository.IScrollRepository
 import io.mockk.every
 import io.mockk.mockk
@@ -32,10 +33,16 @@ class GetAchievementsUseCaseTest {
         getDailyTotalDistanceUseCase = mockk()
         scrollRepository = mockk()
         settingsDataStore = mockk()
+
+        every { settingsDataStore.calibrationMultiplier } returns flowOf(1.0f)
+        every { settingsDataStore.trackingMode } returns flowOf(TrackingMode.SAFE_USAGE_STATS)
+        every { settingsDataStore.cadenceSpeedMultiplier } returns flowOf(1.0f)
+        every { settingsDataStore.dailyGoalMeters } returns flowOf(100f)
+        every { settingsDataStore.isDemoModeActive } returns flowOf(false)
     }
 
     @Test
-    fun `when daily distance is 150m, unlocks First Step and Giraffe Club and Liberty`() = runTest {
+    fun `returns exactly 100 unique achievements and unlocks correct milestones`() = runTest {
         val testDispatcher = UnconfinedTestDispatcher(testScheduler)
         val useCase = GetAchievementsUseCase(
             getDailyTotalDistanceUseCase = getDailyTotalDistanceUseCase,
@@ -51,25 +58,28 @@ class GetAchievementsUseCaseTest {
                 packageName = "com.twitter.android",
                 appDisplayName = "X",
                 totalPixels = 1000.0,
-                physicalDistance = PhysicalDistance(totalMilliMeters = 80_000.0)
+                physicalDistance = PhysicalDistance(totalMilliMeters = 80_000.0) // 80m
             ),
             AppScrollSession(
                 packageName = "com.instagram.android",
                 appDisplayName = "Instagram",
                 totalPixels = 500.0,
-                physicalDistance = PhysicalDistance(totalMilliMeters = 70_000.0)
+                physicalDistance = PhysicalDistance(totalMilliMeters = 70_000.0) // 70m
             )
         )
 
         every { getDailyTotalDistanceUseCase(testEpochDay) } returns flowOf(Result.Success(distance))
         every { scrollRepository.getDailyAppSessions(testEpochDay) } returns flowOf(sessions)
-        every { settingsDataStore.calibrationMultiplier } returns flowOf(1.0f)
 
         useCase(testEpochDay).test {
             val item = awaitItem()
             assertTrue(item is Result.Success)
             val achievements = (item as Result.Success).data
-            assertEquals(9, achievements.size)
+            assertEquals(100, achievements.size)
+
+            // Verify unique IDs
+            val uniqueIds = achievements.map { it.id }.toSet()
+            assertEquals(100, uniqueIds.size)
 
             val firstStep = achievements.first { it.id == "FIRST_STEP" }
             val giraffe = achievements.first { it.id == "GIRAFFE_CLUB" }
@@ -80,6 +90,14 @@ class GetAchievementsUseCaseTest {
             assertTrue(giraffe.isUnlocked)
             assertTrue(liberty.isUnlocked)
             assertFalse(eiffel.isUnlocked)
+
+            // Check Instagram specialist quests
+            val instaApprentice = achievements.first { it.id == "QUEST_046" } // 5m
+            val instaReels = achievements.first { it.id == "QUEST_047" } // 25m
+            val instaKnight = achievements.first { it.id == "QUEST_048" } // 100m
+            assertTrue(instaApprentice.isUnlocked)
+            assertTrue(instaReels.isUnlocked)
+            assertFalse(instaKnight.isUnlocked)
 
             cancelAndIgnoreRemainingEvents()
         }
