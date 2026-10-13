@@ -45,18 +45,18 @@ fun ScrollNavHost(
         }
 
         composable<ScreenRoute.Analytics> {
-            // Analytics screen will be wired in Phase 51-52
-            DashboardScreen(
-                onNavigateToAnalytics = {},
-                onNavigateToSettings = {}
+            com.scrollmeter.app.presentation.analytics.AnalyticsScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
+                }
             )
         }
 
         composable<ScreenRoute.Settings> {
-            // Settings screen will be wired in Phase 53-54
-            DashboardScreen(
-                onNavigateToAnalytics = {},
-                onNavigateToSettings = {}
+            com.scrollmeter.app.presentation.settings.SettingsScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
+                }
             )
         }
     }
