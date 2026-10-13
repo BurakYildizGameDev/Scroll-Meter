@@ -9,15 +9,15 @@ class ScrollCadenceEngineTest {
 
     @ParameterizedTest
     @CsvSource(
-        "com.zhiliaoapp.musically, 0.18",
-        "com.instagram.android, 0.18",
-        "com.snapchat.android, 0.18",
-        "com.twitter.android, 0.22",
-        "com.reddit.frontpage, 0.22",
-        "com.android.chrome, 0.14",
-        "com.whatsapp, 0.04",
-        "com.google.android.youtube, 0.01",
-        "com.unknown.calculator, 0.06"
+        "com.zhiliaoapp.musically, 0.040",
+        "com.instagram.android, 0.040",
+        "com.snapchat.android, 0.040",
+        "com.twitter.android, 0.035",
+        "com.reddit.frontpage, 0.035",
+        "com.android.chrome, 0.025",
+        "com.whatsapp, 0.008",
+        "com.google.android.youtube, 0.002",
+        "com.unknown.calculator, 0.015"
     )
     fun `getCadenceMetersPerMinute returns expected cadence for archetypes`(
         packageName: String,
@@ -29,7 +29,7 @@ class ScrollCadenceEngineTest {
 
     @Test
     fun `calculateMeters computes correct distance for 10 minutes of social feed`() {
-        // 10 minutes of Twitter = 10 * 0.22 = 2.20 meters
+        // 10 minutes of Twitter = 10 * 0.035 = 0.35 meters (35 cm)
         val tenMinutesMillis = 10 * 60_000L
         val meters = ScrollCadenceEngine.calculateMeters(
             packageName = "com.twitter.android",
@@ -37,12 +37,12 @@ class ScrollCadenceEngineTest {
             speedMultiplier = 1.0f,
             calibrationMultiplier = 1.0f
         )
-        assertEquals(2.20, meters, 0.001)
+        assertEquals(0.35, meters, 0.001)
     }
 
     @Test
     fun `calculateMeters applies user speedMultiplier correctly`() {
-        // 5 minutes of TikTok at 1.25x rapid speed = 5 * 0.18 * 1.25 = 1.125 meters
+        // 5 minutes of TikTok at 1.25x rapid speed = 5 * 0.040 * 1.25 = 0.25 meters (25 cm)
         val fiveMinutesMillis = 5 * 60_000L
         val meters = ScrollCadenceEngine.calculateMeters(
             packageName = "com.zhiliaoapp.musically",
@@ -50,7 +50,7 @@ class ScrollCadenceEngineTest {
             speedMultiplier = 1.25f,
             calibrationMultiplier = 1.0f
         )
-        assertEquals(1.125, meters, 0.001)
+        assertEquals(0.25, meters, 0.001)
     }
 
     @Test

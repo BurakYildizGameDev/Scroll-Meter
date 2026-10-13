@@ -89,13 +89,13 @@ class SyncUsageStatsScrollUseCaseTest {
         val result = useCase()
 
         assertTrue(result)
-        // 10 minutes * 0.18 m/min = 1.80 meters = 1,800.0 mm
+        // 10 minutes * 0.040 m/min = 0.40 meters = 400.0 mm
         coVerify(exactly = 1) {
             scrollRepository.setDailyAppScroll(
                 epochDays = fixedEpochDay,
                 packageName = "com.zhiliaoapp.musically",
                 totalPixels = match { it > 0.0 },
-                totalMm = match { Math.abs(it - 1_800.0) < 0.1 }
+                totalMm = match { Math.abs(it - 400.0) < 0.1 }
             )
         }
     }

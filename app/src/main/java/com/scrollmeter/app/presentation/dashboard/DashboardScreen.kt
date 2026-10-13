@@ -195,19 +195,26 @@ fun DashboardScreen(
 
                 Spacer(modifier = Modifier.height(4.dp))
 
-                // Hero Circular Gauge (High-Precision Decimal Formatting)
+                // Hero Circular Gauge (Adaptive Scale: cm when <1m, m when <1km, km when >=1km)
                 Box(
                     modifier = Modifier.fillMaxWidth(),
                     contentAlignment = Alignment.Center
                 ) {
-                    val formattedDistance = remember(uiState.todayMeters) {
+                    val meterUnit = stringResource(R.string.unit_meter)
+                    val (formattedDistance, unit) = remember(uiState.todayMeters, meterUnit) {
                         when {
-                            uiState.todayMeters >= 1000.0 -> String.format(Locale.US, "%.2f", uiState.todayMeters / 1000.0)
-                            uiState.todayMeters < 10.0 -> String.format(Locale.US, "%.2f", uiState.todayMeters)
-                            else -> String.format(Locale.US, "%.1f", uiState.todayMeters)
+                            uiState.todayMeters >= 1000.0 -> {
+                                String.format(Locale.US, "%.2f", uiState.todayMeters / 1000.0) to "km"
+                            }
+                            uiState.todayMeters >= 1.0 -> {
+                                String.format(Locale.US, "%.2f", uiState.todayMeters) to meterUnit
+                            }
+                            else -> {
+                                val cm = (uiState.todayMeters * 100.0).coerceAtLeast(0.0)
+                                String.format(Locale.US, "%.1f", cm) to "cm"
+                            }
                         }
                     }
-                    val unit = if (uiState.todayMeters >= 1000.0) "km" else stringResource(R.string.unit_meter)
                     CircularDistanceProgress(
                         progressFraction = uiState.progressPercentage,
                         distanceValue = formattedDistance,
@@ -237,7 +244,7 @@ fun DashboardScreen(
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             val dominantName = uiState.dominantApp?.appDisplayName ?: stringResource(R.string.no_dominant_app)
-                            val dominantDistance = uiState.dominantApp?.physicalDistance?.formattedMeters ?: "0.00 m"
+                            val dominantDistance = uiState.dominantApp?.physicalDistance?.formattedAdaptive ?: "0.0 cm"
                             Text(
                                 text = dominantName,
                                 style = MaterialTheme.typography.titleMedium.copy(

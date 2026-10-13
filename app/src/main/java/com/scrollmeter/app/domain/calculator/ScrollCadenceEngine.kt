@@ -7,13 +7,13 @@ package com.scrollmeter.app.domain.calculator
  */
 object ScrollCadenceEngine {
 
-    // Base scroll speed in meters per active foreground minute (physical thumb travel on glass)
-    const val CADENCE_SHORT_VIDEO_M_PER_MIN = 0.18  // TikTok, Instagram Reels, Shorts (~3 swipes/min * 6cm thumb travel)
-    const val CADENCE_SOCIAL_FEED_M_PER_MIN = 0.22  // Twitter/X, Reddit, Threads (~3.5 swipes/min * 6cm thumb travel)
-    const val CADENCE_WEB_COMMERCE_M_PER_MIN = 0.14 // Chrome, Firefox, Amazon, Trendyol (~2.2 swipes/min)
-    const val CADENCE_MESSAGING_M_PER_MIN = 0.04    // WhatsApp, Telegram, Messenger (mostly typing/reading)
-    const val CADENCE_VIDEO_STREAM_M_PER_MIN = 0.01 // YouTube, Netflix (Stationary viewing)
-    const val CADENCE_DEFAULT_M_PER_MIN = 0.06      // Generic apps (~1 swipe/min)
+    // Base scroll speed in meters per active foreground minute (actual thumb flick travel on glass)
+    const val CADENCE_SHORT_VIDEO_M_PER_MIN = 0.040  // TikTok, Instagram Reels (~2 flicks/min * ~2cm thumb contact = 4 cm/min)
+    const val CADENCE_SOCIAL_FEED_M_PER_MIN = 0.035  // Twitter/X, Reddit, Threads (~2.3 flicks/min * ~1.5cm = 3.5 cm/min)
+    const val CADENCE_WEB_COMMERCE_M_PER_MIN = 0.025 // Chrome, Firefox, Trendyol (~1.5 flicks/min * ~1.6cm = 2.5 cm/min)
+    const val CADENCE_MESSAGING_M_PER_MIN = 0.008    // WhatsApp, Telegram, Messenger (mostly typing/reading = 0.8 cm/min)
+    const val CADENCE_VIDEO_STREAM_M_PER_MIN = 0.002 // YouTube, Netflix (Stationary viewing = 0.2 cm/min)
+    const val CADENCE_DEFAULT_M_PER_MIN = 0.015      // Generic apps (~1 flick/min = 1.5 cm/min)
 
     private val SHORT_VIDEO_PACKAGES = setOf(
         "com.zhiliaoapp.musically", // TikTok

@@ -107,15 +107,17 @@ Hiçbir harici bulut/çeviri kütüphanesi kullanılmadan, Android işletim sist
 * **Biyomekanik Parmak Kadans Motoru Kalibrasyonu (`ScrollCadenceEngine`):**
   * **Problem:** Eski kodda kısa videolar için `2.20 m/dk` katsayısı kullanılıyordu; bu da kullanıcının Instagram'a girip 2 kaydırma yaptığında sayacın hemen 2 metre artmasına yol açıyordu.
   * **Çözüm:** Telefon camında bir başparmak kaydırmasının ortalama 6 cm (0.06m) olduğu ve kullanıcıların akışta videoları/fotoğrafları izleyerek dakikada 2-3 kaydırma yaptığı bilimsel gerçeğine göre kadans katsayıları hassas biçimde yeniden kalibre edildi:
-    * TikTok / Instagram Reels: `0.18 m/dk` (~3 kaydırma/dk × 6cm)
-    * Twitter/X, Reddit: `0.22 m/dk` (~3.5 kaydırma/dk × 6cm)
-    * Web / Chrome: `0.14 m/dk`
-    * WhatsApp / Mesajlaşma: `0.04 m/dk`
-    * YouTube / Video: `0.01 m/dk`
-    * Genel: `0.06 m/dk`
-  * Instagram'da 2 kaydırma yapıldığında sayaca afaki 2 metre yerine tam karşılığı olan **~0.12 m (12 cm)** eklenir.
-* **UI İyileştirmeleri:**
-  * 10 metrenin altındaki mesafeler için 2 basamaklı ondalık hassasiyeti (`0.12 m`, `1.45 m`) uygulandı.
+    * TikTok / Instagram Reels: `0.040 m/dk` (4.0 cm / dk ~2 kaydırma/dk × ~2cm cam teması)
+    * Twitter/X, Reddit: `0.035 m/dk` (3.5 cm / dk)
+    * Web / Chrome: `0.025 m/dk` (2.5 cm / dk)
+    * WhatsApp / Mesajlaşma: `0.008 m/dk` (0.8 cm / dk)
+    * YouTube / Video: `0.002 m/dk` (0.2 cm / dk)
+    * Genel: `0.015 m/dk` (1.5 cm / dk)
+  * 14 cm boyundaki telefonda Instagram'da 2 kaydırma yapıldığında sayaca afaki metreler yerine ekran camındaki gerçek temas karşılığı olan **~4.0 cm** eklenir.
+* **Akıllı Uyarlanabilir Birim Sistemi (Adaptive Units):**
+  * `< 1.0 m`: Doğrudan santimetre (**cm**) cinsinden gösterilir (`4.0 cm`, `28.5 cm`). Küçük kaydırmalarda metre kafa karışıklığı tamamen çözüldü.
+  * `1.0 m – 999.9 m`: Metre (**m**) cinsinden 2 basamaklı hassasiyetle gösterilir (`1.24 m`).
+  * `≥ 1000 m`: Kilometre (**km**) cinsine geçer (`1.25 km`).
   * Üst başlık çubuğunda 4 aksiyon butonunun (`Yenile`, `Kupa Odası`, `Lider Tablosu`, `Ayarlar`) ekran dışına taşması engellendi; her ekran boyutunda kusursuz hizalanan kompakt düzen kuruldu.
 
 ---

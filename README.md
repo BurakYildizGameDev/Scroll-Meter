@@ -133,15 +133,19 @@ flowchart TD
 * **🚫 Sistem ve İşletim Sistemi Çekirdeği Kara Listesi (OS Blacklist):**
   * Android framework çekirdeği (`android`), Google Play Hizmetleri (`com.google.android.gms`), üretici sistem araçları (Xiaomi MIUI/HyperOS Security, Samsung Knox), sistem başlatıcıları (Launcher) ve sanal klavyeler (Gboard, SwiftKey) telemetriden tamamen filtrelenir. Asla "Lider Uygulama: Android" gibi sahte veriler oluşmaz.
 * **📐 Biyomekanik Gerçekçi Parmak Kadans Motoru (`ScrollCadenceEngine`):**
-  * Bir akıllı telefon ekranı fiziksel olarak ~15-16 cm boyundadır. Bir başparmağın ekranda bıraktığı tek bir dikey kaydırma izi ortalama **5.5 cm – 6.5 cm (0.06 m)** cam yolculuğudur.
-  * İnsanlar Instagram veya TikTok'ta dakikada 30 kez çılgınca kaydırmaz; videoları izler, fotoğrafları inceler, yorumları okur. Bilimsel etkileşim frekanslarına göre kalibre edilen kesin fiziksel hızlar:
-  * 📱 **Kısa Video & Keşfet (TikTok, Instagram Reels, Shorts):** `0.18 m / aktif dakika` (~3 kaydırma/dk × 6cm cam teması)
-  * 🐦 **Sosyal Metin Akışı (Twitter / X, Reddit, Threads):** `0.22 m / aktif dakika` (~3.5 kaydırma/dk × 6cm)
-  * 🌐 **Web & E-Ticaret (Chrome, Firefox, Trendyol):** `0.14 m / aktif dakika` (~2.2 kaydırma/dk)
-  * 💬 **Mesajlaşma (WhatsApp, Telegram, Discord):** `0.04 m / aktif dakika` (Zamanın %90'ı klavye yazımı ve okuma)
-  * 🎬 **Video Akışı (YouTube, Netflix):** `0.01 m / aktif dakika` (Sabit video oynatımı)
-  * ⚙️ **Genel Uygulamalar:** `0.06 m / aktif dakika` (~1 kaydırma/dk)
-  * *Sonuç:* Instagram'a girip 2 kaydırma yaptığınızda afaki olarak "2 metre" değil; fiziksel ve matematiksel olarak tam karşılığı olan **~0.12 m (12 cm)** eklenir!
+  * Bir akıllı telefon ekranı fiziksel olarak ~14-15 cm boyundadır. Bir başparmağın ekran camında yaptığı doğal bir kaydırma dokunuşu (flick) ortalama yalnızca **1.5 cm – 2.5 cm (0.02 m)** temas mesafesindedir (ekranın başından sonuna kadar kaydırılmaz).
+  * Kullanıcılar akışta video izlerken, görsel incelerken veya yazı okurken dakikada ortalama 1.5 – 2.5 kez parmak dokunuşu yapar. Gerçek telefon ölçeğiyle birebir örtüşen hassas hızlar:
+  * 📱 **Kısa Video & Keşfet (TikTok, Instagram Reels):** `0.040 m / aktif dakika` (4.0 cm / dk ~2 kaydırma/dk × ~2cm cam teması)
+  * 🐦 **Sosyal Metin Akışı (Twitter / X, Reddit, Threads):** `0.035 m / aktif dakika` (3.5 cm / dk)
+  * 🌐 **Web & E-Ticaret (Chrome, Firefox, Trendyol):** `0.025 m / aktif dakika` (2.5 cm / dk)
+  * 💬 **Mesajlaşma (WhatsApp, Telegram, Discord):** `0.008 m / aktif dakika` (0.8 cm / dk - zamanın %90'ı klavye ve okuma)
+  * 🎬 **Video Akışı (YouTube, Netflix):** `0.002 m / aktif dakika` (0.2 cm / dk - sabit izleme)
+  * ⚙️ **Genel Uygulamalar:** `0.015 m / aktif dakika` (1.5 cm / dk)
+  * *Sonuç:* 14 cm boyundaki telefonunuzda Instagram'a girip 2 kez parmak kaydırdığınızda artık şişirilmiş metreler değil; ekranınızdaki fiziksel karşılığı olan **~4.0 cm** eklenir!
+* **📏 Akıllı Uyarlanabilir Birim Sistemi (Adaptive Units):**
+  * `< 1.0 m`: Doğrudan santimetre (**cm**) cinsinden gösterilir (`4.0 cm`, `25.5 cm`, `80 cm`). Küçük kaydırmalarda metre kafa karışıklığı yaşanmaz.
+  * `1.0 m – 999.9 m`: Metre (**m**) cinsinden 2 basamaklı hassasiyetle gösterilir (`1.24 m`, `14.50 m`).
+  * `≥ 1000 m`: Kilometre (**km**) cinsine geçer (`1.25 km`).
 * **Ayarlanabilir Tempo Çarpanı:** Ayarlar ekranından kaydırma temposu (Sakin 0.8x, Dengeli 1.0x, Seri 1.25x) tek tıkla seçilebilir.
 
 ---
