@@ -234,7 +234,7 @@ fun AchievementsScreen(
                             onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(AchievementCategory.MILESTONE)) }
                         )
                         CategoryChip(
-                            title = "Uzmanlık",
+                            title = stringResource(R.string.filter_specialist),
                             isSelected = state.selectedCategory == AchievementCategory.SPECIALIST,
                             onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(AchievementCategory.SPECIALIST)) }
                         )
@@ -244,7 +244,7 @@ fun AchievementsScreen(
                             onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(AchievementCategory.HABIT)) }
                         )
                         CategoryChip(
-                            title = "Hassasiyet",
+                            title = stringResource(R.string.filter_precision),
                             isSelected = state.selectedCategory == AchievementCategory.PRECISION,
                             onClick = { viewModel.onIntent(AchievementsIntent.FilterCategory(AchievementCategory.PRECISION)) }
                         )
