@@ -39,8 +39,9 @@ class SeedDemoDataUseCaseTest {
             scrollDao.upsertScroll(any(), any(), any(), any(), any())
         }
 
-        // Verify demo mode and onboarding flag activated
+        // Verify demo mode, tracking mode, and onboarding flag activated
         coVerify(exactly = 1) { settingsDataStore.setDemoMode(true) }
+        coVerify(exactly = 1) { settingsDataStore.setTrackingMode(com.scrollmeter.app.domain.model.TrackingMode.DEMO_PORTFOLIO) }
         coVerify(exactly = 1) { settingsDataStore.setOnboardingCompleted(true) }
     }
 }

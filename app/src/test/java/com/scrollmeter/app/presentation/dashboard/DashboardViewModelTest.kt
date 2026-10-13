@@ -32,6 +32,7 @@ class DashboardViewModelTest {
     private lateinit var getDailyTotalDistanceUseCase: GetDailyTotalDistanceUseCase
     private lateinit var calculateMetaphorUseCase: CalculateMetaphorUseCase
     private lateinit var getAppLeaderboardUseCase: GetAppLeaderboardUseCase
+    private lateinit var syncUsageStatsScrollUseCase: com.scrollmeter.app.domain.usecase.SyncUsageStatsScrollUseCase
     private lateinit var settingsDataStore: SettingsDataStore
     private lateinit var viewModel: DashboardViewModel
 
@@ -44,10 +45,12 @@ class DashboardViewModelTest {
         getDailyTotalDistanceUseCase = mockk()
         calculateMetaphorUseCase = CalculateMetaphorUseCase() // Real pure domain class
         getAppLeaderboardUseCase = mockk()
+        syncUsageStatsScrollUseCase = mockk(relaxed = true)
         settingsDataStore = mockk(relaxed = true)
 
         every { settingsDataStore.dailyGoalMeters } returns flowOf(100.0f)
         every { settingsDataStore.isDemoModeActive } returns flowOf(false)
+        every { settingsDataStore.trackingMode } returns flowOf(com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS)
         every { getAppLeaderboardUseCase(testEpochDay) } returns flowOf(Result.Success(emptyList()))
     }
 
@@ -66,6 +69,7 @@ class DashboardViewModelTest {
             getDailyTotalDistanceUseCase = getDailyTotalDistanceUseCase,
             calculateMetaphorUseCase = calculateMetaphorUseCase,
             getAppLeaderboardUseCase = getAppLeaderboardUseCase,
+            syncUsageStatsScrollUseCase = syncUsageStatsScrollUseCase,
             settingsDataStore = settingsDataStore
         ).apply {
             epochDaysSupplier = { testEpochDay }
@@ -110,6 +114,7 @@ class DashboardViewModelTest {
             getDailyTotalDistanceUseCase = getDailyTotalDistanceUseCase,
             calculateMetaphorUseCase = calculateMetaphorUseCase,
             getAppLeaderboardUseCase = getAppLeaderboardUseCase,
+            syncUsageStatsScrollUseCase = syncUsageStatsScrollUseCase,
             settingsDataStore = settingsDataStore
         ).apply {
             epochDaysSupplier = { testEpochDay }

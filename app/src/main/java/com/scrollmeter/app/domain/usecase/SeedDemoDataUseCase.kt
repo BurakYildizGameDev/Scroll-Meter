@@ -43,6 +43,7 @@ class SeedDemoDataUseCase @Inject constructor(
 
         // Enable Demo Mode & complete onboarding
         settingsDataStore.setDemoMode(true)
+        settingsDataStore.setTrackingMode(com.scrollmeter.app.domain.model.TrackingMode.DEMO_PORTFOLIO)
         settingsDataStore.setOnboardingCompleted(true)
     }
 }

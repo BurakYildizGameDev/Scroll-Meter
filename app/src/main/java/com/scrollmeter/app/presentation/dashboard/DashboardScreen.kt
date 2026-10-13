@@ -103,11 +103,25 @@ fun DashboardScreen(
                                 style = MaterialTheme.typography.labelLarge,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
-                            if (uiState.isDemoMode) {
-                                CyberStatusBadge(
-                                    text = "DEMO / PORTFOLIO",
-                                    accentColor = CyberCyan
-                                )
+                            when {
+                                uiState.isDemoMode -> {
+                                    CyberStatusBadge(
+                                        text = stringResource(R.string.badge_demo_mode),
+                                        accentColor = CyberCyan
+                                    )
+                                }
+                                uiState.trackingMode == com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS -> {
+                                    CyberStatusBadge(
+                                        text = stringResource(R.string.badge_safe_mode),
+                                        accentColor = ElectricMint
+                                    )
+                                }
+                                else -> {
+                                    CyberStatusBadge(
+                                        text = stringResource(R.string.badge_lab_mode),
+                                        accentColor = Color(0xFFD6BBFB)
+                                    )
+                                }
                             }
                         }
                         Text(
@@ -119,10 +133,13 @@ fun DashboardScreen(
 
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
+                        androidx.compose.material3.IconButton(onClick = { viewModel.processIntent(DashboardIntent.Refresh) }) {
+                            Text(text = "🔄", fontSize = 18.sp)
+                        }
                         androidx.compose.material3.IconButton(onClick = onNavigateToAchievements) {
-                            Text(text = "🏆", fontSize = 20.sp)
+                            Text(text = "🏆", fontSize = 18.sp)
                         }
                         androidx.compose.material3.IconButton(onClick = onNavigateToAnalytics) {
                             Text(text = "📊", fontSize = 18.sp)

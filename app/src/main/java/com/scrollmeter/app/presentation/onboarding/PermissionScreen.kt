@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.provider.Settings
 import android.view.accessibility.AccessibilityManager
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,20 +24,23 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Science
+import androidx.compose.material.icons.filled.Security
+import androidx.compose.material.icons.filled.Speed
 import androidx.compose.material.icons.filled.TouchApp
-import androidx.compose.material.icons.filled.WifiOff
+import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
@@ -46,10 +50,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.scrollmeter.app.R
+import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.scrollmeter.app.R
 import com.scrollmeter.app.presentation.components.CyberStatusBadge
 import com.scrollmeter.app.presentation.components.GlowingGlassCard
 import com.scrollmeter.app.presentation.theme.CyberCyan
@@ -57,16 +64,6 @@ import com.scrollmeter.app.presentation.theme.ElectricMint
 import com.scrollmeter.app.presentation.theme.HyperViolet
 import com.scrollmeter.app.presentation.theme.ObsidianVoid
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.material.icons.filled.Visibility
-import androidx.compose.material3.OutlinedButton
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
-
-/**
- * Onboarding and Accessibility Permission Screen with Cyber Luxury aesthetics
- * highlighting zero-data intrusion guarantees.
- */
 @Composable
 fun PermissionScreen(
     onPermissionGranted: () -> Unit,
@@ -75,22 +72,19 @@ fun PermissionScreen(
 ) {
     val context = LocalContext.current
     val scrollState = rememberScrollState()
-    var isGranted by remember { mutableStateOf(isAccessibilityPermissionGranted(context)) }
-    val isDemoLoading by viewModel.isDemoLoading.collectAsStateWithLifecycle()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    // Re-check permission whenever user resumes app from Settings
+    // Re-check permissions whenever user returns to the app
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
             if (event == Lifecycle.Event.ON_RESUME) {
-                val granted = isAccessibilityPermissionGranted(context)
-                isGranted = granted
-                if (granted) {
-                    onPermissionGranted()
-                }
+                viewModel.refreshPermissions(context)
             }
         }
         lifecycleOwner.lifecycle.addObserver(observer)
+        // Initial probe
+        viewModel.refreshPermissions(context)
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
 
@@ -129,171 +123,240 @@ fun PermissionScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 CyberStatusBadge(
-                    text = stringResource(R.string.welcome_odyssey),
+                    text = "DİJİTAL SEYAHAT ⚡",
                     accentColor = ElectricMint
+                )
+                CyberStatusBadge(
+                    text = "HİBRİT MİMARİ",
+                    accentColor = CyberCyan
                 )
             }
 
             Text(
-                text = stringResource(R.string.track_every_meter),
+                text = "Takip Motorunu Seçin",
                 style = MaterialTheme.typography.headlineLarge,
                 color = Color.White
             )
 
             Text(
-                text = stringResource(R.string.onboarding_subtitle),
-                style = MaterialTheme.typography.bodyLarge,
+                text = "Scroll-Meter iki güçlü motor mimarisine sahiptir. İster sıfır uyarı veren güvenli standart modu, ister donanım düzeyinde piksel sensörünü seçin.",
+                style = MaterialTheme.typography.bodyMedium,
                 color = Color.White.copy(alpha = 0.75f)
             )
 
-            // Trust Card 1: Zero Text Reading
+            // OPTION 1: Standart & Güvenli Mod (Default & Recommended)
             GlowingGlassCard(
                 modifier = Modifier.fillMaxWidth(),
                 glowColor = ElectricMint,
-                glowAlpha = 0.12f
+                glowAlpha = 0.16f
             ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.Lock,
-                        contentDescription = null,
-                        tint = ElectricMint,
-                        modifier = Modifier.size(32.dp)
+                Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        CyberStatusBadge(
+                            text = stringResource(R.string.mode_safe_badge),
+                            accentColor = ElectricMint
+                        )
+                        if (uiState.isUsageAccessGranted) {
+                            Text(text = "✓ HAZIR", color = ElectricMint, style = MaterialTheme.typography.labelSmall)
+                        }
+                    }
+
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.Default.Security,
+                            contentDescription = null,
+                            tint = ElectricMint,
+                            modifier = Modifier.size(28.dp)
+                        )
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Column {
+                            Text(
+                                text = stringResource(R.string.mode_safe_title),
+                                style = MaterialTheme.typography.titleMedium,
+                                color = Color.White
+                            )
+                            Text(
+                                text = "Kullanım Erişimi + Doomscroll Kadans Motoru",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = ElectricMint.copy(alpha = 0.85f)
+                            )
+                        }
+                    }
+
+                    Text(
+                        text = stringResource(R.string.mode_safe_desc),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Color.White.copy(alpha = 0.75f)
                     )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    Column {
-                        Text(
-                            text = stringResource(R.string.trust_privacy_title),
-                            style = MaterialTheme.typography.titleMedium,
-                            color = Color.White
-                        )
-                        Text(
-                            text = stringResource(R.string.trust_privacy_desc),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = Color.White.copy(alpha = 0.7f)
-                        )
+
+                    Button(
+                        onClick = {
+                            if (uiState.isUsageAccessGranted) {
+                                viewModel.selectSafeMode { onPermissionGranted() }
+                            } else {
+                                val intent = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS).apply {
+                                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                                }
+                                context.startActivity(intent)
+                            }
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = ElectricMint,
+                            contentColor = Color.Black
+                        ),
+                        enabled = !uiState.isSyncing
+                    ) {
+                        if (uiState.isSyncing) {
+                            CircularProgressIndicator(color = Color.Black, modifier = Modifier.size(20.dp))
+                        } else {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Icon(
+                                    imageVector = if (uiState.isUsageAccessGranted) Icons.Default.CheckCircle else Icons.Default.Speed,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(18.dp)
+                                )
+                                Spacer(modifier = Modifier.width(8.dp))
+                                Text(
+                                    text = if (uiState.isUsageAccessGranted) "GÜVENLİ MODLA BAŞLA ⚡" else stringResource(R.string.mode_safe_btn),
+                                    style = MaterialTheme.typography.titleSmall
+                                )
+                            }
+                        }
                     }
                 }
             }
 
-            // Trust Card 2: Offline & Zero Network
-            GlowingGlassCard(
-                modifier = Modifier.fillMaxWidth(),
-                glowColor = CyberCyan,
-                glowAlpha = 0.12f
-            ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.WifiOff,
-                        contentDescription = null,
-                        tint = CyberCyan,
-                        modifier = Modifier.size(32.dp)
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    Column {
-                        Text(
-                            text = stringResource(R.string.trust_network_title),
-                            style = MaterialTheme.typography.titleMedium,
-                            color = Color.White
-                        )
-                        Text(
-                            text = stringResource(R.string.trust_network_desc),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = Color.White.copy(alpha = 0.7f)
-                        )
-                    }
-                }
-            }
-
-            // Trust Card 3: Zero Battery Leak
+            // OPTION 2: Gelişmiş Laboratuvar Modu (Accessibility Pixel Delta)
             GlowingGlassCard(
                 modifier = Modifier.fillMaxWidth(),
                 glowColor = HyperViolet,
                 glowAlpha = 0.14f
             ) {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Icon(
-                        imageVector = Icons.Default.TouchApp,
-                        contentDescription = null,
-                        tint = Color(0xFFD6BBFB),
-                        modifier = Modifier.size(32.dp)
-                    )
-                    Spacer(modifier = Modifier.width(16.dp))
-                    Column {
-                        Text(
-                            text = stringResource(R.string.trust_battery_title),
-                            style = MaterialTheme.typography.titleMedium,
-                            color = Color.White
+                Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        CyberStatusBadge(
+                            text = stringResource(R.string.mode_lab_badge),
+                            accentColor = Color(0xFFD6BBFB)
                         )
-                        Text(
-                            text = stringResource(R.string.trust_battery_desc),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = Color.White.copy(alpha = 0.7f)
+                        if (uiState.isAccessibilityGranted) {
+                            Text(text = "✓ AKTİF", color = Color(0xFFD6BBFB), style = MaterialTheme.typography.labelSmall)
+                        }
+                    }
+
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Icon(
+                            imageVector = Icons.Default.Science,
+                            contentDescription = null,
+                            tint = Color(0xFFD6BBFB),
+                            modifier = Modifier.size(28.dp)
                         )
+                        Spacer(modifier = Modifier.width(10.dp))
+                        Column {
+                            Text(
+                                text = stringResource(R.string.mode_lab_title),
+                                style = MaterialTheme.typography.titleMedium,
+                                color = Color.White
+                            )
+                            Text(
+                                text = "Piksel Sensörü (TYPE_VIEW_SCROLLED)",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = Color(0xFFD6BBFB).copy(alpha = 0.85f)
+                            )
+                        }
                     }
-                }
-            }
 
-            Spacer(modifier = Modifier.weight(1f, fill = false))
-
-            // Action Button
-            Button(
-                onClick = {
-                    if (isGranted) {
-                        onPermissionGranted()
-                    } else {
-                        val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                        context.startActivity(intent)
-                    }
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp),
-                shape = RoundedCornerShape(18.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = if (isGranted) ElectricMint else ElectricMint,
-                    contentColor = Color.Black
-                )
-            ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Icon(
-                        imageVector = if (isGranted) Icons.Default.CheckCircle else Icons.Default.TouchApp,
-                        contentDescription = null,
-                        modifier = Modifier.size(20.dp)
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = if (isGranted) stringResource(R.string.btn_continue) else stringResource(R.string.btn_activate_service),
-                        style = MaterialTheme.typography.titleMedium
+                        text = stringResource(R.string.mode_lab_desc),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Color.White.copy(alpha = 0.75f)
                     )
+
+                    // Android Restricted Settings Educational Notice
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(Color.White.copy(alpha = 0.04f), RoundedCornerShape(10.dp))
+                            .padding(10.dp)
+                    ) {
+                        Row(verticalAlignment = Alignment.Top) {
+                            Icon(
+                                imageVector = Icons.Default.Info,
+                                contentDescription = null,
+                                tint = CyberCyan,
+                                modifier = Modifier
+                                    .size(18.dp)
+                                    .padding(top = 2.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = stringResource(R.string.mode_lab_warning_desc),
+                                style = MaterialTheme.typography.labelSmall,
+                                color = Color.White.copy(alpha = 0.7f),
+                                lineHeight = 16.sp
+                            )
+                        }
+                    }
+
+                    OutlinedButton(
+                        onClick = {
+                            if (uiState.isAccessibilityGranted) {
+                                viewModel.selectAccessibilityMode { onPermissionGranted() }
+                            } else {
+                                val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS).apply {
+                                    flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                                }
+                                context.startActivity(intent)
+                            }
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(48.dp),
+                        shape = RoundedCornerShape(14.dp),
+                        border = BorderStroke(1.dp, Color(0xFFD6BBFB).copy(alpha = 0.6f)),
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            contentColor = Color(0xFFD6BBFB)
+                        )
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Icon(
+                                imageVector = if (uiState.isAccessibilityGranted) Icons.Default.CheckCircle else Icons.Default.TouchApp,
+                                contentDescription = null,
+                                modifier = Modifier.size(18.dp)
+                            )
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Text(
+                                text = if (uiState.isAccessibilityGranted) "LAB MODUYLA BAŞLA 🔬" else stringResource(R.string.mode_lab_btn),
+                                style = MaterialTheme.typography.titleSmall
+                            )
+                        }
+                    }
                 }
             }
 
-            Spacer(modifier = Modifier.height(10.dp))
-
-            // Recruiter / Portfolio Demo Mode Button
+            // OPTION 3: Recruiter / Portfolio Demo Mode
             OutlinedButton(
                 onClick = {
                     viewModel.activateDemoMode {
                         onPermissionGranted()
                     }
                 },
-                enabled = !isDemoLoading,
+                enabled = !uiState.isDemoLoading,
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(52.dp),
-                shape = RoundedCornerShape(18.dp),
+                shape = RoundedCornerShape(16.dp),
                 border = BorderStroke(1.5.dp, CyberCyan.copy(alpha = 0.6f)),
                 colors = ButtonDefaults.outlinedButtonColors(
                     contentColor = CyberCyan
@@ -310,7 +373,7 @@ fun PermissionScreen(
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = if (isDemoLoading) "LOADING PREVIEW..." else stringResource(R.string.btn_demo_mode),
+                        text = if (uiState.isDemoLoading) "YÜKLENİYOR..." else stringResource(R.string.btn_demo_mode),
                         style = MaterialTheme.typography.titleSmall,
                         color = CyberCyan
                     )

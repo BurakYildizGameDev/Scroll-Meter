@@ -95,11 +95,50 @@ class SettingsDataStore @Inject constructor(
         }
     }
 
+    val trackingMode: Flow<com.scrollmeter.app.domain.model.TrackingMode> = dataStore.data
+        .catch { exception ->
+            if (exception is IOException) emit(emptyPreferences()) else throw exception
+        }
+        .map { preferences ->
+            val modeName = preferences[KEY_TRACKING_MODE]
+            if (modeName != null) {
+                try {
+                    com.scrollmeter.app.domain.model.TrackingMode.valueOf(modeName)
+                } catch (_: Exception) {
+                    com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS
+                }
+            } else {
+                com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS
+            }
+        }
+
+    val cadenceSpeedMultiplier: Flow<Float> = dataStore.data
+        .catch { exception ->
+            if (exception is IOException) emit(emptyPreferences()) else throw exception
+        }
+        .map { preferences ->
+            preferences[KEY_CADENCE_SPEED_MULTIPLIER] ?: 1.0f
+        }
+
+    suspend fun setTrackingMode(mode: com.scrollmeter.app.domain.model.TrackingMode) {
+        dataStore.edit { preferences ->
+            preferences[KEY_TRACKING_MODE] = mode.name
+        }
+    }
+
+    suspend fun setCadenceSpeedMultiplier(multiplier: Float) {
+        dataStore.edit { preferences ->
+            preferences[KEY_CADENCE_SPEED_MULTIPLIER] = multiplier.coerceIn(0.5f, 2.0f)
+        }
+    }
+
     companion object {
         val KEY_CALIBRATION_MULTIPLIER = floatPreferencesKey("calibration_multiplier")
         val KEY_DAILY_GOAL_METERS = floatPreferencesKey("daily_goal_meters")
         val KEY_THEME_MODE = intPreferencesKey("theme_mode")
         val KEY_IS_ONBOARDING_COMPLETED = booleanPreferencesKey("is_onboarding_completed")
         val KEY_IS_DEMO_MODE = booleanPreferencesKey("is_demo_mode")
+        val KEY_TRACKING_MODE = androidx.datastore.preferences.core.stringPreferencesKey("tracking_mode")
+        val KEY_CADENCE_SPEED_MULTIPLIER = floatPreferencesKey("cadence_speed_multiplier")
     }
 }

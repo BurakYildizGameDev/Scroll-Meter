@@ -1,0 +1,71 @@
+package com.scrollmeter.app.domain.calculator
+
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
+
+class ScrollCadenceEngineTest {
+
+    @ParameterizedTest
+    @CsvSource(
+        "com.zhiliaoapp.musically, 2.20",
+        "com.instagram.android, 2.20",
+        "com.snapchat.android, 2.20",
+        "com.twitter.android, 2.60",
+        "com.reddit.frontpage, 2.60",
+        "com.android.chrome, 1.40",
+        "com.whatsapp, 0.75",
+        "com.google.android.youtube, 0.25",
+        "com.unknown.calculator, 0.60"
+    )
+    fun `getCadenceMetersPerMinute returns expected cadence for archetypes`(
+        packageName: String,
+        expectedCadence: Double
+    ) {
+        val cadence = ScrollCadenceEngine.getCadenceMetersPerMinute(packageName)
+        assertEquals(expectedCadence, cadence, 0.001)
+    }
+
+    @Test
+    fun `calculateMeters computes correct distance for 10 minutes of social feed`() {
+        // 10 minutes of Twitter = 10 * 2.60 = 26.0 meters
+        val tenMinutesMillis = 10 * 60_000L
+        val meters = ScrollCadenceEngine.calculateMeters(
+            packageName = "com.twitter.android",
+            foregroundMillis = tenMinutesMillis,
+            speedMultiplier = 1.0f,
+            calibrationMultiplier = 1.0f
+        )
+        assertEquals(26.0, meters, 0.001)
+    }
+
+    @Test
+    fun `calculateMeters applies user speedMultiplier correctly`() {
+        // 5 minutes of TikTok at 1.25x rapid speed = 5 * 2.20 * 1.25 = 13.75 meters
+        val fiveMinutesMillis = 5 * 60_000L
+        val meters = ScrollCadenceEngine.calculateMeters(
+            packageName = "com.zhiliaoapp.musically",
+            foregroundMillis = fiveMinutesMillis,
+            speedMultiplier = 1.25f,
+            calibrationMultiplier = 1.0f
+        )
+        assertEquals(13.75, meters, 0.001)
+    }
+
+    @Test
+    fun `calculateMeters returns 0 for zero or negative durations`() {
+        assertEquals(0.0, ScrollCadenceEngine.calculateMeters("com.instagram.android", 0L), 0.001)
+        assertEquals(0.0, ScrollCadenceEngine.calculateMeters("com.instagram.android", -5000L), 0.001)
+    }
+
+    @Test
+    fun `metersToPixels accurately converts physical meters to screen pixels based on PPI`() {
+        // 1 meter = 1000 mm = ~39.37 inches. At 400 PPI: ~15,748 pixels
+        val meters = 1.0
+        val ppi = 400f
+        val pixels = ScrollCadenceEngine.metersToPixels(meters, ppi)
+        val expected = (1000.0 / 25.4) * 400.0
+        assertEquals(expected, pixels, 0.01)
+    }
+}

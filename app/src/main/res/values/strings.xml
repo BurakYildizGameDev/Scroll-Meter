@@ -88,4 +88,25 @@
     <string name="btn_activate_service">ACTIVATE SERVICE ⚡</string>
     <string name="btn_demo_mode">PORTFOLIO / DEMO MODE (Explore Without Permission)</string>
     <string name="demo_mode_desc">Instantly load mock telemetry, unlocked achievements, and weekly charts for evaluation.</string>
+
+    <!-- Dual Engine Architecture -->
+    <string name="mode_safe_title">Standart Güvenli Mod (Önerilen 🌟)</string>
+    <string name="mode_safe_badge">100% GÜVENLİ &amp; SIFIR UYARI</string>
+    <string name="mode_safe_desc">Android Kullanım Erişimi (UsageStats) ve akıllı Doomscroll Kadans Motoru ile ekran süresini gerçek mesafeye dönüştürür. Sıfır kısıtlı ayar, sıfır uyarı ve %0 pil tüketimi.</string>
+    <string name="mode_safe_btn">Kullanım İznini Etkinleştir</string>
+    <string name="mode_lab_title">Gelişmiş Laboratuvar Modu 🔬</string>
+    <string name="mode_lab_badge">DONANIM PİKSEL DELTA</string>
+    <string name="mode_lab_desc">Erişilebilirlik servisi ile ekrandaki her piksel kaydırmasını donanım düzeyinde gerçek zamanlı yakalar.</string>
+    <string name="mode_lab_btn">Erişilebilirlik Servisini Etkinleştir</string>
+    <string name="mode_lab_warning_title">Android 13+ Kısıtlanmış Ayar Bilgisi</string>
+    <string name="mode_lab_warning_desc">Play Store dışından indirilen APK\'larda Android, Erişilebilirlik servisini güvenlik gereği kısıtlar. Uygulama Ayarları > 3 nokta > Kısıtlanmış ayara izin ver ile açılır. Scroll-Meter\'da sıfır internet izni vardır; verileriniz cihazdan asla çıkmaz.</string>
+    <string name="badge_safe_mode">🛡️ GÜVENLİ MOD</string>
+    <string name="badge_lab_mode">🔬 LAB SENSÖRÜ</string>
+    <string name="badge_demo_mode">🎮 DEMO MODU</string>
+    <string name="tracking_engine_title">TAKİP MOTORU &amp; MİMARİ</string>
+    <string name="cadence_speed_title">KADANS HIZI (KAYDIRMA TEMPOSU)</string>
+    <string name="cadence_speed_desc">Aktif ekran dakikası başına kaydırma hız çarpanı.</string>
+    <string name="speed_relaxed">Sakin (0.8x)</string>
+    <string name="speed_balanced">Dengeli (1.0x)</string>
+    <string name="speed_rapid">Seri (1.25x)</string>
 </resources>

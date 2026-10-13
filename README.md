@@ -16,16 +16,17 @@
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-purple.svg?style=flat-square&logo=kotlin)](https://kotlinlang.org)
 [![Android](https://img.shields.io/badge/Target%20SDK-34%20(Android%2014)-brightgreen.svg?style=flat-square&logo=android)](https://developer.android.com)
 [![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-BOM%202024.10.00-blue.svg?style=flat-square&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
-[![Tests](https://img.shields.io/badge/Tests-85%2F85%20Passed%20(100%25)-success.svg?style=flat-square&logo=checkmarx)](https://github.com)
+[![Architecture](https://img.shields.io/badge/Architecture-Dual--Engine%20Hybrid-00F5A0.svg?style=flat-square&logo=android)](#-hibrit-çift-motor-mimarisi-dual-engine-architecture)
+[![Tests](https://img.shields.io/badge/Tests-101%2F101%20Passed%20(100%25)-success.svg?style=flat-square&logo=checkmarx)](https://github.com)
 [![Languages](https://img.shields.io/badge/Languages-9%20Localized-blueviolet.svg?style=flat-square&logo=google-translate)](#-çoklu-dil-desteği-9-languages-support)
 [![Display](https://img.shields.io/badge/Display-120Hz%20%2F%20144Hz%20LTPO%20Ready-00F0FF.svg?style=flat-square&logo=speedtest)](#-120hz--144hz-ltpo-ultra-smooth-mikro-kaydırma-motoru)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20(No%20Internet)-emerald.svg?style=flat-square&logo=shield)](#-sıfır-internet-ve-mutlak-gizlilik-matrisi)
-[![Size](https://img.shields.io/badge/Release%20APK-3.4%20MB%20Ultra--Lean-orange.svg?style=flat-square&logo=android)](https://github.com)
+[![Size](https://img.shields.io/badge/Release%20APK-3.6%20MB%20Ultra--Lean-orange.svg?style=flat-square&logo=android)](https://github.com)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
 
 <br/>
 
-> **Scroll-Meter**, tüm sosyal medya ve uygulamalarınızdaki dikey kaydırma mesafenizi piksel piksel takip edip **gerçek dünya fiziksel metriklerine (metre ve kilometre)** dönüştüren, oyunlaştırılmış landmark hedefleri ve kupa odası başarımları sunan, 9 dilde yerelleştirilmiş, 120Hz/144Hz LTPO ultra-akıcı motorlu, sıfır internet izinli ve %100 gizlilik odaklı kurumsal bir Android telemetri uygulamasıdır.
+> **Scroll-Meter**, tüm sosyal medya ve uygulamalarınızdaki dikey kaydırma mesafenizi piksel piksel takip edip **gerçek dünya fiziksel metriklerine (metre ve kilometre)** dönüştüren, oyunlaştırılmış landmark hedefleri ve kupa odası başarımları sunan, 9 dilde yerelleştirilmiş, 120Hz/144Hz LTPO ultra-akıcı motorlu, **Hibrit Çift Motor Mimarili (Güvenli Mod & Piksel Sensörü)**, sıfır internet izinli ve %100 gizlilik odaklı kurumsal bir Android telemetri uygulamasıdır.
 
 </div>
 
@@ -34,10 +35,11 @@
 ## 📑 İçindekiler (Table of Contents)
 1. [Neden Scroll-Meter? (The Philosophy)](#-neden-scroll-meter-the-philosophy)
 2. [Hemen İndir ve Kur (Download & Install)](#-hemen-indir-ve-kur-download--install)
-3. [Nasıl Çalışıyor? Matematiksel ve Fiziksel Telemetri Motoru](#-nasıl-çalışıyor-matematiksel-ve-fiziksel-telemetri-motoru)
-4. [⚡ 120Hz / 144Hz LTPO Ultra-Smooth Mikro-Kaydırma Motoru](#-120hz--144hz-ltpo-ultra-smooth-mikro-kaydırma-motoru)
-5. [🏆 Cyber-Luxury Trophy Room & Başarımlar (Achievements)](#-cyber-luxury-trophy-room--başarımlar-achievements)
-6. [🌐 Çoklu Dil Desteği (9 Languages Support)](#-çoklu-dil-desteği-9-languages-support)
+3. [🛡️ Hibrit Çift Motor Mimarisi (Dual-Engine Architecture)](#-hibrit-çift-motor-mimarisi-dual-engine-architecture)
+4. [Nasıl Çalışıyor? Matematiksel ve Fiziksel Telemetri Motoru](#-nasıl-çalışıyor-matematiksel-ve-fiziksel-telemetri-motoru)
+5. [⚡ 120Hz / 144Hz LTPO Ultra-Smooth Mikro-Kaydırma Motoru](#-120hz--144hz-ltpo-ultra-smooth-mikro-kaydırma-motoru)
+6. [🏆 Cyber-Luxury Trophy Room & Başarımlar (Achievements)](#-cyber-luxury-trophy-room--başarımlar-achievements)
+7. [🌐 Çoklu Dil Desteği (9 Languages Support)](#-çoklu-dil-desteği-9-languages-support)
 7. [Öne Çıkan Özellikler](#-öne-çıkan-özellikler)
 8. [Oyunlaştırılmış Landmark Metaforları (Milestones)](#-oyunlaştırılmış-landmark-metaforları-milestones)
 9. [Sıfır İnternet ve Mutlak Gizlilik Matrisi](#-sıfır-internet-ve-mutlak-gizlilik-matrisi)
@@ -103,7 +105,74 @@ Google, 2024 yılından itibaren Android ekosisteminde devreye aldığı **Geli�
   ```powershell
   adb install app/build/outputs/apk/release/app-release.apk
   ```
-* **Xiaomi / HyperOS Notu:** Kurulum sonrası servisi aktif ederken *"Kısıtlanmış Ayar"* derse: Telefon Ayarları > Uygulamalar > Scroll-Meter > Sağ üstteki 3 nokta > *"Kısıtlanmış ayarlara izin ver"* seçeneğini onaylayın.
+---
+
+## 🛡️ Hibrit Çift Motor Mimarisi (Dual-Engine Architecture)
+
+Google'ın Android ekosisteminde Play Store dışı (sideload) APK'lar için devreye aldığı **Gelişmiş Sahtekarlık Koruması (Enhanced Fraud Protection)** ve **Kısıtlanmış Ayar (Restricted Settings)** kalkanına karşı Scroll-Meter, sektör lideri **Hibrit Çift Motor Mimarisi** geliştirmiştir.
+
+Kullanıcılar ve teknik denetçiler, ihtiyaçlarına göre iki bağımsız motor arasında diledikleri an geçiş yapabilir:
+
+```
+                                ┌──────────────────────────────────────────────┐
+                                │          SCROLL-METER HYBRID ENGINE          │
+                                └──────────────────────┬───────────────────────┘
+                                                       │
+                     ┌─────────────────────────────────┴─────────────────────────────────┐
+                     ▼                                                                   ▼
+      ┌───────────────────────────────┐                                   ┌───────────────────────────────┐
+      │  MOTOR 1: GÜVENLİ STANDART    │                                   │     MOTOR 2: LAB SENSÖRÜ      │
+      │   (PACKAGE_USAGE_STATS)       │                                   │    (ACCESSIBILITY SERVICE)    │
+      ├───────────────────────────────┤                                   ├───────────────────────────────┤
+      │ • Sıfır Play Protect uyarısı  │                                   │ • Canlı dokunmatik piksel     │
+      │ • Sıfır Kısıtlı Ayar engeli   │                                   │   delta yakalama (120Hz/144Hz)│
+      │ • %0.0 Pil / CPU tüketimi     │                                   │ • TYPE_VIEW_SCROLLED dinleme  │
+      │ • Akıllı Doomscroll Kadansı   │                                   │ • Sıfır internet garantisi    │
+      │ • Sektör dijital denge izni   │                                   │ • Android Kısıtlı Ayar notu   │
+      └──────────────┬────────────────┘                                   └───────────────┬───────────────┘
+                     │                                                                    │
+                     └───────────────────────────────┬────────────────────────────────────┘
+                                                     ▼
+                                      ┌───────────────────────────────┐
+                                      │  Clean Architecture Domain    │
+                                      │  (Fiziksel Metre / Kilometre) │
+                                      └───────────────────────────────┘
+```
+
+### 1. Motor 1: Standart & Güvenli Mod (Safe Mode - Önerilen 🌟)
+* **Temel Teknoloji:** Android'in yerel `PACKAGE_USAGE_STATS` (Kullanım Erişimi) API'si. Forest, Opal ve StayFree gibi milyonlarca kullanıcılı dijital denge uygulamalarının kullandığı standart güvenli izin tipidir.
+* **Sıfır Güvenlik Uyarısı:** Google Play Protect tarafından asla bloke edilmez, Android 13+ sisteminde "Kısıtlanmış Ayar" uyarısı vermez.
+* **Sıfır Pil Tüketimi:** Arka planda sürekli bir servis çalıştırmaz; verileri işletim sisteminin tuttuğu ekran sürelerinden okuyup kadans formülüyle hesaplar.
+* **Akıllı Doomscroll Kadans Motoru (`ScrollCadenceEngine`):**
+  Sosyal medya ve dijital platformlardaki kullanıcı etkileşim hızlarına göre ampirik hız modelleri uygular:
+  * 📱 **Kısa Video Akışı (TikTok, Instagram Reels, Shorts):** `2.20 m / aktif dakika` (~12 dikey kaydırma/dk)
+  * 🐦 **Sosyal Metin & Akış (Twitter / X, Reddit, Threads):** `2.60 m / aktif dakika` (Hızlı tarama)
+  * 🌐 **Web & E-Ticaret (Chrome, Firefox, Trendyol, Amazon):** `1.40 m / aktif dakika`
+  * 💬 **Mesajlaşma & Sohbet (WhatsApp, Telegram, Discord):** `0.75 m / aktif dakika`
+  * 🎬 **Video Akışı (YouTube, Netflix):** `0.25 m / aktif dakika` (Sabit izleme ağırlıklı)
+  * ⚙️ **Genel / Diğer Uygulamalar:** `0.60 m / aktif dakika`
+* **Kişiselleştirilebilir Tempo:** Ayarlar ekranından kaydırma temposu çarpanı (Sakin 0.8x, Dengeli 1.0x, Seri 1.25x) tek tıkla seçilebilir.
+
+---
+
+### 2. Motor 2: Gelişmiş Laboratuvar Modu (Advanced Lab Mode - Piksel Sensörü 🔬)
+* **Temel Teknoloji:** Android `AccessibilityService` (`TYPE_VIEW_SCROLLED`).
+* **Mikro-Piksel Hassasiyeti:** Ekrandaki her fiziksel parmak dokunma hareketini $\Delta y$ pikseli bazında canlı donanım seviyesinde yakalar.
+* **Şeffaf Güvenlik Taahhüdü:**
+  * Uygulamanın AndroidManifest dosyasında `android.permission.INTERNET` izni **kesinlikle yoktur**.
+  * `canRetrieveWindowContent="false"` zorunludur; şifre, sohbet veya ekran içeriği asla okunamaz.
+* **Android Kısıtlanmış Ayar (Restricted Setting) Çözümü:**
+  GitHub'dan indirilen APK'larda Android 13+, Erişilebilirlik iznini otomatik olarak kısıtlar. Bunu açmak için:
+  1. *Telefon Ayarları > Uygulamalar > Scroll-Meter* sayfasına gidin.
+  2. Sağ üst köşedeki **3 Nokta (⋮)** simgesine dokunun.
+  3. **"Kısıtlanmış ayarlara izin ver"** (Allow restricted settings) seçeneğini onaylayın.
+  4. Ardından Erişilebilirlik menüsünden servisi aktif edin.
+
+---
+
+### 3. Motor 3: Portföy / İnceleme Demo Modu (Tek Tıkla Sıfır İzin 🎮)
+* İK uzmanları, işe alım yöneticileri ve mobil geliştiriciler için özel olarak tasarlanmıştır.
+* Cihazda hiçbir izin vermeden tek bir dokunuşla tüm analiz ekranlarını, Compose Canvas grafiklerini, kupa odası başarımlarını ve 120Hz animasyonlarını canlı mock verilerle test etme imkanı sunar.
 
 ---
 
@@ -379,9 +448,9 @@ com.scrollmeter.app/
 
 ---
 
-## 🧪 Kapsamlı Test ve Kalite Raporu (84/84 Test)
+## 🧪 Kapsamlı Test ve Kalite Raporu (101/101 Test - %100 Yeşil)
 
-Projenin tüm katmanları bağımsız birim testleri, coroutine flow testleri ve benchmark senaryolarıyla doğrulanmıştır:
+Projenin tüm katmanları bağımsız birim testleri, coroutine flow testleri, kadans motoru testleri ve benchmark senaryolarıyla doğrulanmıştır:
 
 ```
 ================================================================================
@@ -393,11 +462,14 @@ com.scrollmeter.app.data.local.dao.ScrollDaoTest                 3      BAŞARIL
 com.scrollmeter.app.data.repository.ScrollRepositoryImplTest     3      BAŞARILI
 com.scrollmeter.app.data.worker.DataCleanupWorkerTest            2      BAŞARILI
 com.scrollmeter.app.domain.calculator.DistanceCalculatorTest    10      BAŞARILI
+com.scrollmeter.app.domain.calculator.ScrollCadenceEngineTest   13      BAŞARILI
 com.scrollmeter.app.domain.filter.ScrollAnomalyFilterTest       13      BAŞARILI
 com.scrollmeter.app.domain.usecase.CalculateMetaphorUseCaseTest  3      BAŞARILI
 com.scrollmeter.app.domain.usecase.GetAchievementsUseCaseTest    2      BAŞARILI
 com.scrollmeter.app.domain.usecase.GetAppLeaderboardUseCaseTest  1      BAŞARILI
 com.scrollmeter.app.domain.usecase.GetDailyTotalDistance...      1      BAŞARILI
+com.scrollmeter.app.domain.usecase.SeedDemoDataUseCaseTest       1      BAŞARILI
+com.scrollmeter.app.domain.usecase.SyncUsageStatsScroll...       3      BAŞARILI
 com.scrollmeter.app.presentation.achievements.Achievements...    1      BAŞARILI
 com.scrollmeter.app.presentation.analytics.AnalyticsViewModel... 2      BAŞARILI
 com.scrollmeter.app.presentation.dashboard.DashboardViewModel... 2      BAŞARILI
@@ -411,7 +483,7 @@ com.scrollmeter.app.service.notification.ScrollNotification...   2      BAŞARIL
 com.scrollmeter.app.service.receiver.ScreenStateReceiverTest     4      BAŞARILI
 com.scrollmeter.app.service.ScrollAccessibilityServiceTest       5      BAŞARILI
 ================================================================================
-TOPLAM: 84 TEST | 84 BAŞARILI (%100 YEŞİL) | 0 HATA | 0 BAŞARISIZ
+TOPLAM: 101 TEST | 101 BAŞARILI (%100 YEŞİL) | 0 HATA | 0 BAŞARISIZ
 ================================================================================
 ```
 

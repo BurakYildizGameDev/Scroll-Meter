@@ -27,6 +27,8 @@ class SettingsViewModelTest {
 
     private lateinit var settingsDataStore: SettingsDataStore
     private lateinit var deviceMetricsProvider: IDeviceMetricsProvider
+    private lateinit var usageStatsProvider: com.scrollmeter.app.domain.repository.IUsageStatsProvider
+    private lateinit var syncUsageStatsScrollUseCase: com.scrollmeter.app.domain.usecase.SyncUsageStatsScrollUseCase
     private lateinit var viewModel: SettingsViewModel
 
     @BeforeEach
@@ -35,15 +37,21 @@ class SettingsViewModelTest {
 
         settingsDataStore = mockk(relaxed = true)
         deviceMetricsProvider = mockk(relaxed = true)
+        usageStatsProvider = mockk(relaxed = true)
+        syncUsageStatsScrollUseCase = mockk(relaxed = true)
 
         every { settingsDataStore.calibrationMultiplier } returns flowOf(1.0f)
         every { settingsDataStore.dailyGoalMeters } returns flowOf(100.0f)
         every { deviceMetricsProvider.getDevicePpi() } returns flowOf(440.0f)
         every { settingsDataStore.themeMode } returns flowOf(0)
+        every { settingsDataStore.trackingMode } returns flowOf(com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS)
+        every { settingsDataStore.cadenceSpeedMultiplier } returns flowOf(1.0f)
 
         viewModel = SettingsViewModel(
             settingsDataStore = settingsDataStore,
-            deviceMetricsProvider = deviceMetricsProvider
+            deviceMetricsProvider = deviceMetricsProvider,
+            usageStatsProvider = usageStatsProvider,
+            syncUsageStatsScrollUseCase = syncUsageStatsScrollUseCase
         )
     }
 

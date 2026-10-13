@@ -6,14 +6,17 @@ import com.scrollmeter.app.core.result.Result
 import com.scrollmeter.app.data.datastore.SettingsDataStore
 import com.scrollmeter.app.domain.model.AppScrollSession
 import com.scrollmeter.app.domain.model.PhysicalDistance
+import com.scrollmeter.app.domain.model.TrackingMode
 import com.scrollmeter.app.domain.usecase.CalculateMetaphorUseCase
 import com.scrollmeter.app.domain.usecase.GetAppLeaderboardUseCase
 import com.scrollmeter.app.domain.usecase.GetDailyTotalDistanceUseCase
+import com.scrollmeter.app.domain.usecase.SyncUsageStatsScrollUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -25,6 +28,7 @@ class DashboardViewModel @Inject constructor(
     private val getDailyTotalDistanceUseCase: GetDailyTotalDistanceUseCase,
     private val calculateMetaphorUseCase: CalculateMetaphorUseCase,
     private val getAppLeaderboardUseCase: GetAppLeaderboardUseCase,
+    private val syncUsageStatsScrollUseCase: SyncUsageStatsScrollUseCase,
     private val settingsDataStore: SettingsDataStore
 ) : ViewModel() {
 
@@ -33,6 +37,15 @@ class DashboardViewModel @Inject constructor(
 
     private val refreshTrigger = MutableStateFlow(0)
 
+    init {
+        // Automatically sync if in SAFE_USAGE_STATS mode
+        viewModelScope.launch {
+            if (settingsDataStore.trackingMode.first() == TrackingMode.SAFE_USAGE_STATS) {
+                syncUsageStatsScrollUseCase()
+            }
+        }
+    }
+
     val uiState: StateFlow<DashboardUiState> = refreshTrigger
         .flatMapLatest {
             val epoch = epochDaysSupplier()
@@ -40,16 +53,18 @@ class DashboardViewModel @Inject constructor(
                 getDailyTotalDistanceUseCase(epoch),
                 settingsDataStore.dailyGoalMeters,
                 getAppLeaderboardUseCase(epoch),
-                settingsDataStore.isDemoModeActive
-            ) { distanceResult, goalMeters, leaderboardResult, isDemo ->
+                settingsDataStore.isDemoModeActive,
+                settingsDataStore.trackingMode
+            ) { distanceResult, goalMeters, leaderboardResult, isDemo, trackingMode ->
                 when (distanceResult) {
                     is Result.Loading -> {
-                        DashboardUiState(isLoading = true, isDemoMode = isDemo)
+                        DashboardUiState(isLoading = true, isDemoMode = isDemo, trackingMode = trackingMode)
                     }
                     is Result.Error -> {
                         DashboardUiState(
                             isLoading = false,
                             isDemoMode = isDemo,
+                            trackingMode = trackingMode,
                             errorMessage = distanceResult.throwable.message ?: "Failed to load telemetry"
                         )
                     }
@@ -75,6 +90,7 @@ class DashboardViewModel @Inject constructor(
                             topApps = topApps,
                             dominantApp = topApps.firstOrNull(),
                             isDemoMode = isDemo,
+                            trackingMode = trackingMode,
                             isLoading = false
                         )
                     }
@@ -90,7 +106,12 @@ class DashboardViewModel @Inject constructor(
     fun processIntent(intent: DashboardIntent) {
         when (intent) {
             is DashboardIntent.Refresh -> {
-                refreshTrigger.value += 1
+                viewModelScope.launch {
+                    if (settingsDataStore.trackingMode.first() == TrackingMode.SAFE_USAGE_STATS) {
+                        syncUsageStatsScrollUseCase()
+                    }
+                    refreshTrigger.value += 1
+                }
             }
             is DashboardIntent.UpdateDailyGoal -> {
                 viewModelScope.launch {
@@ -98,7 +119,7 @@ class DashboardViewModel @Inject constructor(
                 }
             }
             DashboardIntent.OnGoalClicked -> {
-                // Navigation or dialog action
+                // Handled at navigation level
             }
             DashboardIntent.OnAnalyticsClicked -> {
                 // Handled at navigation level

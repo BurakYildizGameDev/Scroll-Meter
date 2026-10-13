@@ -70,6 +70,22 @@ class ScrollRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun setDailyAppScroll(
+        epochDays: Long,
+        packageName: String,
+        totalPixels: Double,
+        totalMm: Double
+    ) = withContext(ioDispatcher) {
+        val now = System.currentTimeMillis()
+        scrollDao.setDailyScroll(
+            dateEpochDays = epochDays,
+            packageName = packageName,
+            totalPixels = totalPixels,
+            totalMm = totalMm,
+            timestamp = now
+        )
+    }
+
     override suspend fun deleteRecordsOlderThan(cutoffEpochDays: Long) = withContext(ioDispatcher) {
         scrollDao.deleteRecordsOlderThan(cutoffEpochDays)
         Unit

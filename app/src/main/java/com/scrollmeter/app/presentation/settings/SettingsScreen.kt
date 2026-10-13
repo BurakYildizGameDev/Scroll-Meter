@@ -279,6 +279,176 @@ fun SettingsScreen(
                     }
                 }
 
+                // SECTION 2.5: TRACKING ENGINE & CADENCE
+                item {
+                    val context = androidx.compose.ui.platform.LocalContext.current
+                    androidx.compose.runtime.LaunchedEffect(Unit) {
+                        viewModel.checkPermissions(context)
+                    }
+
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(20.dp),
+                        color = ObsidianSurface,
+                        tonalElevation = 4.dp
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(18.dp),
+                            verticalArrangement = Arrangement.spacedBy(14.dp)
+                        ) {
+                            Text(
+                                text = stringResource(R.string.tracking_engine_title),
+                                style = MaterialTheme.typography.labelMedium.copy(
+                                    letterSpacing = 1.6.sp,
+                                    fontWeight = FontWeight.Bold
+                                ),
+                                color = EmeraldNeonSecondary
+                            )
+
+                            // Engine 1: Safe Mode
+                            val isSafeSelected = state.trackingMode == com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS
+                            Surface(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable {
+                                        viewModel.onIntent(
+                                            SettingsIntent.UpdateTrackingMode(com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS)
+                                        )
+                                    },
+                                shape = RoundedCornerShape(14.dp),
+                                color = if (isSafeSelected) EmeraldContainerDark.copy(alpha = 0.5f) else Color.White.copy(alpha = 0.03f),
+                                border = if (isSafeSelected) androidx.compose.foundation.BorderStroke(1.5.dp, EmeraldNeonPrimary) else null
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(14.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Row(verticalAlignment = Alignment.CenterVertically) {
+                                            Text(
+                                                text = stringResource(R.string.badge_safe_mode),
+                                                style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
+                                                color = Color.White
+                                            )
+                                            Spacer(modifier = Modifier.width(8.dp))
+                                            Text(
+                                                text = "ÖNERİLEN",
+                                                style = MaterialTheme.typography.labelSmall,
+                                                color = EmeraldNeonPrimary
+                                            )
+                                        }
+                                        Spacer(modifier = Modifier.height(4.dp))
+                                        Text(
+                                            text = "Android Kullanım Erişimi + Doomscroll Kadans Motoru. %0 pil, sıfır kısıtlı ayar uyarısı.",
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+                                    }
+                                    if (isSafeSelected) {
+                                        Icon(
+                                            imageVector = Icons.Default.Check,
+                                            contentDescription = null,
+                                            tint = EmeraldNeonPrimary,
+                                            modifier = Modifier.padding(start = 8.dp)
+                                        )
+                                    }
+                                }
+                            }
+
+                            // Engine 2: Lab Mode (Accessibility)
+                            val isLabSelected = state.trackingMode == com.scrollmeter.app.domain.model.TrackingMode.ACCESSIBILITY_LAB
+                            Surface(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clickable {
+                                        viewModel.onIntent(
+                                            SettingsIntent.UpdateTrackingMode(com.scrollmeter.app.domain.model.TrackingMode.ACCESSIBILITY_LAB)
+                                        )
+                                    },
+                                shape = RoundedCornerShape(14.dp),
+                                color = if (isLabSelected) Color(0xFF6750A4).copy(alpha = 0.35f) else Color.White.copy(alpha = 0.03f),
+                                border = if (isLabSelected) androidx.compose.foundation.BorderStroke(1.5.dp, Color(0xFFD6BBFB)) else null
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(14.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.SpaceBetween
+                                ) {
+                                    Column(modifier = Modifier.weight(1f)) {
+                                        Text(
+                                            text = stringResource(R.string.badge_lab_mode),
+                                            style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
+                                            color = Color.White
+                                        )
+                                        Spacer(modifier = Modifier.height(4.dp))
+                                        Text(
+                                            text = "Erişilebilirlik Piksel Sensörü. Canlı donanım dokunma deltaları.",
+                                            style = MaterialTheme.typography.bodySmall,
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant
+                                        )
+                                    }
+                                    if (isLabSelected) {
+                                        Icon(
+                                            imageVector = Icons.Default.Check,
+                                            contentDescription = null,
+                                            tint = Color(0xFFD6BBFB),
+                                            modifier = Modifier.padding(start = 8.dp)
+                                        )
+                                    }
+                                }
+                            }
+
+                            // Cadence Speed adjustment (visible if in Safe Mode)
+                            if (isSafeSelected) {
+                                Spacer(modifier = Modifier.height(6.dp))
+                                Text(
+                                    text = stringResource(R.string.cadence_speed_title),
+                                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
+                                    color = EmeraldNeonSecondary
+                                )
+                                Text(
+                                    text = stringResource(R.string.cadence_speed_desc),
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+
+                                Row(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    listOf(
+                                        Pair(0.80f, stringResource(R.string.speed_relaxed)),
+                                        Pair(1.00f, stringResource(R.string.speed_balanced)),
+                                        Pair(1.25f, stringResource(R.string.speed_rapid))
+                                    ).forEach { (speed, label) ->
+                                        val isChosen = Math.abs(state.cadenceSpeedMultiplier - speed) < 0.05f
+                                        Box(
+                                            modifier = Modifier
+                                                .weight(1f)
+                                                .clip(RoundedCornerShape(10.dp))
+                                                .background(if (isChosen) EmeraldNeonPrimary else EmeraldContainerDark)
+                                                .clickable {
+                                                    viewModel.onIntent(SettingsIntent.UpdateCadenceSpeed(speed))
+                                                }
+                                                .padding(vertical = 10.dp),
+                                            contentAlignment = Alignment.Center
+                                        ) {
+                                            Text(
+                                                text = label,
+                                                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
+                                                color = if (isChosen) Color.Black else Color.White
+                                            )
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
                 // SECTION 3: PRIVACY GUARANTEE & ABOUT
                 item {
                     Surface(

@@ -25,4 +25,10 @@ abstract class RepositoryModule {
     abstract fun bindMetricsProvider(
         impl: DeviceMetricsProviderImpl
     ): IDeviceMetricsProvider
+
+    @Binds
+    @Singleton
+    abstract fun bindUsageStatsProvider(
+        impl: com.scrollmeter.app.data.resolver.UsageStatsProviderImpl
+    ): com.scrollmeter.app.domain.repository.IUsageStatsProvider
 }

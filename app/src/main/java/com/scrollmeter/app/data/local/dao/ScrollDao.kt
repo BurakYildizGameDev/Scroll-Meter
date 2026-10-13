@@ -24,6 +24,22 @@ interface ScrollDao {
         timestamp: Long
     )
 
+    @Query("""
+        INSERT INTO daily_app_scroll (dateEpochDays, packageName, totalPixels, totalMilliMeters, lastUpdatedTimestamp)
+        VALUES (:dateEpochDays, :packageName, :totalPixels, :totalMm, :timestamp)
+        ON CONFLICT(dateEpochDays, packageName) DO UPDATE SET
+            totalPixels = excluded.totalPixels,
+            totalMilliMeters = excluded.totalMilliMeters,
+            lastUpdatedTimestamp = excluded.lastUpdatedTimestamp
+    """)
+    suspend fun setDailyScroll(
+        dateEpochDays: Long,
+        packageName: String,
+        totalPixels: Double,
+        totalMm: Double,
+        timestamp: Long
+    )
+
     @Query("SELECT SUM(totalPixels) FROM daily_app_scroll WHERE dateEpochDays = :epochDays")
     fun getDailyTotalPixels(epochDays: Long): Flow<Double?>
 
