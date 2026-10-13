@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Scroll-Meter</string>
+    <string name="accessibility_service_description">Scroll-Meter, ekran kaydırma mesafenizi piksel hassasiyetinde ölçer. Şifreleriniz, mesajlarınız veya ekran içeriğiniz teknik olarak asla okunamaz.</string>
+    <string name="notification_channel_name">Scroll-Meter Takip Servisi</string>
+    <string name="notification_channel_desc">Kaydırma mesafesini arka planda sessizce izler.</string>
+</resources>
