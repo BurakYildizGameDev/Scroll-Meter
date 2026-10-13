@@ -82,13 +82,32 @@ Proje kapsamında **67 adet birim, Robolectric ve UI tema testi** yazılmış; t
 
 ---
 
-### BÖLÜM 5: Sunum Katmanı, MVI ve Jetpack Compose (Faz 43'ten Başlayarak)
+### BÖLÜM 5: Sunum Katmanı, MVI ve Jetpack Compose (Faz 43 - 50)
 *   **Faz 43: Compose Tema ve Renk Paleti (Material Design 3):**
     *   `Color.kt`: Açık ve Koyu mod için zümrüt yeşili/turkuaz vurgu renkleri (`#00897B`, `#4EE3BF`, `#00BFA5`, `#1DE9B6`) ve koyu gece arka planı (`#0F1416`, `#161C1E`) oluşturuldu.
     *   `Type.kt`: Büyük metrik rakamlar için `displayLarge` (52sp) ve `displayMedium` (40sp) tipografileri tanımlandı.
     *   `Theme.kt`: Dinamik Renk (`dynamicColor`, Android 12+) destekli `ScrollMeterTheme` Composable'ı yazıldı; sistem durum çubuğu renkleri bağlandı.
     *   `MainActivity.kt`: `ScrollMeterTheme` ile sarmalandı.
     *   `ThemeTest.kt`: Tipografi ve renk tanımları birim testleriyle doğrulandı.
+*   **Faz 44: Ekran Navigasyonu (Type-Safe Navigation Compose):**
+    *   `Routes.kt`: Kotlinx Serialization ile tip-güvenli rota hiyerarşisi (`@Serializable sealed interface ScreenRoute`, `HomeRoute`, `AnalyticsRoute`, `SettingsRoute`, `PermissionRoute`) tanımlandı.
+    *   `ScrollNavHost.kt`: NavHost geçiş grafiği oluşturuldu, `startDestination` mantığı bağlandı.
+    *   `RoutesTest.kt`: Kotlinx Serialization polimorfik encode/decode doğrulaması yapıldı.
+*   **Faz 45: İzin ve Onboarding Ekranı (Privacy-First Onboarding):**
+    *   `PermissionScreen.kt`: Erişilebilirlik izninin neden gerektiği, internet erişiminin bulunmadığı (`canRetrieveWindowContent="false"` ve sıfır internet izni) kullanıcıya şeffafça açıklandı.
+    *   `ACTION_ACCESSIBILITY_SETTINGS` intent'i ve `LocalLifecycleOwner` üzerinden uygulama geri dönüşünde otomatik izin algılama eklendi.
+*   **Faz 46: Dashboard MVI Sözleşmesi (Contract):**
+    *   `DashboardContract.kt`: `@Immutable DashboardUiState`, `sealed interface DashboardIntent` (Refresh, ChangeDateFilter, OpenSettings, OpenAnalytics) ve `DashboardEffect` tanımlandı.
+*   **Faz 47: Dashboard ViewModel:**
+    *   `DashboardViewModel.kt`: `GetDailyTotalDistanceUseCase`, `CalculateMetaphorUseCase`, `GetAppLeaderboardUseCase` ve `SettingsDataStore` inject edilerek reaktif `StateFlow<DashboardUiState>` akışı oluşturuldu.
+*   **Faz 48: Dashboard ViewModel Testleri:**
+    *   `DashboardViewModelTest.kt`: Turbine kütüphanesiyle Flow tüketimi, 100m mesafe güncellemesi, hedef ilerleme yüzdesi ve dominant uygulama tespiti test edildi.
+*   **Faz 49: Dairesel Mesafe İlerleme Bileşeni (Circular Distance Gauge):**
+    *   `CircularDistanceProgress.kt`: Custom Canvas üzerinde 240 derecelik açık yay (open arc) çizimi, neon sweep gradient fırça, `spring` yay animasyonu ve büyük rakam dopamine tipografi entegre edildi.
+*   **Faz 50: Oyunlaştırılmış Metafor Kartları (Gamified Metaphor Cards):**
+    *   `MetaphorCard.kt`: Kilidi açılan simgeler (Zürafa, Özgürlük Heykeli, Eyfel Kulesi), bir sonraki hedefe kalan metre sayacı, bento-grid mineral card tasarımı ve mikro ilerleme çubuğu geliştirildi.
+    *   `DashboardScreen.kt`: Circular gauge, metrik rozetleri, bento kartları ve metafor kartını barındıran modern dashboard arayüzü kuruldu.
+    *   `MainActivity.kt`: İzin durumuna göre dinamik yönlendirme (`Permission` -> `Home`) sağlandı.
 
 ---
 
@@ -96,12 +115,12 @@ Proje kapsamında **67 adet birim, Robolectric ve UI tema testi** yazılmış; t
 
 ### 3.1 Derleme Çıktısı (`./gradlew assembleDebug`)
 *   **Durum:** `BUILD SUCCESSFUL` (0 hata, 0 uyarı)
-*   **İşlenen Görev:** 42 actionable tasks
+*   **İşlenen Görev:** 53 actionable tasks
 *   **Çıktı:** `app/build/outputs/apk/debug/app-debug.apk`
 
 ### 3.2 Birim, Veritabanı ve Servis Test Çıktısı (`./gradlew testDebugUnitTest`)
-*   **Toplam Test:** **67**
-*   **Başarılı:** **67 (%100)**
+*   **Toplam Test:** **70**
+*   **Başarılı:** **70 (%100)**
 *   **Başarısız (Failures):** 0
 *   **Hatalı (Errors):** 0
 
@@ -115,20 +134,29 @@ Proje kapsamında **67 adet birim, Robolectric ve UI tema testi** yazılmış; t
 | `com.scrollmeter.app.domain.usecase.CalculateMetaphorUseCaseTest` | 3 | 0 | 0 |
 | `com.scrollmeter.app.domain.usecase.GetAppLeaderboardUseCaseTest` | 1 | 0 | 0 |
 | `com.scrollmeter.app.domain.usecase.GetDailyTotalDistanceUseCaseTest` | 1 | 0 | 0 |
+| `com.scrollmeter.app.presentation.dashboard.DashboardViewModelTest` | 2 | 0 | 0 |
+| `com.scrollmeter.app.presentation.navigation.RoutesTest` | 1 | 0 | 0 |
+| `com.scrollmeter.app.presentation.theme.ThemeTest` | 2 | 0 | 0 |
+| `com.scrollmeter.app.service.batch.ScrollBatchCollectorTest` | 6 | 0 | 0 |
 | `com.scrollmeter.app.service.filter.PackageBlacklistTest` | 3 | 0 | 0 |
 | `com.scrollmeter.app.service.filter.ScrollGestureFilterTest` | 5 | 0 | 0 |
-| `com.scrollmeter.app.service.batch.ScrollBatchCollectorTest` | 6 | 0 | 0 |
-| `com.scrollmeter.app.service.receiver.ScreenStateReceiverTest` | 4 | 0 | 0 |
 | `com.scrollmeter.app.service.notification.ScrollNotificationManagerTest` | 2 | 0 | 0 |
+| `com.scrollmeter.app.service.receiver.ScreenStateReceiverTest` | 4 | 0 | 0 |
 | `com.scrollmeter.app.service.ScrollAccessibilityServiceTest` | 5 | 0 | 0 |
-| `com.scrollmeter.app.presentation.theme.ThemeTest` | 2 | 0 | 0 |
-| **TOPLAM** | **67** | **0** | **0** |
+| **TOPLAM** | **70** | **0** | **0** |
 
 ---
 
 ## 4. Mevcut Durum ve Sonraki Adım
 
-*   **Mevcut Durum:** **Bölüm 4 (Faz 31 - 42) tamamen bitirildi ve Bölüm 5'in ilk adımı olan Faz 43 (Material Design 3 Tema Altyapısı) tamamlandı.** Toplam 67 testin %100'ü yeşil ve debug APK sorunsuz üretiliyor.
-*   **Sıradaki Faz (Sonraki Adım):** **Faz 44: Ekran Navigasyonu (Type-Safe Navigation Compose)**
-    *   `Routes.kt`: Kotlinx Serialization ile tip-güvenli rota tanımları (`HomeRoute`, `AnalyticsRoute`, `SettingsRoute`, `PermissionRoute`).
-    *   `ScrollNavHost.kt`: Ekranlar arası geçiş grafiğinin kurulması.
+*   **Mevcut Durum:** **Bölüm 5'in ilk yarısı (Faz 43 - 50) tamamen tamamlandı.**
+    *   Tip-güvenli Compose Navigasyonu (`Routes.kt`, `ScrollNavHost.kt`),
+    *   Gizlilik odaklı Onboarding ve İzin ekranı (`PermissionScreen.kt`),
+    *   MVI mimarili Dashboard (`DashboardContract.kt`, `DashboardViewModel.kt`, `DashboardScreen.kt`),
+    *   Cyber Luxury & Mineral Glow tarzı Dairesel Gösterge (`CircularDistanceProgress.kt`),
+    *   Oyunlaştırılmış Landmark Metafor Kartları (`MetaphorCard.kt`),
+    *   70/70 birim testi %100 yeşil ve debug APK başarıyla üretilmektedir.
+*   **Sıradaki Faz (Sonraki Adım):** **Faz 51: Uygulama İstatistikleri Ekranı (Analytics / Leaderboard UI)**
+    *   `AnalyticsContract.kt` ve `AnalyticsViewModel.kt`: Uygulama bazlı kaydırma mesafe ve sürelerinin çekilmesi.
+    *   `Faz 52`: Özel Canvas Bar Chart (`ScrollDistanceBarChart.kt`) ile en çok kaydırılan ilk 5 uygulamanın görselleştirilmesi.
+    *   `Faz 53 - 54`: Ayarlar ekranı (`SettingsScreen.kt`), ekran kalibrasyon cetveli ve bildirim kotaları.
