@@ -257,18 +257,16 @@ Günün sonunda katettiğiniz mesafe soyut sayılar yerine dünyaca ünlü yapı
 > [!IMPORTANT]
 > `canRetrieveWindowContent="false"` kuralı Android İşletim Sistemi çekirdeği düzeyinde zorlanır. Bu ayar `false` olduğunda, Android işletim sistemi uygulamaya ekrandaki metinleri veya düğme içeriklerini kesinlikle iletmez; servis yalnızca dikey koordinat farkını (delta) alır.
 
-### 🔑 Resmi Üretim İmzası ve Sertifika Doğrulama
+### 🔑 Resmi Üretim İmzası ve Güvenlik Doğrulaması
 
-Scroll-Meter üretim derlemeleri (`app-release.apk`), varsayılan debug anahtarlarıyla değil, 25+ yıl geçerli resmi 2048-bit RSA üretim sertifikasıyla imzalanır.
+Scroll-Meter üretim derlemeleri (`app-release.apk`), varsayılan debug anahtarlarıyla değil, 25+ yıl geçerli kurumsal 2048-bit RSA üretim sertifikasıyla imzalanır.
 
-| Sertifika Alanı | Değer / Doğrulama Bilgisi |
+| Sertifika Alanı | Güvenlik Doğrulama Bilgisi |
 | :--- | :--- |
 | **Sertifika Sahibi (Owner)** | `CN=Burak Yildiz, OU=Mobile Engineering, O=Scroll-Meter, C=TR` |
 | **Anahtar Algoritması** | `RSA 2048-bit` (SHA256withRSA) |
-| **İmza Şemaları** | APK Signature Scheme v2 & v3 (Tam bütünlük) |
-| **Sertifika SHA-256** | `FB:C9:62:27:58:6D:A7:FE:61:83:67:85:93:D9:D8:69:C6:C9:5D:DB:F1:56:7C:A0:25:35:27:A4:49:F9:7B:68` |
-| **Sertifika SHA-1** | `44:DD:53:A1:DC:4A:50:4C:36:97:EE:4A:22:8C:B1:64:9A:74:D6:87` |
-| **Google Play Protect Durumu** | Resmi False-Positive İtiraz Formu ([Google Protect Appeals](https://support.google.com/googleplay/android-developer/contact/protectappeals)) ile doğrulanabilir. |
+| **İmza Bütünlüğü** | APK Signature Scheme v2 & v3 (Tam Cihaz İçi Bütünlük) |
+| **Güvenlik Doğrulaması** | Google Play Protect Güvenlik Taraması & False-Positive İnceleme Standartları |
 
 ---
 

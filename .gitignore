@@ -12,3 +12,6 @@
 *.aab
 *.hprof
 .kotlin
+*.jks
+*.keystore
+/app/keystore/
