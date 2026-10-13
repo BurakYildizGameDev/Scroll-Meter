@@ -16,6 +16,7 @@
     <string name="trophy_total_mastery">%1$d%% Total Mastery</string>
     <string name="filter_all">ALL</string>
     <string name="filter_milestone">MILESTONE</string>
+    <string name="filter_specialist">SPECIALIST</string>
     <string name="filter_habit">HABIT</string>
     <string name="filter_precision">PRECISION</string>
     <string name="badge_unlocked">UNLOCKED</string>
@@ -24,6 +25,7 @@
 
     <!-- Dashboard -->
     <string name="finger_odyssey">Finger Odyssey</string>
+    <string name="daily_telemetry">Daily Telemetry</string>
     <string name="today_distance">Today\'s Distance</string>
     <string name="leader_app">LEADER APP</string>
     <string name="no_dominant_app">None Yet</string>
@@ -32,25 +34,51 @@
     <string name="unit_meter">m</string>
     <string name="unit_km">km</string>
 
-    <!-- Achievements -->
-    <string name="ach_first_step_title">First Step</string>
-    <string name="ach_first_step_desc">Scroll your first 100 meters across any app.</string>
-    <string name="ach_giraffe_title">Giraffe Club</string>
-    <string name="ach_giraffe_desc">Outscroll the tallest living land animal (5.5m).</string>
-    <string name="ach_liberty_title">Liberty Torch</string>
-    <string name="ach_liberty_desc">Climb past the Statue of Liberty pedestal (93m).</string>
-    <string name="ach_eiffel_title">Eiffel Climber</string>
-    <string name="ach_eiffel_desc">Scale the tip of the Eiffel Tower (330m) in a single day.</string>
-    <string name="ach_burj_title">Cloud Piercer</string>
-    <string name="ach_burj_desc">Reach the observation deck of Burj Khalifa (828m).</string>
-    <string name="ach_marathon_title">Thumb Marathon</string>
-    <string name="ach_marathon_desc">Reach 1,000 meters in a single high-intensity day.</string>
-    <string name="ach_speed_title">Speed Demon</string>
-    <string name="ach_speed_desc">Accumulate over 250m inside a single dominant application.</string>
-    <string name="ach_social_title">Social Explorer</string>
-    <string name="ach_social_desc">Log active scroll sessions across at least 3 distinct apps.</string>
-    <string name="ach_precision_title">Precision Tuner</string>
-    <string name="ach_precision_desc">Calibrate screen physical scale using the on-screen ruler.</string>
+    <!-- Social Sharing to X & Milestones -->
+    <string name="share_card_title">Share Your Milestone</string>
+    <string name="share_card_subtitle">Post your daily scroll journey to 𝕏</string>
+    <string name="share_on_x_btn">Share on 𝕏</string>
+    <string name="share_copy_btn">Copy Text</string>
+    <string name="share_copied_toast">Copied to clipboard!</string>
+    <string name="share_tier_zen_title">Digital Zen (&lt; 20m)</string>
+    <string name="share_tier_zen_badge">MINIMALIST ZEN</string>
+    <string name="share_tier_zen_tweet">I only scrolled %1$s on my phone today! Digital detox mode active, letting my fingers &amp; focus rest. 🧘‍♂️🌿 #ScrollMeter #DigitalWellbeing #MindfulTech</string>
+    <string name="share_tier_explorer_title">City Explorer (20m - 100m)</string>
+    <string name="share_tier_explorer_badge">EXPLORER</string>
+    <string name="share_tier_explorer_tweet">Scrolled %1$s today on my screen — that\'s longer than a soccer field with my thumb! ⚽🏃 #ScrollMeter #ScreenDistance #TechHabits</string>
+    <string name="share_tier_climber_title">Eiffel Climber (100m - 330m)</string>
+    <string name="share_tier_climber_badge">EIFFEL CLIMBER</string>
+    <string name="share_tier_climber_tweet">Climbed %1$s of physical screen distance today! Approaching Eiffel Tower heights with my thumb. 🗼🧗 #ScrollMeter #DoomscrollCheck</string>
+    <string name="share_tier_conqueror_title">Skyscraper Victor (330m - 1000m)</string>
+    <string name="share_tier_conqueror_badge">TOWER CONQUEROR</string>
+    <string name="share_tier_conqueror_tweet">Today my thumb traveled %1$s on screen! Reached Burj Khalifa skyscraper altitude. High screen time detected, time to unplug! 🏢⚡ #ScrollMeter #ScreenTimeRealTalk</string>
+    <string name="share_tier_titan_title">Doomscroll Titan (&gt; 1 km)</string>
+    <string name="share_tier_titan_badge">DOOMSCROLL TITAN</string>
+    <string name="share_tier_titan_tweet">Ran an actual screen marathon: %1$s scrolled today! Breaking the infinite fake dopamine loop and putting the phone down right now. 🚨🧠 #ScrollMeter #Doomscrolling #BreakTheLoop</string>
+
+    <!-- Doomscrolling & Digital Wellbeing Awareness -->
+    <string name="wellbeing_title">Digital Wellbeing &amp; Fake Dopamine</string>
+    <string name="wellbeing_manifesto_badge">NOT A GAME • AWARENESS TOOL</string>
+    <string name="wellbeing_manifesto_body">Scroll-Meter NEVER encourages you to scroll more. Its sole mission is to make invisible compulsive screen scrolling physically tangible — so you can put your phone down.</string>
+    <string name="wellbeing_fake_dopamine_title">The Slot Machine Dopamine Trap</string>
+    <string name="wellbeing_fake_dopamine_desc">Infinite feeds exploit variable reward schedules. Each swipe delivers micro-dopamine bursts that trick the brain into an endless craving cycle without real fulfillment.</string>
+    <string name="wellbeing_brain_fog_title">Cognitive Fragmentation &amp; Brain Fog</string>
+    <string name="wellbeing_brain_fog_desc">Rapid content switching degrades deep focus, shortens attention span, and exhausts executive brain function.</string>
+    <string name="wellbeing_thumb_strain_title">Physical Deformity &amp; Smartphone Thumb</string>
+    <string name="wellbeing_thumb_strain_desc">Repetitive micro-swipes cause De Quervain tenosynovitis (thumb tendonitis) and cervical spine pressure (Text Neck).</string>
+    <string name="wellbeing_tip_take_break">Pro-tip: Set your phone face-down for 20 minutes when reaching your daily goal.</string>
+
+    <!-- Language Settings -->
+    <string name="settings_language_title">APPLICATION LANGUAGE</string>
+    <string name="settings_language_desc">Choose your preferred display language or sync with system default.</string>
+    <string name="lang_system_default">System Default (Device)</string>
+    <string name="lang_en">English</string>
+    <string name="lang_tr">Türkçe</string>
+    <string name="lang_de">Deutsch</string>
+    <string name="lang_ru">Русский</string>
+    <string name="lang_zh">简体中文</string>
+    <string name="lang_fr">Français</string>
+    <string name="lang_it">Italiano</string>
 
     <!-- Settings & Calibration -->
     <string name="screen_calibration">SCREEN CALIBRATION</string>
@@ -90,23 +118,43 @@
     <string name="demo_mode_desc">Instantly load mock telemetry, unlocked achievements, and weekly charts for evaluation.</string>
 
     <!-- Dual Engine Architecture -->
-    <string name="mode_safe_title">Standart Güvenli Mod (Önerilen 🌟)</string>
-    <string name="mode_safe_badge">100% GÜVENLİ &amp; SIFIR UYARI</string>
-    <string name="mode_safe_desc">Android Kullanım Erişimi (UsageStats) ve akıllı Doomscroll Kadans Motoru ile ekran süresini gerçek mesafeye dönüştürür. Sıfır kısıtlı ayar, sıfır uyarı ve %0 pil tüketimi.</string>
-    <string name="mode_safe_btn">Kullanım İznini Etkinleştir</string>
-    <string name="mode_lab_title">Gelişmiş Laboratuvar Modu 🔬</string>
-    <string name="mode_lab_badge">DONANIM PİKSEL DELTA</string>
-    <string name="mode_lab_desc">Erişilebilirlik servisi ile ekrandaki her piksel kaydırmasını donanım düzeyinde gerçek zamanlı yakalar.</string>
-    <string name="mode_lab_btn">Erişilebilirlik Servisini Etkinleştir</string>
-    <string name="mode_lab_warning_title">Android 13+ Kısıtlanmış Ayar Bilgisi</string>
-    <string name="mode_lab_warning_desc">Play Store dışından indirilen APK\'larda Android, Erişilebilirlik servisini güvenlik gereği kısıtlar. Uygulama Ayarları > 3 nokta > Kısıtlanmış ayara izin ver ile açılır. Scroll-Meter\'da sıfır internet izni vardır; verileriniz cihazdan asla çıkmaz.</string>
-    <string name="badge_safe_mode">🛡️ GÜVENLİ MOD</string>
-    <string name="badge_lab_mode">🔬 LAB SENSÖRÜ</string>
-    <string name="badge_demo_mode">🎮 DEMO MODU</string>
-    <string name="tracking_engine_title">TAKİP MOTORU &amp; MİMARİ</string>
-    <string name="cadence_speed_title">KADANS HIZI (KAYDIRMA TEMPOSU)</string>
-    <string name="cadence_speed_desc">Aktif ekran dakikası başına kaydırma hız çarpanı.</string>
-    <string name="speed_relaxed">Sakin (0.8x)</string>
-    <string name="speed_balanced">Dengeli (1.0x)</string>
-    <string name="speed_rapid">Seri (1.25x)</string>
+    <string name="mode_safe_title">Standard Safe Mode (Recommended 🌟)</string>
+    <string name="mode_safe_badge">100% SAFE &amp; ZERO WARNINGS</string>
+    <string name="mode_safe_desc">Converts active screen time to physical scroll distance using Android Usage Access and our smart Cadence Engine. Zero restricted settings, zero battery drain.</string>
+    <string name="mode_safe_btn">Enable Usage Access</string>
+    <string name="mode_lab_title">Advanced Lab Mode 🔬</string>
+    <string name="mode_lab_badge">HARDWARE PIXEL DELTA</string>
+    <string name="mode_lab_desc">Measures physical pixel scrolling in real-time at the hardware level using Android Accessibility Service.</string>
+    <string name="mode_lab_btn">Enable Accessibility Service</string>
+    <string name="mode_lab_warning_title">Android 13+ Restricted Settings Note</string>
+    <string name="mode_lab_warning_desc">For sideloaded APKs, Android restricts Accessibility by default. Enable via App Info > 3 dots > Allow restricted settings. Scroll-Meter has zero internet permissions; your data never leaves your device.</string>
+    <string name="badge_safe_mode">🛡️ SAFE MODE</string>
+    <string name="badge_lab_mode">🔬 LAB SENSOR</string>
+    <string name="badge_demo_mode">🎮 DEMO MODE</string>
+    <string name="tracking_engine_title">TRACKING ENGINE &amp; ARCHITECTURE</string>
+    <string name="cadence_speed_title">CADENCE SPEED (SCROLL TEMPO)</string>
+    <string name="cadence_speed_desc">Scroll speed multiplier per active screen minute.</string>
+    <string name="speed_relaxed">Relaxed (0.8x)</string>
+    <string name="speed_balanced">Balanced (1.0x)</string>
+    <string name="speed_rapid">Rapid (1.25x)</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">First Step</string>
+    <string name="ach_first_step_desc">Scroll your first 100 meters across any app.</string>
+    <string name="ach_giraffe_title">Giraffe Club</string>
+    <string name="ach_giraffe_desc">Outscroll the tallest living land animal (5.5m).</string>
+    <string name="ach_liberty_title">Liberty Torch</string>
+    <string name="ach_liberty_desc">Climb past the Statue of Liberty pedestal (93m).</string>
+    <string name="ach_eiffel_title">Eiffel Climber</string>
+    <string name="ach_eiffel_desc">Scale the tip of the Eiffel Tower (330m) in a single day.</string>
+    <string name="ach_burj_title">Cloud Piercer</string>
+    <string name="ach_burj_desc">Reach the observation deck of Burj Khalifa (828m).</string>
+    <string name="ach_marathon_title">Thumb Marathon</string>
+    <string name="ach_marathon_desc">Reach 1,000 meters in a single high-intensity day.</string>
+    <string name="ach_speed_title">Speed Demon</string>
+    <string name="ach_speed_desc">Accumulate over 250m inside a single dominant application.</string>
+    <string name="ach_social_title">Social Explorer</string>
+    <string name="ach_social_desc">Log active scroll sessions across at least 3 distinct apps.</string>
+    <string name="ach_precision_title">Precision Tuner</string>
+    <string name="ach_precision_desc">Calibrate screen physical scale using the on-screen ruler.</string>
 </resources>

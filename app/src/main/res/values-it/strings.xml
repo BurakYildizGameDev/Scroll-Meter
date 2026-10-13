@@ -2,20 +2,21 @@
 <resources>
     <!-- App & Service Core -->
     <string name="app_name">Scroll-Meter</string>
-    <string name="accessibility_service_description">Scroll-Meter misura la distanza di scorrimento dello schermo con precisione al pixel. Le tue password, i messaggi o i contenuti dello schermo non possono mai essere letti.</string>
-    <string name="notification_channel_name">Servizio di Monitoraggio Scroll-Meter</string>
+    <string name="accessibility_service_description">Scroll-Meter misura la distanza fisica di scorrimento con precisione millimetrica. Password, messaggi e contenuti dello schermo non vengono mai letti.</string>
+    <string name="notification_channel_name">Servizio di monitoraggio Scroll-Meter</string>
     <string name="notification_channel_desc">Monitora silenziosamente la distanza di scorrimento in background.</string>
 
     <!-- Navigation & Titles -->
     <string name="nav_dashboard">Dashboard</string>
     <string name="nav_analytics">Analisi</string>
-    <string name="nav_settings">Impostazioni &amp; Calibrazione</string>
+    <string name="nav_settings">Impostazioni e Calibrazione</string>
     <string name="nav_achievements">Obiettivi</string>
     <string name="trophy_room">SALA TROFEI</string>
     <string name="trophy_unlocked_count">%1$d di %2$d Sbloccati</string>
-    <string name="trophy_total_mastery">%1$d%% Padronanza Totale</string>
+    <string name="trophy_total_mastery">%1$d%% Maestria Totale</string>
     <string name="filter_all">TUTTI</string>
     <string name="filter_milestone">TRAGUARDO</string>
+    <string name="filter_specialist">SPECIALISTA</string>
     <string name="filter_habit">ABITUDINE</string>
     <string name="filter_precision">PRECISIONE</string>
     <string name="badge_unlocked">SBLOCCATO</string>
@@ -23,46 +24,73 @@
     <string name="btn_refresh">Aggiorna</string>
 
     <!-- Dashboard -->
-    <string name="finger_odyssey">Odissea del Dito</string>
-    <string name="today_distance">Distanza Odierna</string>
+    <string name="finger_odyssey">Odissea del pollice</string>
+    <string name="daily_telemetry">Telemetria giornaliera</string>
+    <string name="today_distance">Distanza di oggi</string>
     <string name="leader_app">APP PRINCIPALE</string>
-    <string name="no_dominant_app">Nessuna ancora</string>
+    <string name="no_dominant_app">Nessuna</string>
     <string name="daily_goal">OBIETTIVO</string>
     <string name="goal_completed_pct">%1$d%% Completato</string>
     <string name="unit_meter">m</string>
     <string name="unit_km">km</string>
 
-    <!-- Achievements -->
-    <string name="ach_first_step_title">Primo Passo</string>
-    <string name="ach_first_step_desc">Scorri i tuoi primi 100 metri in qualsiasi app.</string>
-    <string name="ach_giraffe_title">Club Giraffa</string>
-    <string name="ach_giraffe_desc">Supera l\'animale terrestre più alto (5,5m).</string>
-    <string name="ach_liberty_title">Torcia della Libertà</string>
-    <string name="ach_liberty_desc">Supera il piedistallo della Statua della Libertà (93m).</string>
-    <string name="ach_eiffel_title">Scalatore della Tour Eiffel</string>
-    <string name="ach_eiffel_desc">Raggiungi la cima della Torre Eiffel (330m) in un solo giorno.</string>
-    <string name="ach_burj_title">Foranuvole</string>
-    <string name="ach_burj_desc">Raggiungi il ponte di osservazione del Burj Khalifa (828m).</string>
-    <string name="ach_marathon_title">Maratona del Pollice</string>
-    <string name="ach_marathon_desc">Raggiungi 1.000 metri in un\'unica giornata intensa.</string>
-    <string name="ach_speed_title">Demone della Velocità</string>
-    <string name="ach_speed_desc">Accumula oltre 250m in una singola applicazione dominante.</string>
-    <string name="ach_social_title">Esploratore Social</string>
-    <string name="ach_social_desc">Registra sessioni di scorrimento attive in almeno 3 app diverse.</string>
-    <string name="ach_precision_title">Sintonizzatore di Precisione</string>
-    <string name="ach_precision_desc">Calibra la scala fisica dello schermo usando il righello a display.</string>
+    <!-- Social Sharing to X & Milestones -->
+    <string name="share_card_title">Condividi il tuo traguardo</string>
+    <string name="share_card_subtitle">Condividi la tua distanza su 𝕏</string>
+    <string name="share_on_x_btn">Condividi su 𝕏</string>
+    <string name="share_copy_btn">Copia testo</string>
+    <string name="share_copied_toast">Testo copiato negli appunti!</string>
+    <string name="share_tier_zen_title">Zen digitale (&lt; 20m)</string>
+    <string name="share_tier_zen_badge">MINIMALISTA ZEN</string>
+    <string name="share_tier_zen_tweet">Oggi ho scorso solo %1$s sullo schermo! Modalità digital detox attiva, pollice e mente si rilassano. 🧘‍♂️🌿 #ScrollMeter #DigitalWellbeing #MindfulTech</string>
+    <string name="share_tier_explorer_title">Esploratore urbano (20m - 100m)</string>
+    <string name="share_tier_explorer_badge">ESPLORATORE</string>
+    <string name="share_tier_explorer_tweet">Oggi ho percorso %1$s sullo schermo: più lungo di un campo da calcio con il mio pollice! ⚽🏃 #ScrollMeter #ScreenDistance #TechHabits</string>
+    <string name="share_tier_climber_title">Scalatore della Tour Eiffel (100m - 330m)</string>
+    <string name="share_tier_climber_badge">SCALATORE EIFFEL</string>
+    <string name="share_tier_climber_tweet">Oggi ho scalato fisicamente %1$s sullo schermo! Mi sto avvicinando alla cima della Tour Eiffel col pollice. 🗼🧗 #ScrollMeter #DoomscrollCheck</string>
+    <string name="share_tier_conqueror_title">Conquistatore di grattacieli (330m - 1000m)</string>
+    <string name="share_tier_conqueror_badge">CONQUISTATORE TORRE</string>
+    <string name="share_tier_conqueror_tweet">Oggi il mio pollice ha percorso %1$s sullo schermo! Raggiunta l\'altitudine del Burj Khalifa. Tempo sullo schermo elevato, ora di staccare! 🏢⚡ #ScrollMeter #ScreenTimeRealTalk</string>
+    <string name="share_tier_titan_title">Titano del Doomscroll (&gt; 1 km)</string>
+    <string name="share_tier_titan_badge">TITANO DOOMSCROLL</string>
+    <string name="share_tier_titan_tweet">Una vera maratona sullo schermo: %1$s trascorsi a scorrere oggi! Rompo il ciclo di falsa dopamina e poso il telefono. 🚨🧠 #ScrollMeter #Doomscrolling #BreakTheLoop</string>
+
+    <!-- Doomscrolling & Digital Wellbeing Awareness -->
+    <string name="wellbeing_title">Doomscrolling e Falsa Dopamina</string>
+    <string name="wellbeing_manifesto_badge">NON È UN GIOCO • STRUMENTO DI CONSAPEVOLEZZA</string>
+    <string name="wellbeing_manifesto_body">Scroll-Meter non ti incoraggia MAI a scorrere di più. La sua missione è rendere tangibile lo scorrimento compulsivo inconsapevole affinché tu possa posare il telefono.</string>
+    <string name="wellbeing_fake_dopamine_title">La trappola della slot machine</string>
+    <string name="wellbeing_fake_dopamine_desc">I feed infiniti sfruttano ricompense variabili. Ogni swipe rilascia micro-scariche di falsa dopamina intrappolando il cervello in un ciclo continuo.</string>
+    <string name="wellbeing_brain_fog_title">Frammentazione cognitiva e nebbia mentale</string>
+    <string name="wellbeing_brain_fog_desc">Il rapido cambio di contenuti distrugge la concentrazione profonda, riduce la soglia di attenzione ed esaurisce le funzioni esecutive.</string>
+    <string name="wellbeing_thumb_strain_title">Deformazione fisica e pollice da smartphone</string>
+    <string name="wellbeing_thumb_strain_desc">I micro-scorrimenti ripetuti causano tenosinovite di De Quervain (tendinite del pollice) e tensione cervicale (Text Neck).</string>
+    <string name="wellbeing_tip_take_break">Consiglio: Posiziona il telefono a faccia in giù per 20 minuti quando raggiungi il tuo obiettivo.</string>
+
+    <!-- Language Settings -->
+    <string name="settings_language_title">LINGUA DELL\'APPLICAZIONE</string>
+    <string name="settings_language_desc">Scegli la lingua preferita o usa quella predefinita di sistema.</string>
+    <string name="lang_system_default">Predefinita di sistema (Dispositivo)</string>
+    <string name="lang_en">English</string>
+    <string name="lang_tr">Türkçe</string>
+    <string name="lang_de">Deutsch</string>
+    <string name="lang_ru">Русский</string>
+    <string name="lang_zh">简体中文</string>
+    <string name="lang_fr">Français</string>
+    <string name="lang_it">Italiano</string>
 
     <!-- Settings & Calibration -->
-    <string name="screen_calibration">CALIBRAZIONE DELLO SCHERMO</string>
-    <string name="screen_calibration_desc">Posiziona un righello fisico direttamente sullo schermo. Regola il cursore finché i trattini millimetrici virtuali non coincidono esattamente con il tuo righello.</string>
+    <string name="screen_calibration">CALIBRAZIONE SCHERMO</string>
+    <string name="screen_calibration_desc">Posiziona un vero righello fisico sullo schermo. Regola il cursore fino a far combaciare perfettamente le tacche millimetriche.</string>
     <string name="calibration_multiplier">Moltiplicatore: %1$.2fx (%2$s)</string>
     <string name="calibration_ppi">PPI: %1$d</string>
     <string name="reset_to_default">Ripristina a 1.00x</string>
     <string name="daily_scroll_target">OBIETTIVO GIORNALIERO</string>
-    <string name="current_goal_meters">Obiettivo Corrente: %1$d metri</string>
-    <string name="enterprise_privacy">ARCHITETTURA DI PRIVACY AZIENDALE</string>
-    <string name="privacy_bullet_offline">• 100% Offline (Nessun permesso INTERNET in AndroidManifest)</string>
-    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Testo e digitazioni non possono mai essere letti)</string>
+    <string name="current_goal_meters">Obiettivo attuale: %1$d metri</string>
+    <string name="enterprise_privacy">ARCHITETTURA DI PRIVACY E SICUREZZA</string>
+    <string name="privacy_bullet_offline">• 100% Offline (Nessun permesso INTERNET nel Manifest)</string>
+    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Testo e tasti mai letti)</string>
     <string name="privacy_bullet_db">• Database SQLite locale crittografato a livello hardware</string>
     <string name="privacy_bullet_version">• Versione: 1.0.0 (Build 2026-Enterprise)</string>
 
@@ -70,20 +98,63 @@
     <string name="time_today">OGGI</string>
     <string name="time_yesterday">IERI</string>
     <string name="total_recorded_scroll">TOTALE SCORRIMENTO REGISTRATO</string>
-    <string name="apps_count">%1$d App</string>
-    <string name="app_leaderboard">CLASSIFICA APP</string>
-    <string name="no_app_activity">Nessuna attività registrata finora.</string>
+    <string name="apps_count">%1$d Applicazioni</string>
+    <string name="app_leaderboard">CLASSIFICA APPLICAZIONI</string>
+    <string name="no_app_activity">Nessuna attività registrata al momento.</string>
 
     <!-- Onboarding & Permissions -->
     <string name="welcome_odyssey">Benvenuto in Odyssey ⚡</string>
-    <string name="track_every_meter">Traccia ogni metro che scorri.</string>
-    <string name="onboarding_subtitle">Scroll-Meter misura la distanza fisica percorsa dal tuo dito attraverso le app. Per rilevare i movimenti di scorrimento, Android richiede l\'autorizzazione del servizio di accessibilità.</string>
+    <string name="track_every_meter">Misura ogni metro che scorri.</string>
+    <string name="onboarding_subtitle">Scroll-Meter misura la distanza fisica percorsa dal tuo pollice nelle app. Per rilevare il tocco, Android richiede il permesso di accessibilità.</string>
     <string name="trust_privacy_title">100% Garanzia di Privacy</string>
-    <string name="trust_privacy_desc">canRetrieveWindowContent = false. È tecnicamente impossibile leggere password, chat o schermate.</string>
-    <string name="trust_network_title">Zero Permessi Internet</string>
-    <string name="trust_network_desc">Nessuna pubblicità, nessun tracker, nessun caricamento su cloud. Tutta la telemetria risiede nel tuo database SQLite locale.</string>
-    <string name="trust_battery_title">Zero Consumo di Batteria</string>
-    <string name="trust_battery_desc">A schermo spento il sensore si sospende automaticamente. Il buffer con raggruppamento a 5s consuma &lt;0.5% CPU.</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false. Impossibile leggere password, chat o schermate.</string>
+    <string name="trust_network_title">Zero permessi Internet</string>
+    <string name="trust_network_desc">Nessuna pubblicità, nessun tracciamento né upload su cloud. Tutto resta nel database locale Room.</string>
+    <string name="trust_battery_title">Zero consumo batteria</string>
+    <string name="trust_battery_desc">Il sensore va in standby a schermo spento. Il batching a 5s usa &lt;0,5% di CPU.</string>
     <string name="btn_continue">CONTINUA</string>
     <string name="btn_activate_service">ATTIVA SERVIZIO ⚡</string>
+    <string name="btn_demo_mode">MODALITÀ DEMO (Prova senza permessi)</string>
+    <string name="demo_mode_desc">Carica immediatamente dati telemetrici fittizi, obiettivi e grafici per la valutazione.</string>
+
+    <!-- Dual Engine Architecture -->
+    <string name="mode_safe_title">Modalità Sicura Standard (Consigliata 🌟)</string>
+    <string name="mode_safe_badge">100% SICURO &amp; ZERO AVVISI</string>
+    <string name="mode_safe_desc">Converte il tempo sullo schermo in distanza fisica tramite i dati di utilizzo di Android e il nostro motore di cadenza. Zero impostazioni limitate, zero batteria.</string>
+    <string name="mode_safe_btn">Attiva accesso dati utilizzo</string>
+    <string name="mode_lab_title">Modalità Laboratorio Avanzata 🔬</string>
+    <string name="mode_lab_badge">DELTA PIXEL HARDWARE</string>
+    <string name="mode_lab_desc">Misura in tempo reale lo scorrimento dei pixel fisici tramite il servizio di accessibilità.</string>
+    <string name="mode_lab_btn">Attiva servizio accessibilità</string>
+    <string name="mode_lab_warning_title">Nota impostazioni limitate Android 13+</string>
+    <string name="mode_lab_warning_desc">Per gli APK esterni, Android limita l\'accessibilità. Abilita tramite Info app > 3 punti > Consenti impostazioni limitate.</string>
+    <string name="badge_safe_mode">🛡️ MODALITÀ SICURA</string>
+    <string name="badge_lab_mode">🔬 SENSORE LAB</string>
+    <string name="badge_demo_mode">🎮 MODALITÀ DEMO</string>
+    <string name="tracking_engine_title">MOTORE DI TRACCIAMENTO</string>
+    <string name="cadence_speed_title">VELOCITÀ DI CADENZA (RITMO)</string>
+    <string name="cadence_speed_desc">Moltiplicatore di velocità per minuto di schermo attivo.</string>
+    <string name="speed_relaxed">Rilassato (0.8x)</string>
+    <string name="speed_balanced">Bilanciato (1.0x)</string>
+    <string name="speed_rapid">Rapido (1.25x)</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">Primo Passo</string>
+    <string name="ach_first_step_desc">Scorri i tuoi primi 100 metri in qualsiasi app.</string>
+    <string name="ach_giraffe_title">Club Giraffa</string>
+    <string name="ach_giraffe_desc">Supera l\'altezza dell\'animale terrestre più alto (5,5m).</string>
+    <string name="ach_liberty_title">Fiaccola della Libertà</string>
+    <string name="ach_liberty_desc">Supera il piedistallo della Statua della Libertà (93m).</string>
+    <string name="ach_eiffel_title">Scalatore Eiffel</string>
+    <string name="ach_eiffel_desc">Raggiungi la cima della Tour Eiffel (330m) in un solo giorno.</string>
+    <string name="ach_burj_title">Fenditore di Nuvole</string>
+    <string name="ach_burj_desc">Raggiungi la terrazza panoramica del Burj Khalifa (828m).</string>
+    <string name="ach_marathon_title">Maratona del Pollice</string>
+    <string name="ach_marathon_desc">Raggiungi 1.000 metri in un singolo giorno di attività intensa.</string>
+    <string name="ach_speed_title">Demone della Velocità</string>
+    <string name="ach_speed_desc">Accumula oltre 250m in una singola applicazione.</string>
+    <string name="ach_social_title">Esploratore Sociale</string>
+    <string name="ach_social_desc">Registra sessioni di scorrimento su almeno 3 app diverse.</string>
+    <string name="ach_precision_title">Sintonizzatore di Precisione</string>
+    <string name="ach_precision_desc">Calibra la scala fisica dello schermo usando il righello.</string>
 </resources>

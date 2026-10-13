@@ -2,13 +2,13 @@
 <resources>
     <!-- App & Service Core -->
     <string name="app_name">Scroll-Meter</string>
-    <string name="accessibility_service_description">Scroll-Meter mesure la distance physique de défilement de votre écran avec une précision au pixel près. Vos mots de passe, messages et contenus d\'écran ne peuvent techniquement jamais être lus.</string>
+    <string name="accessibility_service_description">Scroll-Meter mesure la distance physique de défilement avec une précision au pixel près. Vos mots de passe, messages et contenus d\'écran ne peuvent jamais être lus.</string>
     <string name="notification_channel_name">Service de suivi Scroll-Meter</string>
     <string name="notification_channel_desc">Surveille silencieusement la distance de défilement en arrière-plan.</string>
 
     <!-- Navigation & Titles -->
     <string name="nav_dashboard">Tableau de bord</string>
-    <string name="nav_analytics">Statistiques</string>
+    <string name="nav_analytics">Analytique</string>
     <string name="nav_settings">Paramètres &amp; Étalonnage</string>
     <string name="nav_achievements">Succès</string>
     <string name="trophy_room">SALLE DES TROPHÉES</string>
@@ -16,6 +16,7 @@
     <string name="trophy_total_mastery">%1$d%% Maîtrise Totale</string>
     <string name="filter_all">TOUS</string>
     <string name="filter_milestone">ÉTAPE</string>
+    <string name="filter_specialist">SPÉCIALISTE</string>
     <string name="filter_habit">HABITUDE</string>
     <string name="filter_precision">PRÉCISION</string>
     <string name="badge_unlocked">DÉBLOQUÉ</string>
@@ -23,67 +24,137 @@
     <string name="btn_refresh">Actualiser</string>
 
     <!-- Dashboard -->
-    <string name="finger_odyssey">Odyssée du Doigt</string>
-    <string name="today_distance">Distance du Jour</string>
-    <string name="leader_app">APPLICATION EN TÊTE</string>
-    <string name="no_dominant_app">Aucune pour le moment</string>
+    <string name="finger_odyssey">Odyssée du pouce</string>
+    <string name="daily_telemetry">Télémétrie du jour</string>
+    <string name="today_distance">Distance aujourd\'hui</string>
+    <string name="leader_app">APPLICATION PRINCIPALE</string>
+    <string name="no_dominant_app">Aucune</string>
     <string name="daily_goal">OBJECTIF</string>
     <string name="goal_completed_pct">%1$d%% Atteint</string>
     <string name="unit_meter">m</string>
     <string name="unit_km">km</string>
 
-    <!-- Achievements -->
-    <string name="ach_first_step_title">Premier Pas</string>
-    <string name="ach_first_step_desc">Faites défiler vos 100 premiers mètres dans n\'importe quelle application.</string>
-    <string name="ach_giraffe_title">Club Girafe</string>
-    <string name="ach_giraffe_desc">Dépassez la taille du plus grand animal terrestre (5,5m).</string>
-    <string name="ach_liberty_title">Flamme de la Liberté</string>
-    <string name="ach_liberty_desc">Dépassez le piédestal de la Statue de la Liberté (93m).</string>
-    <string name="ach_eiffel_title">Grimpeur de la Tour Eiffel</string>
-    <string name="ach_eiffel_desc">Atteignez le sommet de la Tour Eiffel (330m) en une seule journée.</string>
-    <string name="ach_burj_title">Perceur de Nuages</string>
-    <string name="ach_burj_desc">Atteignez la plateforme d\'observation du Burj Khalifa (828m).</string>
-    <string name="ach_marathon_title">Marathon du Pouce</string>
-    <string name="ach_marathon_desc">Atteignez 1 000 mètres en une seule journée intense.</string>
-    <string name="ach_speed_title">Démon de la Vitesse</string>
-    <string name="ach_speed_desc">Cumulez plus de 250m dans une seule application dominante.</string>
-    <string name="ach_social_title">Explorateur Social</string>
-    <string name="ach_social_desc">Enregistrez des sessions de défilement actives sur au moins 3 applications distinctes.</string>
-    <string name="ach_precision_title">Régleur de Précision</string>
-    <string name="ach_precision_desc">Étalonnez l\'échelle physique de votre écran à l\'aide de la règle intégrée.</string>
+    <!-- Social Sharing to X & Milestones -->
+    <string name="share_card_title">Partager votre étape</string>
+    <string name="share_card_subtitle">Partagez votre voyage de défilement sur 𝕏</string>
+    <string name="share_on_x_btn">Partager sur 𝕏</string>
+    <string name="share_copy_btn">Copier le texte</string>
+    <string name="share_copied_toast">Texte copié dans le presse-papiers !</string>
+    <string name="share_tier_zen_title">Zen numérique (&lt; 20m)</string>
+    <string name="share_tier_zen_badge">MINIMALISTE ZEN</string>
+    <string name="share_tier_zen_tweet">Aujourd\'hui, je n\'ai défilé que %1$s sur mon écran ! Mode détox digitale actif, mes doigts et mon esprit se reposent. 🧘‍♂️🌿 #ScrollMeter #DigitalWellbeing #MindfulTech</string>
+    <string name="share_tier_explorer_title">Explorateur urbain (20m - 100m)</string>
+    <string name="share_tier_explorer_badge">EXPLORATEUR</string>
+    <string name="share_tier_explorer_tweet">J\'ai défilé %1$s aujourd\'hui — plus long qu\'un terrain de football avec mon pouce ! ⚽🏃 #ScrollMeter #ScreenDistance #TechHabits</string>
+    <string name="share_tier_climber_title">Grimpeur de la Tour Eiffel (100m - 330m)</string>
+    <string name="share_tier_climber_badge">GRIMPEUR TOUR EIFFEL</string>
+    <string name="share_tier_climber_tweet">J\'ai gravi physiquement %1$s sur mon écran aujourd\'hui ! Je frôle le sommet de la Tour Eiffel avec mon pouce. 🗼🧗 #ScrollMeter #DoomscrollCheck</string>
+    <string name="share_tier_conqueror_title">Conquérant de gratte-ciel (330m - 1000m)</string>
+    <string name="share_tier_conqueror_badge">CONQUÉRANT DE TOUR</string>
+    <string name="share_tier_conqueror_tweet">Mon pouce a parcouru %1$s sur l\'écran ! Altitude Burj Khalifa atteinte. Temps d\'écran élevé, il est temps de faire une pause ! 🏢⚡ #ScrollMeter #ScreenTimeRealTalk</string>
+    <string name="share_tier_titan_title">Titan du Doomscroll (&gt; 1 km)</string>
+    <string name="share_tier_titan_badge">TITAN DU DOOMSCROLL</string>
+    <string name="share_tier_titan_tweet">Véritable marathon sur écran : %1$s défilés aujourd\'hui ! Je brise la boucle de fausse dopamine et je pose mon téléphone. 🚨🧠 #ScrollMeter #Doomscrolling #BreakTheLoop</string>
+
+    <!-- Doomscrolling & Digital Wellbeing Awareness -->
+    <string name="wellbeing_title">Doomscrolling &amp; Fausse Dopamine</string>
+    <string name="wellbeing_manifesto_badge">PAS UN JEU • OUTIL DE CONSCIENCE</string>
+    <string name="wellbeing_manifesto_body">Scroll-Meter ne vous incite JAMAIS à défiler davantage. Sa mission unique est de matérialiser le défilement compulsif inconscient afin de vous inciter à poser votre téléphone.</string>
+    <string name="wellbeing_fake_dopamine_title">Le piège de la machine à sous</string>
+    <string name="wellbeing_fake_dopamine_desc">Les fils d\'actualité infinis exploitent la récompense variable. Chaque balayage déclenche une micro-décharge de fausse dopamine enfermant le cerveau dans une boucle insatiable.</string>
+    <string name="wellbeing_brain_fog_title">Fragmentation cognitive &amp; Brouillard mental</string>
+    <string name="wellbeing_brain_fog_desc">Le changement perpétuel de contenu détruit la concentration profonde, réduit la durée d\'attention et épuise les fonctions exécutives.</string>
+    <string name="wellbeing_thumb_strain_title">Déformation physique &amp; Pouce du smartphone</string>
+    <string name="wellbeing_thumb_strain_desc">Les micro-balayages répétés provoquent la ténosynovite de De Quervain (tendinite du pouce) et des tensions cervicales (Text Neck).</string>
+    <string name="wellbeing_tip_take_break">Conseil : Posez votre téléphone écran vers le bas pendant 20 minutes dès que vous atteignez votre limite.</string>
+
+    <!-- Language Settings -->
+    <string name="settings_language_title">LANGUE DE L\'APPLICATION</string>
+    <string name="settings_language_desc">Choisissez votre langue préférée ou synchronisez avec celle de l\'appareil.</string>
+    <string name="lang_system_default">Par défaut (Appareil)</string>
+    <string name="lang_en">English</string>
+    <string name="lang_tr">Türkçe</string>
+    <string name="lang_de">Deutsch</string>
+    <string name="lang_ru">Русский</string>
+    <string name="lang_zh">简体中文</string>
+    <string name="lang_fr">Français</string>
+    <string name="lang_it">Italiano</string>
 
     <!-- Settings & Calibration -->
     <string name="screen_calibration">ÉTALONNAGE DE L\'ÉCRAN</string>
-    <string name="screen_calibration_desc">Placez une vraie règle physique directement sur l\'écran de votre téléphone. Ajustez le curseur jusqu\'à ce que les repères millimétriques virtuels s\'alignent parfaitement avec votre règle.</string>
+    <string name="screen_calibration_desc">Placez une vraie règle physique sur votre écran. Ajustez le curseur jusqu\'à ce que les repères millimétriques coïncident exactement.</string>
     <string name="calibration_multiplier">Multiplicateur : %1$.2fx (%2$s)</string>
-    <string name="calibration_ppi">PPI : %1$d</string>
+    <string name="calibration_ppi">PPP : %1$d</string>
     <string name="reset_to_default">Réinitialiser à 1.00x</string>
-    <string name="daily_scroll_target">OBJECTIF QUOTIDIEN DE DÉFILEMENT</string>
+    <string name="daily_scroll_target">OBJECTIF QUOTIDIEN</string>
     <string name="current_goal_meters">Objectif actuel : %1$d mètres</string>
-    <string name="enterprise_privacy">ARCHITECTURE DE CONFIDENTIALITÉ ENTREPRISE</string>
-    <string name="privacy_bullet_offline">• 100% Hors ligne (Aucune permission INTERNET dans AndroidManifest)</string>
-    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Les textes et saisies d\'écran ne sont jamais lus)</string>
-    <string name="privacy_bullet_db">• Base de données SQLite locale chiffrée au niveau matériel</string>
+    <string name="enterprise_privacy">ARCHITECTURE DE CONFIDENTIALITÉ</string>
+    <string name="privacy_bullet_offline">• 100% Hors-ligne (Aucune permission INTERNET dans le Manifest)</string>
+    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Textes et touches jamais lus)</string>
+    <string name="privacy_bullet_db">• Base SQLite locale chiffrée au niveau matériel</string>
     <string name="privacy_bullet_version">• Version : 1.0.0 (Build 2026-Enterprise)</string>
 
     <!-- Analytics -->
     <string name="time_today">AUJOURD\'HUI</string>
     <string name="time_yesterday">HIER</string>
-    <string name="total_recorded_scroll">DÉFILEMENT TOTAL ENREGISTRÉ</string>
+    <string name="total_recorded_scroll">TOTAL DU DÉFILEMENT ENREGISTRÉ</string>
     <string name="apps_count">%1$d Applications</string>
     <string name="app_leaderboard">CLASSEMENT DES APPLICATIONS</string>
-    <string name="no_app_activity">Aucune activité d\'application enregistrée pour le moment.</string>
+    <string name="no_app_activity">Aucune activité enregistrée pour le moment.</string>
 
     <!-- Onboarding & Permissions -->
     <string name="welcome_odyssey">Bienvenue sur Odyssey ⚡</string>
-    <string name="track_every_meter">Suivez chaque mètre que vous parcourez.</string>
-    <string name="onboarding_subtitle">Scroll-Meter mesure la distance physique que parcourt votre doigt à travers vos applications. Pour détecter les mouvements de défilement, Android requiert l\'autorisation du service d\'accessibilité.</string>
+    <string name="track_every_meter">Mesurez chaque mètre que vous défilez.</string>
+    <string name="onboarding_subtitle">Scroll-Meter mesure la distance physique parcourue par votre pouce sur vos applications. Pour détecter les mouvements, Android nécessite la permission d\'accessibilité.</string>
     <string name="trust_privacy_title">Garantie 100% Confidentialité</string>
-    <string name="trust_privacy_desc">canRetrieveWindowContent = false. Techniquement impossible de lire mots de passe, discussions ou textes à l\'écran.</string>
-    <string name="trust_network_title">Zéro Permission Internet</string>
-    <string name="trust_network_desc">Sans publicité, sans traceur, sans envoi sur le cloud. Toutes vos données restent dans votre base Room SQLite locale.</string>
-    <string name="trust_battery_title">Zéro Impact Batterie</string>
-    <string name="trust_battery_desc">Mise en veille automatique lorsque l\'écran s\'éteint. Le traitement par lots de 5s consomme &lt;0,5% de processeur.</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false. Techniquement incapable de lire les mots de passe, discussions ou textes d\'écran.</string>
+    <string name="trust_network_title">Zéro autorisation Internet</string>
+    <string name="trust_network_desc">Sans publicité, sans traceur, sans cloud. Toutes vos données restent dans la base SQLite locale.</string>
+    <string name="trust_battery_title">Zéro impact batterie</string>
+    <string name="trust_battery_desc">Mise en veille automatique lorsque l\'écran est éteint. Traitement par lot de 5s consommant &lt;0,5% de CPU.</string>
     <string name="btn_continue">CONTINUER</string>
     <string name="btn_activate_service">ACTIVER LE SERVICE ⚡</string>
+    <string name="btn_demo_mode">MODE DÉMO / PORTFOLIO (Essai sans permission)</string>
+    <string name="demo_mode_desc">Chargez instantanément des données simulées, des succès débloqués et des graphiques pour évaluer l\'application.</string>
+
+    <!-- Dual Engine Architecture -->
+    <string name="mode_safe_title">Mode Sécurisé Standard (Recommandé 🌟)</string>
+    <string name="mode_safe_badge">100% SÉCURISÉ &amp; ZÉRO ALERTE</string>
+    <string name="mode_safe_desc">Convertit le temps d\'écran en distance physique via l\'accès à l\'utilisation Android et notre moteur de cadence. Zéro paramètre restreint, zéro batterie.</string>
+    <string name="mode_safe_btn">Activer l\'accès à l\'utilisation</string>
+    <string name="mode_lab_title">Mode Laboratoire Avancé 🔬</string>
+    <string name="mode_lab_badge">DELTA DE PIXELS MATÉRIEL</string>
+    <string name="mode_lab_desc">Mesure en temps réel le défilement physique au niveau matériel grâce au service d\'accessibilité.</string>
+    <string name="mode_lab_btn">Activer le service d\'accessibilité</string>
+    <string name="mode_lab_warning_title">Note Android 13+ sur les paramètres restreints</string>
+    <string name="mode_lab_warning_desc">Pour les APK externes, Android restreint l\'accessibilité par défaut. Débloquez via Infos appli > 3 points > Autoriser les paramètres restreints.</string>
+    <string name="badge_safe_mode">🛡️ MODE SÉCURISÉ</string>
+    <string name="badge_lab_mode">🔬 CAPTEUR LABO</string>
+    <string name="badge_demo_mode">🎮 MODE DÉMO</string>
+    <string name="tracking_engine_title">MOTEUR DE SUIVI &amp; ARCHITECTURE</string>
+    <string name="cadence_speed_title">VITESSE DE CADENCE (RYTHME)</string>
+    <string name="cadence_speed_desc">Multiplicateur de vitesse par minute d\'écran actif.</string>
+    <string name="speed_relaxed">Détendu (0.8x)</string>
+    <string name="speed_balanced">Équilibré (1.0x)</string>
+    <string name="speed_rapid">Rapide (1.25x)</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">Premier Pas</string>
+    <string name="ach_first_step_desc">Défilez vos 100 premiers mètres dans n\'importe quelle application.</string>
+    <string name="ach_giraffe_title">Club Girafe</string>
+    <string name="ach_giraffe_desc">Dépassez la taille du plus grand animal terrestre (5,5m).</string>
+    <string name="ach_liberty_title">Flamme de la Liberté</string>
+    <string name="ach_liberty_desc">Gravissez le piédestal de la Statue de la Liberté (93m).</string>
+    <string name="ach_eiffel_title">Grimpeur Tour Eiffel</string>
+    <string name="ach_eiffel_desc">Atteignez le sommet de la Tour Eiffel (330m) en une seule journée.</string>
+    <string name="ach_burj_title">Transperceur de Nuages</string>
+    <string name="ach_burj_desc">Atteignez le pont d\'observation du Burj Khalifa (828m).</string>
+    <string name="ach_marathon_title">Marathon du Pouce</string>
+    <string name="ach_marathon_desc">Atteignez 1 000 mètres en une seule journée.</string>
+    <string name="ach_speed_title">Démon de la Vitesse</string>
+    <string name="ach_speed_desc">Cumulez plus de 250m dans une seule application.</string>
+    <string name="ach_social_title">Explorateur Social</string>
+    <string name="ach_social_desc">Enregistrez des sessions actives sur au moins 3 applications distinctes.</string>
+    <string name="ach_precision_title">Ajusteur de Précision</string>
+    <string name="ach_precision_desc">Étalonnez l\'échelle physique avec la règle à l\'écran.</string>
 </resources>

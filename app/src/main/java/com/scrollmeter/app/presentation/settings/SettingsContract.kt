@@ -11,6 +11,7 @@ data class SettingsUiState(
     val themeMode: Int = 0, // 0 = System, 1 = Dark, 2 = Light
     val trackingMode: TrackingMode = TrackingMode.SAFE_USAGE_STATS,
     val cadenceSpeedMultiplier: Float = 1.0f,
+    val selectedLanguage: String = "",
     val isUsageAccessGranted: Boolean = false,
     val isAccessibilityGranted: Boolean = false,
     val isLoading: Boolean = false
@@ -22,6 +23,7 @@ sealed interface SettingsIntent {
     data class UpdateThemeMode(val mode: Int) : SettingsIntent
     data class UpdateTrackingMode(val mode: TrackingMode) : SettingsIntent
     data class UpdateCadenceSpeed(val multiplier: Float) : SettingsIntent
+    data class UpdateLanguage(val languageCode: String) : SettingsIntent
     data object ResetCalibration : SettingsIntent
     data object ResetDailyTelemetry : SettingsIntent
 }

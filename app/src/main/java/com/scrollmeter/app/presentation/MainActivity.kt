@@ -27,6 +27,17 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val savedLang = runBlocking {
+            try {
+                settingsDataStore.selectedLanguage.first()
+            } catch (_: Exception) {
+                ""
+            }
+        }
+        if (savedLang.isNotBlank()) {
+            com.scrollmeter.app.util.LocaleHelper.applyLocale(savedLang)
+        }
+
         val isDemoActive = runBlocking {
             try {
                 settingsDataStore.isDemoModeActive.first()

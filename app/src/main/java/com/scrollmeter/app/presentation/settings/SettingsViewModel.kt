@@ -60,8 +60,9 @@ class SettingsViewModel @Inject constructor(
         baseSettingsFlow,
         settingsDataStore.trackingMode,
         settingsDataStore.cadenceSpeedMultiplier,
+        settingsDataStore.selectedLanguage,
         permissionProbe
-    ) { base, trackingMode, speed, perms ->
+    ) { base, trackingMode, speed, language, perms ->
         SettingsUiState(
             calibrationMultiplier = base.multiplier,
             dailyGoalMeters = base.goal,
@@ -69,6 +70,7 @@ class SettingsViewModel @Inject constructor(
             themeMode = base.theme,
             trackingMode = trackingMode,
             cadenceSpeedMultiplier = speed,
+            selectedLanguage = language,
             isUsageAccessGranted = perms.first,
             isAccessibilityGranted = perms.second,
             isLoading = false
@@ -90,6 +92,11 @@ class SettingsViewModel @Inject constructor(
                 }
                 is SettingsIntent.UpdateThemeMode -> {
                     settingsDataStore.setThemeMode(intent.mode)
+                }
+                is SettingsIntent.UpdateLanguage -> {
+                    settingsDataStore.setSelectedLanguage(intent.languageCode)
+                    com.scrollmeter.app.util.LocaleHelper.applyLocale(intent.languageCode)
+                    _effect.emit(SettingsEffect.ShowSnackbar("Dil güncellendi / Language updated"))
                 }
                 is SettingsIntent.UpdateTrackingMode -> {
                     settingsDataStore.setTrackingMode(intent.mode)

@@ -67,6 +67,20 @@ class SettingsDataStore @Inject constructor(
             preferences[KEY_IS_DEMO_MODE] ?: false
         }
 
+    val selectedLanguage: Flow<String> = dataStore.data
+        .catch { exception ->
+            if (exception is IOException) emit(emptyPreferences()) else throw exception
+        }
+        .map { preferences ->
+            preferences[KEY_SELECTED_LANGUAGE] ?: ""
+        }
+
+    suspend fun setSelectedLanguage(languageCode: String) {
+        dataStore.edit { preferences ->
+            preferences[KEY_SELECTED_LANGUAGE] = languageCode
+        }
+    }
+
     suspend fun setCalibrationMultiplier(multiplier: Float) {
         dataStore.edit { preferences ->
             preferences[KEY_CALIBRATION_MULTIPLIER] = multiplier.coerceAtLeast(0.1f)
@@ -174,5 +188,6 @@ class SettingsDataStore @Inject constructor(
         val KEY_CADENCE_SPEED_MULTIPLIER = floatPreferencesKey("cadence_speed_multiplier")
         val KEY_USAGE_BASELINE_EPOCH_DAY = longPreferencesKey("usage_baseline_epoch_day")
         val KEY_USAGE_BASELINE_DATA = stringPreferencesKey("usage_baseline_data")
+        val KEY_SELECTED_LANGUAGE = stringPreferencesKey("selected_language")
     }
 }

@@ -46,6 +46,7 @@ class SettingsViewModelTest {
         every { settingsDataStore.themeMode } returns flowOf(0)
         every { settingsDataStore.trackingMode } returns flowOf(com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS)
         every { settingsDataStore.cadenceSpeedMultiplier } returns flowOf(1.0f)
+        every { settingsDataStore.selectedLanguage } returns flowOf("")
 
         viewModel = SettingsViewModel(
             settingsDataStore = settingsDataStore,
@@ -103,5 +104,15 @@ class SettingsViewModelTest {
         testScheduler.advanceUntilIdle()
 
         coVerify(exactly = 1) { syncUsageStatsScrollUseCase(forceResetBaseline = true) }
+    }
+
+    @Test
+    fun `UpdateLanguage intent delegates to settingsDataStore`() = runTest(testDispatcher) {
+        coEvery { settingsDataStore.setSelectedLanguage("tr") } returns Unit
+
+        viewModel.onIntent(SettingsIntent.UpdateLanguage("tr"))
+        testScheduler.advanceUntilIdle()
+
+        coVerify(exactly = 1) { settingsDataStore.setSelectedLanguage("tr") }
     }
 }

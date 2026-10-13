@@ -2,88 +2,159 @@
 <resources>
     <!-- App & Service Core -->
     <string name="app_name">Scroll-Meter</string>
-    <string name="accessibility_service_description">Scroll-Meter измеряет физическую дистанцию прокрутки экрана с пиксельной точностью. Ваши пароли, сообщения и содержимое экрана технически невозможно прочитать.</string>
+    <string name="accessibility_service_description">Scroll-Meter измеряет физическое расстояние прокрутки с точностью до пикселя. Ваши пароли, сообщения и содержимое экрана никогда не считываются.</string>
     <string name="notification_channel_name">Служба отслеживания Scroll-Meter</string>
-    <string name="notification_channel_desc">Бесшумно отслеживает дистанцию прокрутки в фоновом режиме.</string>
+    <string name="notification_channel_desc">Бесшумно отслеживает расстояние прокрутки в фоновом режиме.</string>
 
     <!-- Navigation & Titles -->
-    <string name="nav_dashboard">Главная</string>
+    <string name="nav_dashboard">Панель управления</string>
     <string name="nav_analytics">Аналитика</string>
     <string name="nav_settings">Настройки и калибровка</string>
     <string name="nav_achievements">Достижения</string>
     <string name="trophy_room">ЗАЛ ТРОФЕЕВ</string>
-    <string name="trophy_unlocked_count">%1$d из %2$d разблокировано</string>
+    <string name="trophy_unlocked_count">%1$d из %2$d открыто</string>
     <string name="trophy_total_mastery">%1$d%% Общее мастерство</string>
     <string name="filter_all">ВСЕ</string>
-    <string name="filter_milestone">РУБЕЖ</string>
+    <string name="filter_milestone">ВЕХА</string>
+    <string name="filter_specialist">ЭКСПЕРТ</string>
     <string name="filter_habit">ПРИВЫЧКА</string>
     <string name="filter_precision">ТОЧНОСТЬ</string>
-    <string name="badge_unlocked">ОТКРЫТО</string>
+    <string name="badge_unlocked">РАЗБЛОКИРОВАНО</string>
     <string name="btn_back">Назад</string>
     <string name="btn_refresh">Обновить</string>
 
     <!-- Dashboard -->
     <string name="finger_odyssey">Одиссея пальца</string>
-    <string name="today_distance">Дистанция сегодня</string>
-    <string name="leader_app">ЛИДИРУЮЩЕЕ ПРИЛОЖЕНИЕ</string>
+    <string name="daily_telemetry">Дневная телеметрия</string>
+    <string name="today_distance">Дистанция за сегодня</string>
+    <string name="leader_app">ГЛАВНОЕ ПРИЛОЖЕНИЕ</string>
     <string name="no_dominant_app">Пока нет</string>
     <string name="daily_goal">ЦЕЛЬ</string>
     <string name="goal_completed_pct">%1$d%% Выполнено</string>
     <string name="unit_meter">м</string>
     <string name="unit_km">км</string>
 
-    <!-- Achievements -->
-    <string name="ach_first_step_title">Первый шаг</string>
-    <string name="ach_first_step_desc">Прокрутите свои первые 100 метров в любом приложении.</string>
-    <string name="ach_giraffe_title">Клуб жирафов</string>
-    <string name="ach_giraffe_desc">Превзойдите рост самого высокого наземного животного (5,5м).</string>
-    <string name="ach_liberty_title">Факел свободы</string>
-    <string name="ach_liberty_desc">Преодолейте высоту пьедестала Статуи Свободы (93м).</string>
-    <string name="ach_eiffel_title">Покоритель Эйфелевой башни</string>
-    <string name="ach_eiffel_desc">Достигните вершины Эйфелевой башни (330м) за один день.</string>
-    <string name="ach_burj_title">Пронзатель облаков</string>
-    <string name="ach_burj_desc">Доберитесь до смотровой площадки Бурдж-Халифа (828м).</string>
-    <string name="ach_marathon_title">Марафон большого пальца</string>
-    <string name="ach_marathon_desc">Преодолейте 1 000 метров за один активный день.</string>
-    <string name="ach_speed_title">Демон скорости</string>
-    <string name="ach_speed_desc">Наберите более 250м в одном основном приложении.</string>
-    <string name="ach_social_title">Социальный исследователь</string>
-    <string name="ach_social_desc">Зафиксируйте активную прокрутку как минимум в 3 разных приложениях.</string>
-    <string name="ach_precision_title">Мастер калибровки</string>
-    <string name="ach_precision_desc">Откалибруйте экранную линейку для субмиллиметровой точности.</string>
+    <!-- Social Sharing to X & Milestones -->
+    <string name="share_card_title">Поделиться прогрессом</string>
+    <string name="share_card_subtitle">Опубликуйте свою дистанцию в 𝕏</string>
+    <string name="share_on_x_btn">Поделиться в 𝕏</string>
+    <string name="share_copy_btn">Скопировать текст</string>
+    <string name="share_copied_toast">Текст скопирован в буфер обмена!</string>
+    <string name="share_tier_zen_title">Цифровой дзен (&lt; 20м)</string>
+    <string name="share_tier_zen_badge">МИНИМАЛИСТ ДЗЕН</string>
+    <string name="share_tier_zen_tweet">Сегодня на экране прокручено всего %1$s! Режим цифрового детокса, пальцы и мозг отдыхают. 🧘‍♂️🌿 #ScrollMeter #DigitalWellbeing #MindfulTech</string>
+    <string name="share_tier_explorer_title">Городской исследователь (20м - 100м)</string>
+    <string name="share_tier_explorer_badge">ИССЛЕДОВАТЕЛЬ</string>
+    <string name="share_tier_explorer_tweet">Сегодня прокручено %1$s — мой палец преодолел длину целого футбольного поля! ⚽🏃 #ScrollMeter #ScreenDistance #TechHabits</string>
+    <string name="share_tier_climber_title">Покоритель Эйфелевой башни (100м - 330м)</string>
+    <string name="share_tier_climber_badge">ЭЙФЕЛЕВ АЛЬПИНИСТ</string>
+    <string name="share_tier_climber_tweet">Преодолел %1$s по экрану! Палец поднялся на высоту Эйфелевой башни. 🗼🧗 #ScrollMeter #DoomscrollCheck</string>
+    <string name="share_tier_conqueror_title">Покоритель небоскребов (330м - 1000м)</string>
+    <string name="share_tier_conqueror_badge">ПОКОРИТЕЛЬ БАШНИ</string>
+    <string name="share_tier_conqueror_tweet">Сегодня палец прошел %1$s по экрану! Достиг вершины Бурдж-Халифа. Время отложить телефон! 🏢⚡ #ScrollMeter #ScreenTimeRealTalk</string>
+    <string name="share_tier_titan_title">Титан думскроллинга (&gt; 1 км)</string>
+    <string name="share_tier_titan_badge">ТИТАН ДУМСКРОЛЛА</string>
+    <string name="share_tier_titan_tweet">Настоящий экранный марафон: %1$s за день! Разрываю ложную дофаминовую петлю и кладу телефон на стол. 🚨🧠 #ScrollMeter #Doomscrolling #BreakTheLoop</string>
+
+    <!-- Doomscrolling & Digital Wellbeing Awareness -->
+    <string name="wellbeing_title">Думскроллинг и ложный дофамин</string>
+    <string name="wellbeing_manifesto_badge">НЕ ИГРА • ИНСТРУМЕНТ ОСОЗНАННОСТИ</string>
+    <string name="wellbeing_manifesto_body">Scroll-Meter НИКОГДА не призывает прокручивать больше. Его цель — визуализировать невидимое компульсивное прокручивание, чтобы вы смогли вовремя отложить телефон.</string>
+    <string name="wellbeing_fake_dopamine_title">Ловушка игрового автомата</string>
+    <string name="wellbeing_fake_dopamine_desc">Бесконечные ленты используют переменное подкрепление. Каждый свайп вызывает микровыброс фальшивого дофамина, вовлекая мозг в бесконечный цикл зависимости.</string>
+    <string name="wellbeing_brain_fog_title">Когнитивная фрагментация и туман в голове</string>
+    <string name="wellbeing_brain_fog_desc">Постоянное переключение контента разрушает концентрацию внимания, ухудшает память и истощает ресурсы мозга.</string>
+    <string name="wellbeing_thumb_strain_title">Физическая деформация пальца</string>
+    <string name="wellbeing_thumb_strain_desc">Однообразные микросвайпы вызывают воспаление сухожилий большого пальца (болезнь де Кервена) и перегрузку шейного отдела позвоночника.</string>
+    <string name="wellbeing_tip_take_break">Совет: Достигнув дневной цели, положите телефон экраном вниз на 20 минут.</string>
+
+    <!-- Language Settings -->
+    <string name="settings_language_title">ЯЗЫК ПРИЛОЖЕНИЯ</string>
+    <string name="settings_language_desc">Выберите предпочитаемый язык или используйте язык системы.</string>
+    <string name="lang_system_default">По умолчанию (Системный)</string>
+    <string name="lang_en">English</string>
+    <string name="lang_tr">Türkçe</string>
+    <string name="lang_de">Deutsch</string>
+    <string name="lang_ru">Русский</string>
+    <string name="lang_zh">简体中文</string>
+    <string name="lang_fr">Français</string>
+    <string name="lang_it">Italiano</string>
 
     <!-- Settings & Calibration -->
     <string name="screen_calibration">КАЛИБРОВКА ЭКРАНА</string>
-    <string name="screen_calibration_desc">Приложите настоящую линейку к экрану телефона. Регулируйте ползунок, пока виртуальные миллиметровые деления точно не совпадут с вашей линейкой.</string>
+    <string name="screen_calibration_desc">Приложите настоящую линейку к экрану смартфона. Настройте ползунок, пока виртуальные миллиметровые деления точно не совпадут с линейкой.</string>
     <string name="calibration_multiplier">Множитель: %1$.2fx (%2$s)</string>
     <string name="calibration_ppi">PPI: %1$d</string>
     <string name="reset_to_default">Сбросить до 1.00x</string>
     <string name="daily_scroll_target">ДНЕВНАЯ ЦЕЛЬ ПРОКРУТКИ</string>
     <string name="current_goal_meters">Текущая цель: %1$d метров</string>
-    <string name="enterprise_privacy">КОРПОРАТИВНАЯ АРХИТЕКТУРА КОНФИДЕНЦИАЛЬНОСТИ</string>
-    <string name="privacy_bullet_offline">• 100% Офлайн (Нет разрешения INTERNET в AndroidManifest)</string>
-    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Текст на экране и нажатия клавиш никогда не читаются)</string>
-    <string name="privacy_bullet_db">• Локальная база данных SQLite с аппаратным шифрованием устройства</string>
-    <string name="privacy_bullet_version">• Версия: 1.0.0 (Build 2026-Enterprise)</string>
+    <string name="enterprise_privacy">АРХИТЕКТУРА БЕЗОПАСНОСТИ И КОНФИДЕНЦИАЛЬНОСТИ</string>
+    <string name="privacy_bullet_offline">• 100% Автономность (В манифесте нет разрешения INTERNET)</string>
+    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Текст на экране и пароли не читаются)</string>
+    <string name="privacy_bullet_db">• Локальная база данных SQLite аппаратно зашифрована</string>
+    <string name="privacy_bullet_version">• Версия: 1.0.0 (Сборка 2026-Enterprise)</string>
 
     <!-- Analytics -->
     <string name="time_today">СЕГОДНЯ</string>
     <string name="time_yesterday">ВЧЕРА</string>
-    <string name="total_recorded_scroll">ВСЕГО ЗАФИКСИРОВАНО ПРОКРУТКИ</string>
+    <string name="total_recorded_scroll">ОБЩАЯ ДИСТАНЦИЯ ПРОКРУТКИ</string>
     <string name="apps_count">%1$d Приложений</string>
     <string name="app_leaderboard">РЕЙТИНГ ПРИЛОЖЕНИЙ</string>
-    <string name="no_app_activity">Активность приложений пока не зафиксирована.</string>
+    <string name="no_app_activity">Активность пока не зарегистрирована.</string>
 
     <!-- Onboarding & Permissions -->
     <string name="welcome_odyssey">Добро пожаловать в Odyssey ⚡</string>
-    <string name="track_every_meter">Отслеживайте каждый метр прокрутки.</string>
-    <string name="onboarding_subtitle">Scroll-Meter измеряет физическую дистанцию, которую проходит палец по экрану. Для обнаружения жестов прокрутки Android требует разрешение службы специальных возможностей.</string>
+    <string name="track_every_meter">Измеряйте каждый прокрученный метр.</string>
+    <string name="onboarding_subtitle">Scroll-Meter измеряет физическую дистанцию прокрутки в приложениях. Для этого Android требует разрешение службы специальных возможностей.</string>
     <string name="trust_privacy_title">100% Гарантия конфиденциальности</string>
-    <string name="trust_privacy_desc">canRetrieveWindowContent = false. Технически невозможно прочитать пароли, чаты или содержимое экрана.</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false. Чтение паролей, переписок или экрана технически невозможно.</string>
     <string name="trust_network_title">Ноль разрешений на интернет</string>
-    <string name="trust_network_desc">Никакой рекламы, трекеров и облачных выгрузок. Вся телеметрия хранится исключительно в локальной базе Room SQLite.</string>
+    <string name="trust_network_desc">Никакой рекламы, трекеров и облака. Все данные остаются в локальной базе Room.</string>
     <string name="trust_battery_title">Нулевой расход батареи</string>
-    <string name="trust_battery_desc">Сенсор засыпает при выключенном экране. Буфер с группировкой по 5 сек потребляет &lt;0,5% процессора.</string>
+    <string name="trust_battery_desc">Сенсор автоматически отключается при выключенном экране. Потребление ЦП &lt;0,5%.</string>
     <string name="btn_continue">ПРОДОЛЖИТЬ</string>
     <string name="btn_activate_service">АКТИВИРОВАТЬ СЛУЖБУ ⚡</string>
+    <string name="btn_demo_mode">РЕЖИМ ДЕМО (Обзор без разрешений)</string>
+    <string name="demo_mode_desc">Мгновенная загрузка демонстрационных данных, графиков и наград для ознакомления.</string>
+
+    <!-- Dual Engine Architecture -->
+    <string name="mode_safe_title">Стандартный безопасный режим (Рекомендуется 🌟)</string>
+    <string name="mode_safe_badge">100% БЕЗОПАСНО И БЕЗ ПРЕДУПРЕЖДЕНИЙ</string>
+    <string name="mode_safe_desc">Преобразует экранное время в дистанцию с помощью доступа к статистике использования Android и умного темпового движка. 0 предупреждений, 0 расхода батареи.</string>
+    <string name="mode_safe_btn">Включить доступ к статистике</string>
+    <string name="mode_lab_title">Лабораторный режим 🔬</string>
+    <string name="mode_lab_badge">АППАРАТНАЯ ДЕЛЬТА ПИКСЕЛЕЙ</string>
+    <string name="mode_lab_desc">Измеряет физическое перемещение пикселей в реальном времени через службу специальных возможностей.</string>
+    <string name="mode_lab_btn">Включить спец. возможности</string>
+    <string name="mode_lab_warning_title">Информация об ограничениях Android 13+</string>
+    <string name="mode_lab_warning_desc">Для сторонних APK Android блокирует спец. возможности по умолчанию. Включите через О приложении > 3 точки > Разрешить ограниченные настройки.</string>
+    <string name="badge_safe_mode">🛡️ БЕЗОПАСНЫЙ РЕЖИМ</string>
+    <string name="badge_lab_mode">🔬 ЛАБОРАТОРНЫЙ СЕНСОР</string>
+    <string name="badge_demo_mode">🎮 ДЕМО РЕЖИМ</string>
+    <string name="tracking_engine_title">ДВИЖОК ОТСЛЕЖИВАНИЯ</string>
+    <string name="cadence_speed_title">ТЕМП ПРОКРУТКИ (КАДЕНС)</string>
+    <string name="cadence_speed_desc">Коэффициент скорости прокрутки на минуту активного экрана.</string>
+    <string name="speed_relaxed">Спокойный (0.8x)</string>
+    <string name="speed_balanced">Сбалансированный (1.0x)</string>
+    <string name="speed_rapid">Быстрый (1.25x)</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">Первый шаг</string>
+    <string name="ach_first_step_desc">Прокрутите первые 100 метров в любом приложении.</string>
+    <string name="ach_giraffe_title">Клуб жирафов</string>
+    <string name="ach_giraffe_desc">Превысьте рост самого высокого наземного животного (5,5м).</string>
+    <string name="ach_liberty_title">Факел Свободы</string>
+    <string name="ach_liberty_desc">Поднимитесь выше пьедестала Статуи Свободы (93м).</string>
+    <string name="ach_eiffel_title">Эйфелев альпинист</string>
+    <string name="ach_eiffel_desc">Достигните вершины Эйфелевой башни (330м) за один день.</string>
+    <string name="ach_burj_title">Пронзающий облака</string>
+    <string name="ach_burj_desc">Доберитесь до смотровой площадки Бурдж-Халифа (828м).</string>
+    <string name="ach_marathon_title">Марафон большого пальца</string>
+    <string name="ach_marathon_desc">Достигните 1000 метров за один день высокой активности.</string>
+    <string name="ach_speed_title">Демон скорости</string>
+    <string name="ach_speed_desc">Преодолейте более 250м в одном приложении.</string>
+    <string name="ach_social_title">Социальный исследователь</string>
+    <string name="ach_social_desc">Зафиксируйте прокрутку минимум в 3 разных приложениях.</string>
+    <string name="ach_precision_title">Мастер точности</string>
+    <string name="ach_precision_desc">Откалибруйте физический масштаб экрана с помощью экранной линейки.</string>
 </resources>

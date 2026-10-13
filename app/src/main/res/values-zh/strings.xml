@@ -2,20 +2,21 @@
 <resources>
     <!-- App & Service Core -->
     <string name="app_name">Scroll-Meter</string>
-    <string name="accessibility_service_description">Scroll-Meter 以像素级精度测量您的屏幕滑动物理距离。技术上绝不可能读取您的密码、聊天记录或屏幕文字内容。</string>
+    <string name="accessibility_service_description">Scroll-Meter 以像素级精度测量您在屏幕上滑动的物理距离。绝不会读取您的密码、消息或屏幕内容。</string>
     <string name="notification_channel_name">Scroll-Meter 追踪服务</string>
     <string name="notification_channel_desc">在后台静默监测屏幕滑动距离。</string>
 
     <!-- Navigation & Titles -->
-    <string name="nav_dashboard">仪表盘</string>
-    <string name="nav_analytics">统计分析</string>
+    <string name="nav_dashboard">控制面板</string>
+    <string name="nav_analytics">数据分析</string>
     <string name="nav_settings">设置与校准</string>
     <string name="nav_achievements">成就系统</string>
     <string name="trophy_room">奖杯陈列室</string>
     <string name="trophy_unlocked_count">已解锁 %1$d / %2$d</string>
-    <string name="trophy_total_mastery">总达成率 %1$d%%</string>
+    <string name="trophy_total_mastery">%1$d%% 总掌握度</string>
     <string name="filter_all">全部</string>
     <string name="filter_milestone">里程碑</string>
+    <string name="filter_specialist">专精</string>
     <string name="filter_habit">习惯</string>
     <string name="filter_precision">精度</string>
     <string name="badge_unlocked">已解锁</string>
@@ -23,67 +24,137 @@
     <string name="btn_refresh">刷新</string>
 
     <!-- Dashboard -->
-    <string name="finger_odyssey">指尖奥德赛</string>
-    <string name="today_distance">今日滑动距离</string>
-    <string name="leader_app">榜首应用</string>
-    <string name="no_dominant_app">暂无数据</string>
-    <string name="daily_goal">目标</string>
+    <string name="finger_odyssey">手指奥德赛</string>
+    <string name="daily_telemetry">今日遥测</string>
+    <string name="today_distance">今日距离</string>
+    <string name="leader_app">主要应用</string>
+    <string name="no_dominant_app">暂无</string>
+    <string name="daily_goal">今日目标</string>
     <string name="goal_completed_pct">已完成 %1$d%%</string>
     <string name="unit_meter">米</string>
-    <string name="unit_km">千米</string>
+    <string name="unit_km">公里</string>
 
-    <!-- Achievements -->
-    <string name="ach_first_step_title">第一步</string>
-    <string name="ach_first_step_desc">在任意应用中滑动达成首个 100 米。</string>
-    <string name="ach_giraffe_title">长颈鹿俱乐部</string>
-    <string name="ach_giraffe_desc">超越陆地上最高动物的身高（5.5米）。</string>
-    <string name="ach_liberty_title">自由火炬</string>
-    <string name="ach_liberty_desc">超越自由女神像基座高度（93米）。</string>
-    <string name="ach_eiffel_title">埃菲尔攀登者</string>
-    <string name="ach_eiffel_desc">单日滑动登顶埃菲尔铁塔高度（330米）。</string>
-    <string name="ach_burj_title">穿云者</string>
-    <string name="ach_burj_desc">滑动抵达哈利法塔观景台高度（828米）。</string>
-    <string name="ach_marathon_title">大拇指马拉松</string>
-    <string name="ach_marathon_desc">在充实的一天中滑动突破 1,000 米。</string>
-    <string name="ach_speed_title">极速飞驰</string>
-    <string name="ach_speed_desc">在单个主导应用中累计滑动超过 250 米。</string>
-    <string name="ach_social_title">社交漫游家</string>
-    <string name="ach_social_desc">在至少 3 款不同应用中记录有效的滑动会话。</string>
-    <string name="ach_precision_title">精密调校师</string>
-    <string name="ach_precision_desc">使用屏幕标尺校准屏幕物理比例以获得亚毫米级精度。</string>
+    <!-- Social Sharing to X & Milestones -->
+    <string name="share_card_title">分享今日成就</string>
+    <string name="share_card_subtitle">将您的屏幕滑行里程发布至 𝕏</string>
+    <string name="share_on_x_btn">分享至 𝕏</string>
+    <string name="share_copy_btn">复制文案</string>
+    <string name="share_copied_toast">文案已复制到剪贴板！</string>
+    <string name="share_tier_zen_title">数字禅意 (&lt; 20米)</string>
+    <string name="share_tier_zen_badge">极简禅修</string>
+    <string name="share_tier_zen_tweet">今天在手机上仅滑动了 %1$s！数字排毒模式开启，给手指和大脑彻底放个假。🧘‍♂️🌿 #ScrollMeter #DigitalWellbeing #MindfulTech</string>
+    <string name="share_tier_explorer_title">城市探索者 (20米 - 100米)</string>
+    <string name="share_tier_explorer_badge">探索者</string>
+    <string name="share_tier_explorer_tweet">今天拇指在屏幕上滑过了 %1$s，长度超过了一个标准足球场！⚽🏃 #ScrollMeter #ScreenDistance #TechHabits</string>
+    <string name="share_tier_climber_title">埃菲尔攀登者 (100米 - 330米)</string>
+    <string name="share_tier_climber_badge">埃菲尔攀登者</string>
+    <string name="share_tier_climber_tweet">今日屏幕物理滑动高度达到 %1$s！大拇指正在逼近埃菲尔铁塔的顶端。🗼🧗 #ScrollMeter #DoomscrollCheck</string>
+    <string name="share_tier_conqueror_title">摩天大楼征服者 (330米 - 1000米)</string>
+    <string name="share_tier_conqueror_badge">摩天征服者</string>
+    <string name="share_tier_conqueror_tweet">今日大拇指滑行距离达 %1$s！超越了哈利法塔的高度。屏幕使用过长，该放下手机了！🏢⚡ #ScrollMeter #ScreenTimeRealTalk</string>
+    <string name="share_tier_titan_title">无尽刷屏泰坦 (&gt; 1 公里)</string>
+    <string name="share_tier_titan_badge">刷屏泰坦</string>
+    <string name="share_tier_titan_tweet">完成了一场屏幕马拉松：今天总共滑动了 %1$s！拒绝虚假多巴胺循环，立刻放下手机。🚨🧠 #ScrollMeter #Doomscrolling #BreakTheLoop</string>
+
+    <!-- Doomscrolling & Digital Wellbeing Awareness -->
+    <string name="wellbeing_title">无尽刷屏与虚假多巴胺陷阱</string>
+    <string name="wellbeing_manifesto_badge">非游戏应用 • 觉察工具</string>
+    <string name="wellbeing_manifesto_body">Scroll-Meter 绝不鼓励您多刷屏幕！其唯一使命是将无意识的强迫性刷屏转化为真实的物理距离，促使您放下手机。</string>
+    <string name="wellbeing_fake_dopamine_title">老虎机多巴胺陷阱</string>
+    <string name="wellbeing_fake_dopamine_desc">信息流算法利用“变额强化”机制。每一次滑动都会刺激大脑分泌微量虚假多巴胺，让大脑陷入无法满足的无底渴求中。</string>
+    <string name="wellbeing_brain_fog_title">认知碎片化与脑雾</string>
+    <string name="wellbeing_brain_fog_desc">高频快速切换内容会严重破坏深度思考能力，缩短注意力跨度，导致脑力衰竭。</string>
+    <string name="wellbeing_thumb_strain_title">物理劳损与智能手机手综合征</string>
+    <string name="wellbeing_thumb_strain_desc">重复性微滑动易引发拇指狭窄性腱鞘炎以及颈椎过度前倾压力（短信脖）。</string>
+    <string name="wellbeing_tip_take_break">建议：达到每日限制后，将手机屏幕朝下静置20分钟。</string>
+
+    <!-- Language Settings -->
+    <string name="settings_language_title">应用语言</string>
+    <string name="settings_language_desc">选择您的首选语言或跟随系统设置。</string>
+    <string name="lang_system_default">跟随系统（设备语言）</string>
+    <string name="lang_en">English</string>
+    <string name="lang_tr">Türkçe</string>
+    <string name="lang_de">Deutsch</string>
+    <string name="lang_ru">Русский</string>
+    <string name="lang_zh">简体中文</string>
+    <string name="lang_fr">Français</string>
+    <string name="lang_it">Italiano</string>
 
     <!-- Settings & Calibration -->
     <string name="screen_calibration">屏幕校准</string>
-    <string name="screen_calibration_desc">将一把真实的物理直尺放置在手机屏幕上。调整滑块直至虚拟毫米刻度与您的直尺完全吻合。</string>
-    <string name="calibration_multiplier">缩放倍率：%1$.2fx (%2$s)</string>
-    <string name="calibration_ppi">PPI：%1$d</string>
-    <string name="reset_to_default">重置为 1.00x</string>
+    <string name="screen_calibration_desc">将真实直尺贴在屏幕上。调节滑块直到虚拟毫米刻度与实体尺完美对齐。</string>
+    <string name="calibration_multiplier">倍率: %1$.2fx (%2$s)</string>
+    <string name="calibration_ppi">PPI: %1$d</string>
+    <string name="reset_to_default">恢复为 1.00x</string>
     <string name="daily_scroll_target">每日滑动目标</string>
-    <string name="current_goal_meters">当前目标：%1$d 米</string>
+    <string name="current_goal_meters">当前目标: %1$d 米</string>
     <string name="enterprise_privacy">企业级隐私安全架构</string>
-    <string name="privacy_bullet_offline">• 100% 完全离线（AndroidManifest 中无 INTERNET 权限）</string>
+    <string name="privacy_bullet_offline">• 100% 离线运行（Manifest 中无网络权限）</string>
     <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\"（绝不读取屏幕文本和按键）</string>
-    <string name="privacy_bullet_db">• 本地 SQLite 数据库采用设备硬件级加密存储</string>
-    <string name="privacy_bullet_version">• 版本：1.0.0 (Build 2026-Enterprise)</string>
+    <string name="privacy_bullet_db">• 本地 SQLite 数据库由硬件级加密保护</string>
+    <string name="privacy_bullet_version">• 版本: 1.0.0 (Build 2026-Enterprise)</string>
 
     <!-- Analytics -->
     <string name="time_today">今日</string>
     <string name="time_yesterday">昨日</string>
-    <string name="total_recorded_scroll">累计记录滑动距离</string>
-    <string name="apps_count">%1$d 款应用</string>
-    <string name="app_leaderboard">应用滑动排行榜</string>
-    <string name="no_app_activity">尚未记录任何应用活动数据。</string>
+    <string name="total_recorded_scroll">累计记录滑动</string>
+    <string name="apps_count">%1$d 个应用</string>
+    <string name="app_leaderboard">应用排行</string>
+    <string name="no_app_activity">暂无应用活动记录。</string>
 
     <!-- Onboarding & Permissions -->
-    <string name="welcome_odyssey">欢迎来到指尖奥德赛 ⚡</string>
-    <string name="track_every_meter">量化您的每一次屏幕滑动。</string>
-    <string name="onboarding_subtitle">Scroll-Meter 测量您的手指在各个应用间移动的实际物理距离。为了检测触控滑动增量，Android 系统需要无障碍服务权限。</string>
+    <string name="welcome_odyssey">欢迎来到奥德赛 ⚡</string>
+    <string name="track_every_meter">度量指尖滑过的每一米。</string>
+    <string name="onboarding_subtitle">Scroll-Meter 测量您在各应用中拇指滑动的物理距离。为了检测滑动位移，Android 需要无障碍服务权限。</string>
     <string name="trust_privacy_title">100% 隐私安全保障</string>
-    <string name="trust_privacy_desc">canRetrieveWindowContent = false。技术上绝无法读取您的密码、聊天或屏幕文字。</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false。在技术层面完全无法读取密码、聊天或屏幕文字。</string>
     <string name="trust_network_title">零网络权限</string>
-    <string name="trust_network_desc">无广告、无追踪器、绝不云端上传。所有遥测数据均保存在本地 Room SQLite 数据库中。</string>
-    <string name="trust_battery_title">极致省电零耗损</string>
-    <string name="trust_battery_desc">熄屏时传感器自动休眠。5 秒批量缓冲机制 CPU 占用低于 0.5%。</string>
+    <string name="trust_network_desc">无广告、无追踪器、无云端上传。所有数据均保存在本地 Room 数据库中。</string>
+    <string name="trust_battery_title">零额外电量消耗</string>
+    <string name="trust_battery_desc">息屏自动休眠。采用 5 秒批处理机制，CPU 占用率低于 0.5%。</string>
     <string name="btn_continue">继续</string>
-    <string name="btn_activate_service">启用服务 ⚡</string>
+    <string name="btn_activate_service">激活服务 ⚡</string>
+    <string name="btn_demo_mode">演示/展示模式（无需授权体验）</string>
+    <string name="demo_mode_desc">立即加载模拟遥测数据、解锁成就和周统计图表供评估。</string>
+
+    <!-- Dual Engine Architecture -->
+    <string name="mode_safe_title">标准安全模式（推荐 🌟）</string>
+    <string name="mode_safe_badge">100% 安全 • 零系统弹窗</string>
+    <string name="mode_safe_desc">通过 Android 使用情况统计与智能踏频引擎将屏幕时间转换为滑动距离。无受限设置，零耗电。</string>
+    <string name="mode_safe_btn">启用使用情况访问权限</string>
+    <string name="mode_lab_title">高级实验室模式 🔬</string>
+    <string name="mode_lab_badge">硬件像素微位移</string>
+    <string name="mode_lab_desc">借助无障碍服务在硬件层实时测量实际屏幕像素滑动。</string>
+    <string name="mode_lab_btn">启用无障碍服务</string>
+    <string name="mode_lab_warning_title">Android 13+ 受限设置说明</string>
+    <string name="mode_lab_warning_desc">针对非应用商店下载的 APK，Android 默认限制无障碍权限。可在应用详情 > 右上角三点 > 允许受限设置中开启。应用零网络权限，数据绝不上云。</string>
+    <string name="badge_safe_mode">🛡️ 安全模式</string>
+    <string name="badge_lab_mode">🔬 实验室传感器</string>
+    <string name="badge_demo_mode">🎮 演示模式</string>
+    <string name="tracking_engine_title">追踪引擎与架构</string>
+    <string name="cadence_speed_title">滑动步频速度</string>
+    <string name="cadence_speed_desc">每分钟屏幕活跃时间的滑动倍率。</string>
+    <string name="speed_relaxed">舒缓 (0.8x)</string>
+    <string name="speed_balanced">均衡 (1.0x)</string>
+    <string name="speed_rapid">飞速 (1.25x)</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">初涉江湖</string>
+    <string name="ach_first_step_desc">在任意应用中累计滑行首个 100 米。</string>
+    <string name="ach_giraffe_title">长颈鹿俱乐部</string>
+    <string name="ach_giraffe_desc">滑过最高现生陆生动物的身高（5.5米）。</string>
+    <string name="ach_liberty_title">自由之火</string>
+    <string name="ach_liberty_desc">超过自由女神像底座高度（93米）。</string>
+    <string name="ach_eiffel_title">埃菲尔攀登者</string>
+    <string name="ach_eiffel_desc">一天内攀登完埃菲尔铁塔高度（330米）。</string>
+    <string name="ach_burj_title">穿云入霄</string>
+    <string name="ach_burj_desc">达到哈利法塔观景台高度（828米）。</string>
+    <string name="ach_marathon_title">拇指马拉松</string>
+    <string name="ach_marathon_desc">在单日高强度使用中达到 1,000 米。</string>
+    <string name="ach_speed_title">极速狂飙</string>
+    <string name="ach_speed_desc">在单一应用中累计滑动超过 250 米。</string>
+    <string name="ach_social_title">社交探索者</string>
+    <string name="ach_social_desc">在至少 3 款不同应用中记录有效滑行。</string>
+    <string name="ach_precision_title">精密调校师</string>
+    <string name="ach_precision_desc">使用屏幕物理标尺完成像素校准。</string>
 </resources>

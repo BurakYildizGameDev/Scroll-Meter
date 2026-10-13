@@ -48,14 +48,24 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import com.scrollmeter.app.R
 import com.scrollmeter.app.presentation.components.CalibrationRuler
+import com.scrollmeter.app.presentation.theme.CyberCyan
 import com.scrollmeter.app.presentation.theme.EmeraldContainerDark
 import com.scrollmeter.app.presentation.theme.EmeraldNeonPrimary
 import com.scrollmeter.app.presentation.theme.EmeraldNeonSecondary
 import com.scrollmeter.app.presentation.theme.HyperViolet
 import com.scrollmeter.app.presentation.theme.MidnightDark
 import com.scrollmeter.app.presentation.theme.ObsidianSurface
+import com.scrollmeter.app.presentation.theme.ObsidianSurfaceElevated
+import com.scrollmeter.app.util.LocaleHelper
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -468,6 +478,141 @@ fun SettingsScreen(
                                 )
                             }
                         }
+                    }
+                }
+
+                // SECTION 2.8: APPLICATION LANGUAGE SELECTOR
+                item {
+                    var showLanguageDialog by remember { mutableStateOf(false) }
+                    val currentOption = remember(state.selectedLanguage) {
+                        LocaleHelper.SUPPORTED_LANGUAGES.find { it.code == state.selectedLanguage }
+                            ?: LocaleHelper.SUPPORTED_LANGUAGES.first()
+                    }
+
+                    Surface(
+                        modifier = Modifier.fillMaxWidth(),
+                        shape = RoundedCornerShape(20.dp),
+                        color = ObsidianSurface,
+                        tonalElevation = 4.dp
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(18.dp),
+                            verticalArrangement = Arrangement.spacedBy(10.dp)
+                        ) {
+                            Text(
+                                text = stringResource(R.string.settings_language_title),
+                                style = MaterialTheme.typography.labelMedium.copy(
+                                    letterSpacing = 1.6.sp,
+                                    fontWeight = FontWeight.Bold
+                                ),
+                                color = CyberCyan
+                            )
+                            Text(
+                                text = stringResource(R.string.settings_language_desc),
+                                style = MaterialTheme.typography.bodySmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+
+                            Spacer(modifier = Modifier.height(4.dp))
+
+                            Surface(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .clip(RoundedCornerShape(14.dp))
+                                    .clickable { showLanguageDialog = true },
+                                shape = RoundedCornerShape(14.dp),
+                                color = Color.White.copy(alpha = 0.04f),
+                                border = androidx.compose.foundation.BorderStroke(1.dp, Color.White.copy(alpha = 0.12f))
+                            ) {
+                                Row(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .padding(horizontal = 16.dp, vertical = 14.dp),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Row(
+                                        verticalAlignment = Alignment.CenterVertically,
+                                        horizontalArrangement = Arrangement.spacedBy(10.dp)
+                                    ) {
+                                        Text(
+                                            text = currentOption.flagEmoji,
+                                            style = MaterialTheme.typography.titleMedium
+                                        )
+                                        Text(
+                                            text = currentOption.displayName,
+                                            style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
+                                            color = Color.White
+                                        )
+                                    }
+                                    Text(
+                                        text = "DEĞİŞTİR ▾",
+                                        style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
+                                        color = CyberCyan
+                                    )
+                                }
+                            }
+                        }
+                    }
+
+                    if (showLanguageDialog) {
+                        AlertDialog(
+                            onDismissRequest = { showLanguageDialog = false },
+                            title = {
+                                Text(
+                                    text = stringResource(R.string.settings_language_title),
+                                    style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+                                    color = Color.White
+                                )
+                            },
+                            text = {
+                                Column(
+                                    modifier = Modifier.verticalScroll(rememberScrollState()),
+                                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                                ) {
+                                    LocaleHelper.SUPPORTED_LANGUAGES.forEach { lang ->
+                                        val isSelected = state.selectedLanguage == lang.code
+                                        Surface(
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .clip(RoundedCornerShape(12.dp))
+                                                .clickable {
+                                                    viewModel.onIntent(SettingsIntent.UpdateLanguage(lang.code))
+                                                    showLanguageDialog = false
+                                                },
+                                            shape = RoundedCornerShape(12.dp),
+                                            color = if (isSelected) CyberCyan.copy(alpha = 0.2f) else Color.White.copy(alpha = 0.03f),
+                                            border = if (isSelected) androidx.compose.foundation.BorderStroke(1.dp, CyberCyan) else null
+                                        ) {
+                                            Row(
+                                                modifier = Modifier
+                                                    .fillMaxWidth()
+                                                    .padding(horizontal = 14.dp, vertical = 12.dp),
+                                                verticalAlignment = Alignment.CenterVertically,
+                                                horizontalArrangement = Arrangement.spacedBy(12.dp)
+                                            ) {
+                                                Text(text = lang.flagEmoji, fontSize = 20.sp)
+                                                Text(
+                                                    text = lang.displayName,
+                                                    style = MaterialTheme.typography.bodyMedium.copy(
+                                                        fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal
+                                                    ),
+                                                    color = if (isSelected) CyberCyan else Color.White
+                                                )
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            confirmButton = {
+                                TextButton(onClick = { showLanguageDialog = false }) {
+                                    Text(text = "Kapat", color = CyberCyan)
+                                }
+                            },
+                            containerColor = ObsidianSurfaceElevated
+                        )
                     }
                 }
 
