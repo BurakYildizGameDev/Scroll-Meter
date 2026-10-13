@@ -26,12 +26,18 @@ android {
 
     signingConfigs {
         create("release") {
-            val keystorePath = System.getenv("KEYSTORE_PATH")
-            if (keystorePath != null && file(keystorePath).exists()) {
-                storeFile = file(keystorePath)
+            val customKeystorePath = System.getenv("KEYSTORE_PATH")
+            val projectReleaseKeystore = file("keystore/release.jks")
+            if (customKeystorePath != null && file(customKeystorePath).exists()) {
+                storeFile = file(customKeystorePath)
                 storePassword = System.getenv("KEYSTORE_PASSWORD")
                 keyAlias = System.getenv("KEY_ALIAS")
                 keyPassword = System.getenv("KEY_PASSWORD")
+            } else if (projectReleaseKeystore.exists()) {
+                storeFile = projectReleaseKeystore
+                storePassword = System.getenv("KEYSTORE_PASSWORD") ?: "scrollmeter2026"
+                keyAlias = System.getenv("KEY_ALIAS") ?: "scrollmeter"
+                keyPassword = System.getenv("KEY_PASSWORD") ?: "scrollmeter2026"
             } else {
                 val debugKeystore = file("${System.getProperty("user.home")}/.android/debug.keystore")
                 if (debugKeystore.exists()) {

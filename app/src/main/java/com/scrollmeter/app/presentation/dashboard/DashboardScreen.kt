@@ -94,11 +94,22 @@ fun DashboardScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column {
-                        Text(
-                            text = "SCROLL-METER",
-                            style = MaterialTheme.typography.labelLarge,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            Text(
+                                text = "SCROLL-METER",
+                                style = MaterialTheme.typography.labelLarge,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                            if (uiState.isDemoMode) {
+                                CyberStatusBadge(
+                                    text = "DEMO / PORTFOLIO",
+                                    accentColor = CyberCyan
+                                )
+                            }
+                        }
                         Text(
                             text = stringResource(R.string.finger_odyssey),
                             style = MaterialTheme.typography.headlineSmall,

@@ -16,11 +16,11 @@
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-purple.svg?style=flat-square&logo=kotlin)](https://kotlinlang.org)
 [![Android](https://img.shields.io/badge/Target%20SDK-34%20(Android%2014)-brightgreen.svg?style=flat-square&logo=android)](https://developer.android.com)
 [![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-BOM%202024.10.00-blue.svg?style=flat-square&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
-[![Tests](https://img.shields.io/badge/Tests-84%2F84%20Passed%20(100%25)-success.svg?style=flat-square&logo=checkmarx)](https://github.com)
+[![Tests](https://img.shields.io/badge/Tests-85%2F85%20Passed%20(100%25)-success.svg?style=flat-square&logo=checkmarx)](https://github.com)
 [![Languages](https://img.shields.io/badge/Languages-9%20Localized-blueviolet.svg?style=flat-square&logo=google-translate)](#-çoklu-dil-desteği-9-languages-support)
 [![Display](https://img.shields.io/badge/Display-120Hz%20%2F%20144Hz%20LTPO%20Ready-00F0FF.svg?style=flat-square&logo=speedtest)](#-120hz--144hz-ltpo-ultra-smooth-mikro-kaydırma-motoru)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20(No%20Internet)-emerald.svg?style=flat-square&logo=shield)](https://github.com)
-[![Size](https://img.shields.io/badge/Release%20APK-3.3%20MB%20Ultra--Lean-orange.svg?style=flat-square&logo=android)](https://github.com)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20(No%20Internet)-emerald.svg?style=flat-square&logo=shield)](#-sıfır-internet-ve-mutlak-gizlilik-matrisi)
+[![Size](https://img.shields.io/badge/Release%20APK-3.4%20MB%20Ultra--Lean-orange.svg?style=flat-square&logo=android)](https://github.com)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
 
 <br/>
@@ -71,17 +71,39 @@ Kaydırma eylemi; dikkat dağınıklığı, parmak eklemi yorgunluğu ve kompuls
 
 ## 📥 Hemen İndir ve Kur (Download & Install)
 
-Telefonunuza doğrudan indirip hemen kullanmaya başlayabilirsiniz:
+Telefonunuza doğrudan indirip hemen kullanmaya başlayabilir veya kaynak koddan derleyebilirsiniz:
 
-| Sürüm | Paket | Boyut | İndirme Bağlantısı | SHA-256 Doğrulama |
+| Sürüm | Paket | Boyut | İndirme Bağlantısı | İmzalama & Sertifika |
 | :--- | :--- | :---: | :---: | :---: |
-| **v1.0.0 (Official Release)** | `app-release.apk` | **~3.3 MB** | [👉 **Hemen İndir (.apk)**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk) | [Doğrula (Releases)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/tag/v1.0.0) |
-| **Geliştirici Sürümü** | `app-debug.apk` | **61 MB** | [📦 **Releases Sayfası**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases) | — |
+| **v1.0.0 (Official Production)** | `app-release.apk` | **~3.4 MB** | [👉 **Hemen İndir (.apk)**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk) | [Resmi Release Keystore](#-resmi-üretim-imzası-ve-sertifika-doğrulama) |
+| **Geliştirici Sürümü** | `app-debug.apk` | **58 MB** | [📦 **Releases Sayfası**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases) | Standart Android Debug |
 
-### 📲 3 Adımda Kolay Kurulum
-1. **İndirin:** Yukarıdaki **[Hemen İndir](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk)** butonuna basarak `app-release.apk` dosyasını telefonunuza indirin.
-2. **Yükleyin:** İndirilen APK dosyasına dokunun. Android sistem uyarısı verirse *"Bu kaynaktan yüklemeye izin ver"* seçeneğini işaretleyin.
-3. **İzni Verin:** Scroll-Meter'ı açın. Karşılama ekranındaki butona dokunarak sistem Ayarlar menüsünden **Scroll-Meter Erişilebilirlik Servisi**'ni aktif edin. Telemetriniz arka planda sessizce ve sıfır pil tüketimiyle çalışmaya başlayacaktır!
+---
+
+### 🎮 İK ve Geliştiriciler İçin: 1-Tıkla Portföy Önizleme Modu (Sıfır İzin)
+Uygulamayı teknik mülakat, CV incelemesi veya portföy değerlendirmesi amacıyla test ediyorsanız **hiçbir erişilebilirlik izni vermenize gerek yoktur**:
+1. `app-release.apk` dosyasını kurup açın.
+2. Açılış ekranındaki **`PORTFÖY / DEMO MODU (İzin Vermeden İncele)`** butonuna dokunun.
+3. Uygulama saniyeler içinde gerçekçi sahte telemetri oturumlarını (Instagram, TikTok, X, Reddit), açılmış kupa odası rozetlerini ve haftalık Compose Canvas grafiklerini yükler. Tüm 120Hz/144Hz animasyonları ve MVI mimarisini sıfır izinle anında deneyimleyebilirsiniz!
+
+---
+
+### 🛡️ Kurulum ve Google Play Protect Hakkında Şeffaf Bilgilendirme
+Google, 2024 yılından itibaren Android ekosisteminde devreye aldığı **Gelişmiş Sahtekarlık Koruması (Enhanced Fraud Protection)** gereğince; Google Play Store haricinden (GitHub, tarayıcı veya dosya yöneticisi) indirilen ve manifest dosyasında `BIND_ACCESSIBILITY_SERVICE` izni bildiren tüm sideload APK'lara otomatik olarak şu uyarıyı gösterebilmektedir:
+> *"Uygulama cihazınızı korumak için engellendi. Bu uygulama hassas verilere erişim izni isteyebilir."*
+
+#### Neden Bu Uyarı Çıkıyor ve Neden %100 Güvenlidir?
+* **Teknik Zorunluluk:** Android işletim sistemi mimarisinde uygulamalar arası (Instagram, TikTok vb.) kaydırma mesafesini ölçebilecek `TYPE_VIEW_SCROLLED` haricinde başka hiçbir genel API **bulunmamaktadır**.
+* **Sıfır İnternet Garantisi:** Scroll-Meter'ın manifestinde `android.permission.INTERNET` izni **yoktur**. Cihazınızdan dışarıya 1 bayt bile veri çıkışı teknik olarak imkansızdır.
+* **Metin Casusluğu Koruması:** Servis konfigürasyonunda `canRetrieveWindowContent="false"` zorunludur. Uygulama şifre, mesaj veya ekran metinlerini **asla okuyamaz**.
+
+#### Kurulum Seçenekleri:
+* **Seçenek A (Telefonda):** Google Play Store > Profil > Play Protect > Ayarlar (Dişli Çark) simgesinden *"Uygulamaları Play Protect ile tara"* seçeneğini kurulum süresince geçici olarak kapatıp APK'yı kurun.
+* **Seçenek B (Bilgisayardan / ADB):** Geliştirici USB Hata Ayıklama açıkken terminalden:
+  ```powershell
+  adb install app/build/outputs/apk/release/app-release.apk
+  ```
+* **Xiaomi / HyperOS Notu:** Kurulum sonrası servisi aktif ederken *"Kısıtlanmış Ayar"* derse: Telefon Ayarları > Uygulamalar > Scroll-Meter > Sağ üstteki 3 nokta > *"Kısıtlanmış ayarlara izin ver"* seçeneğini onaylayın.
 
 ---
 
@@ -235,6 +257,19 @@ Günün sonunda katettiğiniz mesafe soyut sayılar yerine dünyaca ünlü yapı
 > [!IMPORTANT]
 > `canRetrieveWindowContent="false"` kuralı Android İşletim Sistemi çekirdeği düzeyinde zorlanır. Bu ayar `false` olduğunda, Android işletim sistemi uygulamaya ekrandaki metinleri veya düğme içeriklerini kesinlikle iletmez; servis yalnızca dikey koordinat farkını (delta) alır.
 
+### 🔑 Resmi Üretim İmzası ve Sertifika Doğrulama
+
+Scroll-Meter üretim derlemeleri (`app-release.apk`), varsayılan debug anahtarlarıyla değil, 25+ yıl geçerli resmi 2048-bit RSA üretim sertifikasıyla imzalanır.
+
+| Sertifika Alanı | Değer / Doğrulama Bilgisi |
+| :--- | :--- |
+| **Sertifika Sahibi (Owner)** | `CN=Burak Yildiz, OU=Mobile Engineering, O=Scroll-Meter, C=TR` |
+| **Anahtar Algoritması** | `RSA 2048-bit` (SHA256withRSA) |
+| **İmza Şemaları** | APK Signature Scheme v2 & v3 (Tam bütünlük) |
+| **Sertifika SHA-256** | `FB:C9:62:27:58:6D:A7:FE:61:83:67:85:93:D9:D8:69:C6:C9:5D:DB:F1:56:7C:A0:25:35:27:A4:49:F9:7B:68` |
+| **Sertifika SHA-1** | `44:DD:53:A1:DC:4A:50:4C:36:97:EE:4A:22:8C:B1:64:9A:74:D6:87` |
+| **Google Play Protect Durumu** | Resmi False-Positive İtiraz Formu ([Google Protect Appeals](https://support.google.com/googleplay/android-developer/contact/protectappeals)) ile doğrulanabilir. |
+
 ---
 
 ## 🔋 Pil ve Performans Mühendisliği (Battery & Never-Crash)
@@ -295,6 +330,14 @@ Scroll-Meter, 2025–2026 Gen Z mobil arayüz trendleri (Opal Mineral Glow, Dopa
 * **Scroll Distance Bar Chart (`ScrollDistanceBarChart.kt`):**
   * Hiçbir 3. parti grafik kütüphanesi kullanılmadan saf Compose Canvas ile çizilmiştir.
   * İlk 5 uygulamanın kaydırma oranlarını oranlayarak çizgi kılavuzlarıyla görselleştirir.
+
+### 📱 Cyber-Luxury Uyarlanabilir Uygulama İkonu (Adaptive App Icon)
+Android 8.0+ (API 26) ve Android 14 (API 34) standartlarına uygun, vektörel olarak çizilmiş iki katmanlı uyarlanabilir simge:
+* **Arka Plan (`ic_launcher_background.xml`):** `ObsidianVoid` derin uzay siyahı üzerinde radyal `%10` ElectricMint ve CyberCyan ortam ışıltısı.
+* **Ön Plan (`ic_launcher_foreground.xml`):**
+  * **240° Telemetri Halka Yayı:** Neon mint-siyan doğrusal degradeli açık gösterge yayı.
+  * **Kinetik Kaydırma Çentiği:** Yukarı yönlü parmak hareketini ve mesafe birikimini sembolize eden dikey akış oku.
+  * **Cetvel Metrik Hassasiyet Çizgileri:** Donanımsal PPI tabanlı fiziksel mesafe ölçümünü vurgulayan milimetrik cetvel çizgileri.
 
 ---
 

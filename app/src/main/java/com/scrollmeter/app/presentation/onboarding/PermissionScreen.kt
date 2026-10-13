@@ -57,6 +57,12 @@ import com.scrollmeter.app.presentation.theme.ElectricMint
 import com.scrollmeter.app.presentation.theme.HyperViolet
 import com.scrollmeter.app.presentation.theme.ObsidianVoid
 
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material3.OutlinedButton
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+
 /**
  * Onboarding and Accessibility Permission Screen with Cyber Luxury aesthetics
  * highlighting zero-data intrusion guarantees.
@@ -64,11 +70,13 @@ import com.scrollmeter.app.presentation.theme.ObsidianVoid
 @Composable
 fun PermissionScreen(
     onPermissionGranted: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: PermissionViewModel = hiltViewModel()
 ) {
     val context = LocalContext.current
     val scrollState = rememberScrollState()
     var isGranted by remember { mutableStateOf(isAccessibilityPermissionGranted(context)) }
+    val isDemoLoading by viewModel.isDemoLoading.collectAsStateWithLifecycle()
 
     // Re-check permission whenever user resumes app from Settings
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -271,6 +279,53 @@ fun PermissionScreen(
                     )
                 }
             }
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            // Recruiter / Portfolio Demo Mode Button
+            OutlinedButton(
+                onClick = {
+                    viewModel.activateDemoMode {
+                        onPermissionGranted()
+                    }
+                },
+                enabled = !isDemoLoading,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(52.dp),
+                shape = RoundedCornerShape(18.dp),
+                border = BorderStroke(1.5.dp, CyberCyan.copy(alpha = 0.6f)),
+                colors = ButtonDefaults.outlinedButtonColors(
+                    contentColor = CyberCyan
+                )
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Visibility,
+                        contentDescription = null,
+                        modifier = Modifier.size(18.dp),
+                        tint = CyberCyan
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Text(
+                        text = if (isDemoLoading) "LOADING PREVIEW..." else stringResource(R.string.btn_demo_mode),
+                        style = MaterialTheme.typography.titleSmall,
+                        color = CyberCyan
+                    )
+                }
+            }
+
+            Text(
+                text = stringResource(R.string.demo_mode_desc),
+                style = MaterialTheme.typography.bodySmall,
+                color = Color.White.copy(alpha = 0.5f),
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp)
+            )
 
             Spacer(modifier = Modifier.height(20.dp))
         }

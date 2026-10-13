@@ -20,6 +20,7 @@ data class DashboardUiState(
     val topApps: List<AppScrollSession> = emptyList(),
     val dominantApp: AppScrollSession? = null,
     val isServiceActive: Boolean = false,
+    val isDemoMode: Boolean = false,
     val isLoading: Boolean = true,
     val errorMessage: String? = null
 )

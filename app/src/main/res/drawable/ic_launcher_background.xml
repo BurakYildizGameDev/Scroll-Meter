@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Obsidian Dark Background -->
+    <path
+        android:fillColor="#090D14"
+        android:pathData="M0,0h108v108h-108z" />
+
+    <!-- Subtle Radial Depth Glow -->
+    <path
+        android:pathData="M54,54m-42,0a42,42 0,1 1,84 0a42,42 0,1 1,-84 0">
+        <aapt:attr name="android:fillColor" xmlns:aapt="http://schemas.android.com/aapt">
+            <gradient
+                android:centerX="54"
+                android:centerY="46"
+                android:gradientRadius="45"
+                android:type="radial">
+                <item android:color="#2400F0FF" android:offset="0.0" />
+                <item android:color="#1000E676" android:offset="0.5" />
+                <item android:color="#00090D14" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+</vector>

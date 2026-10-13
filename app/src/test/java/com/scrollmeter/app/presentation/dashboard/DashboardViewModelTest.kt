@@ -47,6 +47,7 @@ class DashboardViewModelTest {
         settingsDataStore = mockk(relaxed = true)
 
         every { settingsDataStore.dailyGoalMeters } returns flowOf(100.0f)
+        every { settingsDataStore.isDemoModeActive } returns flowOf(false)
         every { getAppLeaderboardUseCase(testEpochDay) } returns flowOf(Result.Success(emptyList()))
     }
 

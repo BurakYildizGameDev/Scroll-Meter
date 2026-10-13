@@ -86,4 +86,6 @@
     <string name="trust_battery_desc">Screen-off sensor sleeps automatically. High-capacity buffer with 5s batching uses &lt;0.5% CPU.</string>
     <string name="btn_continue">CONTINUE</string>
     <string name="btn_activate_service">ACTIVATE SERVICE ⚡</string>
+    <string name="btn_demo_mode">PORTFOLIO / DEMO MODE (Explore Without Permission)</string>
+    <string name="demo_mode_desc">Instantly load mock telemetry, unlocked achievements, and weekly charts for evaluation.</string>
 </resources>

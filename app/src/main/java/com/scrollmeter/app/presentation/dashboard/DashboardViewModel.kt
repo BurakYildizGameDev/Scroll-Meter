@@ -39,15 +39,17 @@ class DashboardViewModel @Inject constructor(
             combine(
                 getDailyTotalDistanceUseCase(epoch),
                 settingsDataStore.dailyGoalMeters,
-                getAppLeaderboardUseCase(epoch)
-            ) { distanceResult, goalMeters, leaderboardResult ->
+                getAppLeaderboardUseCase(epoch),
+                settingsDataStore.isDemoModeActive
+            ) { distanceResult, goalMeters, leaderboardResult, isDemo ->
                 when (distanceResult) {
                     is Result.Loading -> {
-                        DashboardUiState(isLoading = true)
+                        DashboardUiState(isLoading = true, isDemoMode = isDemo)
                     }
                     is Result.Error -> {
                         DashboardUiState(
                             isLoading = false,
+                            isDemoMode = isDemo,
                             errorMessage = distanceResult.throwable.message ?: "Failed to load telemetry"
                         )
                     }
@@ -72,6 +74,7 @@ class DashboardViewModel @Inject constructor(
                             metersRemainingToNext = metaphorProgress.remainingMetersToNext,
                             topApps = topApps,
                             dominantApp = topApps.firstOrNull(),
+                            isDemoMode = isDemo,
                             isLoading = false
                         )
                     }

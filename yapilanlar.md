@@ -75,6 +75,16 @@ Hiçbir harici bulut/çeviri kütüphanesi kullanılmadan, Android işletim sist
 * **Kapsanan Ekranlar:** Dashboard, Kupa Odası, Analitik, Ayarlar & Cetvel Kalibrasyonu, İzin ve Karşılama Ekranı.
 * **Dinamik Başarım Çevirisi:** `localizedAchievementTitle` ve `localizedAchievementDescription` composable fonksiyonları ile sistem dili değiştiğinde başarımların başlık ve açıklamaları anında ilgili dile geçer.
 
+### 🛡️ 5. Güvenlik, CV Vitrini ve İkon Güncellemesi (Release Hardening & Recruiter Mode)
+* **Resmi Release Keystore:** Projeye özel 25+ yıllık 2048-bit RSA üretim anahtarı (`app/keystore/release.jks`) üretildi ve Gradle imzalama zincirine bağlandı. APK artık varsayılan debug anahtarıyla değil, doğrulanabilir resmi sertifikayla imzalanıyor.
+* **1-Tıkla Portföy Önizleme Modu (Sıfır İzin):**
+  * İK ve mülakatçıların telefonu şirket cihazı olduğunda veya erişilebilirlik izni vermek istemediklerinde uygulamayı anında deneyimleyebilmeleri için `SeedDemoDataUseCase` ve `PermissionViewModel` geliştirildi.
+  * Karşılama ekranına eklenen `PORTFÖY / DEMO MODU` butonuyla tek tıkla sahte telemetri oturumları (Instagram 480m, TikTok 650m vb.), açılmış başarımlar ve haftalık grafikler yüklenerek doğrudan ana ekrana geçiş sağlandı.
+  * Ana ekran başlığında `DEMO / PORTFOLIO` siber rozeti aktifleşti.
+* **Cyber-Luxury Adaptif Uygulama İkonu (108dp Vector):**
+  * Varsayılan Android robot ikonu yerine; `ObsidianVoid` arka plan, 240° neon mint-siyan telemetri yayı, kinetik kaydırma oku ve milimetrik cetvel çentiklerinden oluşan modern adaptif vektör ikonu (`ic_launcher`, `ic_launcher_round`) tasarlandı.
+* **Google Play Protect Şeffaflığı:** Google'ın sideloaded `AccessibilityService` içeren APK'lara uyguladığı otomatik engelleme politikası ve `protectappeals` doğrulama süreci dokümante edildi.
+
 ---
 
 ## 3. Mimari ve Faz Özeti (1 - 60 Tamamı)

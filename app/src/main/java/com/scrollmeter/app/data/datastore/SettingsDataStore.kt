@@ -57,6 +57,14 @@ class SettingsDataStore @Inject constructor(
             preferences[KEY_IS_ONBOARDING_COMPLETED] ?: false
         }
 
+    val isDemoModeActive: Flow<Boolean> = dataStore.data
+        .catch { exception ->
+            if (exception is IOException) emit(emptyPreferences()) else throw exception
+        }
+        .map { preferences ->
+            preferences[KEY_IS_DEMO_MODE] ?: false
+        }
+
     suspend fun setCalibrationMultiplier(multiplier: Float) {
         dataStore.edit { preferences ->
             preferences[KEY_CALIBRATION_MULTIPLIER] = multiplier.coerceAtLeast(0.1f)
@@ -81,10 +89,17 @@ class SettingsDataStore @Inject constructor(
         }
     }
 
+    suspend fun setDemoMode(active: Boolean) {
+        dataStore.edit { preferences ->
+            preferences[KEY_IS_DEMO_MODE] = active
+        }
+    }
+
     companion object {
         val KEY_CALIBRATION_MULTIPLIER = floatPreferencesKey("calibration_multiplier")
         val KEY_DAILY_GOAL_METERS = floatPreferencesKey("daily_goal_meters")
         val KEY_THEME_MODE = intPreferencesKey("theme_mode")
         val KEY_IS_ONBOARDING_COMPLETED = booleanPreferencesKey("is_onboarding_completed")
+        val KEY_IS_DEMO_MODE = booleanPreferencesKey("is_demo_mode")
     }
 }

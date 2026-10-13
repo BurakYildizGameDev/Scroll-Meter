@@ -86,4 +86,6 @@
     <string name="trust_battery_desc">Ekran kapandığında sensör otomatik uyur. 5 saniyelik toplu işleme ile yüksek kapasiteli arabellek &lt;%0.5 CPU kullanır.</string>
     <string name="btn_continue">DEVAM ET</string>
     <string name="btn_activate_service">SERVİSİ AKTİF ET ⚡</string>
+    <string name="btn_demo_mode">PORTFÖY / DEMO MODU (İzin Vermeden İncele)</string>
+    <string name="demo_mode_desc">Mülakat ve test için sahte telemetri, kupa rozetleri ve haftalık grafikleri anında yükle.</string>
 </resources>
