@@ -13,9 +13,9 @@
 
 Scroll-Meter projesinde 60 Fazlı Kurumsal Üretim Rehberi'nin tamamı bitirilmiş; ardından amiral gemisi donanımlar için **120Hz/144Hz LTPO mikro-kaydırma optimizasyonu**, **Cyber-Luxury Kupa Odası ve Başarımlar (Achievements) Sistemi**, **9 Dilde Tam Yerelleştirme (i18n)** ve **Otomatik Performans Kıyaslama Testleri** başarıyla hayata geçirilmiştir.
 
-* **Toplam Birim / Entegrasyon / Kıyaslama Testi:** **101 / 101 Başarılı (%100 Yeşil)**
+* **Toplam Birim / Entegrasyon / Kıyaslama Testi:** **108 / 108 Başarılı (%100 Yeşil)**
 * **Mimari Yapı:** Hibrit Çift Motor (Standart Güvenli Mod + Gelişmiş Laboratuvar Modu + Portföy Demo Modu)
-* **APK Boyut Optimizasyonu:** Debug 61 MB -> **Release 3.6 MB (%94.1 Tasarruf)**
+* **APK Boyut Optimizasyonu:** Debug 61 MB -> **Release 3.47 MB (3.6 MB diskte)**
 * **Gizlilik ve Güvenlik:** `INTERNET` izni kesinlikle yok (0 Byte veri sızıntısı), `canRetrieveWindowContent="false"`, cihaz içi donanım seviyesinde şifrelenmiş SQLite.
 * **Resmi Sürüm Durumu:** GitHub Release `v1.0.0` yayında ve indirilebilir APK hazır.
 
@@ -23,40 +23,22 @@ Scroll-Meter projesinde 60 Fazlı Kurumsal Üretim Rehberi'nin tamamı bitirilmi
 
 ## 2. Son Aşamada Eklenen İleri Düzey Özellikler
 
-### 🚀 1. 120Hz / 144Hz LTPO Ultra-Smooth Mikro-Kaydırma Motoru
-* **Sub-Pixel Jitter Filtre Adaptasyonu:**
-  * 120Hz ve 144Hz değişken yenileme hızlı (LTPO) ekranlarda parmak hareketi saniyede 120+ kareye bölünür. Yavaş ve narin kaydırmalarda kare başına düşen dikey piksel farkı ($\Delta y$) `1.0px – 2.5px` seviyesine düşer.
-  * `ScrollAnomalyFilter.kt` içine `isHighRefreshRate` modu entegre edildi. Standart `3.0px` eşiği yüksek yenileme hızında `1.0px` seviyesine esnetilerek, yavaş mikro-kaydırmaların gürültü filtresine takılıp silinmesi engellendi. Toplam ölçüm doğruluğu %100'e çıkarıldı.
-* **Birim Test Kanıtı:**
-  * `ScrollBatchCollectorTest.kt` içine 120Hz modunda `1.5px` alt-piksel kaydırmaların başarıyla toplandığını ve diske aktarıldığını kanıtlayan test eklendi.
+### 🎯 1. 100 Özgün Görev & Kupa Odası Genişletmesi
+* `GetAchievementsUseCase.kt` ve `AchievementCategory.kt` baştan sona genişletildi:
+  * **45 Mesafe & Landmark Görevi:** 5 cm'den başlayıp (Cetvel, Bir Metre, Zürafa, Özgürlük Anıtı, Eyfel, Burç Halife, 1K, Boğaziçi Köprüsü, Fuji Dağı, Everest, Mariana Çukuru) 42 km Tam Maratona uzanan mikro ve makro hedefler.
+  * **28 Uygulama Uzmanlığı:** Instagram, TikTok, YouTube Shorts, X/Twitter, Reddit, Chrome, WhatsApp ve Mobil Oyunlar için özel hedefler.
+  * **12 Alışkanlık & Çeşitlilik:** 2, 4, 6, 8, 10 farklı uygulama kullanım çeşitliliği, <50m hafif gün dengesi, çift hedef aşımı ve monotasking analizleri.
+  * **15 Hassasiyet & Ayar Görevi:** Ekran cetveli kalibrasyon çarpanları (0.90x, 1.10x), tempo modları (Sakin 0.8x, Dengeli 1.0x, Seri 1.25x), hedef belirleme ve nihai Scroll-Meter Efsanesi rozeti.
+* `AchievementsScreen.kt`: Yatay kaydırılabilir 5 filtre sekmesi (`Tümü`, `Mesafe`, `Uzmanlık`, `Alışkanlık`, `Hassasiyet`) ve `X / 100` sayaç göstergesi.
 
-### ⏱️ 2. Otomatik Performans Kıyaslama Testleri (Benchmarks)
-* `PerformanceBenchmarkTest.kt` ile motorun sınırları stres testine tabi tutuldu:
-  * **DistanceCalculator:** Saniyede **25.000.000** dönüşüm (<0.00004 ms per op).
-  * **ScrollAnomalyFilter:** Saniyede **25.000.000** anomali ve hız kontrolü.
-  * **ScrollBatchCollector:** Saniyede **54.000** bellek içi (RAM) olay kuyruklama kapasitesi.
-  * Sonuç: Ekran kartı veya CPU üzerinde sıfıra yakın yük (<%0.5 CPU).
+### 🖼️ 2. Gerçek Android Uygulama İkonları (Native AppIcon)
+* `AppIcon.kt`: Android `PackageManager.getApplicationIcon` API'si ile çalışan, asenkron IO yüklemeli ve 150 öğelik küresel LRU bellek önbelleğine (`AppIconCache`) sahip Compose bileşeni.
+* Liderlik tablosu (`AppLeaderboardItem.kt`) ve ana sayfa lider uygulama kartında (`DashboardScreen.kt`) paket isimleri yerine gerçek app logoları gösterildi.
 
-### 🏆 3. Cyber-Luxury Trophy Room & Başarımlar (Achievements) Sistemi
-* **Domain Katmanı:**
-  * `Achievement.kt`: `id`, `title`, `description`, `iconEmoji`, `category`, `isUnlocked`, `progress`, `progressText` alanları.
-  * `AchievementCategory`: `MILESTONE` (Mihenk Taşı), `HABIT` (Alışkanlık), `PRECISION` (Hassasiyet).
-  * `GetAchievementsUseCase.kt`: 9 özgün başarım rozetinin matematiksel kriterlerini reaktif StateFlow ile değerlendiren saf iş mantığı.
-* **9 Özgün Başarım Rozeti:**
-  1. 🥉 **İlk Adım (First Step):** Herhangi bir uygulamada ilk 100 metreyi tamamla.
-  2. 🦒 **Zürafa Kulübü (Giraffe Club):** 5.5 metre kaydırarak dünyanın en uzun kara memelisini geç.
-  3. 🗽 **Özgürlük Meşalesi (Liberty Torch):** Özgürlük Heykeli kaidesini aş (93m).
-  4. 🗼 **Eyfel Tırmanıcısı (Eiffel Climber):** Tek bir günde Eyfel Kulesi yüksekliğine ulaş (330m).
-  5. 🏙️ **Bulut Delici (Cloud Piercer):** Burç Halife seyir terasını fethet (828m).
-  6. 🏃‍♂️ **Başparmak Maratonu (Thumb Marathon):** Bir günde tam 1.000 metre (1 kilometre) kaydır.
-  7. ⚡ **Hız İblisi (Speed Demon):** Tek bir uygulamada 250m+ kaydır.
-  8. 📱 **Sosyal Gezgin (Social Explorer):** En az 3 farklı uygulamada aktif oturum kaydet.
-  9. 📐 **Hassas Ayarlayıcı (Precision Tuner):** Ekran cetveli ile kalibrasyonu tamamla.
-* **Trophy Room UI (`AchievementsScreen.kt`):**
-  * **Hero Kart:** Dinamik Ustalık Göstergesi (`%0 - %100 Toplam Ustalık`) ve `X / 9 Açıldı` sayacı.
-  * **Kategori Filtreleme Çipleri:** `TÜMÜ`, `MİHENK TAŞI`, `ALIŞKANLIK` sekmeleriyle anlık filtreleme.
-  * **Opal Mineral Bento Kartları:** Açılan başarımlarda neon yeşili çerçeve (`ElectricMint`) ve `UNLOCKED` rozeti; kilitli başarımlarda ise ince ilerleme çubuğu ve kalan mesafe metni.
-* **Navigasyon:** `ScreenRoute.Achievements` rotası oluşturuldu; `DashboardScreen.kt` üst başlığına 🏆 butonu eklendi.
+### ⚡ 3. Anlık UsageEvents Akışı & Gecikmesiz Telemetri
+* `UsageStatsProviderImpl.kt`: Android OS'in 15 dakikalık disk erteleme gecikmesini bertaraf etmek için `queryEvents(startTime, endTime)` akışı entegre edildi (`ACTIVITY_RESUMED` ve `ACTIVITY_PAUSED`).
+* `DashboardScreen.kt`: `ON_RESUME` lifecycle dinleyicisi ile uygulamaya dönüldüğü saniyede telemetri otomatik senkronize edildi.
+* Mobil oyunlar (`0.030 m/dk`) kadans algoritmasına eklendi.
 
 ### 🌐 4. 9 Dilde Tam Yerelleştirme (i18n Localization)
 Hiçbir harici bulut/çeviri kütüphanesi kullanılmadan, Android işletim sisteminin yerel kaynak yöneticisi üzerinden 9 dünya diline tam destek sağlandı:

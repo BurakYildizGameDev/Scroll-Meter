@@ -7,7 +7,7 @@
 
 <br/>
 
-[![Download APK](https://img.shields.io/badge/📥_DOWNLOAD_APK-v1.0.0_(3.6_MB)-10B981?style=for-the-badge&labelColor=0B0F17&color=10B981)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk)
+[![Download APK](https://img.shields.io/badge/📥_DOWNLOAD_APK-v1.0.0_(3.47_MB)-10B981?style=for-the-badge&labelColor=0B0F17&color=10B981)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk)
 [![Releases](https://img.shields.io/badge/🚀_GitHub-Releases-06B6D4?style=for-the-badge&labelColor=0B0F17&color=06B6D4)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases)
 [![GitHub Stars](https://img.shields.io/github/stars/BurakYildizGameDev/Scroll-Meter?style=for-the-badge&color=F59E0B&labelColor=0B0F17)](https://github.com/BurakYildizGameDev/Scroll-Meter/stargazers)
 
@@ -17,11 +17,11 @@
 [![Android](https://img.shields.io/badge/Target%20SDK-34%20(Android%2014)-10B981.svg?style=flat-square&logo=android)](https://developer.android.com)
 [![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-BOM%202024.10.00-06B6D4.svg?style=flat-square&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
 [![Architecture](https://img.shields.io/badge/Architecture-Dual--Engine%20Hybrid-10B981.svg?style=flat-square&logo=android)](#-hibrit-çift-motor-mimarisi-dual-engine-architecture)
-[![Tests](https://img.shields.io/badge/Tests-101%2F101%20Passed%20(100%25)-success.svg?style=flat-square&logo=checkmarx)](https://github.com)
+[![Tests](https://img.shields.io/badge/Tests-108%2F108%20Passed%20(100%25)-success.svg?style=flat-square&logo=checkmarx)](https://github.com)
 [![Display](https://img.shields.io/badge/Display-120Hz%20%2F%20144Hz%20LTPO%20Ready-06B6D4.svg?style=flat-square&logo=speedtest)](#-120hz--144hz-ltpo-mikro-kaydırma-motoru)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20(No%20Internet)-10B981.svg?style=flat-square&logo=shield)](#-sıfır-internet-ve-kurumsal-gizlilik-mimarisi)
 [![Languages](https://img.shields.io/badge/Languages-9%20Localized-8B5CF6.svg?style=flat-square&logo=google-translate)](#-çoklu-dil-desteği-9-languages-support)
-[![Size](https://img.shields.io/badge/Release%20APK-3.6%20MB%20Ultra--Lean-orange.svg?style=flat-square&logo=android)](https://github.com)
+[![Size](https://img.shields.io/badge/Release%20APK-3.47%20MB%20(3.6%20MB%20on%20disk)-orange.svg?style=flat-square&logo=android)](https://github.com)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
 
 <br/>
@@ -45,7 +45,7 @@
 10. [📏 Ekranda Fiziksel Cetvel ile Kalibrasyon](#-ekranda-fiziksel-cetvel-ile-kalibrasyon)
 11. [🎨 Modern Minimalist Tasarım Sistemi](#-modern-minimalist-tasarım-sistemi)
 12. [🏗️ Yazılım Mimarisi (Clean Architecture + MVI)](#-yazılım-mimarisi-clean-architecture--mvi)
-13. [🧪 Test Matrisi ve Performans Kıyaslama Raporu (101/101 Test)](#-test-matrisi-ve-performans-kıyaslama-raporu-101101-test)
+13. [🧪 Test Matrisi ve Performans Kıyaslama Raporu (108/108 Test)](#-test-matrisi-ve-performans-kıyaslama-raporu-108108-test)
 14. [⚙️ Kaynak Koddan Derleme (Build from Source)](#-kaynak-koddan-derleme-build-from-source)
 15. [❓ Sıkça Sorulan Sorular (FAQ)](#-sıkça-sorulan-sorular-faq)
 16. [📄 Lisans ve Telif Hakkı](#-lisans-ve-telif-hakkı)
@@ -72,7 +72,7 @@ sistem raporlarında aynı "45 dakika ekran süresi" olarak listelenir. Oysa zih
 
 | Sürüm | Paket | Boyut | İndirme Bağlantısı | İmza Durumu |
 | :--- | :--- | :---: | :---: | :---: |
-| **v1.0.0 (Official Production)** | `app-release.apk` | **3.6 MB** | [👉 **Hemen İndir (.apk)**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk) | 2048-bit RSA Keystore |
+| **v1.0.0 (Official Production)** | `app-release.apk` | **3.47 MB** | [👉 **Hemen İndir (.apk)**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk) | 2048-bit RSA Keystore |
 | **Geliştirici Sürümü** | `app-debug.apk` | **58 MB** | [📦 **Tüm Sürümler**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases) | Android Debug Anahtarı |
 
 ---
@@ -137,16 +137,21 @@ flowchart TD
   * Kullanıcılar akışta video izlerken, görsel incelerken veya yazı okurken dakikada ortalama 1.5 – 2.5 kez parmak dokunuşu yapar. Gerçek telefon ölçeğiyle birebir örtüşen hassas hızlar:
   * 📱 **Kısa Video & Keşfet (TikTok, Instagram Reels):** `0.040 m / aktif dakika` (4.0 cm / dk ~2 kaydırma/dk × ~2cm cam teması)
   * 🐦 **Sosyal Metin Akışı (Twitter / X, Reddit, Threads):** `0.035 m / aktif dakika` (3.5 cm / dk)
+  * 🎮 **Mobil Oyunlar (Subway Surfers, Candy Crush, Brawl Stars, Roblox):** `0.030 m / aktif dakika` (3.0 cm / dk - aktif dokunmatik kontroller)
   * 🌐 **Web & E-Ticaret (Chrome, Firefox, Trendyol):** `0.025 m / aktif dakika` (2.5 cm / dk)
   * 💬 **Mesajlaşma (WhatsApp, Telegram, Discord):** `0.008 m / aktif dakika` (0.8 cm / dk - zamanın %90'ı klavye ve okuma)
   * 🎬 **Video Akışı (YouTube, Netflix):** `0.002 m / aktif dakika` (0.2 cm / dk - sabit izleme)
   * ⚙️ **Genel Uygulamalar:** `0.015 m / aktif dakika` (1.5 cm / dk)
   * *Sonuç:* 14 cm boyundaki telefonunuzda Instagram'a girip 2 kez parmak kaydırdığınızda artık şişirilmiş metreler değil; ekranınızdaki fiziksel karşılığı olan **~4.0 cm** eklenir!
+* **⚡ Canlı ve Gecikmesiz UsageEvents Akışı (Sub-Second Real-Time Engine):**
+  * Android'in standart `queryAndAggregateUsageStats` veritabanı disk güncellemelerini 10-15 dakika geciktirebilir. Scroll-Meter, Android'in anlık `UsageEvents` akışını (`ACTIVITY_RESUMED` ve `ACTIVITY_PAUSED`) milisaniye hassasiyetiyle analiz eder. Kullanıcı başka bir uygulamadan Scroll-Meter'a döndüğü anda (`ON_RESUME`) telemetri otomatik güncellenir.
+* **🖼️ Yerel Android Uygulama İkonları (Native AppIcon Architecture):**
+  * Uygulama liderlik tablosu ve ana gösterge kartında karmaşık paket isimleri (`com.instagram.android`) yerine Android `PackageManager` üzerinden uygulamanın gerçek logosu ve kullanıcı dostu adı yüklenir. LRU bellek önbelleği sayesinde 120Hz ekranlarda dahi sıfır arayüz gecikmesi garanti edilir.
 * **📏 Akıllı Uyarlanabilir Birim Sistemi (Adaptive Units):**
   * `< 1.0 m`: Doğrudan santimetre (**cm**) cinsinden gösterilir (`4.0 cm`, `25.5 cm`, `80 cm`). Küçük kaydırmalarda metre kafa karışıklığı yaşanmaz.
   * `1.0 m – 999.9 m`: Metre (**m**) cinsinden 2 basamaklı hassasiyetle gösterilir (`1.24 m`, `14.50 m`).
   * `≥ 1000 m`: Kilometre (**km**) cinsine geçer (`1.25 km`).
-* **Ayarlanabilir Tempo Çarpanı:** Ayarlar ekranından kaydırma temposu (Sakin 0.8x, Dengeli 1.0x, Seri 1.25x) tek tıkla seçilebilir.
+* **Ayarlanabilir Tempo Çarpanı:** Ayarlar ekranından kaydırma temposu (Sakin 0.8x, Dengeli 1.0x, Seri 1.25x) tek tıkla seçilebilir. Seçilen tempo hem ana ekrandaki cyber durum rozetinde hem de tüm telemetride anında reaktif olarak güncellenir.
 
 ---
 
@@ -217,21 +222,26 @@ Standart gürültü filtreleri `3.0px` altındaki hareketleri dokunmatik titreme
 
 ---
 
-## 🏆 Başarımlar ve Kupa Odası (Trophy Room)
+## 🏆 Başarımlar ve Kupa Odası: 100 Özgün Görev (Trophy Room)
 
-Kullanıcının kaydırma alışkanlıklarını oyunlaştırarak farkındalık kazandıran 9 özgün başarım rozeti:
+Kullanıcının kaydırma alışkanlıklarını oyunlaştırarak farkındalık kazandıran, 4 temel kategoride gruplanmış **100 özgün görev ve başarım rozeti**:
 
-| No | Başarım Adı | Kategori | Kriter | Anlamı ve Hedef |
-| :---: | :--- | :---: | :---: | :--- |
-| 1 | 🥉 **İlk Adım (First Step)** | Mihenk Taşı | `100 m` | Herhangi bir uygulamada ilk 100 metreyi tamamla. |
-| 2 | 🦒 **Zürafa Kulübü (Giraffe Club)** | Mihenk Taşı | `5.5 m` | Dünyanın en uzun kara memelisinin boyunu aş. |
-| 3 | 🗽 **Özgürlük Meşalesi (Liberty Torch)** | Mihenk Taşı | `93 m` | Özgürlük Heykeli kaidesiyle birlikte zirveye ulaş. |
-| 4 | 🗼 **Eyfel Tırmanıcısı (Eiffel Climber)** | Mihenk Taşı | `330 m` | Tek günde Eyfel Kulesi yüksekliğini fethet. |
-| 5 | 🏙️ **Bulut Delici (Cloud Piercer)** | Mihenk Taşı | `828 m` | Burç Halife gökdeleninin seyir terasına ulaş. |
-| 6 | 🏃‍♂️ **Başparmak Maratonu (Thumb Marathon)** | Mihenk Taşı | `1.000 m` | Bir günde tam 1 kilometre kaydır. |
-| 7 | ⚡ **Hız İblisi (Speed Demon)** | Alışkanlık | `250 m` | Tek bir uygulamada 250m+ yoğun oturum kaydet. |
-| 8 | 📱 **Sosyal Gezgin (Social Explorer)** | Alışkanlık | `3 Uygulama` | En az 3 farklı uygulamada aktif telemetri oluştur. |
-| 9 | 📐 **Hassas Ayarlayıcı (Precision Tuner)** | Hassasiyet | `Kalibrasyon` | Ekran cetveli ile donanım kalibrasyonunu tamamla. |
+```mermaid
+pie title 100 Görev Dağılım Matrisi
+    "Mesafe & Landmark (45 Görev)" : 45
+    "Uygulama Uzmanlığı (28 Görev)" : 28
+    "Alışkanlık & Çoklu Odak (12 Görev)" : 12
+    "Hassasiyet & Kalibrasyon (15 Görev)" : 15
+```
+
+### Kategori Dağılımı ve Görev Örnekleri
+
+| Kategori | Görev Sayısı | Öne Çıkan Başarımlar | Ölçüm ve Kriter |
+| :--- | :---: | :--- | :--- |
+| **Mesafe & Landmark** | **45** | İlk Kıvılcım (5 cm), Cetvel Boyu (15 cm), Bir Metre (1m), Zürafa Kulübü (5.5m), Özgürlük Anıtı (93m), Eyfel Kulesi (330m), Burç Halife (828m), 1K Ultra (1.000m), Boğaziçi Köprüsü (1.560m), Fuji Dağı (3.776m), Everest Zirvesi (8.848m), Mariana Çukuru (11.034m), Tam Maraton (42.195m) | Toplam günlük fiziksel kaydırma mesafesi |
+| **Uygulama Uzmanlığı** | **28** | Instagram Çırağı & Şövalyesi (5m - 250m), TikTok Dalgıcı & Efendisi (5m - 250m), X/Twitter Gündem Avcısı (5m - 200m), Reddit Karma Avcısı (5m - 100m), Web Gezgini (5m - 100m), Sohbet Kuşu & Grup Yöneticisi (2m - 30m), Mobil Oyuncu & Refleks Ustası (5m - 100m), YouTube Shorts Kaşifi (10m - 50m), E-Ticaret Sepet Dolduran (10m - 40m) | Uygulama bazlı ayrıştırılmış aktif mesafe |
+| **Alışkanlık & Disiplin** | **12** | İkili Denge (2 uygulama), Dörtlü Odak (4 uygulama), Uygulama Koleksiyoneri (6 uygulama), Dijital Çokyüzlü (8 uygulama), Ekran Ekosistemi (10 uygulama), Hafif Gün (<50m), Dengeli Kullanıcı (<150m), Hedef Avcısı (100% hedef), Çift Hedef (200%), Tek Tabanca (%70 tek app), Eşit Dağılım | Çoklu uygulama dağılımı ve dijital denge |
+| **Hassasiyet & Ayarlar** | **15** | Fiziksel Cetvel Kalibratörü, Mikro Hassasiyet, Büyüteç Modu (≥1.10x), Kompakt Ölçek (≤0.90x), Sakin Tempo (0.8x), Dengeli Tempo (1.0x), Seri Başparmak (1.25x), Hedef Belirleyici, Büyük Hedef (250m+), Ultra Hedef (500m+), Güvenli Mod Koruyucusu, Laboratuvar Kaşifi, Portföy İncelemesi, Tertemiz Sayfa, Scroll-Meter Efsanesi (25+ Görev Tamamlama) | Donanım PPI kalibrasyonu, hız modu ve sistem ayarları |
 
 ---
 
@@ -357,7 +367,7 @@ app/src/main/java/com/scrollmeter/app/
 
 ---
 
-## 🧪 Test Matrisi ve Performans Kıyaslama Raporu (101/101 Test)
+## 🧪 Test Matrisi ve Performans Kıyaslama Raporu (108/108 Test)
 
 Projenin tüm katmanları bağımsız birim testleri, coroutine flow testleri, kadans motoru testleri ve benchmark senaryolarıyla doğrulanmıştır:
 
@@ -371,7 +381,7 @@ com.scrollmeter.app.data.local.dao.ScrollDaoTest                 3      BAŞARIL
 com.scrollmeter.app.data.repository.ScrollRepositoryImplTest     3      BAŞARILI
 com.scrollmeter.app.data.worker.DataCleanupWorkerTest            2      BAŞARILI
 com.scrollmeter.app.domain.calculator.DistanceCalculatorTest    10      BAŞARILI
-com.scrollmeter.app.domain.calculator.ScrollCadenceEngineTest   13      BAŞARILI
+com.scrollmeter.app.domain.calculator.ScrollCadenceEngineTest   15      BAŞARILI
 com.scrollmeter.app.domain.filter.ScrollAnomalyFilterTest       13      BAŞARILI
 com.scrollmeter.app.domain.usecase.CalculateMetaphorUseCaseTest  3      BAŞARILI
 com.scrollmeter.app.domain.usecase.GetAchievementsUseCaseTest    2      BAŞARILI
@@ -392,7 +402,7 @@ com.scrollmeter.app.service.notification.ScrollNotification...   2      BAŞARIL
 com.scrollmeter.app.service.receiver.ScreenStateReceiverTest     4      BAŞARILI
 com.scrollmeter.app.service.ScrollAccessibilityServiceTest       5      BAŞARILI
 ================================================================================
-TOPLAM: 101 TEST | 101 BAŞARILI (%100 YEŞİL) | 0 HATA | 0 BAŞARISIZ
+TOPLAM: 108 TEST | 108 BAŞARILI (%100 YEŞİL) | 0 HATA | 0 BAŞARISIZ
 ================================================================================
 ```
 
@@ -412,13 +422,13 @@ Projeyi yerel makinenizde klonlayıp Android Studio ile doğrudan derleyebilirsi
 git clone https://github.com/BurakYildizGameDev/Scroll-Meter.git
 cd Scroll-Meter
 
-# 2. Tüm 101 birim testini çalıştırın
+# 2. Tüm 108 birim testini çalıştırın
 ./gradlew testDebugUnitTest
 
 # 3. Optimize edilmiş Release APK üretin
 ./gradlew assembleRelease
 
-# Çıktı dosyası: app/build/outputs/apk/release/app-release.apk (3.6 MB)
+# Çıktı dosyası: app/build/outputs/apk/release/app-release.apk (3.47 MB)
 ```
 
 ---
