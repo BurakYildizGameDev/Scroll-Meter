@@ -10,21 +10,30 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.EmojiEvents
+import androidx.compose.material.icons.rounded.Leaderboard
+import androidx.compose.material.icons.rounded.Settings
+import androidx.compose.material.icons.rounded.Sync
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -55,19 +64,6 @@ fun DashboardScreen(
         modifier = modifier
             .fillMaxSize()
             .background(ObsidianVoid)
-            .drawBehind {
-                drawCircle(
-                    brush = Brush.radialGradient(
-                        colors = listOf(
-                            ElectricMint.copy(alpha = 0.16f),
-                            HyperViolet.copy(alpha = 0.05f),
-                            Color.Transparent
-                        ),
-                        center = Offset(size.width * 0.5f, 0f),
-                        radius = size.width * 0.85f
-                    )
-                )
-            }
             .statusBarsPadding()
             .padding(horizontal = 20.dp)
     ) {
@@ -76,7 +72,11 @@ fun DashboardScreen(
                 modifier = Modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center
             ) {
-                CircularProgressIndicator(color = ElectricMint)
+                CircularProgressIndicator(
+                    color = ElectricMint,
+                    strokeWidth = 3.dp,
+                    modifier = Modifier.size(36.dp)
+                )
             }
         } else {
             Column(
@@ -85,9 +85,9 @@ fun DashboardScreen(
                     .verticalScroll(scrollState),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Spacer(modifier = Modifier.height(12.dp))
+                Spacer(modifier = Modifier.height(10.dp))
 
-                // Header
+                // Professional Header Bar
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
@@ -100,57 +100,85 @@ fun DashboardScreen(
                         ) {
                             Text(
                                 text = "SCROLL-METER",
-                                style = MaterialTheme.typography.labelLarge,
+                                style = MaterialTheme.typography.labelSmall.copy(
+                                    fontWeight = FontWeight.Black,
+                                    letterSpacing = 1.6.sp
+                                ),
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
+
                             when {
                                 uiState.isDemoMode -> {
                                     CyberStatusBadge(
-                                        text = stringResource(R.string.badge_demo_mode),
+                                        text = "DEMO MODU",
                                         accentColor = CyberCyan
                                     )
                                 }
                                 uiState.trackingMode == com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS -> {
                                     CyberStatusBadge(
-                                        text = stringResource(R.string.badge_safe_mode),
+                                        text = "STANDART MOD",
                                         accentColor = ElectricMint
                                     )
                                 }
                                 else -> {
                                     CyberStatusBadge(
-                                        text = stringResource(R.string.badge_lab_mode),
-                                        accentColor = Color(0xFFD6BBFB)
+                                        text = "LAB SENSÖRÜ",
+                                        accentColor = HyperViolet
                                     )
                                 }
                             }
                         }
+
                         Text(
-                            text = stringResource(R.string.finger_odyssey),
-                            style = MaterialTheme.typography.headlineSmall,
+                            text = "Günlük Telemetri",
+                            style = MaterialTheme.typography.headlineMedium.copy(
+                                fontWeight = FontWeight.Bold
+                            ),
                             color = Color.White
                         )
                     }
 
+                    // Clean Vector Icon Navigation
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                        horizontalArrangement = Arrangement.spacedBy(2.dp)
                     ) {
-                        androidx.compose.material3.IconButton(onClick = { viewModel.processIntent(DashboardIntent.Refresh) }) {
-                            Text(text = "🔄", fontSize = 18.sp)
+                        IconButton(onClick = { viewModel.processIntent(DashboardIntent.Refresh) }) {
+                            Icon(
+                                imageVector = Icons.Rounded.Sync,
+                                contentDescription = stringResource(R.string.btn_refresh),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.size(22.dp)
+                            )
                         }
-                        androidx.compose.material3.IconButton(onClick = onNavigateToAchievements) {
-                            Text(text = "🏆", fontSize = 18.sp)
+                        IconButton(onClick = onNavigateToAchievements) {
+                            Icon(
+                                imageVector = Icons.Rounded.EmojiEvents,
+                                contentDescription = stringResource(R.string.nav_achievements),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.size(22.dp)
+                            )
                         }
-                        androidx.compose.material3.IconButton(onClick = onNavigateToAnalytics) {
-                            Text(text = "📊", fontSize = 18.sp)
+                        IconButton(onClick = onNavigateToAnalytics) {
+                            Icon(
+                                imageVector = Icons.Rounded.Leaderboard,
+                                contentDescription = stringResource(R.string.nav_analytics),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.size(22.dp)
+                            )
                         }
-                        androidx.compose.material3.IconButton(onClick = onNavigateToSettings) {
-                            Text(text = "⚙️", fontSize = 18.sp)
+                        IconButton(onClick = onNavigateToSettings) {
+                            Icon(
+                                imageVector = Icons.Rounded.Settings,
+                                contentDescription = stringResource(R.string.nav_settings),
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.size(22.dp)
+                            )
                         }
                     }
                 }
 
-                Spacer(modifier = Modifier.height(6.dp))
+                Spacer(modifier = Modifier.height(4.dp))
 
                 // Hero Circular Gauge
                 Box(
@@ -166,7 +194,7 @@ fun DashboardScreen(
                     )
                 }
 
-                // Bento Row (Dominant App + Touch Grass Ceiling)
+                // Bento Metrics Row (Dominant App + Goal Pacing)
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(14.dp)
@@ -174,28 +202,32 @@ fun DashboardScreen(
                     // Tile 1: Dominant App
                     GlowingGlassCard(
                         modifier = Modifier.weight(1.1f),
-                        glowColor = CyberCyan,
-                        glowAlpha = 0.14f,
                         onClick = onNavigateToAnalytics
                     ) {
                         Column {
                             Text(
                                 text = stringResource(R.string.leader_app),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = CyberCyan
+                                style = MaterialTheme.typography.labelSmall.copy(
+                                    fontWeight = FontWeight.Bold,
+                                    letterSpacing = 1.0.sp
+                                ),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             val dominantName = uiState.dominantApp?.appDisplayName ?: stringResource(R.string.no_dominant_app)
                             val dominantDistance = uiState.dominantApp?.physicalDistance?.formattedMeters ?: "0.00 m"
                             Text(
                                 text = dominantName,
-                                style = MaterialTheme.typography.titleLarge,
+                                style = MaterialTheme.typography.titleMedium.copy(
+                                    fontWeight = FontWeight.Bold
+                                ),
                                 color = Color.White
                             )
+                            Spacer(modifier = Modifier.height(2.dp))
                             Text(
                                 text = dominantDistance,
                                 style = MaterialTheme.typography.bodySmall,
-                                color = Color.White.copy(alpha = 0.6f)
+                                color = ElectricMint
                             )
                         }
                     }
@@ -203,40 +235,44 @@ fun DashboardScreen(
                     // Tile 2: Goal Pacing
                     GlowingGlassCard(
                         modifier = Modifier.weight(0.9f),
-                        glowColor = HyperViolet,
-                        glowAlpha = 0.15f,
                         onClick = onNavigateToSettings
                     ) {
                         Column {
                             Text(
                                 text = stringResource(R.string.daily_goal),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = Color(0xFFD6BBFB)
+                                style = MaterialTheme.typography.labelSmall.copy(
+                                    fontWeight = FontWeight.Bold,
+                                    letterSpacing = 1.0.sp
+                                ),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                             Spacer(modifier = Modifier.height(8.dp))
                             Text(
                                 text = "${uiState.dailyGoalMeters.toInt()} m",
-                                style = MaterialTheme.typography.titleLarge,
+                                style = MaterialTheme.typography.titleMedium.copy(
+                                    fontWeight = FontWeight.Bold
+                                ),
                                 color = Color.White
                             )
+                            Spacer(modifier = Modifier.height(2.dp))
                             val percent = (uiState.progressPercentage * 100).toInt()
                             Text(
                                 text = stringResource(R.string.goal_completed_pct, percent),
                                 style = MaterialTheme.typography.bodySmall,
-                                color = Color.White.copy(alpha = 0.6f)
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
                 }
 
-                // Metaphor Gamification Milestone Card (Faz 50)
+                // Landmark Milestone Card
                 MetaphorCard(
                     currentMilestone = uiState.currentMetaphor,
                     nextMilestone = uiState.nextMetaphor,
                     remainingMetersToNext = uiState.metersRemainingToNext
                 )
 
-                Spacer(modifier = Modifier.height(24.dp))
+                Spacer(modifier = Modifier.height(20.dp))
             }
         }
     }

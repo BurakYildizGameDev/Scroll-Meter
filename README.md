@@ -2,183 +2,158 @@
 
 # 📱 Scroll-Meter
 
-### **Physical Distance Telemetry & Digital Well-being Tracker for Android**
-*Günde kaç metre veya kilometre kaydırdığınızı hiç merak ettiniz mi?*
+### **Physical Distance Telemetry & Screen-Time Behavioral Analytics for Android**
+*How many physical meters or kilometers does your finger travel every day?*
 
 <br/>
 
-[![Download APK](https://img.shields.io/badge/📥_DOWNLOAD_APK-v1.0.0_(3.3_MB)-00F5A0?style=for-the-badge&labelColor=0A0E14&color=00F5A0)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk)
-[![Releases](https://img.shields.io/badge/🚀_GitHub-Releases-00F0FF?style=for-the-badge&labelColor=0A0E14&color=00F0FF)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases)
-[![GitHub Stars](https://img.shields.io/github/stars/BurakYildizGameDev/Scroll-Meter?style=for-the-badge&color=F5E6B8&labelColor=0A0E14)](https://github.com/BurakYildizGameDev/Scroll-Meter/stargazers)
+[![Download APK](https://img.shields.io/badge/📥_DOWNLOAD_APK-v1.0.0_(3.6_MB)-10B981?style=for-the-badge&labelColor=0B0F17&color=10B981)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk)
+[![Releases](https://img.shields.io/badge/🚀_GitHub-Releases-06B6D4?style=for-the-badge&labelColor=0B0F17&color=06B6D4)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases)
+[![GitHub Stars](https://img.shields.io/github/stars/BurakYildizGameDev/Scroll-Meter?style=for-the-badge&color=F59E0B&labelColor=0B0F17)](https://github.com/BurakYildizGameDev/Scroll-Meter/stargazers)
 
 <br/>
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-purple.svg?style=flat-square&logo=kotlin)](https://kotlinlang.org)
-[![Android](https://img.shields.io/badge/Target%20SDK-34%20(Android%2014)-brightgreen.svg?style=flat-square&logo=android)](https://developer.android.com)
-[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-BOM%202024.10.00-blue.svg?style=flat-square&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
-[![Architecture](https://img.shields.io/badge/Architecture-Dual--Engine%20Hybrid-00F5A0.svg?style=flat-square&logo=android)](#-hibrit-çift-motor-mimarisi-dual-engine-architecture)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-8B5CF6.svg?style=flat-square&logo=kotlin)](https://kotlinlang.org)
+[![Android](https://img.shields.io/badge/Target%20SDK-34%20(Android%2014)-10B981.svg?style=flat-square&logo=android)](https://developer.android.com)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-BOM%202024.10.00-06B6D4.svg?style=flat-square&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
+[![Architecture](https://img.shields.io/badge/Architecture-Dual--Engine%20Hybrid-10B981.svg?style=flat-square&logo=android)](#-hibrit-çift-motor-mimarisi-dual-engine-architecture)
 [![Tests](https://img.shields.io/badge/Tests-101%2F101%20Passed%20(100%25)-success.svg?style=flat-square&logo=checkmarx)](https://github.com)
-[![Languages](https://img.shields.io/badge/Languages-9%20Localized-blueviolet.svg?style=flat-square&logo=google-translate)](#-çoklu-dil-desteği-9-languages-support)
-[![Display](https://img.shields.io/badge/Display-120Hz%20%2F%20144Hz%20LTPO%20Ready-00F0FF.svg?style=flat-square&logo=speedtest)](#-120hz--144hz-ltpo-ultra-smooth-mikro-kaydırma-motoru)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20(No%20Internet)-emerald.svg?style=flat-square&logo=shield)](#-sıfır-internet-ve-mutlak-gizlilik-matrisi)
+[![Display](https://img.shields.io/badge/Display-120Hz%20%2F%20144Hz%20LTPO%20Ready-06B6D4.svg?style=flat-square&logo=speedtest)](#-120hz--144hz-ltpo-mikro-kaydırma-motoru)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20(No%20Internet)-10B981.svg?style=flat-square&logo=shield)](#-sıfır-internet-ve-kurumsal-gizlilik-mimarisi)
+[![Languages](https://img.shields.io/badge/Languages-9%20Localized-8B5CF6.svg?style=flat-square&logo=google-translate)](#-çoklu-dil-desteği-9-languages-support)
 [![Size](https://img.shields.io/badge/Release%20APK-3.6%20MB%20Ultra--Lean-orange.svg?style=flat-square&logo=android)](https://github.com)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
 
 <br/>
 
-> **Scroll-Meter**, tüm sosyal medya ve uygulamalarınızdaki dikey kaydırma mesafenizi piksel piksel takip edip **gerçek dünya fiziksel metriklerine (metre ve kilometre)** dönüştüren, oyunlaştırılmış landmark hedefleri ve kupa odası başarımları sunan, 9 dilde yerelleştirilmiş, 120Hz/144Hz LTPO ultra-akıcı motorlu, **Hibrit Çift Motor Mimarili (Güvenli Mod & Piksel Sensörü)**, sıfır internet izinli ve %100 gizlilik odaklı kurumsal bir Android telemetri uygulamasıdır.
+> **Scroll-Meter**, tüm Android uygulamalarınızdaki dikey kaydırma hareketlerinizi **SI fiziksel metriklerine (metre ve kilometre)** dönüştüren, **Hibrit Çift Motor Mimarili (Kullanım Erişimi Güvenli Mod + Erişilebilirlik Piksel Sensörü)**, 120Hz/144Hz LTPO mikro-akış filtreli, oyunlaştırılmış landmark hedefleri ve kupa odası başarımları sunan, sıfır internet izinli ve %100 çevrimdışı kurumsal bir Android telemetri platformudur.
 
 </div>
 
 ---
 
 ## 📑 İçindekiler (Table of Contents)
-1. [Neden Scroll-Meter? (The Philosophy)](#-neden-scroll-meter-the-philosophy)
-2. [Hemen İndir ve Kur (Download & Install)](#-hemen-indir-ve-kur-download--install)
+1. [Neden Scroll-Meter? (Motivation & Philosophy)](#-neden-scroll-meter-motivation--philosophy)
+2. [Hemen İndir ve Kur (Download & Installation)](#-hemen-indir-ve-kur-download--installation)
 3. [🛡️ Hibrit Çift Motor Mimarisi (Dual-Engine Architecture)](#-hibrit-çift-motor-mimarisi-dual-engine-architecture)
-4. [Nasıl Çalışıyor? Matematiksel ve Fiziksel Telemetri Motoru](#-nasıl-çalışıyor-matematiksel-ve-fiziksel-telemetri-motoru)
-5. [⚡ 120Hz / 144Hz LTPO Ultra-Smooth Mikro-Kaydırma Motoru](#-120hz--144hz-ltpo-ultra-smooth-mikro-kaydırma-motoru)
-6. [🏆 Cyber-Luxury Trophy Room & Başarımlar (Achievements)](#-cyber-luxury-trophy-room--başarımlar-achievements)
-7. [🌐 Çoklu Dil Desteği (9 Languages Support)](#-çoklu-dil-desteği-9-languages-support)
-7. [Öne Çıkan Özellikler](#-öne-çıkan-özellikler)
-8. [Oyunlaştırılmış Landmark Metaforları (Milestones)](#-oyunlaştırılmış-landmark-metaforları-milestones)
-9. [Sıfır İnternet ve Mutlak Gizlilik Matrisi](#-sıfır-internet-ve-mutlak-gizlilik-matrisi)
-10. [Pil ve Performans Mühendisliği (Battery & Never-Crash)](#-pil-ve-performans-mühendisliği-battery--never-crash)
-11. [Fiziksel Cetvel ile Ekran Kalibrasyonu](#-fiziksel-cetvel-ile-ekran-kalibrasyonu)
-12. [Cyber Luxury & Mineral Glow Tasarım Sistemi](#-cyber-luxury--mineral-glow-tasarım-sistemi)
-13. [Yazılım Mimarisi (Clean Architecture + MVI)](#-yazılım-mimarisi-clean-architecture--mvi)
-14. [Kapsamlı Test ve Kalite Raporu (84/84 Test)](#-kapsamlı-test-ve-kalite-raporu-8484-test)
-15. [Üretim Optimizasyonu ve APK Boyut Tasarrufu](#-üretim-optimizasyonu-ve-apk-boyut-tasarrufu)
-16. [Sıkça Sorulan Sorular (FAQ)](#-sıkça-sorulan-sorular-faq)
-17. [Cihaz Bazlı Arka Plan Ayarları (Keep-Alive Rehberi)](#-cihaz-bazlı-arka-plan-ayarları-keep-alive-rehberi)
-18. [Kaynak Koddan Derleme (Build from Source)](#-kaynak-koddan-derleme-build-from-source)
-19. [Yol Haritası (Roadmap)](#-yol-haritası-roadmap)
-20. [Lisans ve Yazar](#-lisans-ve-yazar)
+4. [📐 Matematiksel ve Fiziksel Telemetri Motoru](#-matematiksel-ve-fiziksel-telemetri-motoru)
+5. [⚡ 120Hz / 144Hz LTPO Mikro-Kaydırma Motoru](#-120hz--144hz-ltpo-mikro-kaydırma-motoru)
+6. [🏆 Başarımlar ve Kupa Odası (Trophy Room)](#-başarımlar-ve-kupa-odası-trophy-room)
+7. [🌐 Çoklu Dil Desteği (9 Dilde Yerelleştirme)](#-çoklu-dil-desteği-9-dilde-yerelleştirme)
+8. [🔒 Sıfır İnternet ve Kurumsal Gizlilik Mimarisi](#-sıfır-internet-ve-kurumsal-gizlilik-mimarisi)
+9. [🔋 Bellek Tamponlama ve Pil Mühendisliği](#-bellek-tamponlama-ve-pil-mühendisliği)
+10. [📏 Ekranda Fiziksel Cetvel ile Kalibrasyon](#-ekranda-fiziksel-cetvel-ile-kalibrasyon)
+11. [🎨 Modern Minimalist Tasarım Sistemi](#-modern-minimalist-tasarım-sistemi)
+12. [🏗️ Yazılım Mimarisi (Clean Architecture + MVI)](#-yazılım-mimarisi-clean-architecture--mvi)
+13. [🧪 Test Matrisi ve Performans Kıyaslama Raporu (101/101 Test)](#-test-matrisi-ve-performans-kıyaslama-raporu-101101-test)
+14. [⚙️ Kaynak Koddan Derleme (Build from Source)](#-kaynak-koddan-derleme-build-from-source)
+15. [❓ Sıkça Sorulan Sorular (FAQ)](#-sıkça-sorulan-sorular-faq)
+16. [📄 Lisans ve Telif Hakkı](#-lisans-ve-telif-hakkı)
 
 ---
 
-## 🧠 Neden Scroll-Meter? (The Philosophy)
+## 🧠 Neden Scroll-Meter? (Motivation & Philosophy)
 
-Modern çağda "Ekran Süresi" (Screen Time) tek başına yanıltıcı bir metriktir:
-* 1 saat boyunca bir belgesel veya podcast videosunu izlemek ile,
-* 1 saat boyunca Instagram Reels, TikTok veya X akışında **yüzlerce kez parmak kaydırarak (doomscrolling)** dopamin avına çıkmak zihinsel ve fiziksel olarak aynı şey değildir.
+Modern mobil işletim sistemlerinde sunulan geleneksel **"Ekran Süresi" (Screen Time)** metrikleri, kullanıcının dijital davranışını doğru yansıtmakta yetersiz kalır:
 
-Kaydırma eylemi; dikkat dağınıklığı, parmak eklemi yorgunluğu ve kompulsif tüketim döngüsünün doğrudan bir göstergesidir. 
+* Kindle veya bir e-kitap okuyucusunda 45 dakika boyunca sabit bir sayfayı okumak,
+* YouTube'da eğitici bir belgeseli arka plana alıp dinlemek,
+* TikTok, Instagram Reels veya X (Twitter) akışında **dakikada onlarca kez başparmak kaydırarak (compulsive doomscrolling)** dopamin avına çıkmak,
 
-**Scroll-Meter**, bu soyut bağımlılığı somutlaştırır:
-> *"Bugün telefonunuzda 2 saat geçirdiniz"* demek yerine,  
-> *"Bugün başparmağınızla **1.2 kilometre** yol katettiniz ve **Eyfel Kulesi'nin yüksekliğini (330m) 3.6 kez** aştınız!"* gerçeğini yüzünüze çarpar.
+sistem raporlarında aynı "45 dakika ekran süresi" olarak listelenir. Oysa zihinsel yorgunluk, dikkat dağınıklığı ve parmak eklemi zorlanması tamamen **kaydırma eyleminin sıklığı ve katettiği mesafe** ile doğrudan ilişkilidir.
+
+**Scroll-Meter**, soyut zaman kavramını somutlaştırır:
+> *"Bugün telefonunuzda 2 saat harcadınız"* demek yerine;  
+> *"Bugün başparmağınızla ekranda **1.420 metre** yol katettiniz ve **Eyfel Kulesi'nin yüksekliğini (330 m) 4.3 kez** tırmandınız!"* gerçeğini kullanıcıya bilimsel doğrulukla sunar.
 
 ---
 
-## 📥 Hemen İndir ve Kur (Download & Install)
+## 📥 Hemen İndir ve Kur (Download & Installation)
 
-Telefonunuza doğrudan indirip hemen kullanmaya başlayabilir veya kaynak koddan derleyebilirsiniz:
-
-| Sürüm | Paket | Boyut | İndirme Bağlantısı | İmzalama & Sertifika |
+| Sürüm | Paket | Boyut | İndirme Bağlantısı | İmza Durumu |
 | :--- | :--- | :---: | :---: | :---: |
-| **v1.0.0 (Official Production)** | `app-release.apk` | **~3.4 MB** | [👉 **Hemen İndir (.apk)**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk) | [Resmi Release Keystore](#-resmi-üretim-imzası-ve-sertifika-doğrulama) |
-| **Geliştirici Sürümü** | `app-debug.apk` | **58 MB** | [📦 **Releases Sayfası**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases) | Standart Android Debug |
+| **v1.0.0 (Official Production)** | `app-release.apk` | **3.6 MB** | [👉 **Hemen İndir (.apk)**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk) | 2048-bit RSA Keystore |
+| **Geliştirici Sürümü** | `app-debug.apk` | **58 MB** | [📦 **Tüm Sürümler**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases) | Android Debug Anahtarı |
 
 ---
 
-### 🎮 İK ve Geliştiriciler İçin: 1-Tıkla Portföy Önizleme Modu (Sıfır İzin)
-Uygulamayı teknik mülakat, CV incelemesi veya portföy değerlendirmesi amacıyla test ediyorsanız **hiçbir erişilebilirlik izni vermenize gerek yoktur**:
-1. `app-release.apk` dosyasını kurup açın.
-2. Açılış ekranındaki **`PORTFÖY / DEMO MODU (İzin Vermeden İncele)`** butonuna dokunun.
-3. Uygulama saniyeler içinde gerçekçi sahte telemetri oturumlarını (Instagram, TikTok, X, Reddit), açılmış kupa odası rozetlerini ve haftalık Compose Canvas grafiklerini yükler. Tüm 120Hz/144Hz animasyonları ve MVI mimarisini sıfır izinle anında deneyimleyebilirsiniz!
+### 🎮 İK ve Teknik Denetçiler İçin: 1-Tıkla Portföy Demo Modu (Sıfır İzin)
+Uygulamayı işe alım, CV incelemesi veya teknik mülakat amacıyla test ediyorsanız **hiçbir Android izni vermenize gerek yoktur**:
+1. `app-release.apk` dosyasını telefonunuza kurun ve açın.
+2. Açılış ekranındaki **`Portföy & İK Demo Modu (İzin Vermeden İncele)`** butonuna dokunun.
+3. Uygulama anında gerçekçi sahte telemetri oturumlarını (TikTok, Instagram, Twitter, Reddit), açılmış kupa odası başarımlarını ve haftalık Compose Canvas çubuk grafiklerini yükler. Tüm MVI durum akışlarını ve UI bileşenlerini sıfır izinle anında inceleyebilirsiniz.
 
----
-
-### 🛡️ Kurulum ve Google Play Protect Hakkında Şeffaf Bilgilendirme
-Google, 2024 yılından itibaren Android ekosisteminde devreye aldığı **Gelişmiş Sahtekarlık Koruması (Enhanced Fraud Protection)** gereğince; Google Play Store haricinden (GitHub, tarayıcı veya dosya yöneticisi) indirilen ve manifest dosyasında `BIND_ACCESSIBILITY_SERVICE` izni bildiren tüm sideload APK'lara otomatik olarak şu uyarıyı gösterebilmektedir:
-> *"Uygulama cihazınızı korumak için engellendi. Bu uygulama hassas verilere erişim izni isteyebilir."*
-
-#### Neden Bu Uyarı Çıkıyor ve Neden %100 Güvenlidir?
-* **Teknik Zorunluluk:** Android işletim sistemi mimarisinde uygulamalar arası (Instagram, TikTok vb.) kaydırma mesafesini ölçebilecek `TYPE_VIEW_SCROLLED` haricinde başka hiçbir genel API **bulunmamaktadır**.
-* **Sıfır İnternet Garantisi:** Scroll-Meter'ın manifestinde `android.permission.INTERNET` izni **yoktur**. Cihazınızdan dışarıya 1 bayt bile veri çıkışı teknik olarak imkansızdır.
-* **Metin Casusluğu Koruması:** Servis konfigürasyonunda `canRetrieveWindowContent="false"` zorunludur. Uygulama şifre, mesaj veya ekran metinlerini **asla okuyamaz**.
-
-#### Kurulum Seçenekleri:
-* **Seçenek A (Telefonda):** Google Play Store > Profil > Play Protect > Ayarlar (Dişli Çark) simgesinden *"Uygulamaları Play Protect ile tara"* seçeneğini kurulum süresince geçici olarak kapatıp APK'yı kurun.
-* **Seçenek B (Bilgisayardan / ADB):** Geliştirici USB Hata Ayıklama açıkken terminalden:
-  ```powershell
-  adb install app/build/outputs/apk/release/app-release.apk
-  ```
 ---
 
 ## 🛡️ Hibrit Çift Motor Mimarisi (Dual-Engine Architecture)
 
-Google'ın Android ekosisteminde Play Store dışı (sideload) APK'lar için devreye aldığı **Gelişmiş Sahtekarlık Koruması (Enhanced Fraud Protection)** ve **Kısıtlanmış Ayar (Restricted Settings)** kalkanına karşı Scroll-Meter, sektör lideri **Hibrit Çift Motor Mimarisi** geliştirmiştir.
+Google'ın Android ekosisteminde tarayıcıdan indirilen (sideloaded) APK'lara yönelik devreye aldığı güvenlik bariyerlerine karşı Scroll-Meter, **sektör standardı iki bağımsız motor mimarisi** sunar:
 
-Kullanıcılar ve teknik denetçiler, ihtiyaçlarına göre iki bağımsız motor arasında diledikleri an geçiş yapabilir:
+```mermaid
+flowchart TD
+    App[Scroll-Meter Hibrit Mimari] --> Mode1[Motor 1: Standart & Güvenli Mod]
+    App --> Mode2[Motor 2: Laboratuvar Sensörü]
+    App --> Mode3[Motor 3: Portföy Demo Modu]
 
-```
-                                ┌──────────────────────────────────────────────┐
-                                │          SCROLL-METER HYBRID ENGINE          │
-                                └──────────────────────┬───────────────────────┘
-                                                       │
-                     ┌─────────────────────────────────┴─────────────────────────────────┐
-                     ▼                                                                   ▼
-      ┌───────────────────────────────┐                                   ┌───────────────────────────────┐
-      │  MOTOR 1: GÜVENLİ STANDART    │                                   │     MOTOR 2: LAB SENSÖRÜ      │
-      │   (PACKAGE_USAGE_STATS)       │                                   │    (ACCESSIBILITY SERVICE)    │
-      ├───────────────────────────────┤                                   ├───────────────────────────────┤
-      │ • Sıfır Play Protect uyarısı  │                                   │ • Canlı dokunmatik piksel     │
-      │ • Sıfır Kısıtlı Ayar engeli   │                                   │   delta yakalama (120Hz/144Hz)│
-      │ • %0.0 Pil / CPU tüketimi     │                                   │ • TYPE_VIEW_SCROLLED dinleme  │
-      │ • Akıllı Doomscroll Kadansı   │                                   │ • Sıfır internet garantisi    │
-      │ • Sektör dijital denge izni   │                                   │ • Android Kısıtlı Ayar notu   │
-      └──────────────┬────────────────┘                                   └───────────────┬───────────────┘
-                     │                                                                    │
-                     └───────────────────────────────┬────────────────────────────────────┘
-                                                     ▼
-                                      ┌───────────────────────────────┐
-                                      │  Clean Architecture Domain    │
-                                      │  (Fiziksel Metre / Kilometre) │
-                                      └───────────────────────────────┘
+    Mode1 --> UsageStats[Android PACKAGE_USAGE_STATS]
+    UsageStats --> Cadence[ScrollCadenceEngine Algoritması]
+    Cadence --> M1_Benefit[0 Güvenlik Uyarısı / %0 Pil / Sıfır Kısıtlama]
+
+    Mode2 --> Accessibility[Android AccessibilityService]
+    Accessibility --> Sensor[120Hz/144Hz LTPO Piksel Sensörü]
+    Sensor --> M2_Benefit[Donanım Düzeyinde Canlı Delta]
+
+    Mode3 --> MockData[Önceden Yüklenmiş Sentetik Telemetri]
+    MockData --> M3_Benefit[Mülakatlar İçin Sıfır İzinli İnceleme]
+
+    M1_Benefit --> Domain[Clean Architecture Domain: Metre / Kilometre]
+    M2_Benefit --> Domain
+    M3_Benefit --> Domain
 ```
 
-### 1. Motor 1: Standart & Güvenli Mod (Safe Mode - Önerilen 🌟)
-* **Temel Teknoloji:** Android'in yerel `PACKAGE_USAGE_STATS` (Kullanım Erişimi) API'si. Forest, Opal ve StayFree gibi milyonlarca kullanıcılı dijital denge uygulamalarının kullandığı standart güvenli izin tipidir.
-* **Sıfır Güvenlik Uyarısı:** Google Play Protect tarafından asla bloke edilmez, Android 13+ sisteminde "Kısıtlanmış Ayar" uyarısı vermez.
-* **Sıfır Pil Tüketimi:** Arka planda sürekli bir servis çalıştırmaz; verileri işletim sisteminin tuttuğu ekran sürelerinden okuyup kadans formülüyle hesaplar.
-* **Akıllı Doomscroll Kadans Motoru (`ScrollCadenceEngine`):**
-  Sosyal medya ve dijital platformlardaki kullanıcı etkileşim hızlarına göre ampirik hız modelleri uygular:
-  * 📱 **Kısa Video Akışı (TikTok, Instagram Reels, Shorts):** `2.20 m / aktif dakika` (~12 dikey kaydırma/dk)
-  * 🐦 **Sosyal Metin & Akış (Twitter / X, Reddit, Threads):** `2.60 m / aktif dakika` (Hızlı tarama)
-  * 🌐 **Web & E-Ticaret (Chrome, Firefox, Trendyol, Amazon):** `1.40 m / aktif dakika`
-  * 💬 **Mesajlaşma & Sohbet (WhatsApp, Telegram, Discord):** `0.75 m / aktif dakika`
-  * 🎬 **Video Akışı (YouTube, Netflix):** `0.25 m / aktif dakika` (Sabit izleme ağırlıklı)
-  * ⚙️ **Genel / Diğer Uygulamalar:** `0.60 m / aktif dakika`
-* **Kişiselleştirilebilir Tempo:** Ayarlar ekranından kaydırma temposu çarpanı (Sakin 0.8x, Dengeli 1.0x, Seri 1.25x) tek tıkla seçilebilir.
+### Karşılaştırma Tablosu
+
+| Değerlendirme Kriteri | Motor 1: Standart Mod (🌟 Önerilen) | Motor 2: Laboratuvar Sensörü |
+| :--- | :---: | :---: |
+| **Android İzni** | `PACKAGE_USAGE_STATS` (Kullanım Erişimi) | `AccessibilityService` (Erişilebilirlik) |
+| **Google Play Protect Durumu** | **%100 Güvenli (Sıfır Uyarı)** | Sideload APK'larda otomatik engel kalkanı |
+| **Android 13+ Kısıtlanmış Ayar** | **Sıfır Kısıtlama (Doğrudan Açılır)** | Manuel 3-nokta onayı gerektirir |
+| **Arka Plan Pil Tüketimi** | **%0.0 (Sistem Servisi Çalıştırmaz)** | <%0.5 CPU (5s debounced batching) |
+| **Ölçüm Yöntemi** | Ampirik Doomscroll Kadans Hız Modeli | Donanım Piksel Deltası ($\Delta y$) |
+| **Kullanım Amacı** | Günlük Kesintisiz Takip & Pil Tasarrufu | Laboratuvar Düzeyinde Piksel Hassasiyeti |
 
 ---
 
-### 2. Motor 2: Gelişmiş Laboratuvar Modu (Advanced Lab Mode - Piksel Sensörü 🔬)
-* **Temel Teknoloji:** Android `AccessibilityService` (`TYPE_VIEW_SCROLLED`).
-* **Mikro-Piksel Hassasiyeti:** Ekrandaki her fiziksel parmak dokunma hareketini $\Delta y$ pikseli bazında canlı donanım seviyesinde yakalar.
-* **Şeffaf Güvenlik Taahhüdü:**
-  * Uygulamanın AndroidManifest dosyasında `android.permission.INTERNET` izni **kesinlikle yoktur**.
-  * `canRetrieveWindowContent="false"` zorunludur; şifre, sohbet veya ekran içeriği asla okunamaz.
-* **Android Kısıtlanmış Ayar (Restricted Setting) Çözümü:**
-  GitHub'dan indirilen APK'larda Android 13+, Erişilebilirlik iznini otomatik olarak kısıtlar. Bunu açmak için:
+### 1. Motor 1: Standart & Güvenli Mod (Default & Recommended)
+* **Kullanılan API:** Android işletim sisteminin yerel `UsageStatsManager` sınıfı. Forest, Opal, StayFree gibi dijital denge uygulamalarının tercih ettiği standart izin yapısıdır.
+* **Nasıl Çalışır?** İşletim sisteminin her uygulama için milisaniye cinsinden kaydettiği aktif ön plan süresini okur.
+* **Akıllı Doomscroll Kadans Motoru (`ScrollCadenceEngine`):**
+  Sosyal medya ve dijital platformlardaki kullanıcı etkileşim hızlarına göre ampirik hız modelleri uygular:
+  * 📱 **Kısa Video Akışı (TikTok, Instagram Reels, Shorts):** `2.20 m / aktif dakika` (~12 dikey kaydırma/dk)
+  * 🐦 **Sosyal Metin Akışı (Twitter / X, Reddit, Threads):** `2.60 m / aktif dakika` (Hızlı tarama temposu)
+  * 🌐 **Web & E-Ticaret (Chrome, Firefox, Trendyol):** `1.40 m / aktif dakika`
+  * 💬 **Mesajlaşma (WhatsApp, Telegram, Discord):** `0.75 m / aktif dakika`
+  * 🎬 **Video Akışı (YouTube, Netflix):** `0.25 m / aktif dakika` (Sabit izleme ağırlıklı)
+  * ⚙️ **Genel Uygulamalar:** `0.60 m / aktif dakika`
+* **Ayarlanabilir Tempo Çarpanı:** Ayarlar ekranından kaydırma temposu (Sakin 0.8x, Dengeli 1.0x, Seri 1.25x) tek tıkla seçilebilir.
+
+---
+
+### 2. Motor 2: Gelişmiş Laboratuvar Sensörü (Piksel Hassasiyeti)
+* **Kullanılan API:** `AccessibilityService` (`TYPE_VIEW_SCROLLED`).
+* **Nasıl Çalışır?** Ekrandaki her dikey kaydırma olayının koordinat farkını ($\Delta y$) donanım seviyesinde yakalar.
+* **Android 13+ Kısıtlanmış Ayar Bilgisi:**
+  Play Store haricinden indirilen APK'larda Android işletim sistemi güvenlik gereği Erişilebilirlik servisini kısıtlar. Bunu açmak için:
   1. *Telefon Ayarları > Uygulamalar > Scroll-Meter* sayfasına gidin.
   2. Sağ üst köşedeki **3 Nokta (⋮)** simgesine dokunun.
-  3. **"Kısıtlanmış ayarlara izin ver"** (Allow restricted settings) seçeneğini onaylayın.
+  3. **"Kısıtlanmış ayarlara izin ver"** seçeneğini onaylayın.
   4. Ardından Erişilebilirlik menüsünden servisi aktif edin.
 
 ---
 
-### 3. Motor 3: Portföy / İnceleme Demo Modu (Tek Tıkla Sıfır İzin 🎮)
-* İK uzmanları, işe alım yöneticileri ve mobil geliştiriciler için özel olarak tasarlanmıştır.
-* Cihazda hiçbir izin vermeden tek bir dokunuşla tüm analiz ekranlarını, Compose Canvas grafiklerini, kupa odası başarımlarını ve 120Hz animasyonlarını canlı mock verilerle test etme imkanı sunar.
+## 📐 Matematiksel ve Fiziksel Telemetri Motoru
 
----
-
-## 📐 Nasıl Çalışıyor? Matematiksel ve Fiziksel Telemetri Motoru
-
-Scroll-Meter, ham piksel kaydırmalarını rasgele tahminlerle değil, donanım temelli matematiksel formüllerle fiziksel uzunluğa dönüştürür.
+Scroll-Meter, ekrandaki kaydırma hareketini afaki tahminlerle değil, ekran donanımının piksel yoğunluğunu ($PPI$) temel alan matematiksel formüllerle milimetreye dönüştürür.
 
 ```
        [ Ekrana Dokunma Olayı (AccessibilityEvent) ]
@@ -202,253 +177,176 @@ Scroll-Meter, ham piksel kaydırmalarını rasgele tahminlerle değil, donanım 
 ```
 
 ### 1. Pikselden Milimetreye Dönüşüm Formülü
-Ekranın fiziksel inç başına düşen piksel yoğunluğu ($PPI$) ve kullanıcıya özel kalibrasyon çarpanı ($C_{mult}$) kullanılarak her hareket milimetreye dönüştürülür:
+Ekranın fiziksel inç başına düşen piksel yoğunluğu ($PPI$) ve kullanıcı kalibrasyon çarpanı ($C_{mult}$) kullanılarak her hareket milimetreye dönüştürülür:
 
 $$\text{Mesafe (mm)} = \left( \frac{\Delta y \times 25.4}{\text{Donanım } PPI} \right) \times C_{mult}$$
 
 Burada:
-* $\Delta y$: İki kaydırma karesi arasındaki dikey piksel farkı ($|y_{current} - y_{previous}|$).
-* $25.4$: Bir inçteki standart milimetre sayısı ($1 \text{ inç} = 25.4 \text{ mm}$).
-* $\text{Donanım } PPI$: Android `DisplayMetrics.xdpi` ve `ydpi` ortalaması.
-* $C_{mult}$: Kullanıcının ekrana fiziksel cetvel koyarak belirlediği mikro kalibrasyon katsayısı ($0.80 - 1.20$).
+* $25.4$: 1 inçin milimetre cinsinden kesin karşılığıdır.
+* $PPI$: Android `DisplayMetrics.densityDpi` değerinden okunur.
+* $C_{mult}$: Kullanıcının ekrana gerçek cetvel koyarak ayarlayabildiği kalibrasyon çarpanıdır ($0.80x - 1.20x$).
+
+### 2. Çapraz ve Açılı Kaydırmalar (Öklid Pisagor Teoremi)
+Açılı kaydırmalarda hipotenüs mesafesi hesaplanır:
+
+$$\text{Hipotenüs} = \sqrt{\Delta x^2 + \Delta y^2}$$
+
+Performans optimizasyonu için saf dikey ($\Delta x = 0$) veya saf yatay ($\Delta y = 0$) kaydırmalarda karekök işlemi atlanarak doğrudan mutlak değer döner (Fast-path: $O(1)$).
 
 ---
 
-## ⚡ 120Hz / 144Hz LTPO Ultra-Smooth Mikro-Kaydırma Motoru
+## ⚡ 120Hz / 144Hz LTPO Mikro-Kaydırma Motoru
 
-Modern amiral gemisi cihazlar (Samsung Galaxy S24 Ultra, Google Pixel 9 Pro, OnePlus 12, Xiaomi 14 Ultra vb.) 120Hz ve 144Hz değişken yenileme hızlı (LTPO) ekranlar kullanır. 
+Amiral gemisi telefonlarda (Samsung Galaxy S-Serisi, Xiaomi Pro, Google Pixel) değişken yenileme hızlı (LTPO) paneller bulunur.
 
-* **Problem:** 60Hz ekranlarda saniyede 60 kare üretilirken, 120Hz panellerde parmak hareketi saniyede 120 parçaya bölünür. Bu durum, yavaş ve yumuşak parmak hareketlerinde kare başına düşen dikey piksel farkının ($\Delta y$) **1.0px – 2.5px** gibi sub-pixel seviyelere inmesine yol açar. Geleneksel algoritmalar bu değerleri "titreme gürültüsü" (jitter) sayarak siler ve toplam mesafede %15–%25 eksik ölçüm yapardı.
-* **Scroll-Meter Çözümü:** `ScrollAnomalyFilter` bileşenimize adaptif `isHighRefreshRate` modu entegre edilmiştir. Yüksek yenileme hızlı panellerde filtre eşiği `3.0px` yerine hassas `1.0px` seviyesine uyarlanır. Böylece en narin mikro-kaydırmalar dahi donanım ivmesiyle tam doğrulukla yakalanır.
-* **Performans Test Sonuçları:**
-  * **DistanceCalculator:** 25.000.000 işlem / saniye (<0.00004 ms per op).
-  * **ScrollAnomalyFilter:** 25.000.000 değerlendirme / saniye.
-  * **ScrollBatchCollector:** 54.000 olay / saniye in-memory kuyruk kapasitesi.
+* 60Hz ekranlarda bir kaydırma adımı yaklaşık `10px - 30px` üretirken,
+* 120Hz veya 144Hz ekranlarda parmak hareketi saniyede 120+ kareye bölünür. Yavaş ve hassas okuma kaydırmalarında kare başına düşen dikey piksel farkı ($\Delta y$) `1.0px – 2.5px` seviyesine kadar iner.
+
+Standart gürültü filtreleri `3.0px` altındaki hareketleri dokunmatik titremesi sanarak siler. Scroll-Meter'ın **`ScrollAnomalyFilter`** sınıfı, `isHighRefreshRate` modunda eşik değerini `1.0px` seviyesine esneterek yüksek yenileme hızlı ekranlarda %100 ölçüm doğruluğu sağlar.
 
 ---
 
-## 🏆 Cyber-Luxury Trophy Room & Başarımlar (Achievements)
+## 🏆 Başarımlar ve Kupa Odası (Trophy Room)
 
-Dopamin döngüsünü üretkenliğe dönüştüren ve başarımları oyunlaştıran **Kupa Odası**:
+Kullanıcının kaydırma alışkanlıklarını oyunlaştırarak farkındalık kazandıran 9 özgün başarım rozeti:
 
-<div align="center">
-
-| Rozet | Başarım Adı | Kategori | Kilit Açma Şartı | Ödül Durumu |
-| :---: | :--- | :---: | :--- | :---: |
-| 🥉 | **İlk Adım (First Step)** | Mihenk Taşı | Herhangi bir uygulamada ilk 100 metreyi tamamla | Açılabilir |
-| 🦒 | **Zürafa Kulübü (Giraffe Club)** | Mihenk Taşı | 5.5 metre kaydırarak en uzun kara memelisini geç | Açılabilir |
-| 🗽 | **Özgürlük Meşalesi (Liberty Torch)** | Mihenk Taşı | Özgürlük Anıtı'nın kaidesini aş (93m) | Açılabilir |
-| 🗼 | **Eyfel Tırmanıcısı (Eiffel Climber)** | Mihenk Taşı | Tek bir günde Eyfel Kulesi'nin tepesine ulaş (330m) | Açılabilir |
-| 🏙️ | **Bulut Delici (Cloud Piercer)** | Mihenk Taşı | Burç Halife'nin seyir terasını fethet (828m) | Açılabilir |
-| 🏃‍♂️ | **Başparmak Maratonu (Thumb Marathon)** | Alışkanlık | Bir günde tam 1.000 metre (1 kilometre) kaydır | Açılabilir |
-| ⚡ | **Hız İblisi (Speed Demon)** | Alışkanlık | Tek bir uygulamada kesintisiz 250 metreyi aş | Açılabilir |
-| 📱 | **Sosyal Gezgin (Social Explorer)** | Alışkanlık | En az 3 farklı uygulamada aktif oturum kaydet | Açılabilir |
-| 📐 | **Hassas Ayarlayıcı (Precision Tuner)** | Hassasiyet | Ekran cetveli ile ekran kalibrasyonunu tamamla | Açılabilir |
-
-</div>
-
-### Kupa Odası Özellikleri
-* **Dinamik Ustalık Göstergesi:** Kazanılan kupa sayısına göre `%0 - %100 Toplam Ustalık` progress barı.
-* **Kategori Filtreleme:** `TÜMÜ`, `MİHENK TAŞI`, `ALIŞKANLIK` sekmeleriyle anlık filtreleme.
-* **Opal Mineral Glow Efekti:** Açılan başarımlar neon yeşili çerçeve ve parlayan kupa rozeti ile ışıldarken, kilitli başarımlar kalan ilerleme yüzdesini gösterir.
+| No | Başarım Adı | Kategori | Kriter | Anlamı ve Hedef |
+| :---: | :--- | :---: | :---: | :--- |
+| 1 | 🥉 **İlk Adım (First Step)** | Mihenk Taşı | `100 m` | Herhangi bir uygulamada ilk 100 metreyi tamamla. |
+| 2 | 🦒 **Zürafa Kulübü (Giraffe Club)** | Mihenk Taşı | `5.5 m` | Dünyanın en uzun kara memelisinin boyunu aş. |
+| 3 | 🗽 **Özgürlük Meşalesi (Liberty Torch)** | Mihenk Taşı | `93 m` | Özgürlük Heykeli kaidesiyle birlikte zirveye ulaş. |
+| 4 | 🗼 **Eyfel Tırmanıcısı (Eiffel Climber)** | Mihenk Taşı | `330 m` | Tek günde Eyfel Kulesi yüksekliğini fethet. |
+| 5 | 🏙️ **Bulut Delici (Cloud Piercer)** | Mihenk Taşı | `828 m` | Burç Halife gökdeleninin seyir terasına ulaş. |
+| 6 | 🏃‍♂️ **Başparmak Maratonu (Thumb Marathon)** | Mihenk Taşı | `1.000 m` | Bir günde tam 1 kilometre kaydır. |
+| 7 | ⚡ **Hız İblisi (Speed Demon)** | Alışkanlık | `250 m` | Tek bir uygulamada 250m+ yoğun oturum kaydet. |
+| 8 | 📱 **Sosyal Gezgin (Social Explorer)** | Alışkanlık | `3 Uygulama` | En az 3 farklı uygulamada aktif telemetri oluştur. |
+| 9 | 📐 **Hassas Ayarlayıcı (Precision Tuner)** | Hassasiyet | `Kalibrasyon` | Ekran cetveli ile donanım kalibrasyonunu tamamla. |
 
 ---
 
-## 🌐 Çoklu Dil Desteği (9 Languages Support)
+## 🌐 Çoklu Dil Desteği (9 Dilde Yerelleştirme)
 
 Scroll-Meter, Android sistem dilinizi otomatik olarak tanır ve harici internet veya çeviri API'si kullanmadan tamamen yerel XML kaynakları üzerinden çalışır:
 
-| Bayrak | Dil | XML Kaynak Yolu | Kapsam |
-| :---: | :--- | :--- | :---: |
-| 🇬🇧 🇺🇸 | **English (Default)** | `res/values/strings.xml` | %100 Tam Kapsam |
-| 🇹🇷 | **Türkçe** | `res/values-tr/strings.xml` | %100 Tam Kapsam |
-| 🇩🇪 | **Deutsch** | `res/values-de/strings.xml` | %100 Tam Kapsam |
-| 🇮🇹 | **Italiano** | `res/values-it/strings.xml` | %100 Tam Kapsam |
-| 🇷🇺 | **Русский** | `res/values-ru/strings.xml` | %100 Tam Kapsam |
-| 🇫🇷 | **Français** | `res/values-fr/strings.xml` | %100 Tam Kapsam |
-| 🇨🇳 | **中文 (简体)** | `res/values-zh/strings.xml` | %100 Tam Kapsam |
-| 🇧🇷 🇵🇹 | **Português** | `res/values-pt/strings.xml` | %100 Tam Kapsam |
-| 🇮🇳 | **हिन्दी** | `res/values-hi/strings.xml` | %100 Tam Kapsam |
+| Dil | Kod | Kaynak Dosyası | Kapsam |
+| :--- | :---: | :--- | :---: |
+| **English (Default)** | `en` | `res/values/strings.xml` | %100 |
+| **Türkçe** | `tr` | `res/values-tr/strings.xml` | %100 |
+| **Deutsch** | `de` | `res/values-de/strings.xml` | %100 |
+| **Italiano** | `it` | `res/values-it/strings.xml` | %100 |
+| **Русский** | `ru` | `res/values-ru/strings.xml` | %100 |
+| **Français** | `fr` | `res/values-fr/strings.xml` | %100 |
+| **中文 (简体)** | `zh` | `res/values-zh/strings.xml` | %100 |
+| **Português** | `pt` | `res/values-pt/strings.xml` | %100 |
+| **हिन्दी** | `hi` | `res/values-hi/strings.xml` | %100 |
 
 ---
 
-## ✨ Öne Çıkan Özellikler
-
-* **🛡️ %100 Sıfır İnternet & Mutlak Gizlilik**:
-  * `AndroidManifest.xml` içinde tek bir ağ izni dahi **yoktur**. Cihazdan dışarıya tek bir bayt veri çıkamaz.
-  * `canRetrieveWindowContent="false"` garantisi ile ekrandaki metinler, şifreler veya mesajlar **asla okunamaz**.
-* **🎯 Ekrana Gerçek Cetvel Koyarak Kalibrasyon**:
-  * Telefonunuzun ekranına gerçek fiziksel cetvel koyup sanal cetvelle eşitleyerek mikrometre düzeyinde doğruluk elde edersiniz.
-* **🏆 Oyunlaştırılmış Landmark Metaforları & Kupa Odası**:
-  * Zürafa, Özgürlük Heykeli, Eyfel Kulesi, Burç Halife, Everest hedefleri ve 9 kilitlenebilir başarım.
-* **⚡ Cyber Luxury & Mineral Glow Tasarım Dili**:
-  * 2026 Gen Z tasarım trendlerine uygun AMOLED siyah zemin, bento grid düzeni ve mineral neon ışıltıları.
-  * Saf Compose Canvas üzerinde hardware-accelerated dairesel sayaç ve çubuk grafik.
-* **🔋 "Never-Crash" Pil Dostu Mimari**:
-  * 5 saniyelik debounced batch toplama sayesinde sıfır pil ve sıfır CPU yükü.
-  * Ekran kapandığında anında uyku modu; 30 günden eski loglar sadece telefon gece şarjdayken temizlenir.
-* **🪶 Ultra-Hafif 3.3 MB Boyut**:
-  * R8, ProGuard ve ART Baseline Profiles ile 61 MB'tan 3.3 MB'a optimize edilmiş lean binary.
-
----
-
-## 🏆 Oyunlaştırılmış Landmark Metaforları (Milestones)
-
-Günün sonunda katettiğiniz mesafe soyut sayılar yerine dünyaca ünlü yapılarla kıyaslanır:
-
-| Seviye | Simge | Landmark / Anıt | Mesafe | Anlamı ve Kıyas |
-| :---: | :---: | :--- | :---: | :--- |
-| **1** | 🦒 | **Zürafa** | **5.5 m** | Dünyanın en uzun kara memelisinin boyu kadar kaydırdınız. |
-| **2** | ⚽ | **Futbol Sahası Genişliği** | **68.0 m** | Bir FIFA standart futbol sahasının eni kadar parmak hareketi. |
-| **3** | 🗽 | **Özgürlük Heykeli** | **93.0 m** | Kaidesiyle birlikte Özgürlük Anıtı'nın zirvesine tırmandınız! |
-| **4** | 🗼 | **Eyfel Kulesi** | **330.0 m** | Paris'in ikonik kulesinin tepesine kadar dikey yolculuk! |
-| **5** | 🏙️ | **Burç Halife (Burj Khalifa)** | **828.0 m** | Dünyanın insan yapımı en yüksek gökdelenini fethettiniz! |
-| **6** | 🌉 | **Golden Gate Köprüsü** | **2,737.0 m** | San Francisco körfezini baştan başa yürüyecek kadar kaydırma! |
-| **7** | 🏔️ | **Everest Tepesi** | **8,848.0 m** | Dünyanın zirvesine başparmağınızla tırmandınız (Ciddi Doomscrolling!). |
-| **8** | 🌊 | **Mariana Çukuru** | **10,994.0 m** | Okyanusların en derin noktasına kadar parmak daldırdınız. |
-| **9** | 🚀 | **Karman Çizgisi (Uzay Sınırı)**| **100,000.0 m** | Başparmağınız artık atmosferi terk edip uzaya ulaştı! |
-
----
-
-## 🔒 Sıfır İnternet ve Mutlak Gizlilik Matrisi
-
-Çoğu erişilebilirlik uygulaması kullanıcıların gizliliğini tehlikeye atarken, Scroll-Meter kurumsal düzeyde gizlilik garantisi sunar:
+## 🔒 Sıfır İnternet ve Kurumsal Gizlilik Mimarisi
 
 | Güvenlik Kriteri | Sıradan Takip Uygulamaları | **Scroll-Meter** |
 | :--- | :---: | :---: |
-| **İnternet Erişimi (`INTERNET`)** | ❌ Var (Veriler sunuculara gider) | **✅ KESİNLİKLE YOK (0 Byte Dış Veri)** |
-| **Ekran İçeriği Okuma (`canRetrieveWindowContent`)** | ❌ True (Mesajlar & formlar okunabilir) | **✅ FALSE (Sistem metin iletimini engeller)** |
-| **Klavye / Tuş Takibi (`canRequestFilterKeyEvents`)** | ❌ True (Tuş basışları yakalanabilir) | **✅ FALSE (Klavye asla dinlenemez)** |
-| **Sistem Klavyesi ve Şifre Yöneticisi Filtresi** | ⚠️ Belirsiz | **✅ GBoard, 1Password, Kilit Ekranı Kara Listede** |
-| **Veritabanı Saklama Yeri** | ❌ Bulut / 3. Parti Analitik | **✅ Sadece Cihaz İçi Şifreli SQLite** |
+| **İnternet İzni (`android.permission.INTERNET`)** | ❌ Var (Veriler sunucuya sızabilir) | **✅ KESİNLİKLE YOK (0 Byte Dış Veri)** |
+| **Ekran Metni Okuma (`canRetrieveWindowContent`)** | ❌ True (Mesajlar & formlar okunabilir) | **✅ FALSE (Sistem metin iletimini engeller)** |
+| **Klavye Takibi (`canRequestFilterKeyEvents`)** | ❌ True (Tuş basışları dinlenebilir) | **✅ FALSE (Klavye asla dinlenemez)** |
+| **Sistem Klavyesi ve Şifre Yöneticisi Koruması** | ⚠️ Belirsiz | **✅ GBoard, 1Password, Kilit Ekranı Kara Listede** |
+| **Veritabanı Saklama Yeri** | ❌ Bulut / 3. Parti SDK | **✅ Cihaz İçi Şifreli Yerel SQLite (Room)** |
 | **Açık Kaynak Kod Şeffaflığı** | ❌ Kapalı Kutu | **✅ %100 Açık Kaynak (Apache 2.0)** |
 
 > [!IMPORTANT]
 > `canRetrieveWindowContent="false"` kuralı Android İşletim Sistemi çekirdeği düzeyinde zorlanır. Bu ayar `false` olduğunda, Android işletim sistemi uygulamaya ekrandaki metinleri veya düğme içeriklerini kesinlikle iletmez; servis yalnızca dikey koordinat farkını (delta) alır.
 
-### 🔑 Resmi Üretim İmzası ve Güvenlik Doğrulaması
-
-Scroll-Meter üretim derlemeleri (`app-release.apk`), varsayılan debug anahtarlarıyla değil, 25+ yıl geçerli kurumsal 2048-bit RSA üretim sertifikasıyla imzalanır.
-
-| Sertifika Alanı | Güvenlik Doğrulama Bilgisi |
-| :--- | :--- |
-| **Sertifika Sahibi (Owner)** | `CN=Burak Yildiz, OU=Mobile Engineering, O=Scroll-Meter, C=TR` |
-| **Anahtar Algoritması** | `RSA 2048-bit` (SHA256withRSA) |
-| **İmza Bütünlüğü** | APK Signature Scheme v2 & v3 (Tam Cihaz İçi Bütünlük) |
-| **Güvenlik Doğrulaması** | Google Play Protect Güvenlik Taraması & False-Positive İnceleme Standartları |
-
 ---
 
-## 🔋 Pil ve Performans Mühendisliği (Battery & Never-Crash)
+## 🔋 Bellek Tamponlama ve Pil Mühendisliği
 
-Sıradan erişilebilirlik servisleri her kaydırma anında veritabanı yazımı yaparak cihazı ısıtır ve pili tüketir. Scroll-Meter bu sorunu 3 katmanlı mimari ile çözer:
+Sıradan erişilebilirlik servisleri her kaydırma olayında diske yazım yaparak pili tüketir. Scroll-Meter, **`ScrollBatchCollector`** ile bellek içi halka tampon (ring buffer) mimarisi kullanır:
 
 ```
 [ 100 Scroll Event / sn ] 
            │
            ▼
 ┌────────────────────────────────────────┐
-│  ScrollBatchCollector (In-Memory RAM)  │  <-- Olaylar RAM'de toplanır (0ms)
-└────────────────────────────────────────┘
-           │ (5 Saniye Boyunca Bekle)
-           ▼
+│   ScrollBatchCollector (RAM Bellek)    │
+│   • Mutex Korumalı Eşzamanlı Toplama   │
+└──────────────────┬─────────────────────┘
+                   │
+       ┌───────────┴───────────┐
+       ▼                       ▼
+ [ 5 Sn Zamanlayıcı ]    [ 20.000 px Eşik ]
+       │                       │
+       └───────────┬───────────┘
+                   ▼
 ┌────────────────────────────────────────┐
-│  Tek Bir SQLite Transaction (1 Upsert) │  <-- Diske sadece 5 saniyede 1 kez yazılır
+│     Room SQLite Atomic Upsert          │
+│     (Tek SQLite Transaksiyonu)         │
 └────────────────────────────────────────┘
 ```
 
-1. **5 Saniyelik Debounced Batcher (`ScrollBatchCollector`):**
-   * Kullanıcı ardı ardına 100 kez kaydırma yapsa dahi Room SQLite veritabanına 100 ayrı sorgu atılmaz.
-   * Olaylar RAM üzerinde toplanır, debounced timer ile tek bir atomik `ON CONFLICT DO UPDATE` sorgusunda birleştirilir.
-2. **Güç Bilinçli Ekran Alıcısı (`ScreenStateReceiver`):**
-   * Ekran kapandığı anda (`ACTION_SCREEN_OFF`) arka plandaki tüm dinleyiciler askıya alınır.
-   * Ekran açıldığında (`ACTION_SCREEN_ON`) hafifçe uyanır.
-3. **Akıllı Veri Temizliği (`DataCleanupWorker`):**
-   * SQLite veritabanının yıllar içinde şişmesini önlemek için 30 günden eski kayıtlar periyodik olarak temizlenir.
-   * Bu işlem yalnızca telefon **gece şarjdayken** ve **cihaz boştayken** (`requiresCharging`, `requiresDeviceIdle`) çalışır.
+* **5 Saniyelik Debounced Zamanlayıcı:** Olaylar RAM bellekte toplanır ve 5 saniyede bir toplu olarak diske yazılır.
+* **Ekran Kapalı Algılayıcısı (`ScreenStateReceiver`):** Telefon kilitlendiğinde veya ekran kapandığında tüm dinleyiciler ve zamanlayıcılar anında uyku moduna geçer.
+* **Gece Temizlik Görevi (`DataCleanupWorker`):** 30 günden eski geçmiş veriler sadece telefon gece şarjdayken ve boştayken otomatik temizlenir.
 
 ---
 
-## 📏 Fiziksel Cetvel ile Ekran Kalibrasyonu
+## 📏 Ekranda Fiziksel Cetvel ile Kalibrasyon
 
-Farklı üreticilerin (Samsung, Xiaomi, Google Pixel, OnePlus vb.) bildirdiği donanımsal PPI değerlerinde ±%5 sapma olabilir. Scroll-Meter bu sapmayı tamamen ortadan kaldırmak için interaktif bir sanal cetvel içerir:
+Farklı ekran koruyucuları veya kasa tasarımları sebebiyle üretici PPI değerlerinde ufak sapmalar olabilir.
 
-1. Uygulamada **Ayarlar (Settings)** ekranını açın.
-2. Ekranınızdaki **Sanal Cetvelin** üzerine gerçek bir okul cetveli veya mezura koyun.
-3. Ayar sürgüsünü (Slider) sağa/sola kaydırarak ekrandaki **10 santimetre** işaretini fiziksel cetvelinizle birebir hizalayın.
-4. Bu işlem kalibrasyon çarpanını (`1.02x`, `0.98x` vb.) milimetrik doğrulukla DataStore'a kaydeder ve sonraki tüm ölçümleriniz kusursuz hassasiyete ulaşır!
+Scroll-Meter, telefon ekranınıza **gerçek bir fiziksel cetvel** koyarak kalibrasyon yapmanıza olanak tanıyan bir dijital kalibrasyon cetveli sunar (`CalibrationRuler.kt`). Sanal milimetre çizgilerini gerçek cetvelinizle eşitlediğinizde kalibrasyon çarpanı ($C_{mult}$) diske kaydedilir ve ölçümler %100 kesinliğe ulaşır.
 
 ---
 
-## 🎨 Cyber Luxury & Mineral Glow Tasarım Sistemi
+## 🎨 Modern Minimalist Tasarım Sistemi
 
-Scroll-Meter, 2025–2026 Gen Z mobil arayüz trendleri (Opal Mineral Glow, Dopamine Typography, Bento Grid 2.0) temel alınarak tasarlanmıştır:
-
-### Renk Paleti Semantikleri
-* `ObsidianVoid` (`#030508`): Yüksek yenileme hızlı AMOLED paneller için derin uzay siyahı.
-* `ElectricMint` (`#00F5A0`): Birincil dopamin vurgusu (Opal mineral yeşili).
-* `CyberCyan` (`#00F0FF`): Telemetri ve yüksek teknoloji vurgu rengi.
-* `HyperViolet` (`#7A22FF`): İkincil ortam ışıltısı.
-* `ChampagneGold` (`#F5E6B8`): Anıt kilit açma prestij rozetleri.
-
-### Donanım Hızlandırmalı Bileşenler
-* **Circular Distance Progress (`CircularDistanceProgress.kt`):**
-  * 240 derecelik açık yay (`open arc`), yumuşak sweep gradient fırçası ve Jetpack Compose `spring` yay animasyonları ile 120 FPS akıcılık.
-* **Scroll Distance Bar Chart (`ScrollDistanceBarChart.kt`):**
-  * Hiçbir 3. parti grafik kütüphanesi kullanılmadan saf Compose Canvas ile çizilmiştir.
-  * İlk 5 uygulamanın kaydırma oranlarını oranlayarak çizgi kılavuzlarıyla görselleştirir.
-
-### 📱 Cyber-Luxury Uyarlanabilir Uygulama İkonu (Adaptive App Icon)
-Android 8.0+ (API 26) ve Android 14 (API 34) standartlarına uygun, vektörel olarak çizilmiş iki katmanlı uyarlanabilir simge:
-* **Arka Plan (`ic_launcher_background.xml`):** `ObsidianVoid` derin uzay siyahı üzerinde radyal `%10` ElectricMint ve CyberCyan ortam ışıltısı.
-* **Ön Plan (`ic_launcher_foreground.xml`):**
-  * **240° Telemetri Halka Yayı:** Neon mint-siyan doğrusal degradeli açık gösterge yayı.
-  * **Kinetik Kaydırma Çentiği:** Yukarı yönlü parmak hareketini ve mesafe birikimini sembolize eden dikey akış oku.
-  * **Cetvel Metrik Hassasiyet Çizgileri:** Donanımsal PPI tabanlı fiziksel mesafe ölçümünü vurgulayan milimetrik cetvel çizgileri.
+* **Renk Paleti:**
+  * Arka Plan: Derin Obsidyen Siyahı (`#090D14`)
+  * Kart Katmanı: Koyu Arduvaz Kartlar (`#111722`) ve 1px saç teli çerçeve (`#1E2638`)
+  * Telemetri Yeşil (Emerald): `#10B981`
+  * Telemetri Mavi (Cyan): `#06B6D4`
+  * Laboratuvar Moru (Iris): `#8B5CF6`
+  * Kupa Rozeti (Amber): `#F59E0B`
+* **Vektörel İkonografi:** Ham emoji butonları yerine Google Material Symbols ve Material Icons Rounded seti kullanılır.
+* **Sıfır 3. Parti UI Bağımlılığı:** Dairesel gösterge ve haftalık çubuk grafik saf Jetpack Compose Canvas kullanılarak sıfır harici kütüphane ile geliştirilmiştir.
 
 ---
 
-## 🏛️ Yazılım Mimarisi (Clean Architecture + MVI)
+## 🏗️ Yazılım Mimarisi (Clean Architecture + MVI)
+
+Proje, Google'ın önerdiği Clean Architecture ve Unidirectional Data Flow (MVI) prensiplerine sıkı sıkıya bağlıdır:
 
 ```
-com.scrollmeter.app/
+app/src/main/java/com/scrollmeter/app/
 ├── core/
-│   ├── dispatchers/               # Coroutine Dispatcher enjeksiyonları (@IoDispatcher)
-│   └── result/                    # Mühürlü Result<T> (Loading, Success, Error)
+│   ├── dispatchers/       # CoroutineDispatchers (IO, Default, Main)
+│   └── result/            # Result<T> (Loading, Success, Error)
 ├── data/
-│   ├── datastore/                 # SettingsDataStore (Kalibrasyon & Hedef akışları)
-│   ├── local/
-│   │   ├── dao/ScrollDao.kt       # SQLite atomik upsert ve temizleme sorguları
-│   │   ├── database/              # Room veritabanı (ScrollMeterDatabase)
-│   │   └── entity/                # DailyAppScrollEntity (dateEpochDays + packageName)
-│   ├── repository/                # ScrollRepositoryImpl (Data -> Domain mapper)
-│   ├── resolver/                  # DeviceMetricsProviderImpl & AppNameResolver
-│   └── worker/                    # DataCleanupWorker (30 günlük veri temizliği)
+│   ├── datastore/         # SettingsDataStore (Preferences DataStore)
+│   ├── local/             # Room SQLite (DailyAppScrollEntity, ScrollDao)
+│   ├── repository/        # ScrollRepositoryImpl
+│   ├── resolver/          # UsageStatsProviderImpl, AppNameResolver (LRU Cache)
+│   └── worker/            # DataCleanupWorker (WorkManager)
+├── di/                    # Hilt Dependency Injection Modülleri
 ├── domain/
-│   ├── calculator/                # DistanceCalculator (Saf matematiksel motor)
-│   ├── filter/                    # ScrollAnomalyFilter (120Hz/144Hz mikro-scroll filtresi)
-│   ├── model/                     # PhysicalDistance, AppScrollSession, Achievement, MetaphorMilestone
-│   └── usecase/                   # GetDailyTotalDistance, GetAchievements, CalculateMetaphor, GetLeaderboard
-├── service/
-│   ├── batch/                     # ScrollBatchCollector (5s bellek içi debounce motoru)
-│   ├── filter/                    # PackageBlacklist & ScrollGestureFilter
-│   ├── notification/              # ScrollNotificationManager (Hedef aşım bildirimleri)
-│   ├── receiver/                  # ScreenStateReceiver (Ekran kapanınca uyku modu)
-│   └── ScrollAccessibilityService # Never-Crash SupervisorJob Erişilebilirlik Servisi
-└── presentation/
-    ├── achievements/              # AchievementsScreen, AchievementsViewModel, Trophy Room UI
-    ├── analytics/                 # AnalyticsScreen, AnalyticsViewModel, BarChart
-    ├── components/                # CircularDistanceProgress, CalibrationRuler, MetaphorCard
-    ├── dashboard/                 # DashboardScreen, DashboardViewModel, MVI Contract
-    ├── navigation/                # ScrollNavHost, Routes (Kotlinx Serialization)
-    ├── onboarding/                # PermissionScreen (Privacy-First Onboarding)
-    ├── settings/                  # SettingsScreen, SettingsViewModel, Slider UI
-    └── theme/                     # Color, Type, Theme (Material Design 3)
+│   ├── calculator/        # DistanceCalculator, ScrollCadenceEngine
+│   ├── filter/            # ScrollAnomalyFilter
+│   ├── model/             # PhysicalDistance, AppScrollSession, TrackingMode
+│   ├── repository/        # IScrollRepository, IUsageStatsProvider, IDeviceMetricsProvider
+│   └── usecase/           # SyncUsageStatsScroll, CalculateMetaphor, GetAchievements
+├── presentation/
+│   ├── achievements/      # AchievementsScreen, AchievementsViewModel
+│   ├── analytics/         # AnalyticsScreen, AnalyticsViewModel, BarChart
+│   ├── components/        # CircularDistanceProgress, CalibrationRuler, MetaphorCard
+│   ├── dashboard/         # DashboardScreen, DashboardViewModel, MVI Contract
+│   ├── onboarding/        # PermissionScreen (Dual-Engine Selection)
+│   ├── settings/          # SettingsScreen, SettingsViewModel
+│   └── theme/             # Color, Theme, Type
+└── service/               # ScrollAccessibilityService, ScrollBatchCollector
 ```
 
 ---
 
-## 🧪 Kapsamlı Test ve Kalite Raporu (101/101 Test - %100 Yeşil)
+## 🧪 Test Matrisi ve Performans Kıyaslama Raporu (101/101 Test)
 
 Projenin tüm katmanları bağımsız birim testleri, coroutine flow testleri, kadans motoru testleri ve benchmark senaryolarıyla doğrulanmıştır:
 
@@ -487,133 +385,56 @@ TOPLAM: 101 TEST | 101 BAŞARILI (%100 YEŞİL) | 0 HATA | 0 BAŞARISIZ
 ================================================================================
 ```
 
+### ⚡ Otomatik Mikro-Kıyaslama Stres Testi (Benchmark)
+* **DistanceCalculator:** Saniyede **25.000.000+** dönüşüm (<0.00004 ms / işlem).
+* **ScrollAnomalyFilter:** Saniyede **25.000.000+** hız kontrolü ve anomali eleme.
+* **ScrollBatchCollector:** Saniyede **54.000+** bellek içi olay kuyruklama kapasitesi.
+
 ---
 
-## 📦 Üretim Optimizasyonu ve APK Boyut Tasarrufu
+## ⚙️ Kaynak Koddan Derleme (Build from Source)
 
-Standart geliştirici derlemesi ile kurumsal üretim derlemesi arasındaki boyut farkı:
+Projeyi yerel makinenizde klonlayıp Android Studio ile doğrudan derleyebilirsiniz:
 
+```bash
+# 1. Depoyu klonlayın
+git clone https://github.com/BurakYildizGameDev/Scroll-Meter.git
+cd Scroll-Meter
+
+# 2. Tüm 101 birim testini çalıştırın
+./gradlew testDebugUnitTest
+
+# 3. Optimize edilmiş Release APK üretin
+./gradlew assembleRelease
+
+# Çıktı dosyası: app/build/outputs/apk/release/app-release.apk (3.6 MB)
 ```
-[ Debug APK (Ham Geliştirme Derlemesi) ]  =========> 61.0 MB
-[ Release APK (R8 + ProGuard + AOT)    ]  ===> 3.3 MB  (%94.5 Tasarruf!)
-```
-
-* **R8 Kod Küçültme (`minifyEnabled true`):** Kullanılmayan sınıflar, metodlar ve alanlar silindi.
-* **Kaynak Küçültme (`shrinkResources true`):** Kullanılmayan XML'ler, drawables ve layout dosyaları elendi.
-* **Log Temizliği (`-assumenosideeffects`):** Release paketinde tüm `Timber.d()` ve `Timber.v()` çağrıları bayt kod düzeyinde kaldırıldı.
-* **Ahead-of-Time ART Baseline Profiles:** Cihaz kurulum anında kritik kod blokları yerel makine koduna dönüştürülür.
 
 ---
 
 ## ❓ Sıkça Sorulan Sorular (FAQ)
 
-<details>
-<summary><b>1. Mesajlarımı, bankacılık şifrelerimi veya fotoğraflarımı görebilir mi?</b></summary>
-<br/>
-<b>Kesinlikle hayır!</b> Scroll-Meter'ın Android erişilebilirlik konfigürasyonunda <code>canRetrieveWindowContent="false"</code> ve <code>canRequestFilterKeyEvents="false"</code> tanımlanmıştır. Android işletim sistemi çekirdeği bu kural gereği ekrandaki hiçbir metni, şifreyi veya arayüz öğesini uygulamaya iletmez. Ayrıca uygulamada <code>INTERNET</code> izni bulunmadığından cihazdan dışarıya 1 bayt bile veri aktarılamaz.
-</details>
+#### 1. Neden Standart Güvenli Mod öneriliyor?
+Standart Güvenli Mod, Android'in yerel `UsageStats` servisini kullanır. Arka planda sürekli bir servis koşturmadığı için **pil tüketimi %0.0'dır** ve Google Play Protect'in sideload APK filtrelerine takılmaz.
 
-<details>
-<summary><b>2. Bataryamı çabuk bitirir mi?</b></summary>
-<br/>
-<b>Hayır!</b> Scroll-Meter 5 saniyelik bellek içi (RAM) debounced toplama motoru kullanır. 100 kaydırma olayı diske 100 kez yazılmak yerine RAM'de toplanıp tek bir işlemde kaydedilir. Ekran kapatıldığı an servis anında uyku moduna geçer.
-</details>
+#### 2. Uygulama şifrelerimi veya sohbetlerimi okuyabilir mi?
+**Kesinlikle hayır.** Android manifest dosyasında `canRetrieveWindowContent="false"` kuralı zorunludur. Android işletim sistemi çekirdeği, bu ayar kapalı olduğunda uygulamaya ekrandaki hiçbir metni iletmez. Ayrıca uygulamada `INTERNET` izni bulunmadığı için verilerin cihazdan çıkması teknik olarak imkansızdır.
 
-<details>
-<summary><b>3. Cetvel kalibrasyonunu neden yapmalıyım?</b></summary>
-<br/>
-Ekran piksel yoğunlukları üreticiler arasında ufak tolerans farklılıklarına sahip olabilir. Ayarlar ekranındaki sanal cetvelin üzerine gerçek bir okul cetveli koyup eşitleme yaparak ölçüm doğruluğunuzu mikrometre seviyesine getirebilirsiniz.
-</details>
-
-<details>
-<summary><b>4. Hangi uygulamalar takip ediliyor?</b></summary>
-<br/>
-Instagram, TikTok, X (Twitter), YouTube, Reddit, Chrome, Facebook, Threads ve telefonunuzda dikey kaydırma yaptığınız tüm üçüncü parti uygulamalar takip edilir. Sistem klavyeleri, şifre yöneticileri ve kilit ekranı güvenlik nedeniyle otomatik olarak kara listededir.
-</details>
-
-<details>
-<summary><b>5. 120Hz ve 144Hz ekranlarda ölçüm doğruluğu nasıldır?</b></summary>
-<br/>
-Entegre 120Hz/144Hz LTPO mikro-kaydırma motoru, ekran yenileme hızı arttığında kare başına küçülen sub-pixel hareketleri (1.0px - 2.5px) hassas şekilde yakalar ve yavaş kaydırmalarda hiçbir mesafeyi kaçırmaz.
-</details>
-
-<details>
-<summary><b>6. Günlük hedef koyabilir miyim?</b></summary>
-<br/>
-Evet! Ayarlar ekranından günlük hedefinizi 25 metre ile 1000 metre arasında dilediğiniz gibi ayarlayabilirsiniz. Ana ekrandaki neon açık yay göstergesi hedefe olan ilerlemenizi anlık olarak gösterir.
-</details>
+#### 3. Cihazımı yeniden başlattığımda takip durur mu?
+Hayır. Standart Modda işletim sistemi ekran sürelerini otomatik tutmaya devam eder. Uygulamayı her açtığınızda veya yenile butonuna bastığınızda güncel mesafe hesaplanır.
 
 ---
 
-## 🔋 Cihaz Bazlı Arka Plan Ayarları (Keep-Alive Rehberi)
+## 📄 Lisans ve Telif Hakkı
 
-Bazı Android üreticileri (özellikle Xiaomi, Huawei ve Samsung) pil tasarrufu adı altında arka plan erişilebilirlik servislerini agresif şekilde kapatabilir. Servisin kesintisiz çalışması için şu adımları uygulayabilirsiniz:
+Bu proje [Apache 2.0 Lisansı](LICENSE) altında açık kaynak olarak yayınlanmıştır.
 
-* **Xiaomi / Redmi / POCO (MIUI & HyperOS):**
-  * `Ayarlar > Uygulamalar > Uygulamaları Yönet > Scroll-Meter` yoluna gidin.
-  * *"Otomatik Başlatma"* iznini açın.
-  * *"Pil Tasarrufu"* seçeneğini *"Kısıtlama Yok"* olarak ayarlayın.
-* **Samsung Galaxy (One UI):**
-  * `Ayarlar > Pil ve Cihaz Bakımı > Pil > Arka Plan Kullanım Sınırları` bölümüne gidin.
-  * Scroll-Meter'ı *"Asla Uyku Moduna Alınmayan Uygulamalar"* listesine ekleyin.
-* **Google Pixel & Saf Android:**
-  * Varsayılan ayarlarla hiçbir ek müdahaleye gerek kalmadan sorunsuz çalışır.
-
----
-
-## 🛠️ Kaynak Koddan Derleme (Build from Source)
-
-Projeyi yerel bilgisayarınızda derlemek ve testleri çalıştırmak için:
-
-### Gereksinimler
-* Android Studio Ladybug (2024.2+) veya üzeri
-* JDK 17 (Temurin veya Zulu önerilir)
-* Android SDK 34 (Android 14)
-
-### Komutlar
-```bash
-# Depoyu klonlayın
-git clone https://github.com/BurakYildizGameDev/Scroll-Meter.git
-cd Scroll-Meter
-
-# Tüm 84 birim testini çalıştırın
-./gradlew testDebugUnitTest
-
-# Debug APK derleyin (Geliştirici testi için)
-./gradlew assembleDebug
-
-# Optimize edilmiş Release APK derleyin (3.3 MB)
-./gradlew assembleRelease
 ```
+Copyright 2026 Burak Yıldız (@BurakYildizGameDev)
 
-Üretilen APK dosyaları:
-* `app/build/outputs/apk/debug/app-debug.apk`
-* `app/build/outputs/apk/release/app-release.apk`
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
----
-
-## 🗺️ Yol Haritası (Roadmap)
-
-Gelecek sürümlerde planlanan geliştirmeler:
-* [ ] **Glance Compose Widgets:** Ana ekran ve kilit ekranı için anlık mesafe widget'ları.
-* [ ] **Wear OS Entegrasyonu:** Akıllı saat üzerinden günün kaydırma mesafesini anlık takip etme.
-* [ ] **Dışa Aktarma (Export):** Haftalık ve aylık telemetri verilerini yerel CSV / JSON olarak dışa aktarma.
-* [ ] **Sosyal Kart Paylaşımı:** Kilidi açılan Eyfel Kulesi ve Zürafa anıtlarını hikaye kartı olarak paylaşma.
-
----
-
-## 📄 Lisans
-
-Bu proje **Apache License 2.0** kapsamında açık kaynak olarak lisanslanmıştır. Detaylı bilgi için [`LICENSE`](LICENSE) dosyasına göz atabilirsiniz.
-
----
-
-<div align="center">
-
-### ⭐ Projeyi beğendiyseniz depoya bir yıldız bırakarak destek olabilirsiniz!
-
-Crafted with ❤️ by **Burak Yıldız**  
-[![GitHub Profile](https://img.shields.io/badge/GitHub-BurakYildizGameDev-181717?style=for-the-badge&logo=github)](https://github.com/BurakYildizGameDev)
-[![Download Latest Release](https://img.shields.io/badge/Release-v1.0.0-00F5A0?style=for-the-badge)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases)
-
-</div>
+    http://www.apache.org/licenses/LICENSE-2.0
+```

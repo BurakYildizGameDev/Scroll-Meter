@@ -68,8 +68,8 @@ fun AnalyticsScreen(
                     Text(
                         text = stringResource(R.string.nav_analytics).uppercase(),
                         style = MaterialTheme.typography.titleMedium.copy(
-                            fontWeight = FontWeight.Black,
-                            letterSpacing = 2.sp
+                            fontWeight = FontWeight.Bold,
+                            letterSpacing = 0.5.sp
                         ),
                         color = MaterialTheme.colorScheme.onSurface
                     )

@@ -12,30 +12,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.scrollmeter.app.presentation.theme.GlassBorderGradient
 import com.scrollmeter.app.presentation.theme.ObsidianSurface
-import com.scrollmeter.app.presentation.theme.ObsidianSurfaceGlass
 
 /**
- * Premium Frosted Glass Card featuring subtle outer neon glow,
- * hairline refractive border, and tactile corner radii.
+ * Modern tactile container card with clean hairline borders,
+ * refined dark slate background, and disciplined corner radius.
  */
 @Composable
 fun GlowingGlassCard(
     modifier: Modifier = Modifier,
-    shape: RoundedCornerShape = RoundedCornerShape(26.dp),
+    shape: RoundedCornerShape = RoundedCornerShape(18.dp),
     glowColor: Color = Color.Transparent,
-    glowAlpha: Float = 0.12f,
-    glowStrokeWidth: Dp = 10.dp,
+    glowAlpha: Float = 0.08f,
+    glowStrokeWidth: Dp = 1.dp,
     borderBrush: Brush = GlassBorderGradient,
-    backgroundColor: Color = ObsidianSurface.copy(alpha = 0.72f),
-    contentPadding: Dp = 20.dp,
+    backgroundColor: Color = ObsidianSurface,
+    contentPadding: Dp = 18.dp,
     onClick: (() -> Unit)? = null,
     content: @Composable BoxScope.() -> Unit
 ) {
@@ -51,26 +48,23 @@ fun GlowingGlassCard(
         Modifier
     }
 
+    val finalBorderBrush = if (glowColor != Color.Transparent) {
+        Brush.verticalGradient(
+            colors = listOf(
+                glowColor.copy(alpha = 0.35f),
+                glowColor.copy(alpha = 0.08f)
+            )
+        )
+    } else {
+        borderBrush
+    }
+
     Box(
         modifier = modifier
-            // 1. Outer ambient light glow (drawn behind the card without clipping)
-            .drawBehind {
-                if (glowColor != Color.Transparent) {
-                    val cornerPx = shape.topStart.toPx(size, this)
-                    drawRoundRect(
-                        color = glowColor.copy(alpha = glowAlpha),
-                        size = size,
-                        cornerRadius = androidx.compose.ui.geometry.CornerRadius(cornerPx, cornerPx),
-                        style = Stroke(width = glowStrokeWidth.toPx())
-                    )
-                }
-            }
             .then(clickableModifier)
-            // 2. Frosted glass clipping & styling
             .clip(shape)
             .background(backgroundColor)
-            // 3. Hairline metallic refraction border
-            .border(width = 1.dp, brush = borderBrush, shape = shape)
+            .border(width = 1.dp, brush = finalBorderBrush, shape = shape)
             .padding(contentPadding),
         content = content
     )

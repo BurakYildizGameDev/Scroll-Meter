@@ -1,8 +1,8 @@
 package com.scrollmeter.app.presentation.components
 
-import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -21,14 +21,16 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.scrollmeter.app.presentation.theme.CyberCyan
 import com.scrollmeter.app.presentation.theme.ElectricMint
 
 /**
- * Custom Canvas Circular Distance Gauge featuring an open arc with
- * glowing neon sweep gradients, spring animations, and centered metric display.
+ * Precision Telemetry Gauge with open circular arc, smooth easing,
+ * and high-contrast typography hierarchy.
  */
 @Composable
 fun CircularDistanceProgress(
@@ -36,17 +38,17 @@ fun CircularDistanceProgress(
     distanceValue: String,
     modifier: Modifier = Modifier,
     unitText: String = "m",
-    subtitle: String = "GÜNLÜK HEDEF",
-    sizeDp: Dp = 220.dp,
-    strokeWidth: Dp = 16.dp,
-    trackColor: Color = Color.White.copy(alpha = 0.08f),
+    subtitle: String = "GÜNLÜK MESAFE",
+    sizeDp: Dp = 230.dp,
+    strokeWidth: Dp = 14.dp,
+    trackColor: Color = Color(0xFF182232),
     gradientColors: List<Color> = listOf(ElectricMint, CyberCyan, ElectricMint)
 ) {
     val animatedProgress by animateFloatAsState(
         targetValue = progressFraction.coerceIn(0f, 1f),
-        animationSpec = spring(
-            dampingRatio = Spring.DampingRatioMediumBouncy,
-            stiffness = Spring.StiffnessLow
+        animationSpec = tween(
+            durationMillis = 900,
+            easing = FastOutSlowInEasing
         ),
         label = "CircularProgressArc"
     )
@@ -62,8 +64,8 @@ fun CircularDistanceProgress(
             val arcSize = size.width - strokePx
             val topLeftOffset = strokePx / 2f
 
-            val startAngle = 140f
-            val maxSweepAngle = 260f
+            val startAngle = 135f
+            val maxSweepAngle = 270f
 
             // Background Track Arc
             drawArc(
@@ -76,7 +78,7 @@ fun CircularDistanceProgress(
                 style = Stroke(width = strokePx, cap = StrokeCap.Round)
             )
 
-            // Animated Foreground Glowing Arc
+            // Animated Telemetry Arc
             if (animatedProgress > 0f) {
                 drawArc(
                     brush = sweepGradient,
@@ -90,14 +92,17 @@ fun CircularDistanceProgress(
             }
         }
 
-        // Center Content
+        // Center Metric Display
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.padding(horizontal = 24.dp)
         ) {
             Text(
                 text = subtitle.uppercase(),
-                style = MaterialTheme.typography.labelSmall,
+                style = MaterialTheme.typography.labelSmall.copy(
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = 1.2.sp
+                ),
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
@@ -108,12 +113,17 @@ fun CircularDistanceProgress(
             ) {
                 Text(
                     text = distanceValue,
-                    style = MaterialTheme.typography.displayMedium,
+                    style = MaterialTheme.typography.displayMedium.copy(
+                        fontWeight = FontWeight.Black,
+                        letterSpacing = (-1.0).sp
+                    ),
                     color = Color.White
                 )
                 Text(
                     text = " $unitText",
-                    style = MaterialTheme.typography.titleLarge,
+                    style = MaterialTheme.typography.titleLarge.copy(
+                        fontWeight = FontWeight.Bold
+                    ),
                     color = ElectricMint,
                     modifier = Modifier.padding(bottom = 6.dp)
                 )
@@ -124,8 +134,10 @@ fun CircularDistanceProgress(
             val percentageInt = (progressFraction * 100).toInt()
             Text(
                 text = "%$percentageInt Tamamlandı",
-                style = MaterialTheme.typography.labelMedium,
-                color = ElectricMint
+                style = MaterialTheme.typography.labelMedium.copy(
+                    fontWeight = FontWeight.SemiBold
+                ),
+                color = if (percentageInt >= 100) ElectricMint else MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
     }

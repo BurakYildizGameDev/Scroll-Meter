@@ -52,6 +52,7 @@ import com.scrollmeter.app.presentation.components.CalibrationRuler
 import com.scrollmeter.app.presentation.theme.EmeraldContainerDark
 import com.scrollmeter.app.presentation.theme.EmeraldNeonPrimary
 import com.scrollmeter.app.presentation.theme.EmeraldNeonSecondary
+import com.scrollmeter.app.presentation.theme.HyperViolet
 import com.scrollmeter.app.presentation.theme.MidnightDark
 import com.scrollmeter.app.presentation.theme.ObsidianSurface
 
@@ -73,8 +74,8 @@ fun SettingsScreen(
                     Text(
                         text = stringResource(R.string.nav_settings).uppercase(),
                         style = MaterialTheme.typography.titleMedium.copy(
-                            fontWeight = FontWeight.Black,
-                            letterSpacing = 1.5.sp
+                            fontWeight = FontWeight.Bold,
+                            letterSpacing = 0.5.sp
                         ),
                         color = MaterialTheme.colorScheme.onSurface
                     )
@@ -369,8 +370,8 @@ fun SettingsScreen(
                                         )
                                     },
                                 shape = RoundedCornerShape(14.dp),
-                                color = if (isLabSelected) Color(0xFF6750A4).copy(alpha = 0.35f) else Color.White.copy(alpha = 0.03f),
-                                border = if (isLabSelected) androidx.compose.foundation.BorderStroke(1.5.dp, Color(0xFFD6BBFB)) else null
+                                color = if (isLabSelected) HyperViolet.copy(alpha = 0.15f) else Color.White.copy(alpha = 0.03f),
+                                border = if (isLabSelected) androidx.compose.foundation.BorderStroke(1.dp, HyperViolet) else null
                             ) {
                                 Row(
                                     modifier = Modifier.padding(14.dp),
@@ -394,7 +395,7 @@ fun SettingsScreen(
                                         Icon(
                                             imageVector = Icons.Default.Check,
                                             contentDescription = null,
-                                            tint = Color(0xFFD6BBFB),
+                                            tint = HyperViolet,
                                             modifier = Modifier.padding(start = 8.dp)
                                         )
                                     }

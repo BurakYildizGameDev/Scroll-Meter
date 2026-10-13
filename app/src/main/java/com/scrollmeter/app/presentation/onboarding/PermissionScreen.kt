@@ -20,17 +20,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.CheckCircle
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material.icons.filled.Science
-import androidx.compose.material.icons.filled.Security
-import androidx.compose.material.icons.filled.Speed
-import androidx.compose.material.icons.filled.TouchApp
-import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.rounded.CheckCircle
+import androidx.compose.material.icons.rounded.Info
+import androidx.compose.material.icons.rounded.Sensors
+import androidx.compose.material.icons.rounded.Shield
+import androidx.compose.material.icons.rounded.Visibility
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
@@ -38,17 +36,17 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -74,7 +72,6 @@ fun PermissionScreen(
     val scrollState = rememberScrollState()
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    // Re-check permissions whenever user returns to the app
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
@@ -83,7 +80,6 @@ fun PermissionScreen(
             }
         }
         lifecycleOwner.lifecycle.addObserver(observer)
-        // Initial probe
         viewModel.refreshPermissions(context)
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
@@ -92,19 +88,6 @@ fun PermissionScreen(
         modifier = modifier
             .fillMaxSize()
             .background(ObsidianVoid)
-            .drawBehind {
-                drawCircle(
-                    brush = Brush.radialGradient(
-                        colors = listOf(
-                            ElectricMint.copy(alpha = 0.16f),
-                            HyperViolet.copy(alpha = 0.06f),
-                            Color.Transparent
-                        ),
-                        center = Offset(size.width * 0.5f, 0f),
-                        radius = size.width * 0.9f
-                    )
-                )
-            }
             .statusBarsPadding()
             .padding(horizontal = 20.dp)
     ) {
@@ -114,41 +97,59 @@ fun PermissionScreen(
                 .verticalScroll(scrollState),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
-            // Header Tag
+            // Brand Header
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(10.dp)
             ) {
-                CyberStatusBadge(
-                    text = "DİJİTAL SEYAHAT ⚡",
-                    accentColor = ElectricMint
-                )
-                CyberStatusBadge(
-                    text = "HİBRİT MİMARİ",
-                    accentColor = CyberCyan
-                )
+                Box(
+                    modifier = Modifier
+                        .size(38.dp)
+                        .clip(CircleShape)
+                        .background(ElectricMint.copy(alpha = 0.12f)),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        imageVector = Icons.Rounded.Shield,
+                        contentDescription = null,
+                        tint = ElectricMint,
+                        modifier = Modifier.size(20.dp)
+                    )
+                }
+
+                Column {
+                    Text(
+                        text = "SCROLL-METER",
+                        style = MaterialTheme.typography.labelSmall.copy(
+                            fontWeight = FontWeight.Black,
+                            letterSpacing = 1.6.sp
+                        ),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Text(
+                        text = "Çalışma Modunu Belirleyin",
+                        style = MaterialTheme.typography.titleLarge.copy(
+                            fontWeight = FontWeight.Bold
+                        ),
+                        color = Color.White
+                    )
+                }
             }
 
             Text(
-                text = "Takip Motorunu Seçin",
-                style = MaterialTheme.typography.headlineLarge,
-                color = Color.White
-            )
-
-            Text(
-                text = "Scroll-Meter iki güçlü motor mimarisine sahiptir. İster sıfır uyarı veren güvenli standart modu, ister donanım düzeyinde piksel sensörünü seçin.",
+                text = "Kullanım alışkanlığınıza uygun motoru seçin. Tüm telemetri 100% cihazınızda kalır ve internete asla bağlanmaz.",
                 style = MaterialTheme.typography.bodyMedium,
-                color = Color.White.copy(alpha = 0.75f)
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                lineHeight = 20.sp
             )
 
-            // OPTION 1: Standart & Güvenli Mod (Default & Recommended)
+            // OPTION 1: Standart & Güvenli Mod (Recommended)
             GlowingGlassCard(
                 modifier = Modifier.fillMaxWidth(),
-                glowColor = ElectricMint,
-                glowAlpha = 0.16f
+                backgroundColor = Color(0xFF111722),
+                shape = RoundedCornerShape(18.dp)
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     Row(
@@ -157,40 +158,55 @@ fun PermissionScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         CyberStatusBadge(
-                            text = stringResource(R.string.mode_safe_badge),
+                            text = "ÖNERİLEN • %0 PİL",
                             accentColor = ElectricMint
                         )
                         if (uiState.isUsageAccessGranted) {
-                            Text(text = "✓ HAZIR", color = ElectricMint, style = MaterialTheme.typography.labelSmall)
+                            Text(
+                                text = "✓ İZİN VERİLDİ",
+                                color = ElectricMint,
+                                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold)
+                            )
                         }
                     }
 
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(
-                            imageVector = Icons.Default.Security,
-                            contentDescription = null,
-                            tint = ElectricMint,
-                            modifier = Modifier.size(28.dp)
-                        )
-                        Spacer(modifier = Modifier.width(10.dp))
+                        Box(
+                            modifier = Modifier
+                                .size(36.dp)
+                                .clip(RoundedCornerShape(10.dp))
+                                .background(ElectricMint.copy(alpha = 0.15f)),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.Rounded.Shield,
+                                contentDescription = null,
+                                tint = ElectricMint,
+                                modifier = Modifier.size(20.dp)
+                            )
+                        }
+                        Spacer(modifier = Modifier.width(12.dp))
                         Column {
                             Text(
-                                text = stringResource(R.string.mode_safe_title),
-                                style = MaterialTheme.typography.titleMedium,
+                                text = "Standart Mod (Kullanım Erişimi)",
+                                style = MaterialTheme.typography.titleMedium.copy(
+                                    fontWeight = FontWeight.Bold
+                                ),
                                 color = Color.White
                             )
                             Text(
-                                text = "Kullanım Erişimi + Doomscroll Kadans Motoru",
+                                text = "Kullanım İzni + Akıllı Kadans Motoru",
                                 style = MaterialTheme.typography.labelSmall,
-                                color = ElectricMint.copy(alpha = 0.85f)
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
 
                     Text(
-                        text = stringResource(R.string.mode_safe_desc),
+                        text = "Ekran süresi verilerini kadans algoritmamızla fiziksel mesafeye dönüştürür. Sıfır Play Protect uyarısı, sıfır kısıtlı ayar ve arka planda sıfır pil tüketimi.",
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color.White.copy(alpha = 0.75f)
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        lineHeight = 18.sp
                     )
 
                     Button(
@@ -206,11 +222,11 @@ fun PermissionScreen(
                         },
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(50.dp),
-                        shape = RoundedCornerShape(14.dp),
+                            .height(48.dp),
+                        shape = RoundedCornerShape(12.dp),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = ElectricMint,
-                            contentColor = Color.Black
+                            contentColor = Color(0xFF022C22)
                         ),
                         enabled = !uiState.isSyncing
                     ) {
@@ -219,14 +235,14 @@ fun PermissionScreen(
                         } else {
                             Row(verticalAlignment = Alignment.CenterVertically) {
                                 Icon(
-                                    imageVector = if (uiState.isUsageAccessGranted) Icons.Default.CheckCircle else Icons.Default.Speed,
+                                    imageVector = Icons.Rounded.CheckCircle,
                                     contentDescription = null,
                                     modifier = Modifier.size(18.dp)
                                 )
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
-                                    text = if (uiState.isUsageAccessGranted) "GÜVENLİ MODLA BAŞLA ⚡" else stringResource(R.string.mode_safe_btn),
-                                    style = MaterialTheme.typography.titleSmall
+                                    text = if (uiState.isUsageAccessGranted) "STANDART MOD İLE BAŞLA" else "KULLANIM İZNİNİ ETKİNLEŞTİR",
+                                    style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold)
                                 )
                             }
                         }
@@ -234,11 +250,11 @@ fun PermissionScreen(
                 }
             }
 
-            // OPTION 2: Gelişmiş Laboratuvar Modu (Accessibility Pixel Delta)
+            // OPTION 2: Laboratuvar Sensörü (Accessibility)
             GlowingGlassCard(
                 modifier = Modifier.fillMaxWidth(),
-                glowColor = HyperViolet,
-                glowAlpha = 0.14f
+                backgroundColor = Color(0xFF111722),
+                shape = RoundedCornerShape(18.dp)
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                     Row(
@@ -247,63 +263,79 @@ fun PermissionScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         CyberStatusBadge(
-                            text = stringResource(R.string.mode_lab_badge),
-                            accentColor = Color(0xFFD6BBFB)
+                            text = "DONANIM PİKSEL DELTASI",
+                            accentColor = HyperViolet
                         )
                         if (uiState.isAccessibilityGranted) {
-                            Text(text = "✓ AKTİF", color = Color(0xFFD6BBFB), style = MaterialTheme.typography.labelSmall)
+                            Text(
+                                text = "✓ SERVİS AKTİF",
+                                color = HyperViolet,
+                                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold)
+                            )
                         }
                     }
 
                     Row(verticalAlignment = Alignment.CenterVertically) {
-                        Icon(
-                            imageVector = Icons.Default.Science,
-                            contentDescription = null,
-                            tint = Color(0xFFD6BBFB),
-                            modifier = Modifier.size(28.dp)
-                        )
-                        Spacer(modifier = Modifier.width(10.dp))
+                        Box(
+                            modifier = Modifier
+                                .size(36.dp)
+                                .clip(RoundedCornerShape(10.dp))
+                                .background(HyperViolet.copy(alpha = 0.15f)),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Icon(
+                                imageVector = Icons.Rounded.Sensors,
+                                contentDescription = null,
+                                tint = HyperViolet,
+                                modifier = Modifier.size(20.dp)
+                            )
+                        }
+                        Spacer(modifier = Modifier.width(12.dp))
                         Column {
                             Text(
-                                text = stringResource(R.string.mode_lab_title),
-                                style = MaterialTheme.typography.titleMedium,
+                                text = "Laboratuvar Modu (Erişilebilirlik)",
+                                style = MaterialTheme.typography.titleMedium.copy(
+                                    fontWeight = FontWeight.Bold
+                                ),
                                 color = Color.White
                             )
                             Text(
-                                text = "Piksel Sensörü (TYPE_VIEW_SCROLLED)",
+                                text = "Canlı Donanım Pikseli (TYPE_VIEW_SCROLLED)",
                                 style = MaterialTheme.typography.labelSmall,
-                                color = Color(0xFFD6BBFB).copy(alpha = 0.85f)
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
                         }
                     }
 
                     Text(
-                        text = stringResource(R.string.mode_lab_desc),
+                        text = "Ekrandaki her dikey kaydırma hareketini 120Hz/144Hz LTPO donanım seviyesinde piksel piksel ölçer.",
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color.White.copy(alpha = 0.75f)
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        lineHeight = 18.sp
                     )
 
-                    // Android Restricted Settings Educational Notice
+                    // Information note for Android Sideloading
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(Color.White.copy(alpha = 0.04f), RoundedCornerShape(10.dp))
-                            .padding(10.dp)
+                            .clip(RoundedCornerShape(10.dp))
+                            .background(Color(0xFF182030))
+                            .padding(12.dp)
                     ) {
                         Row(verticalAlignment = Alignment.Top) {
                             Icon(
-                                imageVector = Icons.Default.Info,
+                                imageVector = Icons.Rounded.Info,
                                 contentDescription = null,
-                                tint = CyberCyan,
+                                tint = MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier
-                                    .size(18.dp)
+                                    .size(16.dp)
                                     .padding(top = 2.dp)
                             )
                             Spacer(modifier = Modifier.width(8.dp))
                             Text(
-                                text = stringResource(R.string.mode_lab_warning_desc),
-                                style = MaterialTheme.typography.labelSmall,
-                                color = Color.White.copy(alpha = 0.7f),
+                                text = "Android 13+ Güvenlik Notu: GitHub üzerinden indirilen APK'larda Android, Erişilebilirlik servisini varsayılan olarak kısıtlar (Uygulama Bilgisi > 3 nokta > Kısıtlanmış ayara izin ver). Scroll-Meter sıfır internet iznine sahiptir.",
+                                style = MaterialTheme.typography.bodySmall.copy(fontSize = 11.sp),
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                                 lineHeight = 16.sp
                             )
                         }
@@ -322,30 +354,22 @@ fun PermissionScreen(
                         },
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(48.dp),
-                        shape = RoundedCornerShape(14.dp),
-                        border = BorderStroke(1.dp, Color(0xFFD6BBFB).copy(alpha = 0.6f)),
+                            .height(46.dp),
+                        shape = RoundedCornerShape(12.dp),
+                        border = BorderStroke(1.dp, HyperViolet.copy(alpha = 0.5f)),
                         colors = ButtonDefaults.outlinedButtonColors(
-                            contentColor = Color(0xFFD6BBFB)
+                            contentColor = HyperViolet
                         )
                     ) {
-                        Row(verticalAlignment = Alignment.CenterVertically) {
-                            Icon(
-                                imageVector = if (uiState.isAccessibilityGranted) Icons.Default.CheckCircle else Icons.Default.TouchApp,
-                                contentDescription = null,
-                                modifier = Modifier.size(18.dp)
-                            )
-                            Spacer(modifier = Modifier.width(8.dp))
-                            Text(
-                                text = if (uiState.isAccessibilityGranted) "LAB MODUYLA BAŞLA 🔬" else stringResource(R.string.mode_lab_btn),
-                                style = MaterialTheme.typography.titleSmall
-                            )
-                        }
+                        Text(
+                            text = if (uiState.isAccessibilityGranted) "LAB MODU İLE BAŞLA" else "ERİŞİLEBİLİRLİK SERVİSİNİ AÇ",
+                            style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold)
+                        )
                     }
                 }
             }
 
-            // OPTION 3: Recruiter / Portfolio Demo Mode
+            // OPTION 3: Portfolio / Review Demo Mode
             OutlinedButton(
                 onClick = {
                     viewModel.activateDemoMode {
@@ -355,42 +379,30 @@ fun PermissionScreen(
                 enabled = !uiState.isDemoLoading,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(52.dp),
-                shape = RoundedCornerShape(16.dp),
-                border = BorderStroke(1.5.dp, CyberCyan.copy(alpha = 0.6f)),
+                    .height(46.dp),
+                shape = RoundedCornerShape(12.dp),
+                border = BorderStroke(1.dp, Color.White.copy(alpha = 0.15f)),
                 colors = ButtonDefaults.outlinedButtonColors(
-                    contentColor = CyberCyan
+                    contentColor = MaterialTheme.colorScheme.onSurface
                 )
             ) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
-                        imageVector = Icons.Default.Visibility,
+                        imageVector = Icons.Rounded.Visibility,
                         contentDescription = null,
-                        modifier = Modifier.size(18.dp),
-                        tint = CyberCyan
+                        modifier = Modifier.size(16.dp),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = if (uiState.isDemoLoading) "YÜKLENİYOR..." else stringResource(R.string.btn_demo_mode),
-                        style = MaterialTheme.typography.titleSmall,
-                        color = CyberCyan
+                        text = if (uiState.isDemoLoading) "YÜKLENİYOR..." else "Portföy & İK Demo Modu (İzin Vermeden İncele)",
+                        style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold),
+                        color = MaterialTheme.colorScheme.onSurface
                     )
                 }
             }
 
-            Text(
-                text = stringResource(R.string.demo_mode_desc),
-                style = MaterialTheme.typography.bodySmall,
-                color = Color.White.copy(alpha = 0.5f),
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 8.dp)
-            )
-
-            Spacer(modifier = Modifier.height(20.dp))
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }

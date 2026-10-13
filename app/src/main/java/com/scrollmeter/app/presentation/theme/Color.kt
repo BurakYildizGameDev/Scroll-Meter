@@ -3,77 +3,78 @@ package com.scrollmeter.app.presentation.theme
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
-// ==========================================
-// CYBER LUXURY & MINERAL GLOW PALETTE (2026)
-// ==========================================
+// =========================================================================
+// SCROLL-METER PROFESSIONAL DESIGN TOKENS
+// Focused, high-contrast dark theme inspired by modern engineering tools
+// =========================================================================
 
-// Obsidian & Void Bases (Gen Z Deep Dark Aesthetic)
-val ObsidianVoid = Color(0xFF030508)
-val ObsidianSurface = Color(0xFF0A0E14)
-val ObsidianSurfaceElevated = Color(0xFF131922)
-val ObsidianSurfaceGlass = Color(0x0DFFFFFF) // 5% White Frosted Glass
+// Deep Slate & Neutral Background Surfaces
+val ObsidianVoid = Color(0xFF090D14)           // Deep obsidian canvas
+val ObsidianSurface = Color(0xFF111722)        // Base card surface
+val ObsidianSurfaceElevated = Color(0xFF182030)// Elevated card surface
+val ObsidianSurfaceGlass = Color(0x1AFFFFFF)   // Subtle hairline surface
 
-// High-Voltage Dopamine Accents
-val ElectricMint = Color(0xFF00F5A0)       // Primary glow (Opal mineral green)
-val CyberCyan = Color(0xFF00F0FF)          // High-tech telemetry cyan
-val HyperViolet = Color(0xFF7A22FF)        // Secondary ambient glow
-val ChampagneGold = Color(0xFFF5E6B8)      // Milestone unlock prestige gold
-val AcidCoral = Color(0xFFFF4D6D)          // Warning / heavy screen-time ceiling
+// Precision Telemetry Accents (Cohesive & Purposeful)
+val ElectricMint = Color(0xFF10B981)          // Primary Telemetry Emerald (Active metrics)
+val CyberCyan = Color(0xFF06B6D4)             // Secondary Telemetry Cyan (Data visualization)
+val HyperViolet = Color(0xFF8B5CF6)           // Lab Mode Iris (Experimental features)
+val ChampagneGold = Color(0xFFF59E0B)         // Achievement Warm Amber (Milestones)
+val AcidCoral = Color(0xFFEF4444)             // Alert / High Screen-time Red
 
-// Light Theme - Crisp Mineral Aesthetics
-val EmeraldPrimaryLight = Color(0xFF00897B)
+// Light Theme Tokens (Crisp Editorial Contrast)
+val EmeraldPrimaryLight = Color(0xFF059669)
 val EmeraldOnPrimaryLight = Color(0xFFFFFFFF)
-val EmeraldPrimaryContainerLight = Color(0xFFA7F0D8)
-val EmeraldOnPrimaryContainerLight = Color(0xFF00201A)
+val EmeraldPrimaryContainerLight = Color(0xFFD1FAE5)
+val EmeraldOnPrimaryContainerLight = Color(0xFF064E3B)
 
-val TurquoiseSecondaryLight = Color(0xFF00796B)
+val TurquoiseSecondaryLight = Color(0xFF0891B2)
 val TurquoiseOnSecondaryLight = Color(0xFFFFFFFF)
-val TurquoiseSecondaryContainerLight = Color(0xFFB2DFDB)
-val TurquoiseOnSecondaryContainerLight = Color(0xFF00201C)
+val TurquoiseSecondaryContainerLight = Color(0xFFCFFAFE)
+val TurquoiseOnSecondaryContainerLight = Color(0xFF164E63)
 
-val AccentTertiaryLight = Color(0xFF0288D1)
+val AccentTertiaryLight = Color(0xFF6366F1)
 val AccentOnTertiaryLight = Color(0xFFFFFFFF)
 
-val BackgroundLight = Color(0xFFF8FAF9)
-val OnBackgroundLight = Color(0xFF191C1B)
+val BackgroundLight = Color(0xFFF8FAFC)
+val OnBackgroundLight = Color(0xFF0F172A)
 val SurfaceLight = Color(0xFFFFFFFF)
-val OnSurfaceLight = Color(0xFF191C1B)
-val SurfaceVariantLight = Color(0xFFE2EBE7)
-val OnSurfaceVariantLight = Color(0xFF3F4945)
+val OnSurfaceLight = Color(0xFF0F172A)
+val SurfaceVariantLight = Color(0xFFF1F5F9)
+val OnSurfaceVariantLight = Color(0xFF64748B)
 
-// Dark Theme - Cyber Luxury Tokens
+// Dark Theme Tokens (Engineered Precision)
 val EmeraldPrimaryDark = ElectricMint
-val EmeraldOnPrimaryDark = Color(0xFF003820)
-val EmeraldPrimaryContainerDark = Color(0xFF005132)
-val EmeraldOnPrimaryContainerDark = Color(0xFFA7F0D8)
+val EmeraldOnPrimaryDark = Color(0xFF022C22)
+val EmeraldPrimaryContainerDark = Color(0xFF064E3B)
+val EmeraldOnPrimaryContainerDark = Color(0xFFA7F3D0)
 
 val TurquoiseSecondaryDark = CyberCyan
-val TurquoiseOnSecondaryDark = Color(0xFF00363A)
-val TurquoiseSecondaryContainerDark = Color(0xFF004F55)
-val TurquoiseOnSecondaryContainerDark = Color(0xFFB2DFDB)
+val TurquoiseOnSecondaryDark = Color(0xFF083344)
+val TurquoiseSecondaryContainerDark = Color(0xFF155E75)
+val TurquoiseOnSecondaryContainerDark = Color(0xFFA5F3FC)
 
 val AccentTertiaryDark = ChampagneGold
-val AccentOnTertiaryDark = Color(0xFF3E2E00)
+val AccentOnTertiaryDark = Color(0xFF451A03)
 
 val BackgroundDark = ObsidianVoid
-val OnBackgroundDark = Color(0xFFF1F5F9)
+val OnBackgroundDark = Color(0xFFF9FAFB)
 val SurfaceDark = ObsidianSurface
-val OnSurfaceDark = Color(0xFFF1F5F9)
+val OnSurfaceDark = Color(0xFFF9FAFB)
 val SurfaceVariantDark = ObsidianSurfaceElevated
 val OnSurfaceVariantDark = Color(0xFF94A3B8)
 
-// Gradients & Ambient Lighting Brushes
+// Hairline Borders & Subtle Gradients
 val GlassBorderGradient = Brush.verticalGradient(
     colors = listOf(
-        Color.White.copy(alpha = 0.28f),
-        Color.White.copy(alpha = 0.04f)
+        Color.White.copy(alpha = 0.12f),
+        Color.White.copy(alpha = 0.03f)
     )
 )
 
 val ActiveGlowBorderGradient = Brush.linearGradient(
     colors = listOf(
-        ElectricMint.copy(alpha = 0.6f),
-        CyberCyan.copy(alpha = 0.2f),
+        ElectricMint.copy(alpha = 0.40f),
+        CyberCyan.copy(alpha = 0.15f),
         Color.Transparent
     )
 )
@@ -82,9 +83,8 @@ val ProgressGradientStart = ElectricMint
 val ProgressGradientEnd = CyberCyan
 val MetricCardBackground = ObsidianSurface
 
-// Cyber Luxury & Mineral Glow Semantic Aliases
+// Semantic Aliases for backwards compatibility
 val EmeraldNeonPrimary = ElectricMint
 val EmeraldNeonSecondary = CyberCyan
 val EmeraldContainerDark = ObsidianSurfaceElevated
 val MidnightDark = ObsidianVoid
-
