@@ -16,16 +16,21 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Android
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -79,19 +84,58 @@ fun AppIcon(
                 .clip(RoundedCornerShape(8.dp))
         )
     } else {
+        val fallbackInfo = remember(packageName) { getFallbackBrandInfo(packageName) }
         Box(
             modifier = modifier
                 .size(size)
                 .clip(RoundedCornerShape(8.dp))
-                .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f)),
+                .background(fallbackInfo.backgroundColor),
             contentAlignment = Alignment.Center
         ) {
-            Icon(
-                imageVector = Icons.Rounded.Android,
-                contentDescription = contentDescription,
-                tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                modifier = Modifier.size(size * 0.65f)
+            Text(
+                text = fallbackInfo.label,
+                style = MaterialTheme.typography.labelSmall.copy(
+                    fontWeight = FontWeight.Bold,
+                    fontSize = (size.value * 0.38f).sp
+                ),
+                color = fallbackInfo.textColor
             )
+        }
+    }
+}
+
+private data class FallbackBrand(
+    val label: String,
+    val backgroundColor: Color,
+    val textColor: Color = Color.White
+)
+
+private fun getFallbackBrandInfo(packageName: String): FallbackBrand {
+    return when {
+        packageName.contains("instagram", ignoreCase = true) ->
+            FallbackBrand("IG", Color(0xFFE1306C))
+        packageName.contains("whatsapp", ignoreCase = true) ->
+            FallbackBrand("WA", Color(0xFF25D366))
+        packageName.contains("twitter", ignoreCase = true) || packageName.contains(".x", ignoreCase = true) ->
+            FallbackBrand("𝕏", Color(0xFF0F1419))
+        packageName.contains("chrome", ignoreCase = true) ->
+            FallbackBrand("CH", Color(0xFF0F9D58))
+        packageName.contains("youtube", ignoreCase = true) ->
+            FallbackBrand("YT", Color(0xFFFF0000))
+        packageName.contains("tiktok", ignoreCase = true) || packageName.contains("musically", ignoreCase = true) ->
+            FallbackBrand("TT", Color(0xFF010101))
+        packageName.contains("github", ignoreCase = true) ->
+            FallbackBrand("GH", Color(0xFF24292E))
+        packageName.contains("reddit", ignoreCase = true) ->
+            FallbackBrand("RD", Color(0xFFFF4500))
+        packageName.contains("spotify", ignoreCase = true) ->
+            FallbackBrand("SP", Color(0xFF1DB954))
+        packageName.contains("okey", ignoreCase = true) || packageName.contains("yuzbir", ignoreCase = true) ->
+            FallbackBrand("101", Color(0xFF0284C7))
+        else -> {
+            val char = packageName.substringAfterLast('.').firstOrNull()?.uppercaseChar()?.toString() ?: "•"
+            val hue = (Math.abs(packageName.hashCode()) % 360).toFloat()
+            FallbackBrand(char, Color.hsl(hue, 0.45f, 0.35f))
         }
     }
 }
