@@ -40,6 +40,9 @@ fun ScrollNavHost(
                 },
                 onNavigateToSettings = {
                     navController.navigate(ScreenRoute.Settings)
+                },
+                onNavigateToAchievements = {
+                    navController.navigate(ScreenRoute.Achievements)
                 }
             )
         }
@@ -54,6 +57,14 @@ fun ScrollNavHost(
 
         composable<ScreenRoute.Settings> {
             com.scrollmeter.app.presentation.settings.SettingsScreen(
+                onNavigateBack = {
+                    navController.popBackStack()
+                }
+            )
+        }
+
+        composable<ScreenRoute.Achievements> {
+            com.scrollmeter.app.presentation.achievements.AchievementsScreen(
                 onNavigateBack = {
                     navController.popBackStack()
                 }

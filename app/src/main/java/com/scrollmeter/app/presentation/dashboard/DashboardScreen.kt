@@ -24,9 +24,12 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.scrollmeter.app.R
 import com.scrollmeter.app.presentation.components.CircularDistanceProgress
 import com.scrollmeter.app.presentation.components.CyberStatusBadge
 import com.scrollmeter.app.presentation.components.GlowingGlassCard
@@ -42,6 +45,7 @@ fun DashboardScreen(
     onNavigateToAnalytics: () -> Unit,
     onNavigateToSettings: () -> Unit,
     modifier: Modifier = Modifier,
+    onNavigateToAchievements: () -> Unit = {},
     viewModel: DashboardViewModel = hiltViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -96,16 +100,26 @@ fun DashboardScreen(
                             color = MaterialTheme.colorScheme.onSurfaceVariant
                         )
                         Text(
-                            text = "Finger Odyssey",
+                            text = stringResource(R.string.finger_odyssey),
                             style = MaterialTheme.typography.headlineSmall,
                             color = Color.White
                         )
                     }
 
-                    CyberStatusBadge(
-                        text = "Live Sync ⚡",
-                        accentColor = ElectricMint
-                    )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        androidx.compose.material3.IconButton(onClick = onNavigateToAchievements) {
+                            Text(text = "🏆", fontSize = 20.sp)
+                        }
+                        androidx.compose.material3.IconButton(onClick = onNavigateToAnalytics) {
+                            Text(text = "📊", fontSize = 18.sp)
+                        }
+                        androidx.compose.material3.IconButton(onClick = onNavigateToSettings) {
+                            Text(text = "⚙️", fontSize = 18.sp)
+                        }
+                    }
                 }
 
                 Spacer(modifier = Modifier.height(6.dp))
@@ -119,8 +133,8 @@ fun DashboardScreen(
                     CircularDistanceProgress(
                         progressFraction = uiState.progressPercentage,
                         distanceValue = formattedDistance,
-                        unitText = "m",
-                        subtitle = "Bugünkü Mesafe"
+                        unitText = stringResource(R.string.unit_meter),
+                        subtitle = stringResource(R.string.today_distance)
                     )
                 }
 
@@ -138,12 +152,12 @@ fun DashboardScreen(
                     ) {
                         Column {
                             Text(
-                                text = "LİDER UYGULAMA",
+                                text = stringResource(R.string.leader_app),
                                 style = MaterialTheme.typography.labelSmall,
                                 color = CyberCyan
                             )
                             Spacer(modifier = Modifier.height(8.dp))
-                            val dominantName = uiState.dominantApp?.appDisplayName ?: "Henüz Yok"
+                            val dominantName = uiState.dominantApp?.appDisplayName ?: stringResource(R.string.no_dominant_app)
                             val dominantDistance = uiState.dominantApp?.physicalDistance?.formattedMeters ?: "0.00 m"
                             Text(
                                 text = dominantName,
@@ -167,7 +181,7 @@ fun DashboardScreen(
                     ) {
                         Column {
                             Text(
-                                text = "HEDEF",
+                                text = stringResource(R.string.daily_goal),
                                 style = MaterialTheme.typography.labelSmall,
                                 color = Color(0xFFD6BBFB)
                             )
@@ -179,7 +193,7 @@ fun DashboardScreen(
                             )
                             val percent = (uiState.progressPercentage * 100).toInt()
                             Text(
-                                text = "%$percent Tamamlandı",
+                                text = stringResource(R.string.goal_completed_pct, percent),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = Color.White.copy(alpha = 0.6f)
                             )
