@@ -47,8 +47,10 @@ import com.scrollmeter.app.R
 import com.scrollmeter.app.presentation.components.AppIcon
 import com.scrollmeter.app.presentation.components.CircularDistanceProgress
 import com.scrollmeter.app.presentation.components.CyberStatusBadge
+import com.scrollmeter.app.presentation.components.DigitalWellbeingCard
 import com.scrollmeter.app.presentation.components.GlowingGlassCard
 import com.scrollmeter.app.presentation.components.MetaphorCard
+import com.scrollmeter.app.presentation.components.SocialShareCard
 import com.scrollmeter.app.presentation.theme.CyberCyan
 import com.scrollmeter.app.presentation.theme.ElectricMint
 import com.scrollmeter.app.presentation.theme.HyperViolet
@@ -180,7 +182,7 @@ fun DashboardScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Günlük Telemetri",
+                        text = stringResource(R.string.daily_telemetry),
                         style = MaterialTheme.typography.titleLarge.copy(
                             fontWeight = FontWeight.Bold
                         ),
@@ -335,6 +337,14 @@ fun DashboardScreen(
                     nextMilestone = uiState.nextMetaphor,
                     remainingMetersToNext = uiState.metersRemainingToNext
                 )
+
+                // Social Sharing Card (5-Tier Progress & Tweet to X)
+                SocialShareCard(
+                    todayMeters = uiState.todayMeters
+                )
+
+                // Digital Wellbeing & Fake Dopamine Awareness Card
+                DigitalWellbeingCard()
 
                 Spacer(modifier = Modifier.height(20.dp))
             }
