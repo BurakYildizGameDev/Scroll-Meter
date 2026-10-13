@@ -14,6 +14,8 @@ class ScrollCadenceEngineTest {
         "com.snapchat.android, 0.040",
         "com.twitter.android, 0.035",
         "com.reddit.frontpage, 0.035",
+        "com.kiloo.subwaysurf, 0.030",
+        "com.supercell.brawlstars, 0.030",
         "com.android.chrome, 0.025",
         "com.whatsapp, 0.008",
         "com.google.android.youtube, 0.002",

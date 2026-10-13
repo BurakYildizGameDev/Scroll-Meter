@@ -10,6 +10,7 @@ object ScrollCadenceEngine {
     // Base scroll speed in meters per active foreground minute (actual thumb flick travel on glass)
     const val CADENCE_SHORT_VIDEO_M_PER_MIN = 0.040  // TikTok, Instagram Reels (~2 flicks/min * ~2cm thumb contact = 4 cm/min)
     const val CADENCE_SOCIAL_FEED_M_PER_MIN = 0.035  // Twitter/X, Reddit, Threads (~2.3 flicks/min * ~1.5cm = 3.5 cm/min)
+    const val CADENCE_GAMING_M_PER_MIN = 0.030       // Mobile Games (~2 swipes/min * ~1.5cm = 3.0 cm/min)
     const val CADENCE_WEB_COMMERCE_M_PER_MIN = 0.025 // Chrome, Firefox, Trendyol (~1.5 flicks/min * ~1.6cm = 2.5 cm/min)
     const val CADENCE_MESSAGING_M_PER_MIN = 0.008    // WhatsApp, Telegram, Messenger (mostly typing/reading = 0.8 cm/min)
     const val CADENCE_VIDEO_STREAM_M_PER_MIN = 0.002 // YouTube, Netflix (Stationary viewing = 0.2 cm/min)
@@ -29,6 +30,20 @@ object ScrollCadenceEngine {
         "com.facebook.katana",      // Facebook
         "com.linkedin.android",     // LinkedIn
         "com.pinterest"
+    )
+
+    private val GAMING_PACKAGES = setOf(
+        "com.kiloo.subwaysurf",
+        "com.king.candycrushsaga",
+        "com.supercell.brawlstars",
+        "com.supercell.clashroyale",
+        "com.supercell.clashofclans",
+        "com.roblox.client",
+        "com.dts.freefireth",
+        "com.pubg.krmobile",
+        "com.tencent.ig",
+        "com.ea.gp.fifamobile",
+        "com.mojang.minecraftpe"
     )
 
     private val WEB_COMMERCE_PACKAGES = setOf(
@@ -61,14 +76,29 @@ object ScrollCadenceEngine {
         return when {
             SHORT_VIDEO_PACKAGES.contains(lower) -> CADENCE_SHORT_VIDEO_M_PER_MIN
             SOCIAL_FEED_PACKAGES.contains(lower) -> CADENCE_SOCIAL_FEED_M_PER_MIN
+            GAMING_PACKAGES.contains(lower) -> CADENCE_GAMING_M_PER_MIN
             WEB_COMMERCE_PACKAGES.contains(lower) -> CADENCE_WEB_COMMERCE_M_PER_MIN
             MESSAGING_PACKAGES.contains(lower) -> CADENCE_MESSAGING_M_PER_MIN
             VIDEO_STREAM_PACKAGES.contains(lower) -> CADENCE_VIDEO_STREAM_M_PER_MIN
             lower.contains("tiktok") || lower.contains("instagram") -> CADENCE_SHORT_VIDEO_M_PER_MIN
             lower.contains("twitter") || lower.contains("reddit") -> CADENCE_SOCIAL_FEED_M_PER_MIN
+            isGamingPackage(lower) -> CADENCE_GAMING_M_PER_MIN
             lower.contains("browser") || lower.contains("chrome") -> CADENCE_WEB_COMMERCE_M_PER_MIN
             else -> CADENCE_DEFAULT_M_PER_MIN
         }
+    }
+
+    private fun isGamingPackage(lower: String): Boolean {
+        return lower.contains("game") ||
+            lower.contains("supercell") ||
+            lower.contains("subway") ||
+            lower.contains("candycrush") ||
+            lower.contains("roblox") ||
+            lower.contains("unity") ||
+            lower.contains("epicgames") ||
+            lower.contains("playrix") ||
+            lower.contains("miniclip") ||
+            lower.contains("gameloft")
     }
 
     /**
