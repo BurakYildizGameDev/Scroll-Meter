@@ -14,31 +14,30 @@ object ScrollGestureFilter {
      * as mandated by the production specification.
      */
     const val MAX_EVENT_THRESHOLD_PX = 5000.0
-
-    /**
-     * Minimum movement threshold (3px) to bypass touch sensor electrical jitter.
-     */
     const val MIN_JITTER_THRESHOLD_PX = 3.0
+    const val HIGH_REFRESH_MIN_JITTER_PX = 1.0
 
     /**
      * Validates and returns the calculated hypotenuse pixel distance if valid.
-     * Returns null if the gesture is rejected (blacklisted package, micro-jitter, or anomaly spike).
+     * Supports high-refresh rate (90Hz/120Hz/144Hz) displays.
      */
     fun processScrollGesture(
         packageName: String?,
         deltaX: Float,
-        deltaY: Float
+        deltaY: Float,
+        isHighRefreshRate: Boolean = false
     ): Double? {
         if (PackageBlacklist.isBlacklisted(packageName)) {
             return null
         }
 
-        if (!ScrollAnomalyFilter.isValidScroll(deltaX, deltaY)) {
+        if (!ScrollAnomalyFilter.isValidScroll(deltaX, deltaY, isHighRefreshRate)) {
             return null
         }
 
         val hypotenuse = DistanceCalculator.calculateHypotenusePixels(deltaX, deltaY)
-        if (hypotenuse < MIN_JITTER_THRESHOLD_PX || hypotenuse > MAX_EVENT_THRESHOLD_PX) {
+        val minThreshold = if (isHighRefreshRate) HIGH_REFRESH_MIN_JITTER_PX else MIN_JITTER_THRESHOLD_PX
+        if (hypotenuse < minThreshold || hypotenuse > MAX_EVENT_THRESHOLD_PX) {
             return null
         }
 

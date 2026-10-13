@@ -54,6 +54,14 @@ class ScrollBatchCollectorTest {
     }
 
     @Test
+    fun `addEvent with high refresh rate mode enables 1_5px micro scroll capture`() = testScope.runTest {
+        collector.isHighRefreshRate = true
+        // 1.5px delta passes under 120Hz mode (>= 1.0px)
+        collector.addEvent(RawScrollEvent("com.instagram", 0f, 1.5f))
+        assertEquals(1, collector.getPendingCount())
+    }
+
+    @Test
     fun `flush sends pending batch to repository`() = testScope.runTest {
         collector.addEvent(RawScrollEvent("com.instagram", 0f, 100f))
         collector.addEvent(RawScrollEvent("com.twitter", 0f, 200f))

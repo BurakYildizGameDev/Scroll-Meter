@@ -75,14 +75,15 @@ class ScrollBatchCollector @Inject constructor(
         return collectorJob!!
     }
 
-    /**
-     * Adds an event to the pending batch. Flushes immediately if the volume threshold is met.
-     */
+    // Adaptive 120Hz/144Hz high-refresh rate mode (allows 1.0px sub-pixel displacement)
+    var isHighRefreshRate: Boolean = false
+
     suspend fun addEvent(event: RawScrollEvent) = withContext(ioDispatcher) {
         val distance = ScrollGestureFilter.processScrollGesture(
             packageName = event.packageName,
             deltaX = event.deltaX,
-            deltaY = event.deltaY
+            deltaY = event.deltaY,
+            isHighRefreshRate = isHighRefreshRate
         ) ?: return@withContext
 
         var batchToFlush: Map<String, Double>? = null
