@@ -1,6 +1,7 @@
 package com.scrollmeter.app.data.resolver
 
 import android.app.AppOpsManager
+import android.app.usage.UsageEvents
 import android.app.usage.UsageStatsManager
 import android.content.Context
 import android.os.Build
@@ -60,7 +61,7 @@ class UsageStatsProviderImpl @Inject constructor(
         val results = mutableMapOf<String, Long>()
 
         try {
-            // First attempt: queryAndAggregateUsageStats (standard on API 21+)
+            // 1. Long-term aggregate stats
             val aggregated = usageStatsManager.queryAndAggregateUsageStats(startTime, endTime)
             if (!aggregated.isNullOrEmpty()) {
                 for ((packageName, stats) in aggregated) {
@@ -86,6 +87,47 @@ class UsageStatsProviderImpl @Inject constructor(
                             results[stats.packageName] = maxOf(current, foregroundTime)
                         }
                     }
+                }
+            }
+
+            // 2. Real-time UsageEvents stream (sub-second responsiveness without waiting for Android system flushes)
+            val events = usageStatsManager.queryEvents(startTime, endTime)
+            val event = UsageEvents.Event()
+            val lastResumedMap = mutableMapOf<String, Long>()
+            val liveSessionDeltas = mutableMapOf<String, Long>()
+
+            while (events.hasNextEvent()) {
+                events.getNextEvent(event)
+                val pkg = event.packageName ?: continue
+                if (PackageBlacklist.isBlacklisted(pkg)) continue
+
+                when (event.eventType) {
+                    UsageEvents.Event.ACTIVITY_RESUMED -> {
+                        lastResumedMap[pkg] = event.timeStamp
+                    }
+                    UsageEvents.Event.ACTIVITY_PAUSED -> {
+                        val resumedAt = lastResumedMap.remove(pkg)
+                        if (resumedAt != null && event.timeStamp > resumedAt) {
+                            val delta = event.timeStamp - resumedAt
+                            liveSessionDeltas[pkg] = (liveSessionDeltas[pkg] ?: 0L) + delta
+                        }
+                    }
+                }
+            }
+
+            // Accumulate active sessions up to current time
+            for ((pkg, resumedAt) in lastResumedMap) {
+                if (endTime > resumedAt) {
+                    val delta = endTime - resumedAt
+                    liveSessionDeltas[pkg] = (liveSessionDeltas[pkg] ?: 0L) + delta
+                }
+            }
+
+            // Merge event deltas to ensure recent app usage updates immediately
+            for ((pkg, liveDelta) in liveSessionDeltas) {
+                if (liveDelta > 0L && !PackageBlacklist.isBlacklisted(pkg)) {
+                    val current = results[pkg] ?: 0L
+                    results[pkg] = maxOf(current, liveDelta)
                 }
             }
         } catch (e: Exception) {
