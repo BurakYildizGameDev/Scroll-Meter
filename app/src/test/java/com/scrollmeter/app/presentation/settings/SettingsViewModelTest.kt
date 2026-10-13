@@ -52,7 +52,8 @@ class SettingsViewModelTest {
             settingsDataStore = settingsDataStore,
             deviceMetricsProvider = deviceMetricsProvider,
             usageStatsProvider = usageStatsProvider,
-            syncUsageStatsScrollUseCase = syncUsageStatsScrollUseCase
+            syncUsageStatsScrollUseCase = syncUsageStatsScrollUseCase,
+            context = mockk(relaxed = true)
         )
     }
 

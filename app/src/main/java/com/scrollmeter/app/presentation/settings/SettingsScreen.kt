@@ -534,6 +534,7 @@ fun SettingsScreen(
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
                                     Row(
+                                        modifier = Modifier.weight(1f),
                                         verticalAlignment = Alignment.CenterVertically,
                                         horizontalArrangement = Arrangement.spacedBy(10.dp)
                                     ) {
@@ -544,20 +545,32 @@ fun SettingsScreen(
                                         Text(
                                             text = currentOption.displayName,
                                             style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
-                                            color = Color.White
+                                            color = Color.White,
+                                            maxLines = 1,
+                                            overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis
                                         )
                                     }
-                                    Text(
-                                        text = "DEĞİŞTİR ▾",
-                                        style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                                        color = CyberCyan
-                                    )
+                                    Spacer(modifier = Modifier.width(8.dp))
+                                    Surface(
+                                        shape = RoundedCornerShape(8.dp),
+                                        color = CyberCyan.copy(alpha = 0.15f),
+                                        border = androidx.compose.foundation.BorderStroke(1.dp, CyberCyan.copy(alpha = 0.35f))
+                                    ) {
+                                        Text(
+                                            text = stringResource(R.string.btn_change_language),
+                                            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
+                                            color = CyberCyan,
+                                            modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+                                            maxLines = 1
+                                        )
+                                    }
                                 }
                             }
                         }
                     }
 
                     if (showLanguageDialog) {
+                        val activity = androidx.compose.ui.platform.LocalContext.current as? android.app.Activity
                         AlertDialog(
                             onDismissRequest = { showLanguageDialog = false },
                             title = {
@@ -581,6 +594,7 @@ fun SettingsScreen(
                                                 .clickable {
                                                     viewModel.onIntent(SettingsIntent.UpdateLanguage(lang.code))
                                                     showLanguageDialog = false
+                                                    activity?.recreate()
                                                 },
                                             shape = RoundedCornerShape(12.dp),
                                             color = if (isSelected) CyberCyan.copy(alpha = 0.2f) else Color.White.copy(alpha = 0.03f),

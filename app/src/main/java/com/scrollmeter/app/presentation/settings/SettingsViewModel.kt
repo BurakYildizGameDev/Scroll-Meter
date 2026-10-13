@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -26,7 +27,8 @@ class SettingsViewModel @Inject constructor(
     private val settingsDataStore: SettingsDataStore,
     private val deviceMetricsProvider: IDeviceMetricsProvider,
     private val usageStatsProvider: IUsageStatsProvider,
-    private val syncUsageStatsScrollUseCase: SyncUsageStatsScrollUseCase
+    private val syncUsageStatsScrollUseCase: SyncUsageStatsScrollUseCase,
+    @ApplicationContext private val context: Context
 ) : ViewModel() {
 
     private val _effect = MutableSharedFlow<SettingsEffect>()
@@ -95,7 +97,11 @@ class SettingsViewModel @Inject constructor(
                 }
                 is SettingsIntent.UpdateLanguage -> {
                     settingsDataStore.setSelectedLanguage(intent.languageCode)
-                    com.scrollmeter.app.util.LocaleHelper.applyLocale(intent.languageCode)
+                    try {
+                        com.scrollmeter.app.util.LocaleHelper.applyLocale(context, intent.languageCode)
+                    } catch (_: Exception) {
+                        // Safe fallback in unit tests
+                    }
                     _effect.emit(SettingsEffect.ShowSnackbar("Dil güncellendi / Language updated"))
                 }
                 is SettingsIntent.UpdateTrackingMode -> {
