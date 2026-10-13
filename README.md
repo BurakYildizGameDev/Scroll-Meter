@@ -125,16 +125,23 @@ flowchart TD
 ---
 
 ### 1. Motor 1: Standart & Güvenli Mod (Default & Recommended)
-* **Kullanılan API:** Android işletim sisteminin yerel `UsageStatsManager` sınıfı. Forest, Opal, StayFree gibi dijital denge uygulamalarının tercih ettiği standart izin yapısıdır.
-* **Nasıl Çalışır?** İşletim sisteminin her uygulama için milisaniye cinsinden kaydettiği aktif ön plan süresini okur.
-* **Akıllı Doomscroll Kadans Motoru (`ScrollCadenceEngine`):**
-  Sosyal medya ve dijital platformlardaki kullanıcı etkileşim hızlarına göre ampirik hız modelleri uygular:
-  * 📱 **Kısa Video Akışı (TikTok, Instagram Reels, Shorts):** `2.20 m / aktif dakika` (~12 dikey kaydırma/dk)
-  * 🐦 **Sosyal Metin Akışı (Twitter / X, Reddit, Threads):** `2.60 m / aktif dakika` (Hızlı tarama temposu)
-  * 🌐 **Web & E-Ticaret (Chrome, Firefox, Trendyol):** `1.40 m / aktif dakika`
-  * 💬 **Mesajlaşma (WhatsApp, Telegram, Discord):** `0.75 m / aktif dakika`
-  * 🎬 **Video Akışı (YouTube, Netflix):** `0.25 m / aktif dakika` (Sabit izleme ağırlıklı)
-  * ⚙️ **Genel Uygulamalar:** `0.60 m / aktif dakika`
+* **Kullanılan API:** Android işletim sisteminin yerel `UsageStatsManager` sınıfı. Forest, Opal, StayFree gibi kurumsal dijital denge uygulamalarının kullandığı güvenli izin standardıdır.
+* **Nasıl Çalışır?** İşletim sisteminin her uygulama için milisaniye hassasiyetiyle kaydettiği aktif ön plan süresini okur.
+* **🛡️ Sıfır Taban Başlangıç Koruması (Baseline Snapshot Engine):**
+  * **Problem:** Geleneksel sayaçlar uygulama ilk kez kurulduğunda günün geçmiş saatlerindeki ekran süresini geriye dönük hesaplar; bu da kullanıcının uygulamayı ilk açtığı saniyede yüzlerce metre hayali mesafe görmesine yol açar.
+  * **Scroll-Meter Çözümü:** İlk kurulum ve izin anında mevcut sistem süreleri bir "temel taban çizgisi" (baseline snapshot) olarak kaydedilir. Uygulama **0.00 m** ile tertemiz başlar ve yalnızca Scroll-Meter aktif olduktan sonraki gerçek kullanım mesafeye dönüştürülür. Gece yarısı (00:00:00) sistem saati döndüğünde taban çizgisi otomatik sıfırlanır ve tüm gün kesintisiz sayılır. Kullanıcı dilediğinde Ayarlar menüsünden *"Bugünkü Telemetriyi Sıfırla"* butonuyla sayacı anında sıfırlayabilir.
+* **🚫 Sistem ve İşletim Sistemi Çekirdeği Kara Listesi (OS Blacklist):**
+  * Android framework çekirdeği (`android`), Google Play Hizmetleri (`com.google.android.gms`), üretici sistem araçları (Xiaomi MIUI/HyperOS Security, Samsung Knox), sistem başlatıcıları (Launcher) ve sanal klavyeler (Gboard, SwiftKey) telemetriden tamamen filtrelenir. Asla "Lider Uygulama: Android" gibi sahte veriler oluşmaz.
+* **📐 Biyomekanik Gerçekçi Parmak Kadans Motoru (`ScrollCadenceEngine`):**
+  * Bir akıllı telefon ekranı fiziksel olarak ~15-16 cm boyundadır. Bir başparmağın ekranda bıraktığı tek bir dikey kaydırma izi ortalama **5.5 cm – 6.5 cm (0.06 m)** cam yolculuğudur.
+  * İnsanlar Instagram veya TikTok'ta dakikada 30 kez çılgınca kaydırmaz; videoları izler, fotoğrafları inceler, yorumları okur. Bilimsel etkileşim frekanslarına göre kalibre edilen kesin fiziksel hızlar:
+  * 📱 **Kısa Video & Keşfet (TikTok, Instagram Reels, Shorts):** `0.18 m / aktif dakika` (~3 kaydırma/dk × 6cm cam teması)
+  * 🐦 **Sosyal Metin Akışı (Twitter / X, Reddit, Threads):** `0.22 m / aktif dakika` (~3.5 kaydırma/dk × 6cm)
+  * 🌐 **Web & E-Ticaret (Chrome, Firefox, Trendyol):** `0.14 m / aktif dakika` (~2.2 kaydırma/dk)
+  * 💬 **Mesajlaşma (WhatsApp, Telegram, Discord):** `0.04 m / aktif dakika` (Zamanın %90'ı klavye yazımı ve okuma)
+  * 🎬 **Video Akışı (YouTube, Netflix):** `0.01 m / aktif dakika` (Sabit video oynatımı)
+  * ⚙️ **Genel Uygulamalar:** `0.06 m / aktif dakika` (~1 kaydırma/dk)
+  * *Sonuç:* Instagram'a girip 2 kaydırma yaptığınızda afaki olarak "2 metre" değil; fiziksel ve matematiksel olarak tam karşılığı olan **~0.12 m (12 cm)** eklenir!
 * **Ayarlanabilir Tempo Çarpanı:** Ayarlar ekranından kaydırma temposu (Sakin 0.8x, Dengeli 1.0x, Seri 1.25x) tek tıkla seçilebilir.
 
 ---

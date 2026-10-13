@@ -39,6 +39,8 @@ class SyncUsageStatsScrollUseCaseTest {
         every { deviceMetricsProvider.getDevicePpi() } returns flowOf(400f)
         every { deviceMetricsProvider.getCalibrationMultiplier() } returns flowOf(1.0f)
         every { settingsDataStore.cadenceSpeedMultiplier } returns flowOf(1.0f)
+        every { settingsDataStore.usageBaselineEpochDay } returns flowOf(fixedEpochDay)
+        every { settingsDataStore.usageBaselineData } returns flowOf("")
 
         useCase = SyncUsageStatsScrollUseCase(
             usageStatsProvider = usageStatsProvider,
@@ -62,6 +64,22 @@ class SyncUsageStatsScrollUseCaseTest {
     }
 
     @Test
+    fun `invoke returns true and snapshots baseline on initial first launch`() = runTest(testDispatcher) {
+        every { usageStatsProvider.isUsageAccessGranted() } returns true
+        every { settingsDataStore.usageBaselineEpochDay } returns flowOf(-1L)
+        every { usageStatsProvider.queryTodayForegroundMillis() } returns mapOf(
+            "com.zhiliaoapp.musically" to 600_000L
+        )
+
+        val result = useCase()
+
+        assertTrue(result)
+        coVerify(exactly = 1) { scrollRepository.clearDailyScroll(fixedEpochDay) }
+        coVerify(exactly = 1) { settingsDataStore.setUsageBaseline(fixedEpochDay, match { it.contains("com.zhiliaoapp.musically") }) }
+        coVerify(exactly = 0) { scrollRepository.setDailyAppScroll(any(), any(), any(), any()) }
+    }
+
+    @Test
     fun `invoke returns true and persists calculated cadence distance when usage stats exist`() = runTest(testDispatcher) {
         every { usageStatsProvider.isUsageAccessGranted() } returns true
         every { usageStatsProvider.queryTodayForegroundMillis() } returns mapOf(
@@ -71,15 +89,30 @@ class SyncUsageStatsScrollUseCaseTest {
         val result = useCase()
 
         assertTrue(result)
-        // 10 minutes * 2.20 m/min = 22.0 meters = 22,000.0 mm
+        // 10 minutes * 0.18 m/min = 1.80 meters = 1,800.0 mm
         coVerify(exactly = 1) {
             scrollRepository.setDailyAppScroll(
                 epochDays = fixedEpochDay,
                 packageName = "com.zhiliaoapp.musically",
                 totalPixels = match { it > 0.0 },
-                totalMm = match { Math.abs(it - 22_000.0) < 0.1 }
+                totalMm = match { Math.abs(it - 1_800.0) < 0.1 }
             )
         }
+    }
+
+    @Test
+    fun `invoke filters blacklisted android framework and system apps`() = runTest(testDispatcher) {
+        every { usageStatsProvider.isUsageAccessGranted() } returns true
+        every { usageStatsProvider.queryTodayForegroundMillis() } returns mapOf(
+            "android" to 10_000_000L,
+            "com.android.systemui" to 5_000_000L
+        )
+
+        val result = useCase()
+
+        assertTrue(result)
+        coVerify(exactly = 0) { scrollRepository.setDailyAppScroll(any(), any(), any(), any()) }
+        coVerify(atLeast = 1) { scrollRepository.deletePackage("android") }
     }
 
     @Test

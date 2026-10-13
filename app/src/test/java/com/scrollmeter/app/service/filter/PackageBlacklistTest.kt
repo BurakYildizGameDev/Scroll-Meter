@@ -15,11 +15,14 @@ class PackageBlacklistTest {
 
     @Test
     fun `isBlacklisted should return true for system packages and self package`() {
+        assertTrue(PackageBlacklist.isBlacklisted("android"))
         assertTrue(PackageBlacklist.isBlacklisted("com.android.systemui"))
         assertTrue(PackageBlacklist.isBlacklisted("com.google.android.apps.nexuslauncher"))
         assertTrue(PackageBlacklist.isBlacklisted("com.android.launcher3"))
         assertTrue(PackageBlacklist.isBlacklisted("com.android.settings"))
         assertTrue(PackageBlacklist.isBlacklisted("com.google.android.inputmethod.latin"))
+        assertTrue(PackageBlacklist.isBlacklisted("com.google.android.gms"))
+        assertTrue(PackageBlacklist.isBlacklisted("com.miui.securitycenter"))
         assertTrue(PackageBlacklist.isBlacklisted("com.scrollmeter.app"))
     }
 

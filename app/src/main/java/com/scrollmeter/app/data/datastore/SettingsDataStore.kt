@@ -8,6 +8,8 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.core.floatPreferencesKey
 import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.longPreferencesKey
+import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
@@ -132,13 +134,45 @@ class SettingsDataStore @Inject constructor(
         }
     }
 
+    val usageBaselineEpochDay: Flow<Long> = dataStore.data
+        .catch { exception ->
+            if (exception is IOException) emit(emptyPreferences()) else throw exception
+        }
+        .map { preferences ->
+            preferences[KEY_USAGE_BASELINE_EPOCH_DAY] ?: -1L
+        }
+
+    val usageBaselineData: Flow<String> = dataStore.data
+        .catch { exception ->
+            if (exception is IOException) emit(emptyPreferences()) else throw exception
+        }
+        .map { preferences ->
+            preferences[KEY_USAGE_BASELINE_DATA] ?: ""
+        }
+
+    suspend fun setUsageBaseline(epochDay: Long, baselineData: String) {
+        dataStore.edit { preferences ->
+            preferences[KEY_USAGE_BASELINE_EPOCH_DAY] = epochDay
+            preferences[KEY_USAGE_BASELINE_DATA] = baselineData
+        }
+    }
+
+    suspend fun clearUsageBaseline() {
+        dataStore.edit { preferences ->
+            preferences.remove(KEY_USAGE_BASELINE_EPOCH_DAY)
+            preferences.remove(KEY_USAGE_BASELINE_DATA)
+        }
+    }
+
     companion object {
         val KEY_CALIBRATION_MULTIPLIER = floatPreferencesKey("calibration_multiplier")
         val KEY_DAILY_GOAL_METERS = floatPreferencesKey("daily_goal_meters")
         val KEY_THEME_MODE = intPreferencesKey("theme_mode")
         val KEY_IS_ONBOARDING_COMPLETED = booleanPreferencesKey("is_onboarding_completed")
         val KEY_IS_DEMO_MODE = booleanPreferencesKey("is_demo_mode")
-        val KEY_TRACKING_MODE = androidx.datastore.preferences.core.stringPreferencesKey("tracking_mode")
+        val KEY_TRACKING_MODE = stringPreferencesKey("tracking_mode")
         val KEY_CADENCE_SPEED_MULTIPLIER = floatPreferencesKey("cadence_speed_multiplier")
+        val KEY_USAGE_BASELINE_EPOCH_DAY = longPreferencesKey("usage_baseline_epoch_day")
+        val KEY_USAGE_BASELINE_DATA = stringPreferencesKey("usage_baseline_data")
     }
 }

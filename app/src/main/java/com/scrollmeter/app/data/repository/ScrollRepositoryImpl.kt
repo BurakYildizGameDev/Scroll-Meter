@@ -90,4 +90,14 @@ class ScrollRepositoryImpl @Inject constructor(
         scrollDao.deleteRecordsOlderThan(cutoffEpochDays)
         Unit
     }
+
+    override suspend fun clearDailyScroll(epochDays: Long) = withContext(ioDispatcher) {
+        scrollDao.clearDailyScroll(epochDays)
+        Unit
+    }
+
+    override suspend fun deletePackage(packageName: String) = withContext(ioDispatcher) {
+        scrollDao.deletePackage(packageName)
+        Unit
+    }
 }

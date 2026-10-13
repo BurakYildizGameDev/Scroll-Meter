@@ -6,6 +6,7 @@ import com.scrollmeter.app.domain.calculator.ScrollCadenceEngine
 import com.scrollmeter.app.domain.repository.IDeviceMetricsProvider
 import com.scrollmeter.app.domain.repository.IScrollRepository
 import com.scrollmeter.app.domain.repository.IUsageStatsProvider
+import com.scrollmeter.app.service.filter.PackageBlacklist
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
@@ -15,7 +16,7 @@ import javax.inject.Inject
 
 /**
  * Synchronizes Android UsageStats foreground minutes into real physical scroll distance
- * using the empirical Doomscroll Cadence Engine.
+ * using the empirical Doomscroll Cadence Engine with Baseline Snapshot Protection.
  *
  * Runs exclusively in 100% Safe Mode (PACKAGE_USAGE_STATS).
  */
@@ -28,12 +29,29 @@ class SyncUsageStatsScrollUseCase @Inject constructor(
 ) {
     var epochDaysSupplier: () -> Long = { LocalDate.now().toEpochDay() }
 
-    suspend operator fun invoke(): Boolean = withContext(ioDispatcher) {
+    suspend operator fun invoke(forceResetBaseline: Boolean = false): Boolean = withContext(ioDispatcher) {
         if (!usageStatsProvider.isUsageAccessGranted()) {
             return@withContext false
         }
 
-        val usageMap = usageStatsProvider.queryTodayForegroundMillis()
+        val rawUsageMap = usageStatsProvider.queryTodayForegroundMillis()
+        val usageMap = rawUsageMap.filterKeys { !PackageBlacklist.isBlacklisted(it) }
+        val epochDays = epochDaysSupplier()
+
+        // Always purge any stray OS framework entries from the local database
+        scrollRepository.deletePackage("android")
+
+        val savedBaselineEpochDay = settingsDataStore.usageBaselineEpochDay.first()
+        val savedBaselineData = settingsDataStore.usageBaselineData.first()
+
+        // Initial Start Protection (Day 1 install or forced reset):
+        // Avoid retroactively calculating whole-day history from before Scroll-Meter was active.
+        if (savedBaselineEpochDay == -1L || forceResetBaseline) {
+            scrollRepository.clearDailyScroll(epochDays)
+            settingsDataStore.setUsageBaseline(epochDays, serializeBaseline(usageMap))
+            return@withContext true
+        }
+
         if (usageMap.isEmpty()) {
             return@withContext true
         }
@@ -41,14 +59,24 @@ class SyncUsageStatsScrollUseCase @Inject constructor(
         val ppi = deviceMetricsProvider.getDevicePpi().first()
         val calibrationMultiplier = deviceMetricsProvider.getCalibrationMultiplier().first()
         val speedMultiplier = settingsDataStore.cadenceSpeedMultiplier.first()
-        val epochDays = epochDaysSupplier()
+
+        val baselineMap = if (savedBaselineEpochDay == epochDays) {
+            parseBaseline(savedBaselineData)
+        } else {
+            // New day: Android UsageStatsManager starts from 0 at midnight.
+            settingsDataStore.setUsageBaseline(epochDays, "")
+            emptyMap()
+        }
 
         try {
             for ((packageName, foregroundMillis) in usageMap) {
-                if (foregroundMillis > 0L) {
+                val baseline = baselineMap[packageName] ?: 0L
+                val effectiveForegroundMillis = (foregroundMillis - baseline).coerceAtLeast(0L)
+
+                if (effectiveForegroundMillis > 0L) {
                     val meters = ScrollCadenceEngine.calculateMeters(
                         packageName = packageName,
-                        foregroundMillis = foregroundMillis,
+                        foregroundMillis = effectiveForegroundMillis,
                         speedMultiplier = speedMultiplier,
                         calibrationMultiplier = calibrationMultiplier
                     )
@@ -67,6 +95,24 @@ class SyncUsageStatsScrollUseCase @Inject constructor(
         } catch (e: Exception) {
             Timber.e(e, "Error syncing usage stats scroll telemetry")
             false
+        }
+    }
+
+    private fun serializeBaseline(map: Map<String, Long>): String {
+        return map.entries.joinToString("|") { "${it.key}=${it.value}" }
+    }
+
+    private fun parseBaseline(data: String): Map<String, Long> {
+        if (data.isBlank()) return emptyMap()
+        return try {
+            data.split("|").mapNotNull { entry ->
+                val parts = entry.split("=")
+                if (parts.size == 2) {
+                    parts[0] to (parts[1].toLongOrNull() ?: 0L)
+                } else null
+            }.toMap()
+        } catch (_: Exception) {
+            emptyMap()
         }
     }
 }

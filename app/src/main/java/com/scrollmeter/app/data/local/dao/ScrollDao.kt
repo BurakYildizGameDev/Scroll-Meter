@@ -48,4 +48,10 @@ interface ScrollDao {
 
     @Query("DELETE FROM daily_app_scroll WHERE dateEpochDays < :cutoffEpochDays")
     suspend fun deleteRecordsOlderThan(cutoffEpochDays: Long): Int
+
+    @Query("DELETE FROM daily_app_scroll WHERE dateEpochDays = :epochDays")
+    suspend fun clearDailyScroll(epochDays: Long): Int
+
+    @Query("DELETE FROM daily_app_scroll WHERE packageName = :packageName")
+    suspend fun deletePackage(packageName: String): Int
 }

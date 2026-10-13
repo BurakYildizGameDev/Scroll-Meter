@@ -106,6 +106,10 @@ class SettingsViewModel @Inject constructor(
                     deviceMetricsProvider.updateCalibrationMultiplier(1.0f)
                     _effect.emit(SettingsEffect.ShowSnackbar("Calibration reset to 1.00x default"))
                 }
+                is SettingsIntent.ResetDailyTelemetry -> {
+                    syncUsageStatsScrollUseCase(forceResetBaseline = true)
+                    _effect.emit(SettingsEffect.ShowSnackbar("Bugünkü telemetri sıfırlandı."))
+                }
             }
         }
     }

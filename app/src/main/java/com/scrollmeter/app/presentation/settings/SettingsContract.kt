@@ -23,6 +23,7 @@ sealed interface SettingsIntent {
     data class UpdateTrackingMode(val mode: TrackingMode) : SettingsIntent
     data class UpdateCadenceSpeed(val multiplier: Float) : SettingsIntent
     data object ResetCalibration : SettingsIntent
+    data object ResetDailyTelemetry : SettingsIntent
 }
 
 sealed interface SettingsEffect {

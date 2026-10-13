@@ -94,4 +94,14 @@ class SettingsViewModelTest {
 
         coVerify(exactly = 1) { settingsDataStore.setDailyGoalMeters(250.0f) }
     }
+
+    @Test
+    fun `ResetDailyTelemetry intent calls syncUsageStatsScrollUseCase with force reset`() = runTest(testDispatcher) {
+        coEvery { syncUsageStatsScrollUseCase(forceResetBaseline = true) } returns true
+
+        viewModel.onIntent(SettingsIntent.ResetDailyTelemetry)
+        testScheduler.advanceUntilIdle()
+
+        coVerify(exactly = 1) { syncUsageStatsScrollUseCase(forceResetBaseline = true) }
+    }
 }

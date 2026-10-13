@@ -28,6 +28,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -93,7 +94,9 @@ fun DashboardScreen(
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Column {
+                    Column(
+                        modifier = Modifier.weight(1f).padding(end = 6.dp)
+                    ) {
                         Row(
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -138,41 +141,53 @@ fun DashboardScreen(
                         )
                     }
 
-                    // Clean Vector Icon Navigation
+                    // Clean Compact Vector Icon Navigation (Guaranteed to fit on all screens)
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(2.dp)
                     ) {
-                        IconButton(onClick = { viewModel.processIntent(DashboardIntent.Refresh) }) {
+                        IconButton(
+                            onClick = { viewModel.processIntent(DashboardIntent.Refresh) },
+                            modifier = Modifier.size(36.dp)
+                        ) {
                             Icon(
                                 imageVector = Icons.Rounded.Sync,
                                 contentDescription = stringResource(R.string.btn_refresh),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.size(22.dp)
+                                modifier = Modifier.size(20.dp)
                             )
                         }
-                        IconButton(onClick = onNavigateToAchievements) {
+                        IconButton(
+                            onClick = onNavigateToAchievements,
+                            modifier = Modifier.size(36.dp)
+                        ) {
                             Icon(
                                 imageVector = Icons.Rounded.EmojiEvents,
                                 contentDescription = stringResource(R.string.nav_achievements),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.size(22.dp)
+                                modifier = Modifier.size(20.dp)
                             )
                         }
-                        IconButton(onClick = onNavigateToAnalytics) {
+                        IconButton(
+                            onClick = onNavigateToAnalytics,
+                            modifier = Modifier.size(36.dp)
+                        ) {
                             Icon(
                                 imageVector = Icons.Rounded.Leaderboard,
                                 contentDescription = stringResource(R.string.nav_analytics),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.size(22.dp)
+                                modifier = Modifier.size(20.dp)
                             )
                         }
-                        IconButton(onClick = onNavigateToSettings) {
+                        IconButton(
+                            onClick = onNavigateToSettings,
+                            modifier = Modifier.size(36.dp)
+                        ) {
                             Icon(
                                 imageVector = Icons.Rounded.Settings,
                                 contentDescription = stringResource(R.string.nav_settings),
                                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.size(22.dp)
+                                modifier = Modifier.size(20.dp)
                             )
                         }
                     }
@@ -180,16 +195,23 @@ fun DashboardScreen(
 
                 Spacer(modifier = Modifier.height(4.dp))
 
-                // Hero Circular Gauge
+                // Hero Circular Gauge (High-Precision Decimal Formatting)
                 Box(
                     modifier = Modifier.fillMaxWidth(),
                     contentAlignment = Alignment.Center
                 ) {
-                    val formattedDistance = String.format(Locale.US, "%.1f", uiState.todayMeters)
+                    val formattedDistance = remember(uiState.todayMeters) {
+                        when {
+                            uiState.todayMeters >= 1000.0 -> String.format(Locale.US, "%.2f", uiState.todayMeters / 1000.0)
+                            uiState.todayMeters < 10.0 -> String.format(Locale.US, "%.2f", uiState.todayMeters)
+                            else -> String.format(Locale.US, "%.1f", uiState.todayMeters)
+                        }
+                    }
+                    val unit = if (uiState.todayMeters >= 1000.0) "km" else stringResource(R.string.unit_meter)
                     CircularDistanceProgress(
                         progressFraction = uiState.progressPercentage,
                         distanceValue = formattedDistance,
-                        unitText = stringResource(R.string.unit_meter),
+                        unitText = unit,
                         subtitle = stringResource(R.string.today_distance)
                     )
                 }

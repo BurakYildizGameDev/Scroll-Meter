@@ -7,13 +7,13 @@ package com.scrollmeter.app.domain.calculator
  */
 object ScrollCadenceEngine {
 
-    // Base scroll speed in meters per active foreground minute
-    const val CADENCE_SHORT_VIDEO_M_PER_MIN = 2.20  // TikTok, Instagram Reels, Shorts (~12 swipes/min)
-    const val CADENCE_SOCIAL_FEED_M_PER_MIN = 2.60  // Twitter/X, Reddit, Threads (Fast scanning)
-    const val CADENCE_WEB_COMMERCE_M_PER_MIN = 1.40 // Chrome, Firefox, Amazon, Trendyol
-    const val CADENCE_MESSAGING_M_PER_MIN = 0.75    // WhatsApp, Telegram, Messenger
-    const val CADENCE_VIDEO_STREAM_M_PER_MIN = 0.25 // YouTube, Netflix (Stationary viewing)
-    const val CADENCE_DEFAULT_M_PER_MIN = 0.60      // Generic apps
+    // Base scroll speed in meters per active foreground minute (physical thumb travel on glass)
+    const val CADENCE_SHORT_VIDEO_M_PER_MIN = 0.18  // TikTok, Instagram Reels, Shorts (~3 swipes/min * 6cm thumb travel)
+    const val CADENCE_SOCIAL_FEED_M_PER_MIN = 0.22  // Twitter/X, Reddit, Threads (~3.5 swipes/min * 6cm thumb travel)
+    const val CADENCE_WEB_COMMERCE_M_PER_MIN = 0.14 // Chrome, Firefox, Amazon, Trendyol (~2.2 swipes/min)
+    const val CADENCE_MESSAGING_M_PER_MIN = 0.04    // WhatsApp, Telegram, Messenger (mostly typing/reading)
+    const val CADENCE_VIDEO_STREAM_M_PER_MIN = 0.01 // YouTube, Netflix (Stationary viewing)
+    const val CADENCE_DEFAULT_M_PER_MIN = 0.06      // Generic apps (~1 swipe/min)
 
     private val SHORT_VIDEO_PACKAGES = setOf(
         "com.zhiliaoapp.musically", // TikTok

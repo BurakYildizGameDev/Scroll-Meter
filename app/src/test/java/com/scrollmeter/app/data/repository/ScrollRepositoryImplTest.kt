@@ -105,4 +105,17 @@ class ScrollRepositoryImplTest {
             )
         }
     }
+
+    @Test
+    fun `clearDailyScroll delegates to DAO`() = runTest(testDispatcher) {
+        val epochDay = 20000L
+        repository.clearDailyScroll(epochDay)
+        coVerify(exactly = 1) { scrollDao.clearDailyScroll(epochDay) }
+    }
+
+    @Test
+    fun `deletePackage delegates to DAO`() = runTest(testDispatcher) {
+        repository.deletePackage("android")
+        coVerify(exactly = 1) { scrollDao.deletePackage("android") }
+    }
 }

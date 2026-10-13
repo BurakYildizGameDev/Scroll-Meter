@@ -98,6 +98,26 @@ Hiçbir harici bulut/çeviri kütüphanesi kullanılmadan, Android işletim sist
 * **README.md Teknik Dokümantasyon Revizyonu:**
   * README baştan aşağı bir Staff Android Engineer üslubuyla, mimari şemalar (Mermaid), SI birim türevleri, sub-pixel filtre matematiği, 101/101 test matrisi, mikro-kıyaslama sonuçları ve sıfır-internet gizlilik garantisi ile yeniden yazıldı.
 
+### 🔬 7. Biyomekanik Hassas Kadans Kalibrasyonu, Sıfır Taban Başlangıç Koruması (Baseline Snapshot) ve Sistem Kara Listesi Filtresi
+* **Sıfır Taban Başlangıç Koruması (Baseline Snapshot Engine):**
+  * **Problem:** Kullanıcı uygulamayı gün ortasında/akşamında kurduğunda, `UsageStatsManager` 00:00:00'dan itibaren günün tüm geçmiş ekran süresini okuduğu için kullanıcı uygulamayı açtığı anda ekranda 864 metre mesafe, %864 tamamlanma ve açılmış hedefler görüyordu ("yanlış başlangıç").
+  * **Çözüm:** `SyncUsageStatsScrollUseCase` içine akıllı taban çizgisi mekanizması entegre edildi. İlk kurulum ve izin anında mevcut sistem kullanım süreleri `usageBaselineData` olarak DataStore'a mühürlenir, Room veritabanındaki eski hayali kayıtlar temizlenir ve kullanıcı **0.00 m** ile tertemiz başlar. Sadece uygulama yüklendikten sonraki gerçek kullanım mesafeye çevrilir. Gece yarısı sistem günü döndüğünde taban çizgisi otomatik kalkar. Ayarlar ekranına *"Bugünkü Telemetriyi Sıfırla (0m Başlat)"* butonu eklendi.
+* **İşletim Sistemi Çekirdeği ve Arka Plan Servisleri Kara Listesi (OS Blacklist):**
+  * Android framework çekirdeği (`android`), Google Play Hizmetleri (`com.google.android.gms`), üretici sistem yöneticileri (MIUI/HyperOS Security, Xiaomi Guard, Samsung Knox), sanal klavyeler (`Gboard`, `SwiftKey`) ve başlatıcılar kara listeye alındı. Önceden var olan `android` kayıtları Room veritabanından tamamen silindi. "Lider Uygulama: Android" hatası tamamen önlendi.
+* **Biyomekanik Parmak Kadans Motoru Kalibrasyonu (`ScrollCadenceEngine`):**
+  * **Problem:** Eski kodda kısa videolar için `2.20 m/dk` katsayısı kullanılıyordu; bu da kullanıcının Instagram'a girip 2 kaydırma yaptığında sayacın hemen 2 metre artmasına yol açıyordu.
+  * **Çözüm:** Telefon camında bir başparmak kaydırmasının ortalama 6 cm (0.06m) olduğu ve kullanıcıların akışta videoları/fotoğrafları izleyerek dakikada 2-3 kaydırma yaptığı bilimsel gerçeğine göre kadans katsayıları hassas biçimde yeniden kalibre edildi:
+    * TikTok / Instagram Reels: `0.18 m/dk` (~3 kaydırma/dk × 6cm)
+    * Twitter/X, Reddit: `0.22 m/dk` (~3.5 kaydırma/dk × 6cm)
+    * Web / Chrome: `0.14 m/dk`
+    * WhatsApp / Mesajlaşma: `0.04 m/dk`
+    * YouTube / Video: `0.01 m/dk`
+    * Genel: `0.06 m/dk`
+  * Instagram'da 2 kaydırma yapıldığında sayaca afaki 2 metre yerine tam karşılığı olan **~0.12 m (12 cm)** eklenir.
+* **UI İyileştirmeleri:**
+  * 10 metrenin altındaki mesafeler için 2 basamaklı ondalık hassasiyeti (`0.12 m`, `1.45 m`) uygulandı.
+  * Üst başlık çubuğunda 4 aksiyon butonunun (`Yenile`, `Kupa Odası`, `Lider Tablosu`, `Ayarlar`) ekran dışına taşması engellendi; her ekran boyutunda kusursuz hizalanan kompakt düzen kuruldu.
+
 ---
 
 ## 3. Mimari ve Faz Özeti (1 - 60 Tamamı)
