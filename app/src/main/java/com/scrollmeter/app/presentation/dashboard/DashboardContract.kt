@@ -22,6 +22,7 @@ data class DashboardUiState(
     val isServiceActive: Boolean = false,
     val isDemoMode: Boolean = false,
     val trackingMode: com.scrollmeter.app.domain.model.TrackingMode = com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS,
+    val cadenceSpeedMultiplier: Float = 1.0f,
     val isLoading: Boolean = true,
     val errorMessage: String? = null
 )

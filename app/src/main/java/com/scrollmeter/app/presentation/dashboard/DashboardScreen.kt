@@ -195,8 +195,13 @@ fun DashboardScreen(
                             )
                         }
                         uiState.trackingMode == com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS -> {
+                            val speedText = when {
+                                Math.abs(uiState.cadenceSpeedMultiplier - 0.80f) < 0.05f -> "SAKİN 0.8X"
+                                Math.abs(uiState.cadenceSpeedMultiplier - 1.25f) < 0.05f -> "SERİ 1.25X"
+                                else -> "DENGELİ 1.0X"
+                            }
                             CyberStatusBadge(
-                                text = "STANDART MOD",
+                                text = "STANDART • $speedText",
                                 accentColor = ElectricMint
                             )
                         }

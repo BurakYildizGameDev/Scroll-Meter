@@ -51,6 +51,7 @@ class DashboardViewModelTest {
         every { settingsDataStore.dailyGoalMeters } returns flowOf(100.0f)
         every { settingsDataStore.isDemoModeActive } returns flowOf(false)
         every { settingsDataStore.trackingMode } returns flowOf(com.scrollmeter.app.domain.model.TrackingMode.SAFE_USAGE_STATS)
+        every { settingsDataStore.cadenceSpeedMultiplier } returns flowOf(1.0f)
         every { getAppLeaderboardUseCase(testEpochDay) } returns flowOf(Result.Success(emptyList()))
     }
 

@@ -46,33 +46,53 @@ class DashboardViewModel @Inject constructor(
         }
     }
 
+    private data class DashboardSettingsConfig(
+        val goalMeters: Float,
+        val isDemo: Boolean,
+        val trackingMode: TrackingMode,
+        val speedMultiplier: Float
+    )
+
+    private val settingsConfigFlow = combine(
+        settingsDataStore.dailyGoalMeters,
+        settingsDataStore.isDemoModeActive,
+        settingsDataStore.trackingMode,
+        settingsDataStore.cadenceSpeedMultiplier
+    ) { goal, isDemo, mode, speed ->
+        DashboardSettingsConfig(goal, isDemo, mode, speed)
+    }
+
     val uiState: StateFlow<DashboardUiState> = refreshTrigger
         .flatMapLatest {
             val epoch = epochDaysSupplier()
             combine(
                 getDailyTotalDistanceUseCase(epoch),
-                settingsDataStore.dailyGoalMeters,
                 getAppLeaderboardUseCase(epoch),
-                settingsDataStore.isDemoModeActive,
-                settingsDataStore.trackingMode
-            ) { distanceResult, goalMeters, leaderboardResult, isDemo, trackingMode ->
+                settingsConfigFlow
+            ) { distanceResult, leaderboardResult, config ->
                 when (distanceResult) {
                     is Result.Loading -> {
-                        DashboardUiState(isLoading = true, isDemoMode = isDemo, trackingMode = trackingMode)
+                        DashboardUiState(
+                            isLoading = true,
+                            isDemoMode = config.isDemo,
+                            trackingMode = config.trackingMode,
+                            cadenceSpeedMultiplier = config.speedMultiplier
+                        )
                     }
                     is Result.Error -> {
                         DashboardUiState(
                             isLoading = false,
-                            isDemoMode = isDemo,
-                            trackingMode = trackingMode,
+                            isDemoMode = config.isDemo,
+                            trackingMode = config.trackingMode,
+                            cadenceSpeedMultiplier = config.speedMultiplier,
                             errorMessage = distanceResult.throwable.message ?: "Failed to load telemetry"
                         )
                     }
                     is Result.Success -> {
                         val distance = distanceResult.data
                         val todayMeters = distance.inMeters
-                        val progressFraction = if (goalMeters > 0f) {
-                            (todayMeters / goalMeters.toDouble()).toFloat().coerceAtLeast(0f)
+                        val progressFraction = if (config.goalMeters > 0f) {
+                            (todayMeters / config.goalMeters.toDouble()).toFloat().coerceAtLeast(0f)
                         } else {
                             0f
                         }
@@ -82,15 +102,16 @@ class DashboardViewModel @Inject constructor(
                         DashboardUiState(
                             totalDistance = distance,
                             todayMeters = todayMeters,
-                            dailyGoalMeters = goalMeters,
+                            dailyGoalMeters = config.goalMeters,
                             progressPercentage = progressFraction,
                             currentMetaphor = metaphorProgress.currentMilestone,
                             nextMetaphor = metaphorProgress.nextMilestone,
                             metersRemainingToNext = metaphorProgress.remainingMetersToNext,
                             topApps = topApps,
                             dominantApp = topApps.firstOrNull(),
-                            isDemoMode = isDemo,
-                            trackingMode = trackingMode,
+                            isDemoMode = config.isDemo,
+                            trackingMode = config.trackingMode,
+                            cadenceSpeedMultiplier = config.speedMultiplier,
                             isLoading = false
                         )
                     }
