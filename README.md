@@ -7,7 +7,7 @@
 
 <br/>
 
-[![Download APK](https://img.shields.io/badge/📥_DOWNLOAD_APK-v1.0.0_(3.47_MB)-10B981?style=for-the-badge&labelColor=0B0F17&color=10B981)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk)
+[![Download APK](https://img.shields.io/badge/📥_DOWNLOAD_APK-v1.0.0_(~5_MB)-10B981?style=for-the-badge&labelColor=0B0F17&color=10B981)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk)
 [![Releases](https://img.shields.io/badge/🚀_GitHub-Releases-06B6D4?style=for-the-badge&labelColor=0B0F17&color=06B6D4)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases)
 [![GitHub Stars](https://img.shields.io/github/stars/BurakYildizGameDev/Scroll-Meter?style=for-the-badge&color=F59E0B&labelColor=0B0F17)](https://github.com/BurakYildizGameDev/Scroll-Meter/stargazers)
 
@@ -17,11 +17,11 @@
 [![Android](https://img.shields.io/badge/Target%20SDK-34%20(Android%2014)-10B981.svg?style=flat-square&logo=android)](https://developer.android.com)
 [![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-BOM%202024.10.00-06B6D4.svg?style=flat-square&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
 [![Architecture](https://img.shields.io/badge/Architecture-Dual--Engine%20Hybrid-10B981.svg?style=flat-square&logo=android)](#-hibrit-çift-motor-mimarisi-dual-engine-architecture)
-[![Tests](https://img.shields.io/badge/Tests-108%2F108%20Passed%20(100%25)-success.svg?style=flat-square&logo=checkmarx)](https://github.com)
+[![Tests](https://img.shields.io/badge/Tests-109%2F109%20Passed%20(100%25)-success.svg?style=flat-square&logo=checkmarx)](https://github.com)
 [![Display](https://img.shields.io/badge/Display-120Hz%20%2F%20144Hz%20LTPO%20Ready-06B6D4.svg?style=flat-square&logo=speedtest)](#-120hz--144hz-ltpo-mikro-kaydırma-motoru)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline%20(No%20Internet)-10B981.svg?style=flat-square&logo=shield)](#-sıfır-internet-ve-kurumsal-gizlilik-mimarisi)
-[![Languages](https://img.shields.io/badge/Languages-9%20Localized-8B5CF6.svg?style=flat-square&logo=google-translate)](#-çoklu-dil-desteği-9-languages-support)
-[![Size](https://img.shields.io/badge/Release%20APK-3.47%20MB%20(3.6%20MB%20on%20disk)-orange.svg?style=flat-square&logo=android)](https://github.com)
+[![Languages](https://img.shields.io/badge/Languages-9%20Localized-8B5CF6.svg?style=flat-square&logo=google-translate)](#-çoklu-dil-desteği-ve-uygulama-içi-dil-değiştirici)
+[![Size](https://img.shields.io/badge/Release%20APK-~5%20MB%20(4.23%20MB%20on%20disk)-orange.svg?style=flat-square&logo=android)](https://github.com)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
 
 <br/>
@@ -39,15 +39,15 @@
 4. [📐 Matematiksel ve Fiziksel Telemetri Motoru](#-matematiksel-ve-fiziksel-telemetri-motoru)
 5. [⚡ 120Hz / 144Hz LTPO Mikro-Kaydırma Motoru](#-120hz--144hz-ltpo-mikro-kaydırma-motoru)
 6. [🏆 Başarımlar ve Kupa Odası (Trophy Room)](#-başarımlar-ve-kupa-odası-100-özgün-görev-trophy-room)
-7. [🚀 5 Kademeli Sosyal Paylaşım & 𝕏 (Twitter) İlerleme Motoru](#-5-kademeli-sosyal-paylaşım--𝕏-twitter-ilerleme-motoru)
-8. [🌐 Çoklu Dil Desteği ve Uygulama İçi Dil Değiştirici](#-çoklu-dil-desteği-ve-uygulama-içi-dil-değiştirici)
+7. [🚀 5 Kademeli Sosyal Paylaşım & Çoklu Platform Motoru (WhatsApp, Instagram, Facebook, 𝕏)](#-5-kademeli-sosyal-paylaşım--çoklu-platform-motoru-whatsapp-instagram-facebook-𝕏)
+8. [🌐 Çoklu Dil Desteği ve Uygulama İçi Anında Dil Değiştirici](#-çoklu-dil-desteği-ve-uygulama-içi-anında-dil-değiştirici)
 9. [📱 Paket Görünürlüğü ve Gerçek Uygulama İkonları (Android 11-14)](#-paket-görünürlüğü-ve-gerçek-uygulama-ikonları-android-11-14)
 10. [🔒 Sıfır İnternet ve Kurumsal Gizlilik Mimarisi](#-sıfır-internet-ve-kurumsal-gizlilik-mimarisi)
 11. [🔋 Bellek Tamponlama ve Pil Mühendisliği](#-bellek-tamponlama-ve-pil-mühendisliği)
 12. [📏 Ekranda Fiziksel Cetvel ile Kalibrasyon](#-ekranda-fiziksel-cetvel-ile-kalibrasyon)
 13. [🎨 Modern Minimalist Gece Mavisi Tasarım Sistemi](#-modern-minimalist-tasarım-sistemi)
 14. [🏗️ Yazılım Mimarisi (Clean Architecture + MVI)](#-yazılım-mimarisi-clean-architecture--mvi)
-15. [🧪 Test Matrisi ve Performans Kıyaslama Raporu (108/108 Test)](#-test-matrisi-ve-performans-kıyaslama-raporu-108108-test)
+15. [🧪 Test Matrisi ve Performans Kıyaslama Raporu (109/109 Test)](#-test-matrisi-ve-performans-kıyaslama-raporu-109109-test)
 16. [⚙️ Kaynak Koddan Derleme (Build from Source)](#-kaynak-koddan-derleme-build-from-source)
 17. [❓ Sıkça Sorulan Sorular (FAQ)](#-sıkça-sorulan-sorular-faq)
 18. [📄 Lisans ve Telif Hakkı](#-lisans-ve-telif-hakkı)
@@ -93,7 +93,7 @@ sistem raporlarında aynı "45 dakika ekran süresi" olarak listelenir. Oysa zih
 
 | Sürüm | Paket | Boyut | İndirme Bağlantısı | İmza Durumu |
 | :--- | :--- | :---: | :---: | :---: |
-| **v1.0.0 (Official Production)** | `app-release.apk` | **3.47 MB** | [👉 **Hemen İndir (.apk)**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk) | 2048-bit RSA Keystore |
+| **v1.0.0 (Official Production)** | `app-release.apk` | **~5 MB (4.23 MB)** | [👉 **Hemen İndir (.apk)**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk) | 2048-bit RSA Keystore |
 | **Geliştirici Sürümü** | `app-debug.apk` | **58 MB** | [📦 **Tüm Sürümler**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases) | Android Debug Anahtarı |
 
 ---
@@ -266,9 +266,9 @@ pie title 100 Görev Dağılım Matrisi
 
 ---
 
-## 🚀 5 Kademeli Sosyal Paylaşım & 𝕏 (Twitter) İlerleme Motoru
+## 🚀 5 Kademeli Sosyal Paylaşım & Çoklu Platform Motoru (WhatsApp, Instagram, Facebook, 𝕏)
 
-Scroll-Meter, gün içinde kaydettiğiniz fiziksel kaydırma mesafesini otomatik analiz ederek sizi 5 özgün dijital sağlık kademesine ayırır ve tek tıkla **𝕏 (Twitter)** veya sosyal medyada paylaşabileceğiniz dinamik durum kartları üretir:
+Scroll-Meter, gün içinde kaydettiğiniz fiziksel kaydırma mesafesini otomatik analiz ederek sizi 5 özgün dijital sağlık kademesine ayırır ve tek tıkla **WhatsApp**, **Instagram**, **Facebook**, **𝕏 (Twitter)** veya sistem paylaşım menüsü üzerinden paylaşabileceğiniz dinamik durum kartları üretir:
 
 ```mermaid
 flowchart LR
@@ -279,8 +279,19 @@ flowchart LR
     Meters --> T5["🚨 Titan (>1000m)"]
     
     T1 & T2 & T3 & T4 & T5 --> ShareCard[Animasyonlu Paylaşım Kartı]
-    ShareCard --> TweetIntent["𝕏 (Twitter) / WhatsApp Tek Tıkla Paylaş"]
+    ShareCard --> WhatsApp["💬 WhatsApp"]
+    ShareCard --> Instagram["📸 Instagram"]
+    ShareCard --> XTwitter["𝕏 (Twitter)"]
+    ShareCard --> Facebook["📘 Facebook"]
+    ShareCard --> Copy["📋 Panoya Kopyala / Evrensel Paylaşım"]
 ```
+
+### Desteklenen Sosyal Medya Platformları:
+* 💬 **WhatsApp:** Tek dokunuşla doğrudan WhatsApp sohbetlerine veya durum güncellemelerine hazır formatlanmış metin gönderimi.
+* 📸 **Instagram:** Panoya otomatik kopyalama ve tek dokunuşla Instagram Direct veya Story paylaşımı için akıllı uygulama tetikleme.
+* 𝕏 **𝕏 (Twitter):** Web ve mobil uygulama Intent desteği ile etiketli (#ScrollMeter #DigitalWellbeing) hazır tweet şablonu.
+* 📘 **Facebook:** Facebook mobil uygulaması veya Facebook Feed paylaşım arayüzü entegrasyonu.
+* 📋 **Panoya Kopyala & Diğer:** Sistem panosuna anında kopyalama ve Android evrensel paylaşım menüsü (Telegram, Signal, LinkedIn vb.).
 
 ### Paylaşım Kademeleri ve Dinamik Mesajlar:
 1. **🧘‍♂️ Minimalist Dijital Zen (< 20 metre):**  
@@ -296,9 +307,9 @@ flowchart LR
 
 ---
 
-## 🌐 Çoklu Dil Desteği ve Uygulama İçi Dil Değiştirici
+## 🌐 Çoklu Dil Desteği ve Uygulama İçi Anında Dil Değiştirici
 
-Scroll-Meter, telefonunuzun **sistem dilini varsayılan olarak korur**. İsterseniz **Ayarlar > Uygulama Dili** menüsünden tek tıkla dilinizi bağımsız olarak değiştirebilirsiniz:
+Scroll-Meter, telefonunuzun **sistem dilini varsayılan olarak algılar ve korur**. İsterseniz **Ayarlar > Uygulama Dili** menüsünden tek tıkla uygulamayı anında bağımsız bir dile geçirebilirsiniz. `CompositionLocalProvider` ve `AppCompatDelegate` çift katmanlı mimarisi sayesinde dil seçimi yapıldığı anda tüm arayüz yeniden başlatmaya gerek kalmadan gözünüzün önünde anında çevrilir:
 
 | Dil | Kod | Bayrak | Durum |
 | :--- | :---: | :---: | :---: |
@@ -481,13 +492,13 @@ Projeyi yerel makinenizde klonlayıp Android Studio ile doğrudan derleyebilirsi
 git clone https://github.com/BurakYildizGameDev/Scroll-Meter.git
 cd Scroll-Meter
 
-# 2. Tüm 108 birim testini çalıştırın
+# 2. Tüm 109 birim testini çalıştırın
 ./gradlew testDebugUnitTest
 
 # 3. Optimize edilmiş Release APK üretin
 ./gradlew assembleRelease
 
-# Çıktı dosyası: app/build/outputs/apk/release/app-release.apk (3.47 MB)
+# Çıktı dosyası: app/build/outputs/apk/release/app-release.apk (~5 MB / 4.23 MB)
 ```
 
 ---

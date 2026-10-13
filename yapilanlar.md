@@ -213,6 +213,19 @@ Kullanıcı geri bildirimleri ve ekran görüntüleri doğrultusunda tamamlanan 
    * Kumar makinesi dopamin tuzağı, beyin sisi ve akıllı telefon parmağı deformasyonu hakkında bilgilendirme kartı.
    * `README.md` dokümantasyonuna detaylı bilimsel analiz eklendi.
 
+7. **🛠️ UI Kaymalarının Giderilmesi & Dinamik Dil Değiştirici Motoru (Son Düzeltmeler):**
+   * **Dil Kartı UI Kayması:** "Sistem Varsayılanı" seçildiğinde sağdaki `DEĞİŞTİR ▾` butonunun dikey olarak kırılması/ezilmesi, `Modifier.weight(1f)` ve `TextOverflow.Ellipsis` ile tam olarak çözüldü; siber camgöbeği rozet stiliyle taşmalar engellendi.
+   * **Compose Anında Dil Değişimi:** `MainActivity` sınıfı `AppCompatActivity`'ye geçirildi. Compose köküne `CompositionLocalProvider(LocalConfiguration, LocalContext)` dinamik sağlayıcısı eklendi. Dil değiştirildiği anda (Çince, Rusça, Almanca vb.) uygulama yeniden başlatmaya gerek kalmadan tüm arayüz gözünüzün önünde anında çevrilir.
+   * **Genişletilmiş Sosyal Paylaşım Motoru (`SocialShareCard.kt`):**
+     * 💬 **WhatsApp:** Tek tıkla doğrudan WhatsApp sohbet/durum paylaşımı.
+     * 📸 **Instagram:** Panoya kopyalama ve tek dokunuşla Instagram uygulaması başlatma.
+     * 📘 **Facebook:** Facebook mobil uygulaması veya besleme paylaşım entegrasyonu.
+     * 𝕏 **𝕏 (Twitter):** Web ve mobil uygulama Intent desteği ile etiketli hazır tweet.
+     * 📋 **Panoya Kopyalama & Diğer:** Sistem panosu ve evrensel Android Intent menüsü.
+   * **APK Boyut ve Dokümantasyon Senkronizasyonu:**
+     * Yeni üretim boyutu: **~5 MB (4.25 MB diskte)**.
+     * `README.md` ve GitHub Releases `v1.0.0` tüm yeni özellikler ve güncel boyut bilgisiyle senkronize edildi.
+
 ---
 
 *Proje başarıyla test edilmiş ve üretime hazır hale getirilmiştir.*  
