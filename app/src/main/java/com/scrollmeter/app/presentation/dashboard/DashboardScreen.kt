@@ -40,6 +40,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.scrollmeter.app.R
+import com.scrollmeter.app.presentation.components.AppIcon
 import com.scrollmeter.app.presentation.components.CircularDistanceProgress
 import com.scrollmeter.app.presentation.components.CyberStatusBadge
 import com.scrollmeter.app.presentation.components.GlowingGlassCard
@@ -243,19 +244,33 @@ fun DashboardScreen(
                             Spacer(modifier = Modifier.height(8.dp))
                             val dominantName = uiState.dominantApp?.appDisplayName ?: stringResource(R.string.no_dominant_app)
                             val dominantDistance = uiState.dominantApp?.physicalDistance?.formattedAdaptive ?: "0.0 cm"
-                            Text(
-                                text = dominantName,
-                                style = MaterialTheme.typography.titleMedium.copy(
-                                    fontWeight = FontWeight.Bold
-                                ),
-                                color = Color.White
-                            )
-                            Spacer(modifier = Modifier.height(2.dp))
-                            Text(
-                                text = dominantDistance,
-                                style = MaterialTheme.typography.bodySmall,
-                                color = ElectricMint
-                            )
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                uiState.dominantApp?.let { app ->
+                                    AppIcon(
+                                        packageName = app.packageName,
+                                        size = 32.dp
+                                    )
+                                }
+                                Column {
+                                    Text(
+                                        text = dominantName,
+                                        style = MaterialTheme.typography.titleMedium.copy(
+                                            fontWeight = FontWeight.Bold
+                                        ),
+                                        color = Color.White,
+                                        maxLines = 1
+                                    )
+                                    Spacer(modifier = Modifier.height(2.dp))
+                                    Text(
+                                        text = dominantDistance,
+                                        style = MaterialTheme.typography.bodySmall,
+                                        color = ElectricMint
+                                    )
+                                }
+                            }
                         }
                     }
 

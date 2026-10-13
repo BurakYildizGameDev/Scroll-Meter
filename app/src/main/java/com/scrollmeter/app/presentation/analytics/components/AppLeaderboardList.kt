@@ -33,6 +33,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.scrollmeter.app.presentation.analytics.AppScrollItemUiModel
+import com.scrollmeter.app.presentation.components.AppIcon
 import com.scrollmeter.app.presentation.theme.EmeraldContainerDark
 import com.scrollmeter.app.presentation.theme.EmeraldNeonPrimary
 import com.scrollmeter.app.presentation.theme.EmeraldNeonSecondary
@@ -67,18 +68,32 @@ fun AppLeaderboardItem(
                 else -> MaterialTheme.colorScheme.onSurfaceVariant
             }
 
+            // App Icon with Rank Badge overlay
             Box(
-                modifier = Modifier
-                    .size(36.dp)
-                    .clip(CircleShape)
-                    .background(EmeraldContainerDark.copy(alpha = 0.5f)),
-                contentAlignment = Alignment.Center
+                modifier = Modifier.size(42.dp),
+                contentAlignment = Alignment.BottomEnd
             ) {
-                Text(
-                    text = "#$rank",
-                    style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                    color = rankColor
+                AppIcon(
+                    packageName = item.packageName,
+                    size = 38.dp,
+                    modifier = Modifier.align(Alignment.Center)
                 )
+
+                Box(
+                    modifier = Modifier
+                        .clip(CircleShape)
+                        .background(rankColor)
+                        .padding(horizontal = 4.dp, vertical = 1.dp)
+                ) {
+                    Text(
+                        text = "#$rank",
+                        style = MaterialTheme.typography.labelSmall.copy(
+                            fontSize = 9.sp,
+                            fontWeight = FontWeight.Black
+                        ),
+                        color = Color.Black
+                    )
+                }
             }
 
             Spacer(modifier = Modifier.width(12.dp))
