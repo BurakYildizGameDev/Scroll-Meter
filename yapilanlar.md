@@ -226,6 +226,10 @@ Kullanıcı geri bildirimleri ve ekran görüntüleri doğrultusunda tamamlanan 
      * Yeni üretim boyutu: **~5 MB (4.25 MB diskte)**.
      * `README.md` ve GitHub Releases `v1.0.0` tüm yeni özellikler ve güncel boyut bilgisiyle senkronize edildi.
 
+8. **🛡️ GitHub Actions CI Pipeline Onarımı (Türkçe Locale & Conscrypt Fix):**
+   * **Kök Neden:** Dil değiştirici motorunda çağrılan `Locale.setDefault(locale)` fonksiyonunun JVM genelinde varsayılan dili Türkçe (`tr`) yapması sonucu, Conscrypt/Robolectric kütüphanesinin Linux/Windows işletim sistemi adını ararken `"LINUX".toLowerCase()` -> `"lınux"` (noktasız ı) üretmesi ve `UnsatisfiedLinkError: no conscrypt_openjdk_jni-lınux-x86_64 in java.library.path` hatası vermesi.
+   * **Çözüm:** `LocaleHelper` içerisinden JVM genelini kirleten `Locale.setDefault` çağrıları kaldırıldı; dil yönetimi modern Android standardı olan `AppCompatDelegate.setApplicationLocales` ve Compose `CompositionLocalProvider` düzeyine izole edildi. `SettingsViewModelTest` içine `tearDown` locale koruması eklenerek test süreci %100 yeşil hale getirildi.
+
 ---
 
 *Proje başarıyla test edilmiş ve üretime hazır hale getirilmiştir.*  

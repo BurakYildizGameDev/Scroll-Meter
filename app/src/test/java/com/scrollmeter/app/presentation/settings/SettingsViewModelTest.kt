@@ -14,6 +14,7 @@ import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
+import java.util.Locale
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertFalse
@@ -24,6 +25,7 @@ import org.junit.jupiter.api.Test
 class SettingsViewModelTest {
 
     private val testDispatcher = StandardTestDispatcher()
+    private var originalLocale: Locale = Locale.getDefault()
 
     private lateinit var settingsDataStore: SettingsDataStore
     private lateinit var deviceMetricsProvider: IDeviceMetricsProvider
@@ -33,6 +35,7 @@ class SettingsViewModelTest {
 
     @BeforeEach
     fun setUp() {
+        originalLocale = Locale.getDefault()
         Dispatchers.setMain(testDispatcher)
 
         settingsDataStore = mockk(relaxed = true)
@@ -59,6 +62,7 @@ class SettingsViewModelTest {
 
     @AfterEach
     fun tearDown() {
+        Locale.setDefault(originalLocale)
         Dispatchers.resetMain()
     }
 

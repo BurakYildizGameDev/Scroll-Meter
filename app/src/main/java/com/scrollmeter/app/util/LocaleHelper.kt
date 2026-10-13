@@ -39,7 +39,6 @@ object LocaleHelper {
 
     fun getLocalizedContext(baseContext: Context, languageCode: String): Context {
         val locale = getLocale(languageCode)
-        Locale.setDefault(locale)
         val config = Configuration(baseContext.resources.configuration)
         config.setLocale(locale)
         config.setLayoutDirection(locale)
@@ -63,7 +62,6 @@ object LocaleHelper {
         AppCompatDelegate.setApplicationLocales(localeList)
 
         val locale = getLocale(languageCode)
-        Locale.setDefault(locale)
         val res = context.resources
         val config = Configuration(res.configuration)
         config.setLocale(locale)
