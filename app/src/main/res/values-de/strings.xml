@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App & Service Core -->
+    <string name="app_name">Scroll-Meter</string>
+    <string name="accessibility_service_description">Scroll-Meter misst Ihre physische Scroll-Distanz mit Pixelgenauigkeit. Ihre Passwörter, Nachrichten oder Bildschirminhalte können technisch niemals gelesen werden.</string>
+    <string name="notification_channel_name">Scroll-Meter Tracking-Dienst</string>
+    <string name="notification_channel_desc">Überwacht die Scroll-Distanz geräuschlos im Hintergrund.</string>
+
+    <!-- Navigation & Titles -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_analytics">Analytik</string>
+    <string name="nav_settings">Einstellungen &amp; Kalibrierung</string>
+    <string name="nav_achievements">Erfolge</string>
+    <string name="trophy_room">POKALRAUM</string>
+    <string name="trophy_unlocked_count">%1$d von %2$d Freigeschaltet</string>
+    <string name="trophy_total_mastery">%1$d%% Gesamtmeisterschaft</string>
+    <string name="filter_all">ALLE</string>
+    <string name="filter_milestone">MEILENSTEIN</string>
+    <string name="filter_habit">GEWOHNHEIT</string>
+    <string name="filter_precision">PRÄZISION</string>
+    <string name="badge_unlocked">FREIGESCHALTET</string>
+    <string name="btn_back">Zurück</string>
+    <string name="btn_refresh">Aktualisieren</string>
+
+    <!-- Dashboard -->
+    <string name="finger_odyssey">Finger-Odyssee</string>
+    <string name="today_distance">Heutige Distanz</string>
+    <string name="leader_app">FÜHRENDE APP</string>
+    <string name="no_dominant_app">Noch keine</string>
+    <string name="daily_goal">ZIEL</string>
+    <string name="goal_completed_pct">%1$d%% Erreicht</string>
+    <string name="unit_meter">m</string>
+    <string name="unit_km">km</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">Erster Schritt</string>
+    <string name="ach_first_step_desc">Scrolle deine ersten 100 Meter in einer beliebigen App.</string>
+    <string name="ach_giraffe_title">Giraffen-Klub</string>
+    <string name="ach_giraffe_desc">Scrolle höher als das größte Landsäugetier (5,5m).</string>
+    <string name="ach_liberty_title">Freiheitsfackel</string>
+    <string name="ach_liberty_desc">Überwinde den Sockel der Freiheitsstatue (93m).</string>
+    <string name="ach_eiffel_title">Eiffelturm-Kletterer</string>
+    <string name="ach_eiffel_desc">Erreiche die Spitze des Eiffelturms (330m) an einem einzigen Tag.</string>
+    <string name="ach_burj_title">Wolkenkratzer</string>
+    <string name="ach_burj_desc">Erklimme die Aussichtsplattform des Burj Khalifa (828m).</string>
+    <string name="ach_marathon_title">Daumen-Marathon</string>
+    <string name="ach_marathon_desc">Erreiche 1.000 Meter an einem intensiven Tag.</string>
+    <string name="ach_speed_title">Geschwindigkeitsdämon</string>
+    <string name="ach_speed_desc">Sammle über 250m in einer einzigen führenden Anwendung.</string>
+    <string name="ach_social_title">Sozialer Entdecker</string>
+    <string name="ach_social_desc">Erfasse aktive Scroll-Sitzungen in mindestens 3 verschiedenen Apps.</string>
+    <string name="ach_precision_title">Präzisions-Tuner</string>
+    <string name="ach_precision_desc">Kalibriere die physische Bildschirmskala mit dem Bildschirmlineal.</string>
+
+    <!-- Settings & Calibration -->
+    <string name="screen_calibration">BILDSCHIRMKALIBRIERUNG</string>
+    <string name="screen_calibration_desc">Legen Sie ein echtes Lineal direkt auf Ihr Display. Passen Sie den Schieberegler an, bis die virtuellen Millimeterstriche exakt mit Ihrem Lineal übereinstimmen.</string>
+    <string name="calibration_multiplier">Multiplikator: %1$.2fx (%2$s)</string>
+    <string name="calibration_ppi">PPI: %1$d</string>
+    <string name="reset_to_default">Auf 1.00x zurücksetzen</string>
+    <string name="daily_scroll_target">TÄGLICHES SCROLL-ZIEL</string>
+    <string name="current_goal_meters">Aktuelles Ziel: %1$d Meter</string>
+    <string name="enterprise_privacy">UNTERNEHMENS-DATENSCHUTZARCHITEKTUR</string>
+    <string name="privacy_bullet_offline">• 100% Offline (Keine INTERNET-Berechtigung im AndroidManifest)</string>
+    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Bildschirmtexte &amp; Tastenanschläge unlesbar)</string>
+    <string name="privacy_bullet_db">• Lokale SQLite-Datenbank auf Hardware-Ebene verschlüsselt</string>
+    <string name="privacy_bullet_version">• Version: 1.0.0 (Build 2026-Enterprise)</string>
+
+    <!-- Analytics -->
+    <string name="time_today">HEUTE</string>
+    <string name="time_yesterday">GESTERN</string>
+    <string name="total_recorded_scroll">GESAMTES AUFGEZEICHNETES SCROLLEN</string>
+    <string name="apps_count">%1$d Apps</string>
+    <string name="app_leaderboard">APP-RANGLISTE</string>
+    <string name="no_app_activity">Noch keine App-Aktivität aufgezeichnet.</string>
+
+    <!-- Onboarding & Permissions -->
+    <string name="welcome_odyssey">Willkommen bei Odyssey ⚡</string>
+    <string name="track_every_meter">Verfolge jeden gescrollten Meter.</string>
+    <string name="onboarding_subtitle">Scroll-Meter misst die physische Distanz, die Ihr Finger über Apps hinweg zurücklegt. Um Berührungs-Scroll-Deltas zu erkennen, benötigt Android die Berechtigung für Barrierefreiheitsdienste.</string>
+    <string name="trust_privacy_title">100% Datenschutz-Garantie</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false. Passwörter, Chats oder Bildschirminhalte können technisch unmöglich gelesen werden.</string>
+    <string name="trust_network_title">Null Internet-Berechtigung</string>
+    <string name="trust_network_desc">Keine Werbung, keine Tracker, kein Cloud-Upload. Alle Daten bleiben in Ihrer lokalen Room SQLite-Datenbank.</string>
+    <string name="trust_battery_title">Null Akkuverbrauch</string>
+    <string name="trust_battery_desc">Bei ausgeschaltetem Bildschirm ruht der Sensor automatisch. 5-Sekunden-Stapelverarbeitung verbraucht &lt;0,5% CPU.</string>
+    <string name="btn_continue">WEITER</string>
+    <string name="btn_activate_service">DIENST AKTIVIEREN ⚡</string>
+</resources>

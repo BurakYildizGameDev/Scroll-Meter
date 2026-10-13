@@ -35,11 +35,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.scrollmeter.app.R
 import com.scrollmeter.app.presentation.analytics.components.AppLeaderboardItem
 import com.scrollmeter.app.presentation.components.ScrollDistanceBarChart
 import com.scrollmeter.app.presentation.theme.EmeraldContainerDark
@@ -64,7 +66,7 @@ fun AnalyticsScreen(
             TopAppBar(
                 title = {
                     Text(
-                        text = "ANALYTICS",
+                        text = stringResource(R.string.nav_analytics).uppercase(),
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.Black,
                             letterSpacing = 2.sp
@@ -76,7 +78,7 @@ fun AnalyticsScreen(
                     IconButton(onClick = onNavigateBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back",
+                            contentDescription = stringResource(R.string.btn_back),
                             tint = MaterialTheme.colorScheme.onSurface
                         )
                     }
@@ -85,7 +87,7 @@ fun AnalyticsScreen(
                     IconButton(onClick = { viewModel.onIntent(AnalyticsIntent.Refresh) }) {
                         Icon(
                             imageVector = Icons.Default.Refresh,
-                            contentDescription = "Refresh",
+                            contentDescription = stringResource(R.string.btn_refresh),
                             tint = EmeraldNeonSecondary
                         )
                     }
@@ -124,14 +126,14 @@ fun AnalyticsScreen(
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
                         TimeRangeChip(
-                            title = "TODAY",
+                            title = stringResource(R.string.time_today),
                             isSelected = state.selectedTimeRange == TimeRange.TODAY,
                             onClick = { viewModel.onIntent(AnalyticsIntent.SelectTimeRange(TimeRange.TODAY)) },
                             modifier = Modifier.weight(1f)
                         )
                         Spacer(modifier = Modifier.width(4.dp))
                         TimeRangeChip(
-                            title = "YESTERDAY",
+                            title = stringResource(R.string.time_yesterday),
                             isSelected = state.selectedTimeRange == TimeRange.YESTERDAY,
                             onClick = { viewModel.onIntent(AnalyticsIntent.SelectTimeRange(TimeRange.YESTERDAY)) },
                             modifier = Modifier.weight(1f)
@@ -156,7 +158,7 @@ fun AnalyticsScreen(
                         ) {
                             Column {
                                 Text(
-                                    text = "TOTAL RECORDED SCROLL",
+                                    text = stringResource(R.string.total_recorded_scroll),
                                     style = MaterialTheme.typography.labelSmall.copy(
                                         letterSpacing = 1.2.sp,
                                         fontWeight = FontWeight.Bold
@@ -179,7 +181,7 @@ fun AnalyticsScreen(
                                     .padding(horizontal = 12.dp, vertical = 6.dp)
                             ) {
                                 Text(
-                                    text = "${state.apps.size} Apps",
+                                    text = stringResource(R.string.apps_count, state.apps.size),
                                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
                                     color = EmeraldNeonPrimary
                                 )
@@ -203,7 +205,7 @@ fun AnalyticsScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Text(
-                            text = "APP LEADERBOARD",
+                            text = stringResource(R.string.app_leaderboard),
                             style = MaterialTheme.typography.labelLarge.copy(
                                 letterSpacing = 1.5.sp,
                                 fontWeight = FontWeight.Bold
@@ -223,7 +225,7 @@ fun AnalyticsScreen(
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
-                                text = "No app activity recorded yet.",
+                                text = stringResource(R.string.no_app_activity),
                                 style = MaterialTheme.typography.bodyMedium,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )

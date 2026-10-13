@@ -44,7 +44,9 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.scrollmeter.app.R
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -119,19 +121,19 @@ fun PermissionScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 CyberStatusBadge(
-                    text = "Welcome to Odyssey ⚡",
+                    text = stringResource(R.string.welcome_odyssey),
                     accentColor = ElectricMint
                 )
             }
 
             Text(
-                text = "Track Every Meter You Scroll.",
+                text = stringResource(R.string.track_every_meter),
                 style = MaterialTheme.typography.headlineLarge,
                 color = Color.White
             )
 
             Text(
-                text = "Scroll-Meter measures the physical distance your finger travels across apps. To detect touch scroll deltas, Android requires the Accessibility Service permission.",
+                text = stringResource(R.string.onboarding_subtitle),
                 style = MaterialTheme.typography.bodyLarge,
                 color = Color.White.copy(alpha = 0.75f)
             )
@@ -155,12 +157,12 @@ fun PermissionScreen(
                     Spacer(modifier = Modifier.width(16.dp))
                     Column {
                         Text(
-                            text = "100% Privacy Guarantee",
+                            text = stringResource(R.string.trust_privacy_title),
                             style = MaterialTheme.typography.titleMedium,
                             color = Color.White
                         )
                         Text(
-                            text = "canRetrieveWindowContent = false. Technically impossible to read passwords, chats, or screen text.",
+                            text = stringResource(R.string.trust_privacy_desc),
                             style = MaterialTheme.typography.bodySmall,
                             color = Color.White.copy(alpha = 0.7f)
                         )
@@ -187,12 +189,12 @@ fun PermissionScreen(
                     Spacer(modifier = Modifier.width(16.dp))
                     Column {
                         Text(
-                            text = "Zero Internet Permission",
+                            text = stringResource(R.string.trust_network_title),
                             style = MaterialTheme.typography.titleMedium,
                             color = Color.White
                         )
                         Text(
-                            text = "No ads, no trackers, no cloud upload. All telemetry stays in your local Room SQLite database.",
+                            text = stringResource(R.string.trust_network_desc),
                             style = MaterialTheme.typography.bodySmall,
                             color = Color.White.copy(alpha = 0.7f)
                         )
@@ -219,12 +221,12 @@ fun PermissionScreen(
                     Spacer(modifier = Modifier.width(16.dp))
                     Column {
                         Text(
-                            text = "Zero Battery Drain",
+                            text = stringResource(R.string.trust_battery_title),
                             style = MaterialTheme.typography.titleMedium,
                             color = Color.White
                         )
                         Text(
-                            text = "Screen-off sensor sleeps automatically. High-capacity buffer with 5s batching uses <0.5% CPU.",
+                            text = stringResource(R.string.trust_battery_desc),
                             style = MaterialTheme.typography.bodySmall,
                             color = Color.White.copy(alpha = 0.7f)
                         )
@@ -264,7 +266,7 @@ fun PermissionScreen(
                     )
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
-                        text = if (isGranted) "DEVAM ET" else "SERVİSİ AKTİF ET ⚡",
+                        text = if (isGranted) stringResource(R.string.btn_continue) else stringResource(R.string.btn_activate_service),
                         style = MaterialTheme.typography.titleMedium
                     )
                 }

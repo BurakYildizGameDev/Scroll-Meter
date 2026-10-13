@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App & Service Core -->
+    <string name="app_name">Scroll-Meter</string>
+    <string name="accessibility_service_description">Scroll-Meter आपकी स्क्रीन स्क्रॉल दूरी को पिक्सेल सटीकता के साथ मापता है। आपके पासवर्ड, संदेश या स्क्रीन सामग्री को तकनीकी रूप से कभी नहीं पढ़ा जा सकता।</string>
+    <string name="notification_channel_name">Scroll-Meter ट्रैकिंग सेवा</string>
+    <string name="notification_channel_desc">पृष्ठभूमि में चुपचाप स्क्रॉल दूरी को ट्रैक करता है।</string>
+
+    <!-- Navigation & Titles -->
+    <string name="nav_dashboard">डैशबोर्ड</string>
+    <string name="nav_analytics">एनालिटिक्स</string>
+    <string name="nav_settings">सेटिंग्स और कैलिब्रेशन</string>
+    <string name="nav_achievements">उपलब्धियां</string>
+    <string name="trophy_room">ट्रॉफी रूम</string>
+    <string name="trophy_unlocked_count">%1$d / %2$d अनलॉक</string>
+    <string name="trophy_total_mastery">%1$d%% कुल महारत</string>
+    <string name="filter_all">सभी</string>
+    <string name="filter_milestone">मील का पत्थर</string>
+    <string name="filter_habit">आदत</string>
+    <string name="filter_precision">सटीकता</string>
+    <string name="badge_unlocked">अनलॉक किया गया</string>
+    <string name="btn_back">वापस</string>
+    <string name="btn_refresh">रीफ्रेश</string>
+
+    <!-- Dashboard -->
+    <string name="finger_odyssey">फिंगर ओडिसी</string>
+    <string name="today_distance">आज की दूरी</string>
+    <string name="leader_app">शीर्ष ऐप</string>
+    <string name="no_dominant_app">अभी तक कोई नहीं</string>
+    <string name="daily_goal">लक्ष्य</string>
+    <string name="goal_completed_pct">%1$d%% पूर्ण</string>
+    <string name="unit_meter">मी</string>
+    <string name="unit_km">किमी</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">पहला कदम</string>
+    <string name="ach_first_step_desc">किसी भी ऐप में अपने पहले 100 मीटर स्क्रॉल करें।</string>
+    <string name="ach_giraffe_title">जिराफ क्लब</string>
+    <string name="ach_giraffe_desc">धरती के सबसे ऊंचे जानवर (5.5 मी) की ऊंचाई को पार करें।</string>
+    <string name="ach_liberty_title">स्टैच्यू ऑफ लिबर्टी</string>
+    <string name="ach_liberty_desc">स्टैच्यू ऑफ लिबर्टी की कुरसी की ऊंचाई (93 मी) पार करें।</string>
+    <string name="ach_eiffel_title">एफिल पर्वतारोही</string>
+    <string name="ach_eiffel_desc">एक ही दिन में एफिल टॉवर (330 मी) की ऊंचाई तक स्क्रॉल करें।</string>
+    <string name="ach_burj_title">बुर्ज खलीफा</string>
+    <string name="ach_burj_desc">बुर्ज खलीफा के अवलोकन डेक (828 मी) तक पहुंचें।</string>
+    <string name="ach_marathon_title">अंगूठा मैराथन</string>
+    <string name="ach_marathon_desc">एक सक्रिय दिन में 1,000 मीटर स्क्रॉल करें।</string>
+    <string name="ach_speed_title">गति का जादूगर</string>
+    <string name="ach_speed_desc">किसी एक प्रमुख ऐप में 250 मीटर से अधिक स्क्रॉल करें।</string>
+    <string name="ach_social_title">सोशल एक्सप्लोरर</string>
+    <string name="ach_social_desc">कम से कम 3 अलग-अलग ऐप्स में सक्रिय स्क्रॉलिंग सत्र दर्ज करें।</string>
+    <string name="ach_precision_title">सटीक ट्यूनर</string>
+    <string name="ach_precision_desc">ऑन-स्क्रीन रूलर का उपयोग करके स्क्रीन के भौतिक पैमाने को कैलिब्रेट करें।</string>
+
+    <!-- Settings & Calibration -->
+    <string name="screen_calibration">स्क्रीन कैलिब्रेशन</string>
+    <string name="screen_calibration_desc">अपने फोन की स्क्रीन पर एक असली भौतिक रूलर रखें। स्लाइडर को तब तक समायोजित करें जब तक कि वर्चुअल मिलीमीटर के निशान आपके रूलर से पूरी तरह मेल न खा जाएं।</string>
+    <string name="calibration_multiplier">गुणक: %1$.2fx (%2$s)</string>
+    <string name="calibration_ppi">PPI: %1$d</string>
+    <string name="reset_to_default">1.00x पर रीसेट करें</string>
+    <string name="daily_scroll_target">दैनिक स्क्रॉल लक्ष्य</string>
+    <string name="current_goal_meters">वर्तमान लक्ष्य: %1$d मीटर</string>
+    <string name="enterprise_privacy">एंटरप्राइज गोपनीयता वास्तुकला</string>
+    <string name="privacy_bullet_offline">• 100% ऑफलाइन (AndroidManifest में कोई INTERNET अनुमति नहीं)</string>
+    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (स्क्रीन टेक्स्ट और कीस्ट्रोक कभी नहीं पढ़े जाते)</string>
+    <string name="privacy_bullet_db">• डिवाइस हार्डवेयर स्तर पर एन्क्रिप्टेड स्थानीय SQLite डेटाबेस</string>
+    <string name="privacy_bullet_version">• संस्करण: 1.0.0 (Build 2026-Enterprise)</string>
+
+    <!-- Analytics -->
+    <string name="time_today">आज</string>
+    <string name="time_yesterday">कल</string>
+    <string name="total_recorded_scroll">कुल रिकॉर्ड किया गया स्क्रॉल</string>
+    <string name="apps_count">%1$d ऐप्स</string>
+    <string name="app_leaderboard">ऐप लीडरबोर्ड</string>
+    <string name="no_app_activity">अभी तक कोई ऐप गतिविधि दर्ज नहीं की गई।</string>
+
+    <!-- Onboarding & Permissions -->
+    <string name="welcome_odyssey">ओडिसी में आपका स्वागत है ⚡</string>
+    <string name="track_every_meter">अपने स्क्रॉल किए गए हर मीटर को ट्रैक करें।</string>
+    <string name="onboarding_subtitle">Scroll-Meter मापता है कि आपकी उंगली ऐप्स में कितनी भौतिक दूरी तय करती है। टच स्क्रॉल को पहचानने के लिए Android को एक्सेसिबिलिटी सर्विस अनुमति की आवश्यकता होती है।</string>
+    <string name="trust_privacy_title">100% गोपनीयता गारंटी</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false. पासवर्ड, चैट या स्क्रीन टेक्स्ट को पढ़ना तकनीकी रूप से असंभव है।</string>
+    <string name="trust_network_title">शून्य इंटरनेट अनुमति</string>
+    <string name="trust_network_desc">कोई विज्ञापन नहीं, कोई ट्रैकर नहीं, कोई क्लाउड अपलोड नहीं। सारा डेटा आपके स्थानीय Room SQLite डेटाबेस में रहता है।</string>
+    <string name="trust_battery_title">शून्य बैटरी खपत</string>
+    <string name="trust_battery_desc">स्क्रीन बंद होने पर सेंसर अपने आप सो जाता है। 5 सेकंड बैचिंग बफर &lt;0.5% CPU उपयोग करता है।</string>
+    <string name="btn_continue">जारी रखें</string>
+    <string name="btn_activate_service">सेवा सक्रिय करें ⚡</string>
+</resources>

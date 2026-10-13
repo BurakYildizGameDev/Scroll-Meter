@@ -1,7 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App & Service Core -->
     <string name="app_name">Scroll-Meter</string>
-    <string name="accessibility_service_description">Scroll-Meter, ekran kaydırma mesafenizi piksel hassasiyetinde ölçer. Şifreleriniz, mesajlarınız veya ekran içeriğiniz teknik olarak asla okunamaz.</string>
-    <string name="notification_channel_name">Scroll-Meter Takip Servisi</string>
-    <string name="notification_channel_desc">Kaydırma mesafesini arka planda sessizce izler.</string>
+    <string name="accessibility_service_description">Scroll-Meter measures your physical screen scroll distance with pixel accuracy. Your passwords, messages, and screen contents can never be read.</string>
+    <string name="notification_channel_name">Scroll-Meter Tracking Service</string>
+    <string name="notification_channel_desc">Silently monitors scroll distance in the background.</string>
+
+    <!-- Navigation & Titles -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_analytics">Analytics</string>
+    <string name="nav_settings">Settings &amp; Calibration</string>
+    <string name="nav_achievements">Achievements</string>
+    <string name="trophy_room">TROPHY ROOM</string>
+    <string name="trophy_unlocked_count">%1$d of %2$d Unlocked</string>
+    <string name="trophy_total_mastery">%1$d%% Total Mastery</string>
+    <string name="filter_all">ALL</string>
+    <string name="filter_milestone">MILESTONE</string>
+    <string name="filter_habit">HABIT</string>
+    <string name="filter_precision">PRECISION</string>
+    <string name="badge_unlocked">UNLOCKED</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_refresh">Refresh</string>
+
+    <!-- Dashboard -->
+    <string name="finger_odyssey">Finger Odyssey</string>
+    <string name="today_distance">Today\'s Distance</string>
+    <string name="leader_app">LEADER APP</string>
+    <string name="no_dominant_app">None Yet</string>
+    <string name="daily_goal">GOAL</string>
+    <string name="goal_completed_pct">%1$d%% Completed</string>
+    <string name="unit_meter">m</string>
+    <string name="unit_km">km</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">First Step</string>
+    <string name="ach_first_step_desc">Scroll your first 100 meters across any app.</string>
+    <string name="ach_giraffe_title">Giraffe Club</string>
+    <string name="ach_giraffe_desc">Outscroll the tallest living land animal (5.5m).</string>
+    <string name="ach_liberty_title">Liberty Torch</string>
+    <string name="ach_liberty_desc">Climb past the Statue of Liberty pedestal (93m).</string>
+    <string name="ach_eiffel_title">Eiffel Climber</string>
+    <string name="ach_eiffel_desc">Scale the tip of the Eiffel Tower (330m) in a single day.</string>
+    <string name="ach_burj_title">Cloud Piercer</string>
+    <string name="ach_burj_desc">Reach the observation deck of Burj Khalifa (828m).</string>
+    <string name="ach_marathon_title">Thumb Marathon</string>
+    <string name="ach_marathon_desc">Reach 1,000 meters in a single high-intensity day.</string>
+    <string name="ach_speed_title">Speed Demon</string>
+    <string name="ach_speed_desc">Accumulate over 250m inside a single dominant application.</string>
+    <string name="ach_social_title">Social Explorer</string>
+    <string name="ach_social_desc">Log active scroll sessions across at least 3 distinct apps.</string>
+    <string name="ach_precision_title">Precision Tuner</string>
+    <string name="ach_precision_desc">Calibrate screen physical scale using the on-screen ruler.</string>
+
+    <!-- Settings & Calibration -->
+    <string name="screen_calibration">SCREEN CALIBRATION</string>
+    <string name="screen_calibration_desc">Place a real physical ruler directly on your phone screen. Adjust the slider until the virtual millimeter ticks align exactly with your ruler.</string>
+    <string name="calibration_multiplier">Multiplier: %1$.2fx (%2$s)</string>
+    <string name="calibration_ppi">PPI: %1$d</string>
+    <string name="reset_to_default">Reset to 1.00x</string>
+    <string name="daily_scroll_target">DAILY SCROLL TARGET</string>
+    <string name="current_goal_meters">Current Goal: %1$d meters</string>
+    <string name="enterprise_privacy">ENTERPRISE PRIVACY ARCHITECTURE</string>
+    <string name="privacy_bullet_offline">• 100% Offline (No INTERNET permission in AndroidManifest)</string>
+    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Screen text &amp; keystrokes never read)</string>
+    <string name="privacy_bullet_db">• Local SQLite database encrypted at device hardware level</string>
+    <string name="privacy_bullet_version">• Version: 1.0.0 (Build 2026-Enterprise)</string>
+
+    <!-- Analytics -->
+    <string name="time_today">TODAY</string>
+    <string name="time_yesterday">YESTERDAY</string>
+    <string name="total_recorded_scroll">TOTAL RECORDED SCROLL</string>
+    <string name="apps_count">%1$d Apps</string>
+    <string name="app_leaderboard">APP LEADERBOARD</string>
+    <string name="no_app_activity">No app activity recorded yet.</string>
+
+    <!-- Onboarding & Permissions -->
+    <string name="welcome_odyssey">Welcome to Odyssey ⚡</string>
+    <string name="track_every_meter">Track Every Meter You Scroll.</string>
+    <string name="onboarding_subtitle">Scroll-Meter measures the physical distance your finger travels across apps. To detect touch scroll deltas, Android requires the Accessibility Service permission.</string>
+    <string name="trust_privacy_title">100% Privacy Guarantee</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false. Technically impossible to read passwords, chats, or screen text.</string>
+    <string name="trust_network_title">Zero Internet Permission</string>
+    <string name="trust_network_desc">No ads, no trackers, no cloud upload. All telemetry stays in your local Room SQLite database.</string>
+    <string name="trust_battery_title">Zero Battery Drain</string>
+    <string name="trust_battery_desc">Screen-off sensor sleeps automatically. High-capacity buffer with 5s batching uses &lt;0.5% CPU.</string>
+    <string name="btn_continue">CONTINUE</string>
+    <string name="btn_activate_service">ACTIVATE SERVICE ⚡</string>
 </resources>

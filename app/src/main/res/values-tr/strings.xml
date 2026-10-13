@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App & Service Core -->
+    <string name="app_name">Scroll-Meter</string>
+    <string name="accessibility_service_description">Scroll-Meter, ekran kaydırma mesafenizi piksel hassasiyetinde ölçer. Şifreleriniz, mesajlarınız veya ekran içeriğiniz teknik olarak asla okunamaz.</string>
+    <string name="notification_channel_name">Scroll-Meter Takip Servisi</string>
+    <string name="notification_channel_desc">Kaydırma mesafesini arka planda sessizce izler.</string>
+
+    <!-- Navigation & Titles -->
+    <string name="nav_dashboard">Panel</string>
+    <string name="nav_analytics">Analitik</string>
+    <string name="nav_settings">Ayarlar ve Kalibrasyon</string>
+    <string name="nav_achievements">Başarımlar</string>
+    <string name="trophy_room">KUPA ODASI</string>
+    <string name="trophy_unlocked_count">%1$d / %2$d Açıldı</string>
+    <string name="trophy_total_mastery">%%%1$d Toplam Ustalık</string>
+    <string name="filter_all">TÜMÜ</string>
+    <string name="filter_milestone">MİHENK TAŞI</string>
+    <string name="filter_habit">ALIŞKANLIK</string>
+    <string name="filter_precision">HASSASİYET</string>
+    <string name="badge_unlocked">AÇILDI</string>
+    <string name="btn_back">Geri</string>
+    <string name="btn_refresh">Yenile</string>
+
+    <!-- Dashboard -->
+    <string name="finger_odyssey">Parmak Macerası</string>
+    <string name="today_distance">Bugünkü Mesafe</string>
+    <string name="leader_app">LİDER UYGULAMA</string>
+    <string name="no_dominant_app">Henüz Yok</string>
+    <string name="daily_goal">HEDEF</string>
+    <string name="goal_completed_pct">%%%1$d Tamamlandı</string>
+    <string name="unit_meter">m</string>
+    <string name="unit_km">km</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">İlk Adım</string>
+    <string name="ach_first_step_desc">Herhangi bir uygulamada ilk 100 metrenizi kaydırın.</string>
+    <string name="ach_giraffe_title">Zürafa Kulübü</string>
+    <string name="ach_giraffe_desc">Yaşayan en uzun kara hayvanının boyunu geçin (5,5m).</string>
+    <string name="ach_liberty_title">Özgürlük Meşalesi</string>
+    <string name="ach_liberty_desc">Özgürlük Anıtı kaidesini aşın (93m).</string>
+    <string name="ach_eiffel_title">Eyfel Tırmanıcısı</string>
+    <string name="ach_eiffel_desc">Bir günde Eyfel Kulesi\'nin zirvesine ulaşın (330m).</string>
+    <string name="ach_burj_title">Bulut Delici</string>
+    <string name="ach_burj_desc">Burj Khalifa seyir terasına ulaşın (828m).</string>
+    <string name="ach_marathon_title">Başparmak Maratonu</string>
+    <string name="ach_marathon_desc">Tek bir günde 1.000 metre kaydırmaya ulaşın.</string>
+    <string name="ach_speed_title">Hız İblisi</string>
+    <string name="ach_speed_desc">Tek bir baskın uygulamada 250 metrenin üzerinde kaydırın.</string>
+    <string name="ach_social_title">Sosyal Gezgin</string>
+    <string name="ach_social_desc">En az 3 farklı uygulamada aktif kaydırma oturumu kaydedin.</string>
+    <string name="ach_precision_title">Hassas Ayarlayıcı</string>
+    <string name="ach_precision_desc">Ekran cetvelini kullanarak ekran fiziksel ölçeğini kalibre edin.</string>
+
+    <!-- Settings & Calibration -->
+    <string name="screen_calibration">EKRAN KALİBRASYONU</string>
+    <string name="screen_calibration_desc">Telefon ekranınızın üzerine gerçek bir fiziksel cetvel yerleştirin. Sanal milimetre çizgileri cetvelinizle tam olarak örtüşene kadar kaydırıcıyı ayarlayın.</string>
+    <string name="calibration_multiplier">Çarpan: %1$.2fx (%2$s)</string>
+    <string name="calibration_ppi">PPI: %1$d</string>
+    <string name="reset_to_default">1.00x Sıfırla</string>
+    <string name="daily_scroll_target">GÜNLÜK KAYDIRMA HEDEFİ</string>
+    <string name="current_goal_meters">Mevcut Hedef: %1$d metre</string>
+    <string name="enterprise_privacy">KURUMSAL GİZLİLİK MİMARİSİ</string>
+    <string name="privacy_bullet_offline">• %100 Çevrimdışı (AndroidManifest içinde INTERNET izni yok)</string>
+    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Ekran metinleri ve tuş vuruşları asla okunamaz)</string>
+    <string name="privacy_bullet_db">• Donanım seviyesinde şifrelenmiş yerel SQLite veritabanı</string>
+    <string name="privacy_bullet_version">• Sürüm: 1.0.0 (Build 2026-Enterprise)</string>
+
+    <!-- Analytics -->
+    <string name="time_today">BUGÜN</string>
+    <string name="time_yesterday">DÜN</string>
+    <string name="total_recorded_scroll">TOPLAM KAYDEDİLEN KAYDIRMA</string>
+    <string name="apps_count">%1$d Uygulama</string>
+    <string name="app_leaderboard">UYGULAMA SIRALAMASI</string>
+    <string name="no_app_activity">Henüz uygulama etkinliği kaydedilmedi.</string>
+
+    <!-- Onboarding & Permissions -->
+    <string name="welcome_odyssey">Odyssey\'e Hoş Geldiniz ⚡</string>
+    <string name="track_every_meter">Kaydırdığınız Her Metreyi Takip Edin.</string>
+    <string name="onboarding_subtitle">Scroll-Meter parmağınızın uygulamalar boyunca kat ettiği fiziksel mesafeyi ölçer. Dokunma kaydırma farklarını tespit etmek için Android, Erişilebilirlik Servisi iznine ihtiyaç duyar.</string>
+    <string name="trust_privacy_title">%100 Gizlilik Garantisi</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false. Şifreleri, sohbetleri veya ekran metinlerini okumak teknik olarak imkansızdır.</string>
+    <string name="trust_network_title">Sıfır İnternet İzni</string>
+    <string name="trust_network_desc">Reklam yok, takipçi yok, buluta yükleme yok. Tüm veriler yerel Room SQLite veritabanınızda kalır.</string>
+    <string name="trust_battery_title">Sıfır Pil Tüketimi</string>
+    <string name="trust_battery_desc">Ekran kapandığında sensör otomatik uyur. 5 saniyelik toplu işleme ile yüksek kapasiteli arabellek &lt;%0.5 CPU kullanır.</string>
+    <string name="btn_continue">DEVAM ET</string>
+    <string name="btn_activate_service">SERVİSİ AKTİF ET ⚡</string>
+</resources>

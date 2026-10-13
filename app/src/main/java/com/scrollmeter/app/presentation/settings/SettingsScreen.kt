@@ -41,11 +41,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.scrollmeter.app.R
 import com.scrollmeter.app.presentation.components.CalibrationRuler
 import com.scrollmeter.app.presentation.theme.EmeraldContainerDark
 import com.scrollmeter.app.presentation.theme.EmeraldNeonPrimary
@@ -69,7 +71,7 @@ fun SettingsScreen(
             TopAppBar(
                 title = {
                     Text(
-                        text = "SETTINGS & CALIBRATION",
+                        text = stringResource(R.string.nav_settings).uppercase(),
                         style = MaterialTheme.typography.titleMedium.copy(
                             fontWeight = FontWeight.Black,
                             letterSpacing = 1.5.sp
@@ -81,7 +83,7 @@ fun SettingsScreen(
                     IconButton(onClick = onNavigateBack) {
                         Icon(
                             imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = "Back",
+                            contentDescription = stringResource(R.string.btn_back),
                             tint = MaterialTheme.colorScheme.onSurface
                         )
                     }
@@ -123,7 +125,7 @@ fun SettingsScreen(
                                 .padding(18.dp)
                         ) {
                             Text(
-                                text = "SCREEN CALIBRATION",
+                                text = stringResource(R.string.screen_calibration),
                                 style = MaterialTheme.typography.labelMedium.copy(
                                     letterSpacing = 1.6.sp,
                                     fontWeight = FontWeight.Bold
@@ -132,7 +134,7 @@ fun SettingsScreen(
                             )
                             Spacer(modifier = Modifier.height(4.dp))
                             Text(
-                                text = "Place a real physical ruler directly on your phone screen. Adjust the slider until the virtual millimeter ticks align exactly with your ruler.",
+                                text = stringResource(R.string.screen_calibration_desc),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
@@ -155,12 +157,16 @@ fun SettingsScreen(
                                 verticalAlignment = Alignment.CenterVertically
                             ) {
                                 Text(
-                                    text = "Multiplier: ${String.format("%.2f", state.calibrationMultiplier)}x ($sign)",
+                                    text = stringResource(
+                                        R.string.calibration_multiplier,
+                                        state.calibrationMultiplier,
+                                        sign
+                                    ),
                                     style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
                                     color = EmeraldNeonPrimary
                                 )
                                 Text(
-                                    text = "PPI: ${state.devicePpi.toInt()}",
+                                    text = stringResource(R.string.calibration_ppi, state.devicePpi.toInt()),
                                     style = MaterialTheme.typography.labelSmall,
                                     color = MaterialTheme.colorScheme.onSurfaceVariant
                                 )
@@ -190,7 +196,7 @@ fun SettingsScreen(
                                 )
                                 Spacer(modifier = Modifier.width(6.dp))
                                 Text(
-                                    text = "Reset to 1.00x",
+                                    text = stringResource(R.string.reset_to_default),
                                     color = EmeraldNeonSecondary,
                                     style = MaterialTheme.typography.labelMedium
                                 )
@@ -213,7 +219,7 @@ fun SettingsScreen(
                                 .padding(18.dp)
                         ) {
                             Text(
-                                text = "DAILY SCROLL TARGET",
+                                text = stringResource(R.string.daily_scroll_target),
                                 style = MaterialTheme.typography.labelMedium.copy(
                                     letterSpacing = 1.6.sp,
                                     fontWeight = FontWeight.Bold
@@ -222,7 +228,7 @@ fun SettingsScreen(
                             )
                             Spacer(modifier = Modifier.height(6.dp))
                             Text(
-                                text = "Current Goal: ${state.dailyGoalMeters.toInt()} meters",
+                                text = stringResource(R.string.current_goal_meters, state.dailyGoalMeters.toInt()),
                                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Black),
                                 color = MaterialTheme.colorScheme.onSurface
                             )
@@ -296,7 +302,7 @@ fun SettingsScreen(
                                 )
                                 Spacer(modifier = Modifier.width(8.dp))
                                 Text(
-                                    text = "ENTERPRISE PRIVACY ARCHITECTURE",
+                                    text = stringResource(R.string.enterprise_privacy),
                                     style = MaterialTheme.typography.labelMedium.copy(
                                         letterSpacing = 1.4.sp,
                                         fontWeight = FontWeight.Bold
@@ -308,10 +314,10 @@ fun SettingsScreen(
                             Spacer(modifier = Modifier.height(10.dp))
 
                             Text(
-                                text = "• 100% Offline (No INTERNET permission in AndroidManifest)\n" +
-                                        "• canRetrieveWindowContent=\"false\" (Screen text & keystrokes never read)\n" +
-                                        "• Local SQLite database encrypted at device hardware level\n" +
-                                        "• Version: 1.0.0 (Build 2026-Enterprise)",
+                                text = "${stringResource(R.string.privacy_bullet_offline)}\n" +
+                                        "${stringResource(R.string.privacy_bullet_window)}\n" +
+                                        "${stringResource(R.string.privacy_bullet_db)}\n" +
+                                        "${stringResource(R.string.privacy_bullet_version)}",
                                 style = MaterialTheme.typography.bodySmall.copy(lineHeight = 20.sp),
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App & Service Core -->
+    <string name="app_name">Scroll-Meter</string>
+    <string name="accessibility_service_description">O Scroll-Meter mede a distância física da rolagem da tela com precisão de pixel. Suas senhas, mensagens e conteúdos da tela nunca podem ser lidos tecnicamente.</string>
+    <string name="notification_channel_name">Serviço de Monitoramento Scroll-Meter</string>
+    <string name="notification_channel_desc">Monitora silenciosamente a distância de rolagem em segundo plano.</string>
+
+    <!-- Navigation & Titles -->
+    <string name="nav_dashboard">Painel</string>
+    <string name="nav_analytics">Estatísticas</string>
+    <string name="nav_settings">Configurações &amp; Calibração</string>
+    <string name="nav_achievements">Conquistas</string>
+    <string name="trophy_room">SALA DE TROFÉUS</string>
+    <string name="trophy_unlocked_count">%1$d de %2$d Desbloqueados</string>
+    <string name="trophy_total_mastery">%1$d%% Domínio Total</string>
+    <string name="filter_all">TODOS</string>
+    <string name="filter_milestone">MARCO</string>
+    <string name="filter_habit">HÁBITO</string>
+    <string name="filter_precision">PRECISÃO</string>
+    <string name="badge_unlocked">DESBLOQUEADO</string>
+    <string name="btn_back">Voltar</string>
+    <string name="btn_refresh">Atualizar</string>
+
+    <!-- Dashboard -->
+    <string name="finger_odyssey">Odisseia do Dedo</string>
+    <string name="today_distance">Distância de Hoje</string>
+    <string name="leader_app">APP PRINCIPAL</string>
+    <string name="no_dominant_app">Nenhum ainda</string>
+    <string name="daily_goal">META</string>
+    <string name="goal_completed_pct">%1$d%% Concluído</string>
+    <string name="unit_meter">m</string>
+    <string name="unit_km">km</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">Primeiro Passo</string>
+    <string name="ach_first_step_desc">Role seus primeiros 100 metros em qualquer aplicativo.</string>
+    <string name="ach_giraffe_title">Clube da Girafa</string>
+    <string name="ach_giraffe_desc">Ultrapasse a altura do animal terrestre mais alto (5,5m).</string>
+    <string name="ach_liberty_title">Tocha da Liberdade</string>
+    <string name="ach_liberty_desc">Supere o pedestal da Estátua da Liberdade (93m).</string>
+    <string name="ach_eiffel_title">Escalador da Torre Eiffel</string>
+    <string name="ach_eiffel_desc">Alcance o topo da Torre Eiffel (330m) em um único dia.</string>
+    <string name="ach_burj_title">Perfurador de Nuvens</string>
+    <string name="ach_burj_desc">Alcance o mirante do Burj Khalifa (828m).</string>
+    <string name="ach_marathon_title">Maratona do Polegar</string>
+    <string name="ach_marathon_desc">Atinja 1.000 metros em um único dia intenso.</string>
+    <string name="ach_speed_title">Demônio da Velocidade</string>
+    <string name="ach_speed_desc">Acumule mais de 250m em um único aplicativo dominante.</string>
+    <string name="ach_social_title">Explorador Social</string>
+    <string name="ach_social_desc">Registre sessões ativas de rolagem em pelo menos 3 aplicativos distintos.</string>
+    <string name="ach_precision_title">Ajustador de Precisão</string>
+    <string name="ach_precision_desc">Calibre a escala física da tela usando a régua na tela.</string>
+
+    <!-- Settings & Calibration -->
+    <string name="screen_calibration">CALIBRAÇÃO DA TELA</string>
+    <string name="screen_calibration_desc">Coloque uma régua física real diretamente na tela do seu celular. Ajuste o controle deslizante até que os traços milimétricos virtuais fiquem perfeitamente alinhados com sua régua.</string>
+    <string name="calibration_multiplier">Multiplicador: %1$.2fx (%2$s)</string>
+    <string name="calibration_ppi">PPI: %1$d</string>
+    <string name="reset_to_default">Redefinir para 1.00x</string>
+    <string name="daily_scroll_target">META DIÁRIA DE ROLAGEM</string>
+    <string name="current_goal_meters">Meta Atual: %1$d metros</string>
+    <string name="enterprise_privacy">ARQUITETURA DE PRIVACIDADE EMPRESARIAL</string>
+    <string name="privacy_bullet_offline">• 100% Offline (Sem permissão de INTERNET no AndroidManifest)</string>
+    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Textos e digitações nunca podem ser lidos)</string>
+    <string name="privacy_bullet_db">• Banco de dados SQLite local criptografado em nível de hardware</string>
+    <string name="privacy_bullet_version">• Versão: 1.0.0 (Build 2026-Enterprise)</string>
+
+    <!-- Analytics -->
+    <string name="time_today">HOJE</string>
+    <string name="time_yesterday">ONTEM</string>
+    <string name="total_recorded_scroll">TOTAL DE ROLAGEM REGISTRADA</string>
+    <string name="apps_count">%1$d Aplicativos</string>
+    <string name="app_leaderboard">CLASSIFICAÇÃO DE APLICATIVOS</string>
+    <string name="no_app_activity">Nenhuma atividade registrada até o momento.</string>
+
+    <!-- Onboarding & Permissions -->
+    <string name="welcome_odyssey">Bem-vindo ao Odyssey ⚡</string>
+    <string name="track_every_meter">Acompanhe cada metro que você rola.</string>
+    <string name="onboarding_subtitle">O Scroll-Meter mede a distância física percorrida pelo seu dedo nos aplicativos. Para detectar movimentos de rolagem, o Android requer a permissão do Serviço de Acessibilidade.</string>
+    <string name="trust_privacy_title">100% de Garantia de Privacidade</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false. Tecnicamente impossível ler senhas, conversas ou textos da tela.</string>
+    <string name="trust_network_title">Zero Permissões de Internet</string>
+    <string name="trust_network_desc">Sem anúncios, sem rastreadores, sem envio para nuvem. Toda a telemetria fica no seu banco Room SQLite local.</string>
+    <string name="trust_battery_title">Zero Consumo de Bateria</string>
+    <string name="trust_battery_desc">O sensor dorme automaticamente com a tela desligada. O buffer em lotes de 5s consome &lt;0.5% de CPU.</string>
+    <string name="btn_continue">CONTINUAR</string>
+    <string name="btn_activate_service">ATIVAR SERVIÇO ⚡</string>
+</resources>

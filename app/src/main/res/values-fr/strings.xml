@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App & Service Core -->
+    <string name="app_name">Scroll-Meter</string>
+    <string name="accessibility_service_description">Scroll-Meter mesure la distance physique de défilement de votre écran avec une précision au pixel près. Vos mots de passe, messages et contenus d\'écran ne peuvent techniquement jamais être lus.</string>
+    <string name="notification_channel_name">Service de suivi Scroll-Meter</string>
+    <string name="notification_channel_desc">Surveille silencieusement la distance de défilement en arrière-plan.</string>
+
+    <!-- Navigation & Titles -->
+    <string name="nav_dashboard">Tableau de bord</string>
+    <string name="nav_analytics">Statistiques</string>
+    <string name="nav_settings">Paramètres &amp; Étalonnage</string>
+    <string name="nav_achievements">Succès</string>
+    <string name="trophy_room">SALLE DES TROPHÉES</string>
+    <string name="trophy_unlocked_count">%1$d sur %2$d Débloqués</string>
+    <string name="trophy_total_mastery">%1$d%% Maîtrise Totale</string>
+    <string name="filter_all">TOUS</string>
+    <string name="filter_milestone">ÉTAPE</string>
+    <string name="filter_habit">HABITUDE</string>
+    <string name="filter_precision">PRÉCISION</string>
+    <string name="badge_unlocked">DÉBLOQUÉ</string>
+    <string name="btn_back">Retour</string>
+    <string name="btn_refresh">Actualiser</string>
+
+    <!-- Dashboard -->
+    <string name="finger_odyssey">Odyssée du Doigt</string>
+    <string name="today_distance">Distance du Jour</string>
+    <string name="leader_app">APPLICATION EN TÊTE</string>
+    <string name="no_dominant_app">Aucune pour le moment</string>
+    <string name="daily_goal">OBJECTIF</string>
+    <string name="goal_completed_pct">%1$d%% Atteint</string>
+    <string name="unit_meter">m</string>
+    <string name="unit_km">km</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">Premier Pas</string>
+    <string name="ach_first_step_desc">Faites défiler vos 100 premiers mètres dans n\'importe quelle application.</string>
+    <string name="ach_giraffe_title">Club Girafe</string>
+    <string name="ach_giraffe_desc">Dépassez la taille du plus grand animal terrestre (5,5m).</string>
+    <string name="ach_liberty_title">Flamme de la Liberté</string>
+    <string name="ach_liberty_desc">Dépassez le piédestal de la Statue de la Liberté (93m).</string>
+    <string name="ach_eiffel_title">Grimpeur de la Tour Eiffel</string>
+    <string name="ach_eiffel_desc">Atteignez le sommet de la Tour Eiffel (330m) en une seule journée.</string>
+    <string name="ach_burj_title">Perceur de Nuages</string>
+    <string name="ach_burj_desc">Atteignez la plateforme d\'observation du Burj Khalifa (828m).</string>
+    <string name="ach_marathon_title">Marathon du Pouce</string>
+    <string name="ach_marathon_desc">Atteignez 1 000 mètres en une seule journée intense.</string>
+    <string name="ach_speed_title">Démon de la Vitesse</string>
+    <string name="ach_speed_desc">Cumulez plus de 250m dans une seule application dominante.</string>
+    <string name="ach_social_title">Explorateur Social</string>
+    <string name="ach_social_desc">Enregistrez des sessions de défilement actives sur au moins 3 applications distinctes.</string>
+    <string name="ach_precision_title">Régleur de Précision</string>
+    <string name="ach_precision_desc">Étalonnez l\'échelle physique de votre écran à l\'aide de la règle intégrée.</string>
+
+    <!-- Settings & Calibration -->
+    <string name="screen_calibration">ÉTALONNAGE DE L\'ÉCRAN</string>
+    <string name="screen_calibration_desc">Placez une vraie règle physique directement sur l\'écran de votre téléphone. Ajustez le curseur jusqu\'à ce que les repères millimétriques virtuels s\'alignent parfaitement avec votre règle.</string>
+    <string name="calibration_multiplier">Multiplicateur : %1$.2fx (%2$s)</string>
+    <string name="calibration_ppi">PPI : %1$d</string>
+    <string name="reset_to_default">Réinitialiser à 1.00x</string>
+    <string name="daily_scroll_target">OBJECTIF QUOTIDIEN DE DÉFILEMENT</string>
+    <string name="current_goal_meters">Objectif actuel : %1$d mètres</string>
+    <string name="enterprise_privacy">ARCHITECTURE DE CONFIDENTIALITÉ ENTREPRISE</string>
+    <string name="privacy_bullet_offline">• 100% Hors ligne (Aucune permission INTERNET dans AndroidManifest)</string>
+    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Les textes et saisies d\'écran ne sont jamais lus)</string>
+    <string name="privacy_bullet_db">• Base de données SQLite locale chiffrée au niveau matériel</string>
+    <string name="privacy_bullet_version">• Version : 1.0.0 (Build 2026-Enterprise)</string>
+
+    <!-- Analytics -->
+    <string name="time_today">AUJOURD\'HUI</string>
+    <string name="time_yesterday">HIER</string>
+    <string name="total_recorded_scroll">DÉFILEMENT TOTAL ENREGISTRÉ</string>
+    <string name="apps_count">%1$d Applications</string>
+    <string name="app_leaderboard">CLASSEMENT DES APPLICATIONS</string>
+    <string name="no_app_activity">Aucune activité d\'application enregistrée pour le moment.</string>
+
+    <!-- Onboarding & Permissions -->
+    <string name="welcome_odyssey">Bienvenue sur Odyssey ⚡</string>
+    <string name="track_every_meter">Suivez chaque mètre que vous parcourez.</string>
+    <string name="onboarding_subtitle">Scroll-Meter mesure la distance physique que parcourt votre doigt à travers vos applications. Pour détecter les mouvements de défilement, Android requiert l\'autorisation du service d\'accessibilité.</string>
+    <string name="trust_privacy_title">Garantie 100% Confidentialité</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false. Techniquement impossible de lire mots de passe, discussions ou textes à l\'écran.</string>
+    <string name="trust_network_title">Zéro Permission Internet</string>
+    <string name="trust_network_desc">Sans publicité, sans traceur, sans envoi sur le cloud. Toutes vos données restent dans votre base Room SQLite locale.</string>
+    <string name="trust_battery_title">Zéro Impact Batterie</string>
+    <string name="trust_battery_desc">Mise en veille automatique lorsque l\'écran s\'éteint. Le traitement par lots de 5s consomme &lt;0,5% de processeur.</string>
+    <string name="btn_continue">CONTINUER</string>
+    <string name="btn_activate_service">ACTIVER LE SERVICE ⚡</string>
+</resources>

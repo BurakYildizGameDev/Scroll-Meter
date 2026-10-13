@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App & Service Core -->
+    <string name="app_name">Scroll-Meter</string>
+    <string name="accessibility_service_description">Scroll-Meter misura la distanza di scorrimento dello schermo con precisione al pixel. Le tue password, i messaggi o i contenuti dello schermo non possono mai essere letti.</string>
+    <string name="notification_channel_name">Servizio di Monitoraggio Scroll-Meter</string>
+    <string name="notification_channel_desc">Monitora silenziosamente la distanza di scorrimento in background.</string>
+
+    <!-- Navigation & Titles -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_analytics">Analisi</string>
+    <string name="nav_settings">Impostazioni &amp; Calibrazione</string>
+    <string name="nav_achievements">Obiettivi</string>
+    <string name="trophy_room">SALA TROFEI</string>
+    <string name="trophy_unlocked_count">%1$d di %2$d Sbloccati</string>
+    <string name="trophy_total_mastery">%1$d%% Padronanza Totale</string>
+    <string name="filter_all">TUTTI</string>
+    <string name="filter_milestone">TRAGUARDO</string>
+    <string name="filter_habit">ABITUDINE</string>
+    <string name="filter_precision">PRECISIONE</string>
+    <string name="badge_unlocked">SBLOCCATO</string>
+    <string name="btn_back">Indietro</string>
+    <string name="btn_refresh">Aggiorna</string>
+
+    <!-- Dashboard -->
+    <string name="finger_odyssey">Odissea del Dito</string>
+    <string name="today_distance">Distanza Odierna</string>
+    <string name="leader_app">APP PRINCIPALE</string>
+    <string name="no_dominant_app">Nessuna ancora</string>
+    <string name="daily_goal">OBIETTIVO</string>
+    <string name="goal_completed_pct">%1$d%% Completato</string>
+    <string name="unit_meter">m</string>
+    <string name="unit_km">km</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">Primo Passo</string>
+    <string name="ach_first_step_desc">Scorri i tuoi primi 100 metri in qualsiasi app.</string>
+    <string name="ach_giraffe_title">Club Giraffa</string>
+    <string name="ach_giraffe_desc">Supera l\'animale terrestre più alto (5,5m).</string>
+    <string name="ach_liberty_title">Torcia della Libertà</string>
+    <string name="ach_liberty_desc">Supera il piedistallo della Statua della Libertà (93m).</string>
+    <string name="ach_eiffel_title">Scalatore della Tour Eiffel</string>
+    <string name="ach_eiffel_desc">Raggiungi la cima della Torre Eiffel (330m) in un solo giorno.</string>
+    <string name="ach_burj_title">Foranuvole</string>
+    <string name="ach_burj_desc">Raggiungi il ponte di osservazione del Burj Khalifa (828m).</string>
+    <string name="ach_marathon_title">Maratona del Pollice</string>
+    <string name="ach_marathon_desc">Raggiungi 1.000 metri in un\'unica giornata intensa.</string>
+    <string name="ach_speed_title">Demone della Velocità</string>
+    <string name="ach_speed_desc">Accumula oltre 250m in una singola applicazione dominante.</string>
+    <string name="ach_social_title">Esploratore Social</string>
+    <string name="ach_social_desc">Registra sessioni di scorrimento attive in almeno 3 app diverse.</string>
+    <string name="ach_precision_title">Sintonizzatore di Precisione</string>
+    <string name="ach_precision_desc">Calibra la scala fisica dello schermo usando il righello a display.</string>
+
+    <!-- Settings & Calibration -->
+    <string name="screen_calibration">CALIBRAZIONE DELLO SCHERMO</string>
+    <string name="screen_calibration_desc">Posiziona un righello fisico direttamente sullo schermo. Regola il cursore finché i trattini millimetrici virtuali non coincidono esattamente con il tuo righello.</string>
+    <string name="calibration_multiplier">Moltiplicatore: %1$.2fx (%2$s)</string>
+    <string name="calibration_ppi">PPI: %1$d</string>
+    <string name="reset_to_default">Ripristina a 1.00x</string>
+    <string name="daily_scroll_target">OBIETTIVO GIORNALIERO</string>
+    <string name="current_goal_meters">Obiettivo Corrente: %1$d metri</string>
+    <string name="enterprise_privacy">ARCHITETTURA DI PRIVACY AZIENDALE</string>
+    <string name="privacy_bullet_offline">• 100% Offline (Nessun permesso INTERNET in AndroidManifest)</string>
+    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\" (Testo e digitazioni non possono mai essere letti)</string>
+    <string name="privacy_bullet_db">• Database SQLite locale crittografato a livello hardware</string>
+    <string name="privacy_bullet_version">• Versione: 1.0.0 (Build 2026-Enterprise)</string>
+
+    <!-- Analytics -->
+    <string name="time_today">OGGI</string>
+    <string name="time_yesterday">IERI</string>
+    <string name="total_recorded_scroll">TOTALE SCORRIMENTO REGISTRATO</string>
+    <string name="apps_count">%1$d App</string>
+    <string name="app_leaderboard">CLASSIFICA APP</string>
+    <string name="no_app_activity">Nessuna attività registrata finora.</string>
+
+    <!-- Onboarding & Permissions -->
+    <string name="welcome_odyssey">Benvenuto in Odyssey ⚡</string>
+    <string name="track_every_meter">Traccia ogni metro che scorri.</string>
+    <string name="onboarding_subtitle">Scroll-Meter misura la distanza fisica percorsa dal tuo dito attraverso le app. Per rilevare i movimenti di scorrimento, Android richiede l\'autorizzazione del servizio di accessibilità.</string>
+    <string name="trust_privacy_title">100% Garanzia di Privacy</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false. È tecnicamente impossibile leggere password, chat o schermate.</string>
+    <string name="trust_network_title">Zero Permessi Internet</string>
+    <string name="trust_network_desc">Nessuna pubblicità, nessun tracker, nessun caricamento su cloud. Tutta la telemetria risiede nel tuo database SQLite locale.</string>
+    <string name="trust_battery_title">Zero Consumo di Batteria</string>
+    <string name="trust_battery_desc">A schermo spento il sensore si sospende automaticamente. Il buffer con raggruppamento a 5s consuma &lt;0.5% CPU.</string>
+    <string name="btn_continue">CONTINUA</string>
+    <string name="btn_activate_service">ATTIVA SERVIZIO ⚡</string>
+</resources>

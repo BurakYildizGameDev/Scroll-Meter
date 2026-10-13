@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App & Service Core -->
+    <string name="app_name">Scroll-Meter</string>
+    <string name="accessibility_service_description">Scroll-Meter 以像素级精度测量您的屏幕滑动物理距离。技术上绝不可能读取您的密码、聊天记录或屏幕文字内容。</string>
+    <string name="notification_channel_name">Scroll-Meter 追踪服务</string>
+    <string name="notification_channel_desc">在后台静默监测屏幕滑动距离。</string>
+
+    <!-- Navigation & Titles -->
+    <string name="nav_dashboard">仪表盘</string>
+    <string name="nav_analytics">统计分析</string>
+    <string name="nav_settings">设置与校准</string>
+    <string name="nav_achievements">成就系统</string>
+    <string name="trophy_room">奖杯陈列室</string>
+    <string name="trophy_unlocked_count">已解锁 %1$d / %2$d</string>
+    <string name="trophy_total_mastery">总达成率 %1$d%%</string>
+    <string name="filter_all">全部</string>
+    <string name="filter_milestone">里程碑</string>
+    <string name="filter_habit">习惯</string>
+    <string name="filter_precision">精度</string>
+    <string name="badge_unlocked">已解锁</string>
+    <string name="btn_back">返回</string>
+    <string name="btn_refresh">刷新</string>
+
+    <!-- Dashboard -->
+    <string name="finger_odyssey">指尖奥德赛</string>
+    <string name="today_distance">今日滑动距离</string>
+    <string name="leader_app">榜首应用</string>
+    <string name="no_dominant_app">暂无数据</string>
+    <string name="daily_goal">目标</string>
+    <string name="goal_completed_pct">已完成 %1$d%%</string>
+    <string name="unit_meter">米</string>
+    <string name="unit_km">千米</string>
+
+    <!-- Achievements -->
+    <string name="ach_first_step_title">第一步</string>
+    <string name="ach_first_step_desc">在任意应用中滑动达成首个 100 米。</string>
+    <string name="ach_giraffe_title">长颈鹿俱乐部</string>
+    <string name="ach_giraffe_desc">超越陆地上最高动物的身高（5.5米）。</string>
+    <string name="ach_liberty_title">自由火炬</string>
+    <string name="ach_liberty_desc">超越自由女神像基座高度（93米）。</string>
+    <string name="ach_eiffel_title">埃菲尔攀登者</string>
+    <string name="ach_eiffel_desc">单日滑动登顶埃菲尔铁塔高度（330米）。</string>
+    <string name="ach_burj_title">穿云者</string>
+    <string name="ach_burj_desc">滑动抵达哈利法塔观景台高度（828米）。</string>
+    <string name="ach_marathon_title">大拇指马拉松</string>
+    <string name="ach_marathon_desc">在充实的一天中滑动突破 1,000 米。</string>
+    <string name="ach_speed_title">极速飞驰</string>
+    <string name="ach_speed_desc">在单个主导应用中累计滑动超过 250 米。</string>
+    <string name="ach_social_title">社交漫游家</string>
+    <string name="ach_social_desc">在至少 3 款不同应用中记录有效的滑动会话。</string>
+    <string name="ach_precision_title">精密调校师</string>
+    <string name="ach_precision_desc">使用屏幕标尺校准屏幕物理比例以获得亚毫米级精度。</string>
+
+    <!-- Settings & Calibration -->
+    <string name="screen_calibration">屏幕校准</string>
+    <string name="screen_calibration_desc">将一把真实的物理直尺放置在手机屏幕上。调整滑块直至虚拟毫米刻度与您的直尺完全吻合。</string>
+    <string name="calibration_multiplier">缩放倍率：%1$.2fx (%2$s)</string>
+    <string name="calibration_ppi">PPI：%1$d</string>
+    <string name="reset_to_default">重置为 1.00x</string>
+    <string name="daily_scroll_target">每日滑动目标</string>
+    <string name="current_goal_meters">当前目标：%1$d 米</string>
+    <string name="enterprise_privacy">企业级隐私安全架构</string>
+    <string name="privacy_bullet_offline">• 100% 完全离线（AndroidManifest 中无 INTERNET 权限）</string>
+    <string name="privacy_bullet_window">• canRetrieveWindowContent=\"false\"（绝不读取屏幕文本和按键）</string>
+    <string name="privacy_bullet_db">• 本地 SQLite 数据库采用设备硬件级加密存储</string>
+    <string name="privacy_bullet_version">• 版本：1.0.0 (Build 2026-Enterprise)</string>
+
+    <!-- Analytics -->
+    <string name="time_today">今日</string>
+    <string name="time_yesterday">昨日</string>
+    <string name="total_recorded_scroll">累计记录滑动距离</string>
+    <string name="apps_count">%1$d 款应用</string>
+    <string name="app_leaderboard">应用滑动排行榜</string>
+    <string name="no_app_activity">尚未记录任何应用活动数据。</string>
+
+    <!-- Onboarding & Permissions -->
+    <string name="welcome_odyssey">欢迎来到指尖奥德赛 ⚡</string>
+    <string name="track_every_meter">量化您的每一次屏幕滑动。</string>
+    <string name="onboarding_subtitle">Scroll-Meter 测量您的手指在各个应用间移动的实际物理距离。为了检测触控滑动增量，Android 系统需要无障碍服务权限。</string>
+    <string name="trust_privacy_title">100% 隐私安全保障</string>
+    <string name="trust_privacy_desc">canRetrieveWindowContent = false。技术上绝无法读取您的密码、聊天或屏幕文字。</string>
+    <string name="trust_network_title">零网络权限</string>
+    <string name="trust_network_desc">无广告、无追踪器、绝不云端上传。所有遥测数据均保存在本地 Room SQLite 数据库中。</string>
+    <string name="trust_battery_title">极致省电零耗损</string>
+    <string name="trust_battery_desc">熄屏时传感器自动休眠。5 秒批量缓冲机制 CPU 占用低于 0.5%。</string>
+    <string name="btn_continue">继续</string>
+    <string name="btn_activate_service">启用服务 ⚡</string>
+</resources>
