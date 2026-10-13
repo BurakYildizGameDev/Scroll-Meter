@@ -1,0 +1,31 @@
+# ===================================================================
+# BASELINE PROFILE FOR SCROLL-METER (ART AOT COMPILATION RULES)
+# ===================================================================
+
+# Core Application & Activities
+HSPLcom/scrollmeter/app/ScrollMeterApp;->onCreate()V
+HSPLcom/scrollmeter/app/presentation/MainActivity;->onCreate(Landroid/os/Bundle;)V
+HSPLcom/scrollmeter/app/presentation/MainActivity;->setContent(Landroidx/compose/runtime/CompositionContext;Lkotlin/jvm/functions/Function2;)V
+
+# Accessibility Service & Dispatchers
+HSPLcom/scrollmeter/app/service/ScrollAccessibilityService;->onAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+HSPLcom/scrollmeter/app/service/batch/ScrollBatchCollector;->emitEvent(Lcom/scrollmeter/app/domain/model/ScrollEvent;)V
+HSPLcom/scrollmeter/app/service/filter/ScrollGestureFilter;->shouldProcess(Landroid/view/accessibility/AccessibilityEvent;)Z
+HSPLcom/scrollmeter/app/service/filter/PackageBlacklist;->isBlacklisted(Ljava/lang/String;)Z
+
+# Domain Calculators & Filters
+HSPLcom/scrollmeter/app/domain/calculator/DistanceCalculator;->calculatePhysicalDistance(DDF)Lcom/scrollmeter/app/domain/model/PhysicalDistance;
+HSPLcom/scrollmeter/app/domain/filter/ScrollAnomalyFilter;->isScrollValid(D)Z
+HSPLcom/scrollmeter/app/domain/usecase/GetDailyTotalDistanceUseCase;->invoke(J)Lkotlinx/coroutines/flow/Flow;
+HSPLcom/scrollmeter/app/domain/usecase/CalculateMetaphorUseCase;->invoke(Lcom/scrollmeter/app/domain/model/PhysicalDistance;)Lcom/scrollmeter/app/domain/model/MetaphorMilestone;
+
+# Presentation & Compose UI Elements
+HSPLcom/scrollmeter/app/presentation/navigation/ScrollNavHostKt;->ScrollNavHost(Landroidx/compose/ui/Modifier;Landroidx/navigation/NavHostController;Lcom/scrollmeter/app/presentation/navigation/ScreenRoute;Landroidx/compose/runtime/Composer;II)V
+HSPLcom/scrollmeter/app/presentation/dashboard/DashboardScreenKt;->DashboardScreen(Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/scrollmeter/app/presentation/dashboard/DashboardViewModel;Landroidx/compose/runtime/Composer;II)V
+HSPLcom/scrollmeter/app/presentation/components/CircularDistanceProgressKt;->CircularDistanceProgress(FLjava/lang/String;Landroidx/compose/ui/Modifier;Ljava/lang/String;Ljava/lang/String;FLandroidx/compose/runtime/Composer;II)V
+HSPLcom/scrollmeter/app/presentation/components/MetaphorCardKt;->MetaphorCard(Lcom/scrollmeter/app/domain/model/MetaphorMilestone;Lcom/scrollmeter/app/domain/model/MetaphorMilestone;DLandroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+
+# Database & Storage
+HSPLcom/scrollmeter/app/data/local/database/ScrollMeterDatabase_Impl;->scrollDao()Lcom/scrollmeter/app/data/local/dao/ScrollDao;
+HSPLcom/scrollmeter/app/data/local/dao/ScrollDao_Impl;->getDailyTotalPixels(J)Lkotlinx/coroutines/flow/Flow;
+HSPLcom/scrollmeter/app/data/datastore/SettingsDataStore;->getDailyGoalMeters()Lkotlinx/coroutines/flow/Flow;
