@@ -3,57 +3,82 @@
 # 📱 Scroll-Meter
 
 ### **Physical Distance Telemetry & Digital Well-being Tracker for Android**
-*How many meters and kilometers does your thumb travel every single day?*
-
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-purple.svg?style=for-the-badge&logo=kotlin)](https://kotlinlang.org)
-[![Android](https://img.shields.io/badge/Target%20SDK-34%20(Android%2014)-brightgreen.svg?style=for-the-badge&logo=android)](https://developer.android.com)
-[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-BOM%202024.10.00-blue.svg?style=for-the-badge&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
-[![Tests](https://img.shields.io/badge/Tests-77%2F77%20Passed-success.svg?style=for-the-badge&logo=checkmarx)](https://github.com)
-[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-emerald.svg?style=for-the-badge&logo=shield)](https://github.com)
-[![Release APK](https://img.shields.io/badge/Release%20APK-3.3%20MB-orange.svg?style=for-the-badge&logo=android)](https://github.com)
+*Günde kaç metre veya kilometre kaydırdığınızı hiç merak ettiniz mi?*
 
 <br/>
 
-> **Scroll-Meter** measures your cumulative physical finger scroll distance across all installed Android applications (Instagram, TikTok, X, Reddit, etc.) with sub-millimeter precision, converting mindless scrolling into tangible real-world physical metaphors.
+[![Download APK](https://img.shields.io/badge/📥_DOWNLOAD_APK-v1.0.0_(3.3_MB)-00F5A0?style=for-the-badge&labelColor=0A0E14&color=00F5A0)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk)
+[![Releases](https://img.shields.io/badge/🚀_GitHub-Releases-00F0FF?style=for-the-badge&labelColor=0A0E14&color=00F0FF)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases)
+[![GitHub Stars](https://img.shields.io/github/stars/BurakYildizGameDev/Scroll-Meter?style=for-the-badge&color=F5E6B8&labelColor=0A0E14)](https://github.com/BurakYildizGameDev/Scroll-Meter/stargazers)
+
+<br/>
+
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.21-purple.svg?style=flat-square&logo=kotlin)](https://kotlinlang.org)
+[![Android](https://img.shields.io/badge/Target%20SDK-34%20(Android%2014)-brightgreen.svg?style=flat-square&logo=android)](https://developer.android.com)
+[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-BOM%202024.10.00-blue.svg?style=flat-square&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
+[![Tests](https://img.shields.io/badge/Tests-77%2F77%20Passed-success.svg?style=flat-square&logo=checkmarx)](https://github.com)
+[![Privacy](https://img.shields.io/badge/Privacy-100%25%20Offline-emerald.svg?style=flat-square&logo=shield)](https://github.com)
+[![Size](https://img.shields.io/badge/Size-3.3%20MB%20Lean-orange.svg?style=flat-square&logo=android)](https://github.com)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg?style=flat-square)](LICENSE)
+
+<br/>
+
+> **Scroll-Meter**, tüm sosyal medya ve uygulamalarınızdaki (Instagram, TikTok, X, YouTube, Reddit vb.) dikey kaydırma mesafenizi piksel piksel takip edip **gerçek dünya fiziksel metriklerine (metre ve kilometre)** dönüştüren, oyunlaştırılmış ve %100 gizlilik odaklı kurumsal bir Android telemetri uygulamasıdır.
 
 </div>
 
 ---
 
-## ✨ Key Features
+## 📥 Hemen İndir ve Kur (Download & Install)
 
-* **🛡️ 100% Privacy Guarantee (Zero Internet Access)**:
-  * Zero `INTERNET` permission in `AndroidManifest.xml` — the app cannot communicate with any external servers.
-  * `canRetrieveWindowContent="false"` — screen text, chats, passwords, and sensitive inputs can never be inspected.
-  * Completely offline, local hardware-encrypted SQLite storage.
-* **🎯 Hardware-Calibrated Precision**:
-  * Calculates real-world millimeters from screen pixel density (`DisplayMetrics` PPI / DPI) and event deltas.
-  * **Interactive On-Screen Calibration Ruler**: Place a physical ruler directly onto your smartphone screen to fine-tune scaling multipliers with micrometer precision.
-* **🏆 Gamified Real-World Metaphors**:
-  * Unlocks motivating landmarks as your daily distance increases:
-    * 🦒 **Giraffe** (5.5 meters)
-    * 🗽 **Statue of Liberty** (93 meters)
-    * 🗼 **Eiffel Tower** (330 meters)
-    * 🏙️ **Burj Khalifa** (828 meters)
-    * 🏔️ **Mount Everest** (8,848 meters)
-* **⚡ Cyber Luxury & Mineral Glow Design System**:
-  * Dark obsidian void aesthetics designed for high-refresh AMOLED screens.
-  * High-voltage dopamine typography and Bento Grid 2.0 telemetry cards.
-  * Custom Canvas circular distance gauge with 240° open arc and neon sweep gradients.
-  * Custom hardware-accelerated bar charts with zero external charting dependencies.
-* **🔋 Battery-Efficient "Never-Crash" Architecture**:
-  * 5-second debounced batch collector flushes scroll events in atomic SQLite transactions.
-  * Screen-off broadcast receivers automatically sleep background processing.
-  * WorkManager data retention worker prunes telemetry older than 30 days only while charging and idle.
-* **🪶 Ultra-Lightweight 3.3 MB Binary**:
-  * Hardened ProGuard / R8 code and resource shrinking.
-  * Pre-compiled ART Baseline Profiles for 30% faster cold starts and 0ms frame drops.
+Telefonunuza doğrudan indirip hemen kullanmaya başlayabilirsiniz:
+
+| Sürüm | Paket | Boyut | İndirme Bağlantısı |
+| :--- | :--- | :---: | :---: |
+| **v1.0.0 (Official Release)** | `app-release.apk` | **~3.3 MB** | [👉 **Hemen İndir (.apk)**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk) |
+| **Tüm Sürümler & Changelog** | GitHub Releases | — | [📦 **Releases Sayfası**](https://github.com/BurakYildizGameDev/Scroll-Meter/releases) |
+
+### 📲 Kurulum Adımları (3 Basit Adım)
+1. Yukarıdaki **[Hemen İndir](https://github.com/BurakYildizGameDev/Scroll-Meter/releases/latest/download/app-release.apk)** butonuna basarak `app-release.apk` dosyasını telefonunuza indirin.
+2. İndirilen dosyaya dokunun. Android uyarısı çıkarsa *"Bilinmeyen kaynaklardan yüklemeye izin ver"* seçeneğini onaylayın.
+3. **Scroll-Meter**'ı açın ve yönlendirildiğiniz sistem ayarlarından **Scroll-Meter Erişilebilirlik Servisi**'ni aktif edin. Telemetriniz anında işlemeye başlayacaktır!
 
 ---
 
-## 🏛️ Architecture & Tech Stack
+## ✨ Öne Çıkan Özellikler
 
-Scroll-Meter is built strictly adhering to **Enterprise Clean Architecture** and reactive **MVI (Model-View-Intent)** patterns.
+* **🛡️ %100 Sıfır İnternet & Mutlak Gizlilik (Privacy First)**:
+  * Uygulamanın `AndroidManifest.xml` dosyasında **`INTERNET` izni kesinlikle bulunmaz**. Cihaz dışına 1 byte bile veri gönderilemez.
+  * `canRetrieveWindowContent="false"` garantisi ile ekrandaki metinler, şifreler, sohbetler veya kişisel içerikler **asla okunamaz**.
+  * Veriler sadece cihazınızın yerel donanımında şifreli SQLite veritabanında saklanır.
+* **🎯 Ekrana Cetvel Koyarak Milimetrik Kalibrasyon**:
+  * Telefonunuzun donanımsal PPI / DPI değerinden yola çıkarak pikseli gerçek milimetreye çevirir.
+  * **İnteraktif Sanal Cetvel**: Ekranınıza gerçek bir fiziksel cetvel koyup kaydırma slider'ı ile mikrometrik eşitleme yapabilirsiniz.
+* **🏆 Oyunlaştırılmış Landmark Metaforları**:
+  * Gün içinde kaydırdığınız mesafeyi eğlenceli gerçek dünya hedefleriyle kıyaslar:
+    * 🦒 **Zürafa** (5.5 metre)
+    * 🗽 **Özgürlük Heykeli** (93 metre)
+    * 🗼 **Eyfel Kulesi** (330 metre)
+    * 🏙️ **Burç Halife** (828 metre)
+    * 🏔️ **Everest Tepesi** (8,848 metre)
+* **⚡ Cyber Luxury & Mineral Glow Tasarım Dili (Gen Z Aesthetics)**:
+  * Gece derinliğinde AMOLED siyah zemin (`Obsidian Void`).
+  * Dopamin tipografi, Bento Grid 2.0 kart düzeni ve zümrüt/turkuaz mineral parıltısı.
+  * Compose Canvas ile çizilmiş 240° açık yay dairesel gösterge (`CircularDistanceProgress`).
+  * Harici hiçbir grafik kütüphanesi olmadan saf Canvas üzerinde çalışan donanım hızlandırmalı çubuk grafik (`ScrollDistanceBarChart`).
+* **🔋 "Never-Crash" ve Pil Dostu Mimari**:
+  * Her kaydırma olayında veritabanı yormak yerine **5 saniyelik debounced batch toplama** motoru kullanır.
+  * Ekran kapandığında (`ACTION_SCREEN_OFF`) servis uyku moduna geçer, sıfır arka plan pili tüketir.
+  * 30 günden eski loglar, sadece gece telefon şarjdayken `WorkManager` tarafından temizlenir.
+* **🪶 Ultra-Hafif 3.3 MB Boyut**:
+  * ProGuard ve R8 optimizasyonu sayesinde 61 MB debug paketi %94.5 küçültülerek **3.3 MB** seviyesine indirilmiştir.
+  * ART Baseline Profiles ile soğuk açılış süresi %30 hızlandırılmıştır.
+
+---
+
+## 🏛️ Mimari ve Teknoloji Yığını
+
+Scroll-Meter, **Enterprise Clean Architecture** ve reaktif **MVI (Model-View-Intent)** prensiplerine göre katmanlandırılmıştır.
 
 ```mermaid
 flowchart TD
@@ -63,10 +88,10 @@ flowchart TD
         Nav["Type-Safe Navigation Compose (Kotlinx Serialization)"]
     end
 
-    subgraph Domain ["Domain Layer (Pure Kotlin - Zero Android Dependencies)"]
+    subgraph Domain ["Domain Layer (Saf Kotlin - Sıfır Android Bağımlılığı)"]
         UC["UseCases (GetDailyDistance, CalculateMetaphors, Leaderboards)"]
         Calc["DistanceCalculator & ScrollAnomalyFilter"]
-        Model["Pure Domain Models (PhysicalDistance, AppScrollSession)"]
+        Model["Domain Models (PhysicalDistance, AppScrollSession)"]
     end
 
     subgraph Service ["Service Layer (Accessibility & Lifecycle)"]
@@ -91,144 +116,106 @@ flowchart TD
     Worker --> DB
 ```
 
-### Technology Highlights
-* **Language:** Kotlin 2.0.21
-* **UI:** Jetpack Compose BOM 2024.10.00 (Material Design 3)
-* **Navigation:** Navigation Compose 2.8.3 with Kotlinx Serialization type-safe routes
-* **DI:** Dagger-Hilt 2.52 with `@HiltWorker` and `@HiltViewModel`
-* **Local Database:** Room 2.6.1 SQLite with atomic `ON CONFLICT DO UPDATE` queries
-* **Key-Value Store:** Jetpack Preferences DataStore
-* **Background Processing:** AndroidX WorkManager 2.9.1
-* **Testing:** JUnit 5 (Jupiter), MockK, Turbine, Robolectric 4.13, Coroutines Test Dispatchers
+### Teknoloji Detayları
+* **Programlama Dili:** Kotlin 2.0.21
+* **Arayüz:** Jetpack Compose BOM 2024.10.00 (Material Design 3)
+* **Navigasyon:** Navigation Compose 2.8.3 (Kotlinx Serialization Tip-Güvenli Rotalar)
+* **Bağımlılık Enjeksiyonu:** Dagger-Hilt 2.52 (`@HiltViewModel`, `@HiltWorker`)
+* **Yerel Veritabanı:** Room 2.6.1 SQLite (`ON CONFLICT DO UPDATE` atomik upsert)
+* **Hafif Depolama:** Jetpack Preferences DataStore
+* **Arka Plan Yönetimi:** AndroidX WorkManager 2.9.1
+* **Birim ve Servis Testleri:** JUnit 5, MockK, Turbine, Robolectric 4.13, Coroutines Test Dispatchers
 
 ---
 
-## 📸 Screen Tour & Design System
+## ❓ Sıkça Sorulan Sorular (FAQ)
 
-| Dashboard Screen | Scroll Analytics | Screen Calibration |
-| :---: | :---: | :---: |
-| Dairesel açık yay mesafe göstergesi, anlık hedef yüzdesi, bento metrik kartları ve kilit açılan anıtlar. | İlk 5 uygulamanın Compose Canvas çubuk grafiği ve LazyColumn liderlik sıralaması. | Fiziksel cetvel ile ekran milimetresini eşitleyen sanal donanım cetveli ve hedef ayarları. |
+<details>
+<summary><b>1. Mesajlarımı veya şifrelerimi okuyabilir mi?</b></summary>
+<br/>
+<b>Kesinlikle hayır!</b> Scroll-Meter'ın erişilebilirlik konfigürasyonunda <code>canRetrieveWindowContent="false"</code> kuralı zorunludur. Android işletim sistemi bu izin olmadan ekrandaki hiçbir metni veya bileşeni uygulamaya iletmez. Ayrıca uygulamada <code>INTERNET</code> izni bulunmadığından verilerin dışarı çıkması teknik olarak imkansızdır.
+</details>
+
+<details>
+<summary><b>2. Şarjımı çabuk bitirir mi?</b></summary>
+<br/>
+<b>Hayır!</b> Gelen kaydırma olayları RAM üzerinde 5 saniyelik tamponda toplanır ve tek bir veritabanı işlemiyle kaydedilir. Ekran kapatıldığı an servis tüm hesaplamaları durdurur. Veritabanı temizliği ise sadece telefon şarjdayken ve boştayken çalışır.
+</details>
+
+<details>
+<summary><b>3. Cetvel kalibrasyonu ne işe yarar?</b></summary>
+<br/>
+Her Android telefon üreticisinin bildirdiği ekran PPI değeri küçük sapmalar içerebilir. Ayarlar menüsündeki sanal cetvelin üzerine gerçek bir fiziksel cetvel koyup sürgüyü kaydırarak 10 santimetreyi tam olarak eşitleyebilir, böylece ölçümlerinizin milimetrik doğruluğundan emin olabilirsiniz.
+</details>
 
 ---
 
-## 🧪 Test Coverage & Quality Verification
+## 🧪 Test Kapsamı ve Kalite Doğrulaması
 
-All 60 production phases were implemented following strict Test-Driven Development (TDD).
+Proje geliştirme sürecinde 60 fazın tamamı Test Güdümlü Geliştirme (TDD) ile inşa edilmiş olup **77 adet testin %100'ü başarıyla geçmektedir**:
 
 ```
 ================================================================================
-Test Class                                                     Tests    Result
+Test Sınıfı                                                    Test     Sonuç
 ================================================================================
-com.scrollmeter.app.core.result.ResultTest                       6      PASSED
-com.scrollmeter.app.data.local.dao.ScrollDaoTest                 3      PASSED
-com.scrollmeter.app.data.repository.ScrollRepositoryImplTest     3      PASSED
-com.scrollmeter.app.data.worker.DataCleanupWorkerTest            2      PASSED
-com.scrollmeter.app.domain.calculator.DistanceCalculatorTest    10      PASSED
-com.scrollmeter.app.domain.filter.ScrollAnomalyFilterTest       13      PASSED
-com.scrollmeter.app.domain.usecase.CalculateMetaphorUseCaseTest  3      PASSED
-com.scrollmeter.app.domain.usecase.GetAppLeaderboardUseCaseTest  1      PASSED
-com.scrollmeter.app.domain.usecase.GetDailyTotalDistance...      1      PASSED
-com.scrollmeter.app.presentation.analytics.AnalyticsViewModelTest 2     PASSED
-com.scrollmeter.app.presentation.dashboard.DashboardViewModelTest 2     PASSED
-com.scrollmeter.app.presentation.navigation.RoutesTest           1      PASSED
-com.scrollmeter.app.presentation.settings.SettingsViewModelTest  3      PASSED
-com.scrollmeter.app.presentation.theme.ThemeTest                 2      PASSED
-com.scrollmeter.app.service.batch.ScrollBatchCollectorTest       6      PASSED
-com.scrollmeter.app.service.filter.PackageBlacklistTest          3      PASSED
-com.scrollmeter.app.service.filter.ScrollGestureFilterTest       5      PASSED
-com.scrollmeter.app.service.notification.ScrollNotification...   2      PASSED
-com.scrollmeter.app.service.receiver.ScreenStateReceiverTest     4      PASSED
-com.scrollmeter.app.service.ScrollAccessibilityServiceTest       5      PASSED
+com.scrollmeter.app.core.result.ResultTest                       6      BAŞARILI
+com.scrollmeter.app.data.local.dao.ScrollDaoTest                 3      BAŞARILI
+com.scrollmeter.app.data.repository.ScrollRepositoryImplTest     3      BAŞARILI
+com.scrollmeter.app.data.worker.DataCleanupWorkerTest            2      BAŞARILI
+com.scrollmeter.app.domain.calculator.DistanceCalculatorTest    10      BAŞARILI
+com.scrollmeter.app.domain.filter.ScrollAnomalyFilterTest       13      BAŞARILI
+com.scrollmeter.app.domain.usecase.CalculateMetaphorUseCaseTest  3      BAŞARILI
+com.scrollmeter.app.domain.usecase.GetAppLeaderboardUseCaseTest  1      BAŞARILI
+com.scrollmeter.app.domain.usecase.GetDailyTotalDistance...      1      BAŞARILI
+com.scrollmeter.app.presentation.analytics.AnalyticsViewModelTest 2     BAŞARILI
+com.scrollmeter.app.presentation.dashboard.DashboardViewModelTest 2     BAŞARILI
+com.scrollmeter.app.presentation.navigation.RoutesTest           1      BAŞARILI
+com.scrollmeter.app.presentation.settings.SettingsViewModelTest  3      BAŞARILI
+com.scrollmeter.app.presentation.theme.ThemeTest                 2      BAŞARILI
+com.scrollmeter.app.service.batch.ScrollBatchCollectorTest       6      BAŞARILI
+com.scrollmeter.app.service.filter.PackageBlacklistTest          3      BAŞARILI
+com.scrollmeter.app.service.filter.ScrollGestureFilterTest       5      BAŞARILI
+com.scrollmeter.app.service.notification.ScrollNotification...   2      BAŞARILI
+com.scrollmeter.app.service.receiver.ScreenStateReceiverTest     4      BAŞARILI
+com.scrollmeter.app.service.ScrollAccessibilityServiceTest       5      BAŞARILI
 ================================================================================
-TOTAL: 77 TESTS | 77 PASSED (100% GREEN) | 0 FAILURES | 0 ERRORS
+TOPLAM: 77 TEST | 77 BAŞARILI (%100 YEŞİL) | 0 HATA | 0 BAŞARISIZ
 ================================================================================
 ```
 
 ---
 
-## 🚀 Building & Running Locally
+## 🛠️ Kaynak Koddan Derleme (Build from Source)
 
-### Prerequisites
-* Android Studio Ladybug (2024.2+) or higher
-* JDK 17 (Temurin / Zulu recommended)
-* Android SDK 34 (Android 14) installed
-* Min SDK: Android 9.0 (API 28)
-
-### Clone & Build
 ```bash
-# Clone the repository
+# Depoyu klonlayın
 git clone https://github.com/BurakYildizGameDev/Scroll-Meter.git
 cd Scroll-Meter
 
-# Run all 77 unit & integration tests
+# Testleri koşturun
 ./gradlew testDebugUnitTest
 
-# Build Debug APK
+# Debug APK derleyin
 ./gradlew assembleDebug
 
-# Build Optimized Release APK (3.3 MB)
+# Optimize edilmiş Release APK derleyin (3.3 MB)
 ./gradlew assembleRelease
 ```
 
-Generated APKs will be located at:
-* **Debug APK:** `app/build/outputs/apk/debug/app-debug.apk`
-* **Release APK:** `app/build/outputs/apk/release/app-release.apk`
-
 ---
 
-## 🔒 Privacy & Permissions Deep Dive
+## 📄 Lisans
 
-Scroll-Meter adheres to the highest Android privacy standards:
-
-1. **Zero Internet (`android.permission.INTERNET`)**:
-   The application cannot transmit data over Wi-Fi, cellular, Bluetooth, or local networks.
-2. **Accessibility Service Constraints (`accessibility_service_config.xml`)**:
-   ```xml
-   <accessibility-service
-       android:accessibilityEventTypes="typeViewScrolled"
-       android:accessibilityFeedbackType="feedbackGeneric"
-       android:canRetrieveWindowContent="false"
-       android:canRequestFilterKeyEvents="false"
-       android:notificationTimeout="100" />
-   ```
-   * Setting `canRetrieveWindowContent="false"` makes it architecturally impossible for the service to inspect text fields, UI views, passwords, or personal messages.
-3. **Blacklisted System Apps**:
-   System keyboards, credential managers, lock screens, and launcher dialogues are blocked immediately at the service filter level.
-
----
-
-## 📁 Repository Structure
-
-```
-Scroll-Meter/
-├── .github/
-│   └── workflows/
-│       └── android_ci.yml           # Automated CI workflow
-├── app/
-│   ├── proguard-rules.pro           # R8 dead code stripping & obfuscation
-│   └── src/
-│       ├── main/
-│       │   ├── baseline-profiles.txt # Ahead-of-Time ART compilation rules
-│       │   ├── AndroidManifest.xml
-│       │   └── java/com/scrollmeter/app/
-│       │       ├── core/            # Dispatchers, Result wrappers
-│       │       ├── data/            # Room SQLite, DataStore, Workers
-│       │       ├── domain/          # Pure math models, calculators, use cases
-│       │       ├── service/         # Accessibility service, debounced batcher
-│       │       └── presentation/    # Compose UI, MVI, Canvas components, Theme
-│       ├── test/                    # 77 unit & integration tests
-│       └── androidTest/             # Compose E2E UI automation
-└── docs/                            # 60-Phase Enterprise Architecture Guide
-```
-
----
-
-## 📄 License
-
-Distributed under the Apache License 2.0. See `LICENSE` for more information.
+Bu proje **Apache License 2.0** kapsamında lisanslanmıştır. Detaylar için [`LICENSE`](LICENSE) dosyasını inceleyebilirsiniz.
 
 ---
 
 <div align="center">
-Crafted with ❤️ by <b>Burak Yıldız</b> (<a href="https://github.com/BurakYildizGameDev">@BurakYildizGameDev</a>)
+
+### ⭐ Beğendiyseniz depoya bir yıldız bırakmayı unutmayın!
+
+Crafted with ❤️ by **Burak Yıldız**  
+[![GitHub](https://img.shields.io/badge/GitHub-BurakYildizGameDev-181717?style=flat-square&logo=github)](https://github.com/BurakYildizGameDev)
+[![Release](https://img.shields.io/badge/Release-v1.0.0-00F5A0?style=flat-square)](https://github.com/BurakYildizGameDev/Scroll-Meter/releases)
+
 </div>
